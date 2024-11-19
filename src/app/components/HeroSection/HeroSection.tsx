@@ -11,7 +11,7 @@ export default function HeroSection() {
               Software Engineering: Research, Development and Education
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <a href="#learn-more" className="inline-block px-10 py-5 border-2 border-blue-200 text-blue-100 text-lg font-semibold rounded-xl hover:bg-blue-100 hover:text-blue-900 transition-all duration-300 ease-in-out text-center transform hover:scale-105">
+              <a href="#sobre" className="inline-block px-10 py-5 border-2 border-blue-200 text-blue-100 text-lg font-semibold rounded-xl hover:bg-blue-100 hover:text-blue-900 transition-all duration-300 ease-in-out text-center transform hover:scale-105">
                 Saiba Mais
               </a>
             </div>

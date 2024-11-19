@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function About() {
     return (
-        <div className="w-full bg-gray-50 flex flex-col items-center p-4 pb-2 pt-2 sm:p-6 sm:pb-4 sm:pt-4 lg:p-8 lg:pb-6 lg:pt-6">
+        <div className="w-full bg-gray-50 flex flex-col items-center p-4 pb-2 pt-2 sm:p-6 sm:pb-4 sm:pt-4 lg:p-8 lg:pb-6 lg:pt-6" id="sobre">
             <div className="max-w-[1240px] mx-auto pt-8 md:pt-6 pb-4 md:pb-2">
                 <div className="text-center mb-8 md:mb-6">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-800 mb-6 md:mb-4">Sobre o Grupo </h1>
@@ -12,7 +12,7 @@ export default function About() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    <Link href="/research" className="bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1">
+                    <Link href="/projetos-pesquisa" className="bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1">
                         <div className="flex justify-center mb-6">
                             <div className="bg-blue-50 p-4 rounded-xl">
                                 <svg className="w-12 h-12 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
@@ -24,7 +24,7 @@ export default function About() {
                         <p className="text-gray-600 text-center">Acesse aqui as linhas de pesquisa do grupo e os projetos de pesquisa em andamento e já encerrados</p>
                     </Link>
 
-                    <Link href="/team" className="bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1">
+                    <Link href="/recursos-humanos" className="bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1">
                         <div className="flex justify-center mb-6">
                             <div className="bg-blue-50 p-4 rounded-xl">
                                 <svg className="w-12 h-12 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
@@ -36,7 +36,7 @@ export default function About() {
                         <p className="text-gray-600 text-center">Esta página contém a lista de docentes e discentes que fazem parte do grupo, bem como a atuação de cada um nas pesquisas desenvolvidas</p>
                     </Link>
 
-                    <Link href="/publications" className="bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1">
+                    <Link href="/publicacoes" className="bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1">
                         <div className="flex justify-center mb-6">
                             <div className="bg-blue-50 p-4 rounded-xl">
                                 <svg className="w-12 h-12 text-blue-500" viewBox="0 0 24 24" fill="currentColor">
