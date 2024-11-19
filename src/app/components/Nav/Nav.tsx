@@ -20,7 +20,9 @@ export default function Nav() {
 
         <div className="relative container mx-auto px-6 py-3">
           <div className="flex justify-between items-center mb-1">
+            <Link href="/">
             <Image src="/image/serde-semfundo.png" alt="Logo" width={150} height={150} className="w-auto h-12 hidden md:block md:h-auto" />
+            </Link>
             <div className="hidden md:flex space-x-8">
             <Link 
               href="/" 
