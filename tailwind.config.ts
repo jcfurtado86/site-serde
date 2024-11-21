@@ -14,12 +14,28 @@ export default {
       },
       animation: {
         'fade-in': 'fadeIn 0.3s ease-in-out forwards',
+        drawLine: 'drawLine 3s ease forwards',
+        drawLineInfinite: 'drawLineInfinite 8s linear infinite',
+        pulseConstant: 'pulseConstant 2s ease-in-out infinite'
       },
       keyframes: {
         fadeIn: {
             '0%': { opacity: '0' },
             '100%': { opacity: '1' },
-          }
+          },
+        drawLine: {
+          '0%': { strokeDashoffset: '1000' },
+          '100%': { strokeDashoffset: '0' }
+        },
+        drawLineInfinite: {
+          '0%': { strokeDashoffset: '1000' },
+          '100%': { strokeDashoffset: '-1000' }
+        },
+        pulseConstant: {
+          '0%': { r: '3', opacity: '0.6' },
+          '50%': { r: '5', opacity: '1' },
+          '100%': { r: '3', opacity: '0.6' }
+        }
       }
     },
   },
