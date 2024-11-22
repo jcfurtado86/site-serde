@@ -4,10 +4,8 @@ import { Breadcrumb } from '@/app/components/BreadCrumb/BreadCrumb'
 
 
 interface PostPageProps {
-  params: {
-    id: string
-  }
-  searchParams: {
+  params: Promise<{ id: string }>
+  searchParams: Promise<{
     title: string
     date: string
     excerpt: string
@@ -16,7 +14,7 @@ interface PostPageProps {
     authorName: string
     authorAvatar: string
     shareLinks: string
-  }
+  }>
 }
 
 interface ShareLinks {
@@ -32,27 +30,30 @@ interface IconProps {
   style?: React.CSSProperties;
 }
 
-export async function generateMetadata({ params, searchParams }: PostPageProps) {
+export async function generateMetadata({ searchParams }: PostPageProps) {
+  const resolvedSearchParams = await searchParams
+  
   return {
-    title: searchParams.title
+    title: resolvedSearchParams.title
   }
 }
     
 export default async function PostPage({ params, searchParams }: PostPageProps) {
-  const { id } = params
+  const { id } = await params
+  const resolvedSearchParams = await searchParams
   
   const post = {
     id,
-    title: searchParams.title,
-    date: searchParams.date,
-    excerpt: searchParams.excerpt,
-    image: searchParams.image,
-    tags: JSON.parse(searchParams.tags || '[]'),
+    title: resolvedSearchParams.title,
+    date: resolvedSearchParams.date,
+    excerpt: resolvedSearchParams.excerpt,
+    image: resolvedSearchParams.image,
+    tags: JSON.parse(resolvedSearchParams.tags || '[]'),
     author: {
-      name: searchParams.authorName,
-      avatar: searchParams.authorAvatar
+      name: resolvedSearchParams.authorName,
+      avatar: resolvedSearchParams.authorAvatar
     },
-    shareLinks: JSON.parse(searchParams.shareLinks || '{}') as ShareLinks
+    shareLinks: JSON.parse(resolvedSearchParams.shareLinks || '{}') as ShareLinks
   }
 
   const FacebookIcon: React.FC<IconProps> = ({ style }) => (
