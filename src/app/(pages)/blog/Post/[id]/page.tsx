@@ -4,6 +4,9 @@ import { Breadcrumb } from '@/app/components/BreadCrumb/BreadCrumb'
 
 
 interface PostPageProps {
+  params: {
+    id: string
+  }
   searchParams: {
     title: string
     date: string
@@ -14,9 +17,6 @@ interface PostPageProps {
     authorAvatar: string
     shareLinks: string
   }
-  params: Promise<{
-    id: string
-  }>
 }
 
 interface ShareLinks {
@@ -39,7 +39,7 @@ export async function generateMetadata({ params, searchParams }: PostPageProps) 
 }
     
 export default async function PostPage({ params, searchParams }: PostPageProps) {
-  const { id } = await params
+  const { id } = params
   
   const post = {
     id,
