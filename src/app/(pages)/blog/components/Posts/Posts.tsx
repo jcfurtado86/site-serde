@@ -63,7 +63,19 @@ export function Post({ id, title, date, excerpt, image, tags, author, shareLinks
             <span className="text-blue-500">{date}</span>
           </div>
           
-          <Link href={`/blog/${id}`} className="block mt-2">
+          <Link href={{
+            pathname: `/blog/Post/${id}`,
+            query: {
+              title: title,
+              date: date,
+              excerpt: excerpt,
+              image: image,
+              tags: JSON.stringify(tags),
+              authorName: author.name,
+              authorAvatar: author.avatar,
+              shareLinks: JSON.stringify(shareLinks)
+            }
+          }} className="block mt-2">
             <h2 className={`text-2xl font-bold text-gray-900 ${image ? 'mb-4' : 'mb-2'}`}>{title}</h2>
             {image && (
               <div className="relative aspect-video w-full rounded-xl overflow-hidden mb-6 border border-gray-100 shadow-sm">
@@ -130,7 +142,19 @@ export function Post({ id, title, date, excerpt, image, tags, author, shareLinks
             </div>
             
             <Link 
-              href={`/blog/${id}`}
+              href={{
+                pathname: `/blog/Post/${id}`,
+                query: {
+                  title: title,
+                  date: date,
+                  excerpt: excerpt,
+                  image: image,
+                  tags: JSON.stringify(tags),
+                  authorName: author.name,
+                  authorAvatar: author.avatar,
+                  shareLinks: JSON.stringify(shareLinks)
+                }
+              }}
               className="inline-flex items-center px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-800"
             >
               Ler Mais

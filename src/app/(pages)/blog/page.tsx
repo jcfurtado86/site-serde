@@ -1,5 +1,5 @@
 import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb";
-import Posts from './components/Post/Post'
+import Posts from './components/Posts/Posts'
 
 export default function Blog() {
     return (
