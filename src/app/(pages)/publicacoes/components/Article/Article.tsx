@@ -8,10 +8,15 @@ interface ArticleProps {
 
 function Article({ title, link, participants }: ArticleProps) {
   return (
-    <div className="bg-white rounded-xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300 p-6">
-      <h2 className="text-xl text-gray-800 font-semibold mb-4 line-clamp-2">{title}</h2>
-      <p className="text-sm text-gray-600 mb-4">{participants.join(", ")}</p>
-      <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm">
+    <div className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 p-8">
+      <h2 className="text-2xl text-gray-800 font-bold mb-4 line-clamp-2 group-hover:text-blue-700 transition-colors duration-300">
+        {title}
+      </h2>
+      <p className="text-base text-gray-600 mb-6">{participants.join(", ")}</p>
+      <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2 w-fit">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+        </svg>
         Ver artigo
       </a>
     </div>
@@ -26,9 +31,9 @@ export function Articles() {
   }*/]
 
   return (
-    <main className={`pt-10 bg-gray-50 mx-auto pb-10 ${articles.length > 0 ? 'min-h-[40vh]' : 'min-h-[20vh]'}`}>
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <h2 className="text-4xl md:text-5xl mb-20 lg:text-6xl font-bold text-blue-900 mb-8 text-center">
+    <main className="bg-gradient-to-b from-gray-50 to-white py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-900 text-center mb-16">
           Artigos em Conferências
         </h2>
         {articles.length > 0 ? (
@@ -38,7 +43,7 @@ export function Articles() {
             ))}
           </div>
         ) : (
-          <p className="text-center text-gray-600">Desculpe, nenhuma publicação.</p>
+          <p className="text-xl text-gray-600 text-center">Desculpe, nenhuma publicação.</p>
         )}
       </div>
     </main>

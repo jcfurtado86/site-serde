@@ -8,11 +8,16 @@ interface TCCProps {
   
   function TCC({ title, link, student, advisor, year }: TCCProps) {
     return (
-      <div className="bg-white rounded-xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300 p-6">
-        <h2 className="text-xl text-gray-800 font-semibold mb-4 line-clamp-2">{title}</h2>
-        <p className="text-sm text-gray-600 mb-2">Aluno: {student}</p>
-        <p className="text-sm text-gray-600 mb-4">Orientador: {advisor} - {year}</p>
-        <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm">
+      <div className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 p-8">
+        <h2 className="text-2xl text-gray-800 font-bold mb-4 line-clamp-2 group-hover:text-blue-700 transition-colors duration-300">
+          {title}
+        </h2>
+        <p className="text-base text-gray-600 mb-2">Aluno: {student}</p>
+        <p className="text-base text-gray-600 mb-6">Orientador: {advisor} - {year}</p>
+        <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2 w-fit">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V7a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
           Ver TCC
         </a>
       </div>
@@ -29,9 +34,9 @@ interface TCCProps {
     }]
   
     return (
-      <main className={`pt-10 bg-gray-50 mx-auto pb-10 ${tccs.length > 0 ? 'min-h-[50vh]' : 'min-h-[40vh]'}`}>
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <h2 className="text-4xl md:text-5xl mb-20 lg:text-6xl font-bold text-blue-900 mb-8 text-center">
+      <main className="bg-gradient-to-b from-gray-50 to-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-900 text-center mb-16">
             Trabalhos de Conclusão de Curso
           </h2>
           {tccs.length > 0 ? (
@@ -41,7 +46,7 @@ interface TCCProps {
               ))}
             </div>
           ) : (
-            <p className="text-center text-gray-600">Desculpe, nenhuma publicação.</p>
+            <p className="text-xl text-gray-600 text-center">Desculpe, nenhuma publicação.</p>
           )}
         </div>
       </main>

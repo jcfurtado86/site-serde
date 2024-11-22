@@ -64,29 +64,42 @@ const LinkIcon: React.FC<IconProps> = ({ style }) => (
 
 export function Post({ id, title, date, excerpt, image, tags, author, shareLinks }: PostProps) {
   return (
-    <article className="bg-white hover:bg-gray-50 transition-colors cursor-pointer py-6">
-      <div className="flex gap-4 px-4 md:px-6">
+    <article className={`
+      bg-white 
+      transition-all 
+      duration-300 
+      cursor-pointer 
+      py-4 
+      sm:py-6 
+      border-l-2 
+      border-b 
+      border-gray-200 
+      hover:border-blue-400
+      hover:bg-blue-50/20
+      ${image ? 'hover:shadow-md hover:-translate-y-0.5' : ''}
+    `}>
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-3 sm:px-4 md:px-6">
         <div className="flex-shrink-0">
           {author.avatar ? (
             <Image 
               src={author.avatar}
               alt={author.name}
-              width={48}
-              height={48}
-              className="rounded-full"
+              width={40}
+              height={40}
+              className="rounded-full sm:w-12 sm:h-12"
               unoptimized
             />
           ) : (
-            <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
-              <svg className="w-24 h-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-100 flex items-center justify-center">
+              <svg className="w-20 h-20 sm:w-24 sm:h-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </div>
           )}
         </div>
         
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 text-sm">
+        <div className="flex-1 min-w-0 space-y-2 sm:space-y-3">
+          <div className="flex items-center gap-2 text-xs sm:text-sm">
             <span className="font-medium text-gray-900">{author.name}</span>
             <span className="text-gray-500">·</span>
             <span className="text-blue-500">{date}</span>
@@ -104,10 +117,10 @@ export function Post({ id, title, date, excerpt, image, tags, author, shareLinks
               authorAvatar: author.avatar,
               shareLinks: JSON.stringify(shareLinks)
             }
-          }} className="block mt-2">
-            <h2 className={`text-2xl font-bold text-gray-900 ${image ? 'mb-4' : 'mb-2'}`}>{title}</h2>
+          }} className="block">
+            <h2 className={`text-xl sm:text-2xl font-bold text-gray-900 ${image ? 'mb-3 sm:mb-4' : 'mb-2'}`}>{title}</h2>
             {image && (
-              <div className="relative aspect-video w-full rounded-xl overflow-hidden mb-6 border border-gray-100 shadow-sm">
+              <div className="relative aspect-video w-full rounded-lg sm:rounded-xl overflow-hidden mb-4 sm:mb-6 border border-gray-100 shadow-sm">
                 <Image 
                   src={image}
                   alt={title}
@@ -118,54 +131,54 @@ export function Post({ id, title, date, excerpt, image, tags, author, shareLinks
                 />
               </div>
             )}
-            <p className={`text-gray-600 ${image ? 'text-lg leading-relaxed' : 'text-base leading-normal'}`}>{excerpt}</p>
+            <p className={`text-gray-600 line-clamp-3 ${image ? 'text-base sm:text-lg leading-relaxed' : 'text-sm sm:text-base leading-normal'}`}>{excerpt}</p>
           </Link>
 
-          <div className="flex flex-wrap gap-2 mt-3">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {tags.map((tag, index) => (
               <Link key={index} href={`/blog/tag/${tag.toLowerCase()}`} 
-                className="text-sm text-blue-600 hover:text-blue-800">
+                className="text-xs sm:text-sm text-blue-600 hover:text-blue-800">
                 #{tag}
               </Link>
             ))}
           </div>
 
-          <div className="flex items-center justify-between mt-4">
-            <div className="flex gap-4 text-gray-500">
+          <div className="flex items-center justify-between mt-3 sm:mt-4">
+            <div className="flex gap-2 sm:gap-4 text-gray-500">
               {shareLinks?.facebook && (
                 <Link href={shareLinks.facebook} target="_blank" rel="noopener noreferrer" 
-                  className="p-2 hover:bg-blue-50 rounded-full">
-                  <FacebookIcon style={{ fill: "#1877F2" }}  />
+                  className="p-1.5 sm:p-2 hover:bg-blue-50 rounded-full">
+                  <FacebookIcon style={{ fill: "#1877F2", width: "20px", height: "20px" }}  />
                 </Link>
               )}
               {shareLinks?.twitter && (
                 <Link href={shareLinks.twitter} target="_blank" rel="noopener noreferrer" 
-                  className="p-2 hover:bg-blue-50 rounded-full">
-                  <TwitterIcon style={{ fill: "#1DA1F2" }}  />
+                  className="p-1.5 sm:p-2 hover:bg-blue-50 rounded-full">
+                  <TwitterIcon style={{ fill: "#1DA1F2", width: "20px", height: "20px" }}  />
                 </Link>
               )}
               {shareLinks?.whatsapp && (
                 <Link href={shareLinks.whatsapp} target="_blank" rel="noopener noreferrer" 
-                  className="p-2 hover:bg-blue-50 rounded-full">
-                  <WhatsappIcon style={{ fill: "#25D366" }} />
+                  className="p-1.5 sm:p-2 hover:bg-blue-50 rounded-full">
+                  <WhatsappIcon style={{ fill: "#25D366", width: "20px", height: "20px" }} />
                 </Link>
               )}
               {shareLinks?.telegram && (
                 <Link href={shareLinks.telegram} target="_blank" rel="noopener noreferrer" 
-                  className="p-2 hover:bg-blue-50 rounded-full">
-                  <TelegramIcon style={{ fill: "#0088cc" }}/>
+                  className="p-1.5 sm:p-2 hover:bg-blue-50 rounded-full">
+                  <TelegramIcon style={{ fill: "#0088cc", width: "20px", height: "20px" }}/>
                 </Link>
               )}
               {shareLinks?.email && (
                 <Link href={shareLinks.email} target="_blank" rel="noopener noreferrer" 
-                  className="p-2 hover:bg-blue-50 rounded-full">
-                  <EmailIcon style={{ fill: "#EA4335" }}  />
+                  className="p-1.5 sm:p-2 hover:bg-blue-50 rounded-full">
+                  <EmailIcon style={{ fill: "#EA4335", width: "20px", height: "20px" }}  />
                 </Link>
               )}
               {shareLinks?.link && (
                 <Link href={shareLinks.link} target="_blank" rel="noopener noreferrer" 
-                  className="p-2 hover:bg-blue-50 rounded-full">
-                  <LinkIcon style={{ fill: "#718096" }}  />
+                  className="p-1.5 sm:p-2 hover:bg-blue-50 rounded-full">
+                  <LinkIcon style={{ fill: "#718096", width: "20px", height: "20px" }}  />
                 </Link>
               )}
             </div>
@@ -184,10 +197,10 @@ export function Post({ id, title, date, excerpt, image, tags, author, shareLinks
                   shareLinks: JSON.stringify(shareLinks)
                 }
               }}
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-800"
+              className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-blue-600 hover:text-blue-800"
             >
               Ler Mais
-              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 sm:w-4 sm:h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
               </svg>
             </Link>
@@ -203,7 +216,7 @@ export default function Posts() {
     {
       id: "post-1",
       title: "Lorem ipsum dolor sit amet consectetur",
-      date: "jul 27,2021",
+      date: "2024",
       excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       image: "",
       tags: ["Tag 1", "Tag 2", "Tag 3"],
@@ -223,7 +236,7 @@ export default function Posts() {
     {
       id: "post-2",
       title: "Sed ut perspiciatis unde omnis iste natus",
-      date: "jul 27,2021",
+      date: "2024",
       excerpt: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       image: "",
       tags: ["Tag 2", "Tag 4", "Tag 5"],
@@ -243,7 +256,7 @@ export default function Posts() {
     {
       id: "post-3",
       title: "At vero eos et accusamus et iusto odio",
-      date: "jul 27,2021",
+      date: "2024",
       excerpt: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       image: "/image/computador.png",
       tags: ["Tag 1", "Tag 3", "Tag 6"],
@@ -263,8 +276,8 @@ export default function Posts() {
   ]
 
   return (
-    <main className="bg-gray-50 min-h-screen py-8">
-      <div className="max-w-2xl md:max-w-5xl lg:max-w-7xl mx-auto px-4">
+    <main className="bg-gradient-to-b from-gray-50 to-white min-h-screen py-6 sm:py-8">
+      <div className="max-w-xl sm:max-w-2xl md:max-w-5xl lg:max-w-7xl mx-auto px-3 sm:px-4">
         <div className="divide-y divide-gray-200">
           {posts.map((post) => (
             <div key={post.id}>

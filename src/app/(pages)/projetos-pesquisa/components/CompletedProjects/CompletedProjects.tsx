@@ -11,26 +11,26 @@ interface CompletedProjectsProps {
 
 function CompletedProjects({ title, projects }: CompletedProjectsProps) {
   return (
-    <div className="mx-auto bg-gray-50 min-h-[60vh] mt-10 flex flex-col items-center p-4 pb-16 sm:p-6 lg:p-8">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl mb-20 lg:text-6xl font-bold text-blue-900 mb-8 text-center">
+    <div className="bg-gradient-to-b from-gray-50 to-white py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-900 text-center mb-16">
           {title}
         </h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1 flex flex-col min-h-[200px]">
-              <div className="flex justify-start mb-4">
-                <span className="bg-green-50 text-green-500 text-sm px-3 py-1 rounded-full">
+            <div key={index} className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col min-h-[240px]">
+              <div className="flex justify-start mb-6">
+                <span className="bg-green-100 text-green-600 text-sm font-medium px-4 py-2 rounded-full group-hover:bg-green-200 transition-colors duration-300">
                   {project.status}
                 </span>
               </div>
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-600 mb-4">
+              <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 group-hover:text-blue-700 transition-colors duration-300">
                 {project.title}
               </h3>
-              <div className="mt-auto flex items-center space-x-2">
-              <span className="text-sm text-gray-600 font-bold">Docente Responsável: </span>
-              <span className="text-blue-700 font-bold">{project.professor}</span>
+              <div className="mt-auto flex items-center space-x-3">
+                <span className="text-base text-gray-600 font-semibold">Docente Responsável:</span>
+                <span className="text-blue-600 font-bold">{project.professor}</span>
               </div>
             </div>
           ))}

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Settings } from "lucide-react"
 
 export default function HeroSection() {
     return (
@@ -44,16 +45,6 @@ export default function HeroSection() {
             stroke="#60A5FA" 
             strokeWidth="2"
           />
-          
-          <circle className="animate-pulseConstant" cx="250" cy="250" r="4" fill="#93C5FD"/>
-          <circle className="animate-pulseConstant delay-700" cx="500" cy="250" r="4" fill="#60A5FA"/>
-          <circle className="animate-pulseConstant delay-500" cx="750" cy="250" r="4" fill="#93C5FD"/>
-          <circle className="animate-pulseConstant delay-300" cx="250" cy="500" r="4" fill="#60A5FA"/>
-          <circle className="animate-pulseConstant delay-1000" cx="500" cy="500" r="4" fill="#93C5FD"/>
-          <circle className="animate-pulseConstant delay-200" cx="750" cy="500" r="4" fill="#60A5FA"/>
-          <circle className="animate-pulseConstant delay-400" cx="250" cy="750" r="4" fill="#93C5FD"/>
-          <circle className="animate-pulseConstant delay-600" cx="500" cy="750" r="4" fill="#60A5FA"/>
-          <circle className="animate-pulseConstant delay-800" cx="750" cy="750" r="4" fill="#93C5FD"/>
         </svg>
 
         <div className="absolute top-20 left-20 w-48 h-48 border border-blue-400/20 rounded-full"></div>
@@ -63,16 +54,22 @@ export default function HeroSection() {
         <div className="absolute top-2/3 left-1/3 w-24 h-24 border border-blue-400/15 rounded-full"></div>
         <div className="absolute bottom-1/3 right-1/4 w-36 h-36 border-2 border-blue-400/15 rounded-full"></div>
 
-        <div className="relative container mx-auto px-6">
+        <div className="relative container mx-auto px-4 sm:px-6">
           <div className="max-w-5xl relative z-10">
-            <h1 className="text-6xl md:text-7xl font-extrabold text-white mb-6 leading-none tracking-tight">
-              Projeto <span className="border-b-2 border-white">SERDE</span>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white mb-4 sm:mb-6 leading-none tracking-tight">
+              <div className="flex items-center gap-2 sm:gap-4">
+                <div className="w-10 h-10 sm:w-20 sm:h-20">
+                  <Settings className="w-10 h-10 sm:w-20 sm:h-20 text-[#81CA6E] animate-spin-slow" />
+                </div>
+                <span className="text-white/90 text-4xl sm:text-6xl font-thin">|</span>
+                <span>Projeto <span className="border-b-2 border-white">SERDE</span></span>
+              </div>
             </h1>
-            <p className="text-2xl text-blue-100 mb-14 mt-10 leading-relaxed font-light max-w-3xl">
+            <p className="text-xl sm:text-2xl text-blue-100 mb-6 sm:mb-14 mt-4 sm:mt-10 leading-relaxed font-light max-w-3xl">
               Software Engineering: Research, Development and Education
             </p>
-            <div className="flex flex-col sm:flex-row gap-6">
-              <Link href="#sobre" className="inline-block px-10 py-5 border-2 border-blue-200 text-blue-100 text-lg font-semibold rounded-xl hover:bg-blue-100 hover:text-blue-900 transition-all duration-300 ease-in-out text-center transform hover:scale-105">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+              <Link href="#sobre" className="inline-block px-6 sm:px-14 py-3 sm:py-5 bg-blue-100/10 backdrop-blur-sm border-2 border-blue-200/50 text-blue-50 text-sm sm:text-xl font-medium rounded-xl hover:bg-blue-100/20 hover:border-blue-300 hover:text-white hover:tracking-wider transition-all duration-300 ease-in-out text-center transform hover:scale-102 hover:shadow-lg hover:shadow-blue-500/30 active:scale-95">
                 Saiba Mais
               </Link>
             </div>
