@@ -30,7 +30,7 @@ export default function Nav() {
             >Início</Link>
                 <Link 
                 href="/projetos-pesquisa" 
-                className={`text-gray-600 hover:text-blue-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-blue-500 after:transition-transform after:duration-300 ${pathname === '/#solucoes' ? 'after:scale-x-100 text-blue-600' : ''}`}
+                className={`text-gray-600 hover:text-blue-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-blue-500 after:transition-transform after:duration-300 ${pathname === '/projetos-pesquisa' ? 'after:scale-x-100 text-blue-600' : ''}`}
                 >Projetos de Pesquisa</Link>
                 <Link 
                 href="/recursos-humanos" 
@@ -38,15 +38,15 @@ export default function Nav() {
                 >Recursos Humanos</Link>
                 <Link 
                 href="/publicacoes" 
-                className={`text-gray-600 hover:text-blue-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-blue-500 after:transition-transform after:duration-300 ${pathname === '/publicações' ? 'after:scale-x-100 text-white' : ''}`}
+                className={`text-gray-600 hover:text-blue-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-blue-500 after:transition-transform after:duration-300 ${pathname === '/publicacoes' ? 'after:scale-x-100 text-blue-600' : ''}`}
                 >Publicações</Link>
                 <Link 
                 href="/blog" 
-                className={`text-gray-600 hover:text-blue-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-blue-500 after:transition-transform after:duration-300 ${pathname === '/#precos' ? 'after:scale-x-100 text-white' : ''}`}
+                className={`text-gray-600 hover:text-blue-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-blue-500 after:transition-transform after:duration-300 ${pathname === '/blog' ? 'after:scale-x-100 text-blue-600' : ''}`}
                 >Blog</Link>
                 <Link 
                 href="/pages/QuemSomos" 
-                className={`text-gray-600 hover:text-blue-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-blue-500 after:transition-transform after:duration-300 ${pathname === '/pages/QuemSomos' ? 'after:scale-x-100 text-white' : ''}`}
+                className={`text-gray-600 hover:text-blue-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-blue-500 after:transition-transform after:duration-300 ${pathname === '/pages/QuemSomos' ? 'after:scale-x-100 text-blue-600' : ''}`}
                 >GitHub</Link>
                             </div>
 
