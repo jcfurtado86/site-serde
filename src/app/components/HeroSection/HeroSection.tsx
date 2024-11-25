@@ -20,30 +20,40 @@ export default function HeroSection() {
             fill="none" 
             stroke="#60A5FA" 
             strokeWidth="1.5"
+            strokeDasharray="1000"
+            strokeDashoffset="1000"
           />
           <path className="sm:animate-drawLineInfinite sm:delay-700 animate-floatLine delay-300" 
             d="M0 750 Q 250 750, 250 500 T 500 500 T 750 500 T 1000 500" 
             fill="none" 
             stroke="#93C5FD" 
             strokeWidth="1.5"
+            strokeDasharray="1000"
+            strokeDashoffset="1000"
           />
           <path className="sm:animate-drawLineInfinite sm:delay-[1400ms] animate-floatLine delay-600" 
             d="M250 0 L 250 1000" 
             fill="none" 
             stroke="#60A5FA" 
             strokeWidth="1.5"
+            strokeDasharray="1000"
+            strokeDashoffset="1000"
           />
           <path className="sm:animate-drawLineInfinite sm:delay-[2100ms] animate-floatLine delay-900" 
             d="M500 0 L 500 1000" 
             fill="none" 
             stroke="#93C5FD" 
             strokeWidth="1.5"
+            strokeDasharray="1000"
+            strokeDashoffset="1000"
           />
           <path className="sm:animate-drawLineInfinite sm:delay-[2800ms] animate-floatLine delay-1200" 
             d="M750 0 L 750 1000" 
             fill="none" 
             stroke="#60A5FA" 
             strokeWidth="1.5"
+            strokeDasharray="1000"
+            strokeDashoffset="1000"
           />
         </svg>
 

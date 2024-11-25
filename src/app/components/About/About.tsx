@@ -47,6 +47,18 @@ export default function About() {
                         <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-blue-800">Publicações</h3>
                         <p className="text-gray-600 text-center">Visualize as publicações geradas pelos integrantes do grupo de pesquisa, sejam elas artigos, livros, trabalhos de conclusão, dissertações e teses</p>
                     </Link>
+
+                    <Link href="/publicacoes#tcc" className="group bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1">
+                        <div className="flex justify-center mb-6">
+                            <div className="bg-blue-50 p-4 rounded-xl group-hover:bg-blue-100 transition-colors">
+                                <svg className="w-12 h-12 text-blue-500 group-hover:text-blue-600 transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-blue-800">Orientações</h3>
+                        <p className="text-gray-600 text-center">Conheça os trabalhos de orientação em andamento e concluídos pelos docentes do grupo de pesquisa</p>
+                    </Link>
                 </div>
 
             <div className="mt-12 text-center">

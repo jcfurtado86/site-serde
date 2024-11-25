@@ -8,7 +8,7 @@ interface TCCProps {
   
   function TCC({ title, link, student, advisor, year }: TCCProps) {
     return (
-      <div className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 p-8">
+      <div id="tcc" className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 p-8">
         <h2 className="text-2xl text-gray-800 font-bold mb-4 line-clamp-2 group-hover:text-blue-700 transition-colors duration-300">
           {title}
         </h2>
