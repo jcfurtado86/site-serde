@@ -11,7 +11,7 @@ export default function About() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                     <Link href="/projetos-pesquisa" className="group bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1">
                         <div className="flex justify-center mb-6">
                             <div className="bg-blue-50 p-4 rounded-xl group-hover:bg-blue-100 transition-colors">

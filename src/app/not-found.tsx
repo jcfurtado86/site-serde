@@ -2,57 +2,57 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Settings } from "lucide-react"
 
-export default function HeroSection() {
+export default function NotFound() {
     return (
       <div className="relative bg-white min-h-screen flex items-center overflow-hidden">
-        <div className="absolute top-0 right-0 w-[900px] h-[900px] border border-gray-400/15 rounded-full"></div>
-        <div className="absolute top-20 right-20 w-[700px] h-[700px] border-2 border-gray-400/15 rounded-full"></div>
-        <div className="absolute top-40 right-40 w-[500px] h-[500px] border border-dashed border-gray-400/20 rounded-full"></div>
-        <div className="absolute top-60 right-60 w-[300px] h-[300px] border-2 border-gray-400/15 rounded-full"></div>
-        
-        <svg className="absolute inset-0 w-[200%] h-[200%] -translate-x-[25%] -translate-y-[25%] opacity-20" viewBox="0 0 1000 1000">
-          <path className="animate-drawLineInfinite" 
-            d="M0 500 Q 250 500, 250 250 T 500 250 T 750 250 T 1000 250" 
-            fill="none" 
-            stroke="#9CA3AF" 
-            strokeWidth="2"
-          />
-          <path className="animate-drawLineInfinite delay-1000" 
-            d="M0 750 Q 250 750, 250 500 T 500 500 T 750 500 T 1000 500" 
-            fill="none" 
-            stroke="#D1D5DB" 
-            strokeWidth="2"
-          />
-          <path className="animate-drawLineInfinite delay-[2000ms]" 
-            d="M250 0 L 250 1000" 
-            fill="none" 
-            stroke="#9CA3AF" 
-            strokeWidth="2"
-          />
-          <path className="animate-drawLineInfinite delay-[3000ms]" 
-            d="M500 0 L 500 1000" 
-            fill="none" 
-            stroke="#D1D5DB" 
-            strokeWidth="2"
-          />
-          <path className="animate-drawLineInfinite delay-[4000ms]" 
-            d="M750 0 L 750 1000" 
-            fill="none" 
-            stroke="#9CA3AF" 
-            strokeWidth="2"
-          />
-        </svg>
+        <div className="sm:hidden">
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] border border-gray-400/15 rounded-full animate-spin-very-slow"></div>
+            <div className="absolute top-10 right-10 w-[300px] h-[300px] border-2 border-gray-400/15 rounded-full animate-reverse-spin"></div>
+            <div className="absolute top-20 right-20 w-[200px] h-[200px] border border-dashed border-gray-400/20 rounded-full animate-spin-slow"></div>
+            
+            <div className="absolute -bottom-[200px] -left-[100px] w-[500px] h-[500px] border border-gray-400/15 rounded-full animate-spin-very-slow"></div>
+            <div className="absolute -bottom-[150px] -left-[50px] w-[400px] h-[400px] border-2 border-gray-400/15 rounded-full animate-reverse-spin"></div>
+            <div className="absolute -bottom-[50px] left-0 w-[300px] h-[300px] border border-dashed border-gray-400/20 rounded-full"></div>
 
-        <div className="absolute -bottom-[500px] -left-[200px] w-[1200px] h-[1200px] border border-gray-400/15 rounded-full"></div>
-        <div className="absolute -bottom-[300px] -left-[100px] w-[900px] h-[900px] border-2 border-gray-400/15 rounded-full"></div>
-        <div className="absolute -bottom-[100px] left-0 w-[600px] h-[600px] border border-dashed border-gray-400/20 rounded-full"></div>
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute h-[1px] w-[150%] bg-gradient-to-r from-transparent via-gray-400/40 to-transparent top-[35%] right-[-150%] animate-shootingStarLeft"></div>
+              <div className="absolute h-[1px] w-[150%] bg-gradient-to-r from-transparent via-gray-300/30 to-transparent bottom-[20%] left-[-150%] animate-shootingStarRight"></div>
+              
+              <div className="absolute w-[1px] h-[150%] bg-gradient-to-b from-transparent via-gray-400/40 to-transparent left-[15%] top-[-150%] animate-shootingStarDown"></div>
+              <div className="absolute w-[1px] h-[150%] bg-gradient-to-b from-transparent via-gray-300/30 to-transparent right-[45%] bottom-[-150%] animate-shootingStarUp"></div>
+            </div>
 
-        <div className="absolute top-20 left-20 w-48 h-48 border border-gray-400/20 rounded-full"></div>
-        <div className="absolute bottom-40 right-40 w-64 h-64 border-2 border-gray-400/20 rounded-full"></div>
-        <div className="absolute top-1/3 left-1/4 w-32 h-32 border border-gray-400/15 rounded-full"></div>
-        <div className="absolute bottom-1/4 right-1/3 w-40 h-40 border-2 border-dashed border-gray-400/20 rounded-full"></div>
-        <div className="absolute top-2/3 left-1/3 w-24 h-24 border border-gray-400/15 rounded-full"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-36 h-36 border-2 border-gray-400/15 rounded-full"></div>
+            <div className="absolute inset-0">
+              <div className="absolute w-1.5 h-1.5 bg-gray-400/50 rounded-full top-[35%] left-[15%] animate-pulseGlow shadow-[0_0_10px_rgba(156,163,175,0.4)]"></div>
+              <div className="absolute w-1.5 h-1.5 bg-gray-400/50 rounded-full bottom-[20%] right-[45%] animate-pulseGlow delay-700 shadow-[0_0_10px_rgba(156,163,175,0.4)]"></div>
+            </div>
+        </div>
+
+        <div className="hidden sm:block">
+          <div className="absolute top-0 right-0 w-[900px] h-[900px] border border-gray-400/15 rounded-full"></div>
+          <div className="absolute top-20 right-20 w-[700px] h-[700px] border-2 border-gray-400/15 rounded-full"></div>
+          <div className="absolute top-40 right-40 w-[500px] h-[500px] border border-dashed border-gray-400/20 rounded-full"></div>
+          <div className="absolute top-60 right-60 w-[300px] h-[300px] border-2 border-gray-400/15 rounded-full"></div>
+          
+          <div className="absolute top-20 left-20 w-48 h-48 border border-gray-400/20 rounded-full"></div>
+          <div className="absolute bottom-40 right-40 w-64 h-64 border-2 border-gray-400/20 rounded-full"></div>
+          <div className="absolute top-1/3 left-1/4 w-32 h-32 border border-gray-400/15 rounded-full"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-40 h-40 border-2 border-dashed border-gray-400/20 rounded-full"></div>
+          <div className="absolute top-2/3 left-1/3 w-24 h-24 border border-gray-400/15 rounded-full"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-36 h-36 border-2 border-gray-400/15 rounded-full"></div>
+          
+          <svg className="absolute inset-0 w-[200%] h-[200%] -translate-x-[25%] -translate-y-[25%] opacity-20" viewBox="0 0 1000 1000">
+            <path className="animate-drawLineInfinite" d="M0 500 Q 250 500, 250 250 T 500 250 T 750 250 T 1000 250" fill="none" stroke="#9CA3AF" strokeWidth="2"/>
+            <path className="animate-drawLineInfinite delay-1000" d="M0 750 Q 250 750, 250 500 T 500 500 T 750 500 T 1000 500" fill="none" stroke="#D1D5DB" strokeWidth="2"/>
+            <path className="animate-drawLineInfinite delay-[2000ms]" d="M250 0 L 250 1000" fill="none" stroke="#9CA3AF" strokeWidth="2"/>
+            <path className="animate-drawLineInfinite delay-[3000ms]" d="M500 0 L 500 1000" fill="none" stroke="#D1D5DB" strokeWidth="2"/>
+            <path className="animate-drawLineInfinite delay-[4000ms]" d="M750 0 L 750 1000" fill="none" stroke="#9CA3AF" strokeWidth="2"/>
+          </svg>
+
+          <div className="absolute -bottom-[500px] -left-[200px] w-[1200px] h-[1200px] border border-gray-400/15 rounded-full"></div>
+          <div className="absolute -bottom-[300px] -left-[100px] w-[900px] h-[900px] border-2 border-gray-400/15 rounded-full"></div>
+          <div className="absolute -bottom-[100px] left-0 w-[600px] h-[600px] border border-dashed border-gray-400/20 rounded-full"></div>
+        </div>
 
         <div className="relative container mx-auto px-4 sm:px-6 flex items-center justify-center">
           <div className="max-w-5xl relative z-10 text-center">
