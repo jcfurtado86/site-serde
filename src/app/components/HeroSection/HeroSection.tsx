@@ -15,31 +15,31 @@ export default function HeroSection() {
         <div className="absolute -bottom-[100px] left-0 w-[600px] h-[600px] border border-dashed border-blue-400/20 rounded-full"></div>
         
         <svg className="absolute inset-0 w-[400%] sm:w-[200%] h-[400%] sm:h-[200%] -translate-x-[37.5%] sm:-translate-x-[25%] -translate-y-[37.5%] sm:-translate-y-[25%] opacity-5 sm:opacity-20" viewBox="0 0 1000 1000">
-          <path className="animate-drawLineInfinite" 
+          <path className="sm:animate-drawLineInfinite animate-floatLine" 
             d="M0 500 Q 250 500, 250 250 T 500 250 T 750 250 T 1000 250" 
             fill="none" 
             stroke="#60A5FA" 
             strokeWidth="1.5"
           />
-          <path className="animate-drawLineInfinite delay-700" 
+          <path className="sm:animate-drawLineInfinite sm:delay-700 animate-floatLine delay-300" 
             d="M0 750 Q 250 750, 250 500 T 500 500 T 750 500 T 1000 500" 
             fill="none" 
             stroke="#93C5FD" 
             strokeWidth="1.5"
           />
-          <path className="animate-drawLineInfinite delay-[1400ms]" 
+          <path className="sm:animate-drawLineInfinite sm:delay-[1400ms] animate-floatLine delay-600" 
             d="M250 0 L 250 1000" 
             fill="none" 
             stroke="#60A5FA" 
             strokeWidth="1.5"
           />
-          <path className="animate-drawLineInfinite delay-[2100ms]" 
+          <path className="sm:animate-drawLineInfinite sm:delay-[2100ms] animate-floatLine delay-900" 
             d="M500 0 L 500 1000" 
             fill="none" 
             stroke="#93C5FD" 
             strokeWidth="1.5"
           />
-          <path className="animate-drawLineInfinite delay-[2800ms]" 
+          <path className="sm:animate-drawLineInfinite sm:delay-[2800ms] animate-floatLine delay-1200" 
             d="M750 0 L 750 1000" 
             fill="none" 
             stroke="#60A5FA" 
