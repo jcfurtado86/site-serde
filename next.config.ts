@@ -1,7 +1,14 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'servicosweb.cnpq.br',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

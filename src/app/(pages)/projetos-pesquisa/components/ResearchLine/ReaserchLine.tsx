@@ -34,11 +34,10 @@ function ResearchLine({ title, items }: ResearchLineProps) {
 
 export function ResearchLineList() {
   const items: string[] = [
+    'Educação na Engenharia de Software',
     'Engenharia de Software',
-    'Engenharia de Software',
-    'Engenharia de Software',
-    'Engenharia de Software',
-    'Engenharia de Software'
+    'Interação Humano-Computador - IHC',
+    'Métodos e Processos de Engenharia de Software',
   ]
 
   return <ResearchLine title="Linhas de Pesquisa" items={items} />

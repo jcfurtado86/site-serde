@@ -1,3 +1,16 @@
+/*
+Transformar essa pagina e uma listao,
+usar tooltip para sinalizar o que é artigo
+livro, ou outra coisa.
+
+
+Mudar as cores da Hero, pedir pro julio enviar o png
+
+
+
+*/
+
+
 'use client'
 import { useState, useMemo } from "react"
 import { Search } from "@/app/components/SearcBar/Search"

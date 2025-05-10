@@ -40,12 +40,13 @@ export default function Nav() {
                 href="/publicacoes" 
                 className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#295984] after:transition-transform after:duration-300 ${pathname === '/publicacoes' ? 'after:scale-x-100 text-[#295984]' : ''}`}
                 >Publicações</Link>
-                <Link 
+                {/* <Link 
                 href="/blog" 
                 className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#295984] after:transition-transform after:duration-300 ${pathname === '/blog' ? 'after:scale-x-100 text-[#295984]' : ''}`}
-                >Blog</Link>
+                >Blog</Link> */}
                 <Link 
-                href="/pages/QuemSomos" 
+                href="https://github.com/jcfurtado86/"
+                target="_blank" 
                 className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#295984] after:transition-transform after:duration-300 ${pathname === '/pages/QuemSomos' ? 'after:scale-x-100 text-[#295984]' : ''}`}
                 >GitHub</Link>
                             </div>
