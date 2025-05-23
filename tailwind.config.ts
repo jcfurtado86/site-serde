@@ -42,6 +42,10 @@ export default {
         'pulseGlow': 'pulseGlow 2s ease-in-out infinite',
         'spin-very-slow': 'spin 30s linear infinite',
         'reverse-spin': 'reverse-spin 25s linear infinite',
+        'float': 'float 3s ease-in-out infinite',
+        'float-delay-1': 'float 3s ease-in-out infinite 1s',
+        'float-delay-2': 'float 3s ease-in-out infinite 2s',
+        'float-delay-3': 'float 3s ease-in-out infinite 3s',
       },
       keyframes: {
         fadeIn: {
@@ -77,10 +81,8 @@ export default {
           },
         },
         float: {
-          '0%, 100%': { transform: 'translate(0, 0)' },
-          '25%': { transform: 'translate(10px, 10px)' },
-          '50%': { transform: 'translate(-5px, 15px)' },
-          '75%': { transform: 'translate(-15px, -5px)' },
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
         scanline: {
           '0%': { transform: 'translateX(-100%)' },
