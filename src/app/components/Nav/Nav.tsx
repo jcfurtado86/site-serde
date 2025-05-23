@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from 'next/navigation';
@@ -18,6 +18,14 @@ export default function Nav() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  useEffect(() => {
+    if (pathname === '/recursos-humanos') {
+      const imageToPreload = 'http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K9052777Y7';
+      const img = new window.Image();
+      img.src = imageToPreload;
+    }
+  }, [pathname]);
 
   return (
     <nav className="fixed w-full z-50">

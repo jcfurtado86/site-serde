@@ -1,3 +1,8 @@
+'use client'
+
+import Image from "next/image";
+import { useState, useEffect } from "react";
+
 interface StudentProps {
   name: string
   institution: string
@@ -8,29 +13,62 @@ interface StudentProps {
 }
 
 function Student({ name, institution, campus, email, curriculumLink, imageUrl }: StudentProps) {
+  const [isLoading, setIsLoading] = useState(true)
+  const [imageError, setImageError] = useState(false)
+  
+  // Identifica a imagem específica que causa problemas de timeout
+  const isProblematicImage = imageUrl === 'http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K9052777Y7';
+
   return (
     <div className="group bg-white rounded-xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
-      {imageUrl ? (
-        <div className="relative w-full h-[200px] sm:h-[260px] overflow-hidden">
-          <img
-            src={imageUrl}
-            alt={name}
-            width={400}
-            height={400}
-            loading="lazy"
-            className="w-full h-full object-cover object-[center_35%] sm:object-center group-hover:scale-105 transition-transform duration-300"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-      ) : (
-        <div className="relative w-full h-[220px] sm:h-[260px] bg-gradient-to-br from-gray-100 to-gray-200">
+      <div className="relative w-full h-[200px] sm:h-[260px] overflow-hidden bg-gray-100">
+        {imageUrl && !imageError ? (
+          <>
+            {/* Skeleton loader */}
+            {isLoading && (
+              <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                <svg className="w-12 h-12 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+            )}
+            <Image
+              src={imageUrl}
+              alt={name}
+              fill
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              className={`
+                object-cover object-[center_35%] sm:object-center 
+                group-hover:scale-105 transition-transform duration-300
+                ${isLoading ? 'opacity-0' : 'opacity-100'}
+              `}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSAyUC0zLyYuLy0xPDZCNzIrLjM9RUdQRUVHSUlNTU1CQUJISUhNTU3/2wBDAQwXFx0aHR4dHU1MLSU1TU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU3/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+              onLoad={() => {
+                setIsLoading(false)
+              }}
+              onError={() => {
+                setImageError(true)
+                setIsLoading(false)
+              }}
+              unoptimized={isProblematicImage}
+            />
+          </>
+        ) : (
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
             <svg className="w-24 h-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
           </div>
-        </div>
-      )}
+        )}
+
+        {/* Loading spinner geral */}
+        {isLoading && (
+          <div className="absolute top-2 right-2">
+            <div className="animate-spin rounded-full h-4 w-4 border-2 border-gray-400 border-t-transparent"></div>
+          </div>
+        )}
+      </div>
       <div className="p-3 sm:p-6 flex flex-col flex-grow">
         <h2 className="text-base sm:text-xl text-gray-800 font-bold mb-1 sm:mb-2 line-clamp-2 group-hover:text-gray-900 group-hover:brightness-125 transition-all duration-300">
           {name}
@@ -402,8 +440,11 @@ export function Students() {
           Acadêmicos
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6 lg:gap-8">
-          {students.map((student, index) => (
-            <Student key={index} {...student} />
+          {students.map((student) => (
+            <Student 
+              key={student.name} 
+              {...student} 
+            />
           ))}
         </div>
       </div>

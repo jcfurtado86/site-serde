@@ -1,4 +1,6 @@
+'use client'
 import Image from "next/image"
+import { useEffect } from "react"
 
 interface TeacherProps {
   name: string
@@ -12,27 +14,26 @@ interface TeacherProps {
 function Teacher({ name, institution, campus, email, curriculumLink, imageUrl }: TeacherProps) {
   return (
     <div className="group bg-white rounded-xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
-      {imageUrl ? (
-        <div className="relative w-full h-[200px] sm:h-[280px] overflow-hidden">
-          <img
+      <div className="relative w-full h-[200px] sm:h-[280px] overflow-hidden bg-gray-100">
+        {imageUrl ? (
+          <Image
             src={imageUrl}
             alt={name}
-            width={400}
-            height={400}
-            loading="lazy"
-            className="w-full h-full object-cover object-[center_35%] sm:object-center group-hover:scale-105 transition-transform duration-300"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            priority
+            className="object-cover object-[center_35%] sm:object-center group-hover:scale-105 transition-transform duration-300"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSAyUC0zLyYuLy0xPDZCNzIrLjM9RUdQRUVHSUlNTU1CQUJISUhNTU3/2wBDAQwXFx0aHR4dHU1MLSU1TU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU3/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-      ) : (
-        <div className="relative w-full h-[200px] sm:h-[280px] bg-gradient-to-br from-gray-100 to-gray-200">
+        ) : (
           <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
             <svg className="w-16 h-16 sm:w-24 sm:h-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
           </div>
-        </div>
-      )}
+        )}
+      </div>
       <div className="p-2 sm:p-6 flex flex-col flex-grow">
         <h2 className="text-sm sm:text-xl lg:text-2xl text-gray-800 font-bold mb-0.5 sm:mb-2 line-clamp-2 group-hover:text-gray-900 group-hover:brightness-125 transition-all duration-300">
           {name}
@@ -101,6 +102,19 @@ export function Docentes() {
         imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8583463P7"
     }
   ]
+
+  useEffect(() => {
+    const preloadImages = () => {
+      teachers.forEach(teacher => {
+        if (teacher.imageUrl) {
+          const img = document.createElement('img');
+          img.src = teacher.imageUrl;
+        }
+      });
+    };
+    
+    preloadImages();
+  }, []);
 
   return (
     <main className="bg-gradient-to-b from-gray-50 to-white py-3 sm:py-20">
