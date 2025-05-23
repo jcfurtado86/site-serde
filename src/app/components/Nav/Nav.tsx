@@ -4,6 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from 'next/navigation';
+import { Nunito } from "next/font/google";
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export default function Nav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,9 +26,23 @@ export default function Nav() {
 
         <div className="relative container mx-auto px-6 py-3">
           <div className="flex justify-between items-center mb-1">
-            <Link href="/">
-            <Image src="/image/serde-semfundo.png" alt="Logo" width={150} height={150} className="w-auto h-8 md:h-12" />
+            <Link href="/" className="flex items-center gap-2">
+              <Image 
+                src="/image/serde-planta.png" 
+                alt="Logo" 
+                width={150} 
+                height={150} 
+                className="w-auto h-8 md:h-12" 
+              />
+              <h1 className={`text-3xl font-bold ${nunito.className}`}>
+                <span style={{ color: '#000000' }}>s</span>
+                <span style={{ color: '#000000' }}>e</span>
+                <span style={{ color: '#1565C0' }}>r</span>
+                <span style={{ color: '#2E7D32' }}>d</span>
+                <span style={{ color: '#EF6C00' }}>e</span>
+              </h1>
             </Link>
+            
             <div className="hidden md:flex space-x-8">
             <Link 
               href="/" 
@@ -69,23 +89,30 @@ export default function Nav() {
             </button>
           </div>
 
-          <div className={`fixed inset-0 z-50 bg-[#0A192F] transform ${
+          <div className={`fixed inset-0 z-50 bg-white transform ${
             isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out md:hidden`}>
             <div className="flex flex-col h-full">
-              <div className="flex items-center justify-between p-4 border-b border-white/20">
+              <div className="flex items-center justify-between p-4 border-b border-[#2E7D32]">
                 <div className="flex items-center pl-2">
                   <Image
-                    src="/image/serde-semfundo.png"
+                    src="/image/serde-planta.png"
                     alt="Logo"
                     width={100}
                     height={100}
-                    className="w-auto h-8 brightness-0 invert"
+                    className="w-auto h-8"
                   />
+                  <h1 className={`text-3xl font-bold ${nunito.className} ml-2`}>
+                    <span style={{ color: '#000000' }}>s</span>
+                    <span style={{ color: '#000000' }}>e</span>
+                    <span style={{ color: '#1565C0' }}>r</span>
+                    <span style={{ color: '#2E7D32' }}>d</span>
+                    <span style={{ color: '#EF6C00' }}>e</span>
+                  </h1>
                 </div>
                 <button
                   onClick={toggleMobileMenu}
-                  className="p-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-200"
+                  className="p-2 text-[#2E7D32] hover:bg-[#E8F5E9] rounded-lg transition-colors duration-200"
                 >
                   <svg
                     className="w-6 h-6"
@@ -107,45 +134,36 @@ export default function Nav() {
                 <div className="px-4 py-2">
                   <Link
                     href="/"
-                    className="block text-white py-3 border-b border-white/20"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-[#2E7D32]"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Início
                   </Link>
                   <Link
                     href="/projetos-pesquisa"
-                    className="block text-white py-3 border-b border-white/20"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-[#2E7D32]"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Projetos de Pesquisa
                   </Link>
                   <Link
                     href="/recursos-humanos"
-                    className="block text-white py-3 border-b border-white/20"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-[#2E7D32]"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Recursos Humanos
                   </Link>
-
                   <Link
                     href="/publicacoes"
-                    className="block text-white py-3 border-b border-white/20"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-[#2E7D32]"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Publicações
                   </Link>
-
                   <Link
-                    href="/blog"
-                    className="block text-white py-3 border-b border-white/20"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Blog
-                  </Link>
-
-                  <Link
-                    href="/pages/QuemSomos"
-                    className="block text-white py-3 border-b border-white/20"
+                    href="https://github.com/jcfurtado86/"
+                    target="_blank"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-[#2E7D32]"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     GitHub

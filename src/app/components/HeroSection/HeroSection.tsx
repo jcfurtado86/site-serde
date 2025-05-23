@@ -1,18 +1,19 @@
 import Link from 'next/link'
 import { Settings } from "lucide-react"
+import Image from 'next/image'
 
 export default function HeroSection() {
     return (
-      <div className="relative bg-blue-950/95 min-h-screen flex items-center overflow-hidden">
+      <div className="relative bg-gray-50 min-h-screen flex items-center overflow-hidden">
         <div className="sm:hidden">
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute -top-1/4 -left-1/4 w-[150%] h-[150%] bg-blue-500/5 rounded-full blur-3xl animate-moveSlowly"></div>
-              <div className="absolute -bottom-1/4 -right-1/4 w-[150%] h-[150%] bg-indigo-500/5 rounded-full blur-3xl animate-moveSlowly delay-1000"></div>
+              <div className="absolute -top-1/4 -left-1/4 w-[150%] h-[150%] bg-[#1565C0]/5 rounded-full blur-3xl animate-moveSlowly"></div>
+              <div className="absolute -bottom-1/4 -right-1/4 w-[150%] h-[150%] bg-[#2E7D32]/5 rounded-full blur-3xl animate-moveSlowly delay-1000"></div>
             </div>
-            <div className="absolute top-0 right-0 w-[400px] h-[400px] border border-blue-400/15 rounded-full animate-spin-very-slow"></div>
-            <div className="absolute top-10 right-10 w-[300px] h-[300px] border-2 border-blue-400/15 rounded-full animate-reverse-spin"></div>
-            <div className="absolute top-20 right-20 w-[200px] h-[200px] border border-dashed border-blue-400/20 rounded-full animate-spin-slow"></div>
-            <div className="absolute top-30 right-30 w-[100px] h-[100px] border-2 border-blue-400/15 rounded-full animate-spin-very-slow"></div>
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] border border-[#1565C0]/20 rounded-full animate-spin-very-slow"></div>
+            <div className="absolute top-10 right-10 w-[300px] h-[300px] border-2 border-[#2E7D32]/20 rounded-full animate-reverse-spin"></div>
+            <div className="absolute top-20 right-20 w-[200px] h-[200px] border border-dashed border-[#EF6C00]/20 rounded-full animate-spin-slow"></div>
+            <div className="absolute top-30 right-30 w-[100px] h-[100px] border-2 border-[#1565C0]/20 rounded-full animate-spin-very-slow"></div>
             
             <div className="absolute -bottom-[200px] -left-[100px] w-[500px] h-[500px] border border-blue-400/15 rounded-full"></div>
             <div className="absolute -bottom-[150px] -left-[50px] w-[400px] h-[400px] border-2 border-blue-400/15 rounded-full"></div>
@@ -41,15 +42,14 @@ export default function HeroSection() {
 
         <div className="hidden sm:block">
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-1/4 -left-1/4 w-[150%] h-[150%] bg-blue-500/5 rounded-full blur-[100px]"></div>
-                <div className="absolute -top-1/4 -right-1/4 w-[150%] h-[150%] bg-indigo-500/5 rounded-full blur-[100px]"></div>
-                <div className="absolute -bottom-1/4 -left-1/4 w-[150%] h-[150%] bg-blue-400/5 rounded-full blur-[100px]"></div>
-                <div className="absolute -bottom-1/4 -right-1/4 w-[150%] h-[150%] bg-indigo-400/5 rounded-full blur-[100px]"></div>
+                <div className="absolute -top-1/4 -left-1/4 w-[150%] h-[150%] bg-[#1565C0]/5 rounded-full blur-[100px]"></div>
+                <div className="absolute -top-1/4 -right-1/4 w-[150%] h-[150%] bg-[#2E7D32]/5 rounded-full blur-[100px]"></div>
+                <div className="absolute -bottom-1/4 -left-1/4 w-[150%] h-[150%] bg-[#EF6C00]/5 rounded-full blur-[100px]"></div>
             </div>
 
-            <div className="absolute top-0 right-0 w-[900px] h-[900px] border border-dashed border-blue-400/15 rounded-full"></div>
-            <div className="absolute top-20 right-20 w-[700px] h-[700px] border-2 border-blue-400/15 rounded-full"></div>
-            <div className="absolute top-40 right-40 w-[500px] h-[500px] border border-dashed border-blue-400/20 rounded-full"></div>
+            <div className="absolute top-0 right-0 w-[900px] h-[900px] border border-dashed border-[#1565C0]/10 rounded-full"></div>
+            <div className="absolute top-20 right-20 w-[700px] h-[700px] border-2 border-[#2E7D32]/10 rounded-full"></div>
+            <div className="absolute top-40 right-40 w-[500px] h-[500px] border border-dashed border-[#EF6C00]/15 rounded-full"></div>
             <div className="absolute top-60 right-60 w-[300px] h-[300px] border-2 border-dashed border-blue-400/15 rounded-full"></div>
             
             <div className="absolute -bottom-[500px] -left-[200px] w-[1200px] h-[1200px] border border-dashed border-blue-400/15 rounded-full"></div>
@@ -74,20 +74,99 @@ export default function HeroSection() {
 
         <div className="relative container mx-auto px-4 sm:px-6">
             <div className="max-w-5xl relative z-10">
-                <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white mb-4 sm:mb-6 leading-none tracking-tight">
+                <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-gray-900 mb-4 sm:mb-6 leading-none tracking-tight">
                     <div className="flex items-center gap-2 sm:gap-4">
                         <div className="w-10 h-10 sm:w-20 sm:h-20">
-                            <Settings className="w-10 h-10 sm:w-20 sm:h-20 text-[#81CA6E] animate-spin-slow" />
+                            <Image
+                                src="/image/galho-serde.png"
+                                alt="Galho"
+                                width={80}
+                                height={80}
+                                className="w-10 h-10 sm:w-20 sm:h-20"
+                            />
                         </div>
-                        <span className="text-white/90 text-4xl sm:text-6xl font-thin">|</span>
-                        <span>Projeto <span className="border-b-2 border-white">SERDE</span></span>
+                        <div className="absolute 
+                          top-1
+                          -left-3
+                          sm:top-2 
+                          md:-top-1 
+                          lg:-top-1  
+                          sm:-left-6 
+                          md:-left-10 
+                          lg:-left-10 
+                          w-6 h-6 
+                          sm:w-12 sm:h-12 
+                          md:w-16 md:h-16 
+                          lg:w-16 lg:h-16 
+                          animate-float-leaf"
+                        >
+                            <Image
+                                src="/image/folha-azul.png"
+                                alt="Folha Azul"
+                                width={96}
+                                height={96}
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <div className="absolute 
+                          top-[-22px]
+                          left-[3px]
+                          sm:top-12 
+                          md:top-[-72px] 
+                          lg:-top-[72px]  
+                          sm:-right-6 
+                          md:-left-[10px] 
+                          lg:-left-2 
+                          w-7 h-7 
+                          sm:w-12 sm:h-12 
+                          md:w-20 md:h-20 
+                          lg:w-20 lg:h-20 
+                          animate-float-leaf-green"
+                        >
+                            <Image
+                                src="/image/folha-verde.png"
+                                alt="Folha Verde"
+                                width={96}
+                                height={96}
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <div className="absolute 
+                          top-[-13px]
+                          -left-[-22px]
+                          sm:top-2 
+                          
+                          lg:-top-[52px] 
+                          lg:-left-[-47px]
+                          sm:-left-6
+                          md:-top-[52px]  
+                          md:-left-[-46px] 
+                          w-7 h-7 
+                          sm:w-12 sm:h-12 
+                          md:w-16 md:h-20 
+                          lg:w-16 lg:h-20 
+                          animate-float-leaf"
+                        >
+                            <Image
+                                src="/image/folha-laranja.png"
+                                alt="Folha Azul"
+                                width={96}
+                                height={96}
+                                className="w-full h-full object-contain"
+                            />
+                        </div>
+                        <span className="text-gray-400 text-4xl sm:text-6xl font-thin">|</span>
+                        <span>Projeto <span className="border-b-2 border-gray-900">SERDE</span></span>
                     </div>
                 </h1>
-                <p className="text-xl sm:text-2xl text-blue-100 mb-6 sm:mb-14 mt-4 sm:mt-10 leading-relaxed font-light max-w-3xl">
+                <p className="text-xl sm:text-2xl text-gray-600 mb-6 sm:mb-14 mt-4 sm:mt-10 leading-relaxed font-light max-w-3xl">
                     Software Engineering: Research, Development and Education
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                    <Link href="#sobre" className="inline-block px-6 sm:px-14 py-3 sm:py-5 bg-blue-100/10 backdrop-blur-sm border-2 border-blue-200/50 text-blue-50 text-sm sm:text-xl font-medium rounded-xl hover:bg-blue-100/20 hover:border-blue-300 hover:text-white hover:tracking-wider transition-all duration-300 ease-in-out text-center transform hover:scale-102 hover:shadow-lg hover:shadow-blue-500/30 active:scale-95">
+                    <Link 
+                        href="#sobre" 
+                        className="inline-block px-6 sm:px-14 py-3 sm:py-5 bg-gray-900/5 backdrop-blur-sm border-2 border-gray-900/20 text-gray-900 text-sm sm:text-xl font-medium rounded-xl hover:bg-gray-900/10 hover:border-gray-900/30 hover:tracking-wider transition-all duration-300 ease-in-out text-center transform hover:scale-102 hover:shadow-lg hover:shadow-gray-500/30 active:scale-95"
+                    >
                         Saiba Mais
                     </Link>
                 </div>

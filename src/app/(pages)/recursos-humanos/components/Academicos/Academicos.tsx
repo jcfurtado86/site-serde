@@ -1,4 +1,3 @@
-
 interface StudentProps {
   name: string
   institution: string
@@ -383,15 +382,13 @@ export function Students() {
   }
 ];
 
-
-
   return (
     <main className="bg-gradient-to-b from-gray-50 to-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-900 text-center mb-16">
           Acadêmicos
         </h2>
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10">
           {students.map((student, index) => (
             <Student key={index} {...student} />
           ))}
