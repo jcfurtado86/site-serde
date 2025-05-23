@@ -46,19 +46,19 @@ export default function Nav() {
             <div className="hidden md:flex space-x-8">
             <Link 
               href="/" 
-              className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#295984] after:transition-transform after:duration-300 ${pathname === '/' ? 'after:scale-x-100 text-[#295984]' : ''}`}
+              className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#3B82F6] after:transition-transform after:duration-300 ${pathname === '/' ? 'after:scale-x-100 text-[#295984]' : ''}`}
             >Início</Link>
                 <Link 
                 href="/projetos-pesquisa" 
-                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#295984] after:transition-transform after:duration-300 ${pathname === '/projetos-pesquisa' ? 'after:scale-x-100 text-[#295984]' : ''}`}
+                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#3B82F6] after:transition-transform after:duration-300 ${pathname === '/projetos-pesquisa' ? 'after:scale-x-100 text-[#295984]' : ''}`}
                 >Projetos de Pesquisa</Link>
                 <Link 
                 href="/recursos-humanos" 
-                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#295984] after:transition-transform after:duration-300 ${pathname === '/recursos-humanos' ? 'after:scale-x-100 text-[#295984]' : ''}`}
+                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#3B82F6] after:transition-transform after:duration-300 ${pathname === '/recursos-humanos' ? 'after:scale-x-100 text-[#295984]' : ''}`}
                 >Recursos Humanos</Link>
                 <Link 
                 href="/publicacoes" 
-                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#295984] after:transition-transform after:duration-300 ${pathname === '/publicacoes' ? 'after:scale-x-100 text-[#295984]' : ''}`}
+                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#3B82F6] after:transition-transform after:duration-300 ${pathname === '/publicacoes' ? 'after:scale-x-100 text-[#295984]' : ''}`}
                 >Publicações</Link>
                 {/* <Link 
                 href="/blog" 
@@ -67,7 +67,7 @@ export default function Nav() {
                 <Link 
                 href="https://github.com/jcfurtado86/"
                 target="_blank" 
-                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#295984] after:transition-transform after:duration-300 ${pathname === '/pages/QuemSomos' ? 'after:scale-x-100 text-[#295984]' : ''}`}
+                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#3B82F6] after:transition-transform after:duration-300 ${pathname === '/pages/QuemSomos' ? 'after:scale-x-100 text-[#295984]' : ''}`}
                 >GitHub</Link>
                             </div>
 
@@ -93,7 +93,7 @@ export default function Nav() {
             isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out md:hidden`}>
             <div className="flex flex-col h-full">
-              <div className="flex items-center justify-between p-4 border-b border-[#2E7D32]">
+              <div className="flex items-center justify-between p-4 border-b border-gray-200">
                 <div className="flex items-center pl-2">
                   <Image
                     src="/image/serde-planta.png"
@@ -112,7 +112,7 @@ export default function Nav() {
                 </div>
                 <button
                   onClick={toggleMobileMenu}
-                  className="p-2 text-[#2E7D32] hover:bg-[#E8F5E9] rounded-lg transition-colors duration-200"
+                  className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-200"
                 >
                   <svg
                     className="w-6 h-6"
@@ -134,28 +134,28 @@ export default function Nav() {
                 <div className="px-4 py-2">
                   <Link
                     href="/"
-                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-[#2E7D32]"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Início
                   </Link>
                   <Link
                     href="/projetos-pesquisa"
-                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-[#2E7D32]"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Projetos de Pesquisa
                   </Link>
                   <Link
                     href="/recursos-humanos"
-                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-[#2E7D32]"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Recursos Humanos
                   </Link>
                   <Link
                     href="/publicacoes"
-                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-[#2E7D32]"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Publicações
@@ -163,7 +163,7 @@ export default function Nav() {
                   <Link
                     href="https://github.com/jcfurtado86/"
                     target="_blank"
-                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-[#2E7D32]"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     GitHub

@@ -4,7 +4,7 @@ usar tooltip para sinalizar o que é artigo
 livro, ou outra coisa.
 
 
-Mudar as cores da Hero, pedir pro julio enviar o png
+
 
 
 
@@ -30,44 +30,46 @@ interface ArticleProps {
 
 function Article({ number, title, link, participants }: ArticleProps) {
   return (
-    <div className="border-b border-gray-200 py-4 sm:py-5 bg-gray-50/50 hover:bg-gray-100/80 transition-all duration-200 px-4 sm:px-6 -mx-4 sm:-mx-6 relative">
-      <span className="absolute left-4 top-4 text-gray-500 font-medium">{number}.</span>
-      <div className="pl-8">
-        <div className="flex flex-col gap-2">
-          <h2 className="text-xl sm:text-2xl text-gray-800 font-medium hover:text-blue-700 transition-colors duration-200">
+    <div className="border-b border-gray-200 py-6 bg-white hover:bg-gray-50/80 transition-all duration-200 px-6 relative group">
+      <div className="flex flex-col gap-3">
+        <div className="flex items-start gap-4">
+          <span className="text-gray-500 font-medium min-w-[24px]">{number}.</span>
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800 border border-blue-200 shadow-sm">
+            Artigo
+          </span>
+          <h2 className="flex-1 text-xl text-gray-800 font-medium group-hover:text-gray-900">
             {title}
           </h2>
-          <p className="text-base sm:text-lg text-gray-600">{participants.join(", ")}</p>
-          
-          <div className="flex justify-end mt-3">
-            {link && link !== "#" ? (
-              <a 
-                href={link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-center gap-2 text-base sm:text-lg text-blue-600 hover:text-blue-800 transition-colors duration-200 group"
+        </div>
+
+        <p className="text-base text-gray-600 pl-[calc(24px+0.75rem)]">{participants.join("; ")}</p>
+
+        <div className="flex justify-end mt-2">
+          {link && link !== "#" ? (
+            <a 
+              href={link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors duration-200 group"
+            >
+              <span className="group-hover:underline">Ver publicação</span>
+              <svg 
+                className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
               >
-                <span className="group-hover:underline">Ver artigo</span>
-                <svg 
-                  className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </a>
-            ) : (
-              <span className="text-base sm:text-lg text-gray-500">
-                Link não disponível
-              </span>
-            )}
-          </div>
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
+          ) : (
+            <span className="text-gray-500">Link não disponível</span>
+          )}
         </div>
       </div>
     </div>
@@ -238,9 +240,9 @@ export function Articles() {
   }, [articles, sortBy]);
 
   return (
-    <main className="bg-gradient-to-b from-gray-50 to-white py-20">
+    <main className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-900 text-center mb-16">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-16">
           Artigos em Conferências
         </h2>
         
@@ -253,7 +255,7 @@ export function Articles() {
               id="sort"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="block w-full sm:w-auto px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium hover:border-gray-400 transition-colors duration-200 [-webkit-appearance:none] [appearance:none]"
+              className="block w-full sm:w-auto px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 font-medium hover:border-gray-400 transition-colors duration-200"
             >
               <option value="chronological">Ordem Cronológica</option>
               <option value="webCitations">Número de citações Web of science</option>
@@ -273,7 +275,7 @@ export function Articles() {
           />
         </div>
 
-        <div className="divide-y divide-gray-200">
+        <div className="bg-white rounded-xl shadow-sm overflow-hidden">
           {sortedArticles
             .filter(article => 
               article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -282,27 +284,22 @@ export function Articles() {
               )
             )
             .map((article, index) => (
-              <div
-                key={index}
-                className="transform transition-all duration-300 ease-in-out opacity-100 scale-100 translate-y-0"
-              >
-                <Article {...article} />
-              </div>
+              <Article key={index} {...article} />
             ))}
-        </div>
 
-        {sortedArticles.filter(article => 
-          article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          article.participants.some(participant => 
-            participant.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-        ).length === 0 && (
-          <div className="text-center py-10 animate-fade-in">
-            <p className="text-gray-500 text-lg">
-              Nenhum artigo encontrado para "{searchTerm}"
-            </p>
-          </div>
-        )}
+          {sortedArticles.filter(article => 
+            article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            article.participants.some(participant => 
+              participant.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+          ).length === 0 && (
+            <div className="text-center py-10">
+              <p className="text-gray-500 text-lg">
+                Nenhum artigo encontrado para "{searchTerm}"
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </main>
   )

@@ -3,6 +3,7 @@ import { Articles } from "./components/Article/Article"
 import { Books } from "./components/Books/Books"
 import { TCCs } from "./components/TCC/TCC"
 import { SumPublished } from "./components/SumPublished/SumPublished"
+import { Publications } from "./components/Publications/Publications"
 
 export default function ProjetosPesquisa() {
     return (
@@ -13,8 +14,7 @@ export default function ProjetosPesquisa() {
             ]} 
                 />
                 <Articles />
-                <Books />
-                <SumPublished />
+                <Publications />
                 <TCCs />
         </main>
     )
