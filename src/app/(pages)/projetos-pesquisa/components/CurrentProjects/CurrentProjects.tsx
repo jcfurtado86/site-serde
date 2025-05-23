@@ -19,7 +19,7 @@ interface Project {
     return (
       <div className="bg-gradient-to-b from-gray-50 to-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-900 text-center mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-16">
             {title}
           </h2>
           
@@ -32,7 +32,7 @@ interface Project {
                   </span>
                   
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 group-hover:text-blue-700 transition-colors duration-300">
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 group-hover:text-gray-900 group-hover:brightness-125 transition-all duration-300">
                   {project.title}
                 </h3>
 

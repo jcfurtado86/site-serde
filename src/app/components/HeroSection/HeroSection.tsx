@@ -1,6 +1,12 @@
 import Link from 'next/link'
 import { Settings } from "lucide-react"
 import Image from 'next/image'
+import { Nunito } from 'next/font/google'
+
+const nunito = Nunito({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+})
 
 export default function HeroSection() {
     return (
@@ -64,11 +70,11 @@ export default function HeroSection() {
             <div className="absolute bottom-1/3 right-1/4 w-36 h-36 border-2 border-dashed border-blue-400/15 rounded-full animate-spin-very-slow"></div>
 
             <svg className="absolute inset-0 w-[200%] h-[200%] -translate-x-[25%] -translate-y-[25%] opacity-20" viewBox="0 0 1000 1000">
-                <path className="animate-drawLineInfinite" d="M0 500 Q 250 500, 250 250 T 500 250 T 750 250 T 1000 250" fill="none" stroke="#60A5FA" strokeWidth="1.5" strokeDasharray="1000" strokeDashoffset="1000"/>
-                <path className="animate-drawLineInfinite delay-1000" d="M0 750 Q 250 750, 250 500 T 500 500 T 750 500 T 1000 500" fill="none" stroke="#93C5FD" strokeWidth="1.5" strokeDasharray="1000" strokeDashoffset="1000"/>
-                <path className="animate-drawLineInfinite delay-[2000ms]" d="M250 0 L 250 1000" fill="none" stroke="#60A5FA" strokeWidth="1.5" strokeDasharray="1000" strokeDashoffset="1000"/>
-                <path className="animate-drawLineInfinite delay-[3000ms]" d="M500 0 L 500 1000" fill="none" stroke="#93C5FD" strokeWidth="1.5" strokeDasharray="1000" strokeDashoffset="1000"/>
-                <path className="animate-drawLineInfinite delay-[4000ms]" d="M750 0 L 750 1000" fill="none" stroke="#60A5FA" strokeWidth="1.5" strokeDasharray="1000" strokeDashoffset="1000"/>
+                <path className="animate-drawLineInfinite" d="M0 500 Q 250 500, 250 250 T 500 250 T 750 250 T 1000 250" fill="none" stroke="#1565C0" strokeWidth="1.5" strokeDasharray="1000" strokeDashoffset="1000"/>
+                <path className="animate-drawLineInfinite delay-1000" d="M0 750 Q 250 750, 250 500 T 500 500 T 750 500 T 1000 500" fill="none" stroke="#2E7D32" strokeWidth="1.5" strokeDasharray="1000" strokeDashoffset="1000"/>
+                <path className="animate-drawLineInfinite delay-[2000ms]" d="M250 0 L 250 1000" fill="none" stroke="#EF6C00" strokeWidth="1.5" strokeDasharray="1000" strokeDashoffset="1000"/>
+                <path className="animate-drawLineInfinite delay-[3000ms]" d="M500 0 L 500 1000" fill="none" stroke="#1565C0" strokeWidth="1.5" strokeDasharray="1000" strokeDashoffset="1000"/>
+                <path className="animate-drawLineInfinite delay-[4000ms]" d="M750 0 L 750 1000" fill="none" stroke="#2E7D32" strokeWidth="1.5" strokeDasharray="1000" strokeDashoffset="1000"/>
             </svg>
         </div>
 
@@ -155,12 +161,25 @@ export default function HeroSection() {
                                 className="w-full h-full object-contain"
                             />
                         </div>
-                        <span className="text-gray-400 text-4xl sm:text-6xl font-thin">|</span>
-                        <span>Projeto <span className="border-b-2 border-gray-900">SERDE</span></span>
+                        <div className='ml-1'> </div>
+                        <div style={{ position: 'relative', top:'5px' }}>
+                          <span className={`font-bold ${nunito.className}`}>Projeto  
+                            <span className="">
+                              <span style={{ color: 'black' }}> S</span>
+                              <span style={{ color: 'black' }}>E</span>
+                              <span style={{ color: '#1565C0' }}>R</span>
+                              <span style={{ color: '#2E7D32' }}>D</span>
+                              <span style={{ color: '#EF6C00' }}>E</span>
+                            </span>
+                          </span>
+                        </div>
                     </div>
                 </h1>
                 <p className="text-xl sm:text-2xl text-gray-600 mb-6 sm:mb-14 mt-4 sm:mt-10 leading-relaxed font-light max-w-3xl">
-                    Software Engineering: Research, Development and Education
+                    Software Engineering: 
+                    <span className=" hover:text-[#1565C0] "> Research, </span> 
+                    <span className=" hover:text-[#2E7D32] ">Development</span> and 
+                    <span className=" hover:text-[#EF6C00]"> Education</span>
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                     <Link 

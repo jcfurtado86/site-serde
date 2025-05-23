@@ -25,6 +25,7 @@ export default {
         'float2': 'float 12s ease-in-out infinite',
         'float3': 'float 14s ease-in-out infinite',
         'float4': 'float 16s ease-in-out infinite',
+        'float-slow': 'floatSlow 15s ease-in-out infinite',
         'scanline': 'scanline 8s linear infinite',
         'drawMobileLine1': 'drawMobileLine 4s ease-out infinite',
         'drawMobileLine2': 'drawMobileLine 4s ease-out infinite 2s',
@@ -149,7 +150,14 @@ export default {
           from: {
             transform: 'rotate(360deg)'
           },
-        }
+        },
+        floatSlow: {
+          '0%': { transform: 'translate(0, 0) rotate(0deg)' },
+          '25%': { transform: 'translate(20px, -15px) rotate(5deg)' },
+          '50%': { transform: 'translate(-10px, -25px) rotate(-5deg)' },
+          '75%': { transform: 'translate(-25px, -10px) rotate(3deg)' },
+          '100%': { transform: 'translate(0, 0) rotate(0deg)' }
+        },
       }
     },
   },
