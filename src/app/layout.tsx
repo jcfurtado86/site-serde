@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import PageUp from "./components/PageUp/PageUp";
 import { Montserrat } from "next/font/google";
 import { Nunito } from "next/font/google";
+import { ProjectsProvider } from "./context/ProjectsContext";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -21,9 +22,6 @@ export const metadata: Metadata = {
   description: "Serde",
 };
 
-
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,12 +32,13 @@ export default function RootLayout({
       <body
         className={` ${montserrat.className} ${nunito.className} antialiased`}
       >
-        
+        <ProjectsProvider>
           <Nav />
           <PageUp />
           {children}
-        
-        <Footer />
+
+          <Footer />
+        </ProjectsProvider>
       </body>
     </html>
   );
