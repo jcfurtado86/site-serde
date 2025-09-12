@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,11 +14,29 @@ const nunito = Nunito({
 
 export default function Nav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const pathname = usePathname();
   const { projects } = useProjects();
+  const defaultLinkStyle =
+    "text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#4B5563] after:transition-transform after:duration-300";
+  // 2. Referência para o link do tabmenu "Projetos de Pesquisa"
+  const researchProjectsLinkRef = useRef<HTMLAnchorElement>(null);
+  // 3. Estado para armazenar a largura do link
+  const [dropdownWidth, setDropdownWidth] = useState("auto");
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const researchProjects = useMemo(() => {
+    const ongoing = projects.filter(
+      (p) => p.type === "pesquisa" && p.status === "Em andamento",
+    );
+    const finished = projects.filter(
+      (p) => p.type === "pesquisa" && p.status === "Finalizado",
+    );
+    return { ongoing, finished };
+  }, [projects]);
 
   useEffect(() => {
     if (pathname === "/recursos-humanos") {
@@ -27,9 +45,24 @@ export default function Nav() {
       const img = new window.Image();
       img.src = imageToPreload;
     }
+    // 4. Calcular a largura do link ao montar o componente ou quando o pathname muda
+    if (researchProjectsLinkRef.current) {
+      setDropdownWidth(`${researchProjectsLinkRef.current.offsetWidth}px`);
+    }
+    // Opcional: Recalcular a largura se a janela for redimensionada
+    const handleResize = () => {
+      if (researchProjectsLinkRef.current) {
+        setDropdownWidth(`${researchProjectsLinkRef.current.offsetWidth}px`);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [pathname]);
 
-  console.log(projects);
+  const createSlug = (title: string) => {
+    return encodeURIComponent(title.toLowerCase().replace(/\s+/g, "-"));
+  };
+
   return (
     <nav className="fixed w-full z-50">
       <div className="relative bg-gray-100 ">
@@ -57,25 +90,87 @@ export default function Nav() {
             <div className="hidden md:flex space-x-8">
               <Link
                 href="/"
-                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#4B5563] after:transition-transform after:duration-300 ${pathname === "/" ? "after:scale-x-100 text-[#295984]" : ""}`}
+                className={`${defaultLinkStyle} ${pathname === "/" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
                 Início
               </Link>
-              <Link
-                href="/projetos-pesquisa"
-                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#4B5563] after:transition-transform after:duration-300 ${pathname === "/projetos-pesquisa" ? "after:scale-x-100 text-[#295984]" : ""}`}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
               >
-                Projetos de Pesquisa
-              </Link>
+                <Link
+                  ref={researchProjectsLinkRef}
+                  href="/projetos-pesquisa"
+                  className={`${defaultLinkStyle} ${pathname === "/projetos-pesquisa" ? "after:scale-x-100 text-[#295984]" : ""}`}
+                >
+                  Projetos de Pesquisa
+                </Link>
+                {/* 6. Estrutura do Dropdown com efeitos e largura dinâmica */}
+                <div
+                  className={`
+                                absolute top-full left-1/2 -translate-x-1/2 mt-2
+                                bg-white rounded-md shadow-lg py-2 z-10 border border-gray-200
+                                transition-all duration-300 ease-in-out origin-top
+                                ${isDropdownOpen ? "max-h-screen opacity-100 pointer-events-auto scale-y-100" : "max-h-0 opacity-0 pointer-events-none scale-y-0"}
+                              `}
+                  style={{ width: dropdownWidth }} // 7. Aplicar a largura dinâmica aqui
+                >
+                  <div className="px-4 py-2">
+                    <h3 className="font-bold text-sm text-gray-800 border-b pb-2 mb-2">
+                      Em andamento
+                    </h3>
+                    {researchProjects.ongoing.length > 0 ? (
+                      researchProjects.ongoing.map((project) => (
+                        <Link
+                          key={project.title}
+                          href={`/projetos/${createSlug(project.title)}`}
+                          className="block text-sm text-gray-600 hover:text-white hover:bg-[#295984] rounded-md px-3 py-2 transition-colors duration-200 "
+                          title={project.title}
+                          onClick={() => setIsDropdownOpen(false)} // Fecha ao clicar
+                        >
+                          {project.title}
+                        </Link>
+                      ))
+                    ) : (
+                      <p className="text-sm text-gray-400 px-3 py-1">
+                        Nenhum projeto.
+                      </p>
+                    )}
+                  </div>
+                  <div className="px-4 py-2">
+                    <h3 className="font-bold text-sm text-gray-800 border-b pb-2 mb-2">
+                      Finalizados
+                    </h3>
+                    {researchProjects.finished.length > 0 ? (
+                      researchProjects.finished.map((project) => (
+                        <Link
+                          key={project.title}
+                          href={`/projetos/${createSlug(project.title)}`}
+                          className="block text-sm text-gray-600 hover:text-white hover:bg-[#295984] rounded-md px-3 py-2 transition-colors duration-200"
+                          title={project.title}
+                          onClick={() => setIsDropdownOpen(false)} // Fecha ao clicar
+                        >
+                          {project.title}
+                        </Link>
+                      ))
+                    ) : (
+                      <p className="text-sm text-gray-400 px-3 py-1">
+                        Nenhum projeto.
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
               <Link
                 href="/recursos-humanos"
-                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#4B5563] after:transition-transform after:duration-300 ${pathname === "/recursos-humanos" ? "after:scale-x-100 text-[#295984]" : ""}`}
+                className={`${defaultLinkStyle} ${pathname === "/recursos-humanos" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
                 Recursos Humanos
               </Link>
               <Link
                 href="/publicacoes"
-                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#4B5563] after:transition-transform after:duration-300 ${pathname === "/publicacoes" ? "after:scale-x-100 text-[#295984]" : ""}`}
+                className={`${defaultLinkStyle} ${pathname === "/publicacoes" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
                 Publicações
               </Link>
@@ -86,7 +181,7 @@ export default function Nav() {
               <Link
                 href="https://github.com/jcfurtado86/"
                 target="_blank"
-                className={`text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#4B5563] after:transition-transform after:duration-300 ${pathname === "/pages/QuemSomos" ? "after:scale-x-100 text-[#295984]" : ""}`}
+                className={`${defaultLinkStyle} ${pathname === "/pages/QuemSomos" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
                 GitHub
               </Link>
