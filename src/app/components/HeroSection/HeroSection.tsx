@@ -1,12 +1,12 @@
-import Link from "next/link";
-import { Settings } from "lucide-react";
-import Image from "next/image";
-import { Nunito } from "next/font/google";
+import Link from 'next/link'
+import { Settings } from 'lucide-react'
+import Image from 'next/image'
+import { Nunito } from 'next/font/google'
 
 const nunito = Nunito({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+})
 
 export default function HeroSection() {
   return (
@@ -123,37 +123,40 @@ export default function HeroSection() {
 
       <div className="relative container mx-auto px-4 sm:px-6">
         <div className="max-w-5xl relative z-10">
-          <h1 className="text-4xl sm:text-7xl md:text-[13rem] font-extrabold text-gray-900 mb-4 sm:mb-6 leading-none tracking-tight">
+          <h1 className="text-7xl sm:text-[7rem] md:text-[13rem] lg:text-[13rem] font-extrabold text-gray-900 mb-4 sm:mb-6 leading-none tracking-tight">
             <div className="main-conteiner flex items-center justify-start sm:gap-4">
               <div
                 className="
+                translate-x-2
+                translate-y-1/4
+                sm:translate-y-[55%]
+                size-12
+                sm:size-16
+                md:size-20
 
-                translate-y-1/2
-                size-16
-                sm:size-24
                 "
               >
                 <Image
                   src="/image/galho-serde.png"
                   alt="Galho"
                   width={80}
-                  height={80}
-                  className="size-16 sm:size-24"
+                  height={60}
+                  className="size-full object-contain"
                 />
               </div>
               <div
                 className="absolute
-                          top-1
-                          -left-3
-                          sm:top-2
-                          md:-top-1
+                          top-3
+                          -left-6
+                          sm:top-[2.7rem]
+                          md:top-[5.5rem]
                           lg:top-[4.8rem]
-                          sm:-left-6
-                          md:-left-10
+                          sm:-left-9
+                          md:-left-12
                           lg:-left-16
-                          size-6
-                          sm:size-12
-                          md:size-16
+                          size-12
+                          sm:size-16
+                          md:size-20
                           lg:size-24
                           animate-float-leaf"
               >
@@ -167,18 +170,18 @@ export default function HeroSection() {
               </div>
               <div
                 className="absolute
-                          top-[-22px]
-                          left-[3px]
-                          sm:top-12
-                          md:top-[-72px]
-                          lg:top-4
-                          sm:-right-6
-                          md:-left-[10px]
-                          lg:-left-2
-                          size-6
-                          sm:size-12
-                          md:size-16
-                          lg:size-24
+                          -top-8
+                          -left-2
+                          sm:-top-2
+                          md:top-[1.7rem]
+                          lg:top-3
+                          sm:-left-2
+                          md:-left-3
+                          lg:-left-5
+                          size-16
+                          sm:size-20
+                          md:size-24
+                          lg:size-28
                           animate-float-leaf-green"
               >
                 <Image
@@ -191,17 +194,17 @@ export default function HeroSection() {
               </div>
               <div
                 className="absolute
-                          top-[-13px]
-                          -left-[-22px]
-                          sm:top-2
-                          lg:top-10
-                          lg:-left-[-47px]
-                          sm:-left-6
-                          md:-top-[52px]
-                          md:-left-[-46px]
-                          size-7
-                          sm:size-12
-                          md:size-16
+                          -top-1
+                          left-8
+                          sm:top-5
+                          lg:top-[3rem]
+                          lg:left-[2.8rem]
+                          sm:left-10
+                          md:top-[3.8rem]
+                          md:left-[3.1rem]
+                          size-12
+                          sm:size-16
+                          md:size-20
                           lg:size-24
                           animate-float-leaf"
               >
@@ -216,11 +219,11 @@ export default function HeroSection() {
               <div className="relative ml-6">
                 <span className={`font-normal font-[Questrial] `}>
                   <span className="">
-                    <span style={{ color: "black" }}> s</span>
-                    <span style={{ color: "black" }}>e</span>
-                    <span style={{ color: "#1565C0" }}>r</span>
-                    <span style={{ color: "#2E7D32" }}>d</span>
-                    <span style={{ color: "#EF6C00" }}>e</span>
+                    <span style={{ color: 'black' }}> s</span>
+                    <span style={{ color: 'black' }}>e</span>
+                    <span style={{ color: '#1565C0' }}>r</span>
+                    <span style={{ color: '#2E7D32' }}>d</span>
+                    <span style={{ color: '#EF6C00' }}>e</span>
                   </span>
                 </span>
               </div>
@@ -245,5 +248,5 @@ export default function HeroSection() {
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full filter blur-3xl opacity-[0.02] -z-10"></div>
       </div>
     </div>
-  );
+  )
 }
