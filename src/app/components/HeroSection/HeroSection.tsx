@@ -1,12 +1,12 @@
-import Link from 'next/link'
-import { Settings } from 'lucide-react'
-import Image from 'next/image'
-import { Nunito } from 'next/font/google'
+import Link from "next/link";
+import { Settings } from "lucide-react";
+import Image from "next/image";
+import { Nunito } from "next/font/google";
 
 const nunito = Nunito({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-})
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export default function HeroSection() {
   return (
@@ -140,7 +140,7 @@ export default function HeroSection() {
                   src="/image/galho-serde.png"
                   alt="Galho"
                   width={80}
-                  height={60}
+                  height={80}
                   className="size-full object-contain"
                 />
               </div>
@@ -219,11 +219,11 @@ export default function HeroSection() {
               <div className="relative ml-6">
                 <span className={`font-normal font-[Questrial] `}>
                   <span className="">
-                    <span style={{ color: 'black' }}> s</span>
-                    <span style={{ color: 'black' }}>e</span>
-                    <span style={{ color: '#1565C0' }}>r</span>
-                    <span style={{ color: '#2E7D32' }}>d</span>
-                    <span style={{ color: '#EF6C00' }}>e</span>
+                    <span style={{ color: "black" }}> s</span>
+                    <span style={{ color: "black" }}>e</span>
+                    <span style={{ color: "#1565C0" }}>r</span>
+                    <span style={{ color: "#2E7D32" }}>d</span>
+                    <span style={{ color: "#EF6C00" }}>e</span>
                   </span>
                 </span>
               </div>
@@ -248,5 +248,5 @@ export default function HeroSection() {
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full filter blur-3xl opacity-[0.02] -z-10"></div>
       </div>
     </div>
-  )
+  );
 }
