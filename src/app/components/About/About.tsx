@@ -10,7 +10,7 @@ export default function About() {
       <div className="max-w-[1240px] mx-auto pt-8 md:pt-6 pb-4 md:pb-2">
         <div className="text-center mb-8 md:mb-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 md:mb-4">Sobre o Grupo</h1>
-          <p className="pt-5 text-gray-600 text-sm sm:text-base lg:text-lg max-w-4xl mx-auto leading-relaxed pb-10">
+          <p className="pt-5 text-gray-600 text-left text-sm sm:text-base lg:text-lg max-w-7xl mx-auto leading-relaxed pb-10">
             De acordo com a ACM / IEEE, a Engenharia de Software (ES) é uma disciplina interessada na aplicação de
             teoria, conhecimento e prática para o desenvolvimento eficaz e eficiente de sistemas de software que atendam
             aos requisitos dos usuários. Apesar da importância destes conhecimentos relativos às atividades da ES,
@@ -25,7 +25,7 @@ export default function About() {
           </p>
         </div>
         {/*linhas de pesquisa*/}
-        <ResearchLineList className="" />
+        <ResearchLineList className="pt-2 bg-none" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           <Link

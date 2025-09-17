@@ -13,8 +13,7 @@ export default function ProjetosPesquisa() {
     <main className="pt-20 bg-gray-50">
       <Breadcrumb items={[{ label: 'Projetos de Pesquisa', href: '/projetos-pesquisa' }]} />
       <ResearchLineList className="bg-gradient-to-b from-gray-50 to-white" />
-      {/*<CurrentProjectsList />
-      <CompletedProjectsList />*/}
+
       <AllProjectsList
         title="Projetos de Pesquisa"
         projects={projects.filter((project) => project.type === 'pesquisa')}
