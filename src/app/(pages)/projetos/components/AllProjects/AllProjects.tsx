@@ -1,27 +1,30 @@
-"use client";
-import { use, useState } from "react";
+"use client"
+import { use, useState } from "react"
 
 interface Project {
-  title: string;
-  professor: string;
-  status: string;
-  type: string;
+  title: string
+  professor: string
+  status: string
+  type: string
 }
 
 interface CurrentProjectsProps {
-  title: string;
-  projects: Project[];
+  title?: string
+  projects: Project[]
+  className?: string
 }
 
-function AllProjects({ title, projects }: CurrentProjectsProps) {
+function AllProjects({ title, projects, className }: CurrentProjectsProps) {
   // const [statusIsCompleted, setStatusIsCompleted] = useState("")
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white py-20">
+    <div className={`bg-gradient-to-b from-gray-50 to-white py-20 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-16">
-          {title}
-        </h2>
+        {title && (
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-16">
+            {title}
+          </h2>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project, index) => (
@@ -44,9 +47,9 @@ function AllProjects({ title, projects }: CurrentProjectsProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export function AllProjectsList({ title, projects }: CurrentProjectsProps) {
-  return <AllProjects title={title} projects={projects} />;
+export function AllProjectsList({ title, projects, className }: CurrentProjectsProps) {
+  return <AllProjects title={title} projects={projects} className={className} />
 }

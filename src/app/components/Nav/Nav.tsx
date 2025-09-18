@@ -1,67 +1,63 @@
-"use client";
+"use client"
 
-import { useState, useEffect, useRef, useMemo } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { Nunito } from "next/font/google";
-import { useProjects } from "@/app/context/ProjectsContext";
+import { useState, useEffect, useRef, useMemo } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { usePathname } from "next/navigation"
+import { Nunito } from "next/font/google"
+import { useProjects } from "@/app/context/ProjectsContext"
 
 const nunito = Nunito({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-});
+})
 
 export default function Nav() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const pathname = usePathname();
-  const { projects } = useProjects();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const pathname = usePathname()
+  const { projects } = useProjects()
   const defaultLinkStyle =
-    "text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#4B5563] after:transition-transform after:duration-300";
+    "text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#4B5563] after:transition-transform after:duration-300"
   // 2. Referência para o link do tabmenu "Projetos de Pesquisa"
-  const researchProjectsLinkRef = useRef<HTMLAnchorElement>(null);
+  const researchProjectsLinkRef = useRef<HTMLAnchorElement>(null)
   // 3. Estado para armazenar a largura do link
-  const [dropdownWidth, setDropdownWidth] = useState("auto");
+  const [dropdownWidth, setDropdownWidth] = useState("auto")
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
 
   const researchProjects = useMemo(() => {
-    const ongoing = projects.filter(
-      (p) => p.type === "pesquisa" && p.status === "Em andamento",
-    );
-    const finished = projects.filter(
-      (p) => p.type === "pesquisa" && p.status === "Finalizado",
-    );
-    return { ongoing, finished };
-  }, [projects]);
+    const ongoing = projects.filter((p) => p.type === "pesquisa" && p.status === "Em andamento")
+    const finished = projects.filter((p) => p.type === "pesquisa" && p.status === "Finalizado")
+    return { ongoing, finished }
+  }, [projects])
 
   useEffect(() => {
     if (pathname === "/recursos-humanos") {
       const imageToPreload =
-        "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K9052777Y7";
-      const img = new window.Image();
-      img.src = imageToPreload;
+        "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K9052777Y7"
+      const img = new window.Image()
+      img.src = imageToPreload
     }
     // 4. Calcular a largura do link ao montar o componente ou quando o pathname muda
     if (researchProjectsLinkRef.current) {
-      setDropdownWidth(`${researchProjectsLinkRef.current.offsetWidth}px`);
+      setDropdownWidth(`${researchProjectsLinkRef.current.offsetWidth}px`)
     }
     // Opcional: Recalcular a largura se a janela for redimensionada
     const handleResize = () => {
       if (researchProjectsLinkRef.current) {
-        setDropdownWidth(`${researchProjectsLinkRef.current.offsetWidth}px`);
+        setDropdownWidth(`${researchProjectsLinkRef.current.offsetWidth}px`)
       }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [pathname]);
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [pathname])
 
   const createSlug = (title: string) => {
-    return encodeURIComponent(title.toLowerCase().replace(/\s+/g, "-"));
-  };
+    return encodeURIComponent(title.toLowerCase().replace(/\s+/g, "-"))
+  }
 
   return (
     <nav className="fixed w-full z-50">
@@ -92,7 +88,7 @@ export default function Nav() {
                 href="/"
                 className={`${defaultLinkStyle} ${pathname === "/" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
-                Início
+                Apresentação
               </Link>
               <div
                 className="relative"
@@ -101,20 +97,20 @@ export default function Nav() {
               >
                 <Link
                   ref={researchProjectsLinkRef}
-                  href="/projetos-pesquisa"
-                  className={`${defaultLinkStyle} ${pathname === "/projetos-pesquisa" ? "after:scale-x-100 text-[#295984]" : ""}`}
+                  href="/projetos"
+                  className={`${defaultLinkStyle} ${pathname === "/projetos" ? "after:scale-x-100 text-[#295984]" : ""}`}
                 >
-                  Projetos de Pesquisa
+                  Projetos
                 </Link>
                 {/* 6. Estrutura do Dropdown com efeitos e largura dinâmica */}
                 <div
                   className={`
-                                absolute top-full left-1/2 -translate-x-1/2 mt-2
-                                bg-white rounded-md shadow-lg py-2 z-10 border border-gray-200
-                                transition-all duration-300 ease-in-out origin-top
-                                ${isDropdownOpen ? "max-h-screen opacity-100 pointer-events-auto scale-y-100" : "max-h-0 opacity-0 pointer-events-none scale-y-0"}
+              absolute top-full left-1/2 -translate-x-1/2 mt-2
+              w-56
+              bg-white rounded-md shadow-lg py-2 z-10 border border-gray-200 transition-all duration-300 ease-in-out origin-top
+              ${isDropdownOpen ? "max-h-screen opacity-100 pointer-events-auto scale-y-100" : "max-h-0 opacity-0 pointer-events-none scale-y-0"}
                               `}
-                  style={{ width: dropdownWidth }} // 7. Aplicar a largura dinâmica aqui
+                  // style={{ width: dropdownWidth }} // 7. Aplicar a largura dinâmica aqui
                 >
                   <div className="px-4 py-2">
                     <h3 className="font-bold text-sm text-gray-800 border-b pb-2 mb-2">
@@ -133,9 +129,7 @@ export default function Nav() {
                         </Link>
                       ))
                     ) : (
-                      <p className="text-sm text-gray-400 px-3 py-1">
-                        Nenhum projeto.
-                      </p>
+                      <p className="text-sm text-gray-400 px-3 py-1">Nenhum projeto.</p>
                     )}
                   </div>
                   <div className="px-4 py-2">
@@ -155,24 +149,29 @@ export default function Nav() {
                         </Link>
                       ))
                     ) : (
-                      <p className="text-sm text-gray-400 px-3 py-1">
-                        Nenhum projeto.
-                      </p>
+                      <p className="text-sm text-gray-400 px-3 py-1">Nenhum projeto.</p>
                     )}
                   </div>
                 </div>
               </div>
-              <Link
-                href="/recursos-humanos"
-                className={`${defaultLinkStyle} ${pathname === "/recursos-humanos" ? "after:scale-x-100 text-[#295984]" : ""}`}
-              >
-                Recursos Humanos
-              </Link>
+
               <Link
                 href="/publicacoes"
                 className={`${defaultLinkStyle} ${pathname === "/publicacoes" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
                 Publicações
+              </Link>
+              <Link
+                href="/equipe"
+                className={`${defaultLinkStyle} ${pathname === "/equipe" ? "after:scale-x-100 text-[#295984]" : ""}`}
+              >
+                Equipe
+              </Link>
+              <Link
+                href="/parcerias"
+                className={`${defaultLinkStyle} ${pathname === "/parcerias" ? "after:scale-x-100 text-[#295984]" : ""}`}
+              >
+                Parcerias
               </Link>
               {/* <Link
                 href="/blog"
@@ -235,12 +234,7 @@ export default function Nav() {
                   onClick={toggleMobileMenu}
                   className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-200"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -296,5 +290,5 @@ export default function Nav() {
         </div>
       </div>
     </nav>
-  );
+  )
 }
