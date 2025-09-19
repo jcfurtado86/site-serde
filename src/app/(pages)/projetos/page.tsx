@@ -14,10 +14,12 @@ export default function ProjetosPesquisa() {
 
       <AllProjectsList
         title="Projetos de Pesquisa"
+        link="em-andamento"
         projects={projects.filter((project) => project.type === "pesquisa")}
       />
       <AllProjectsList
         title="Projetos de Extensão"
+        link="finalizados"
         projects={projects.filter((project) => project.type === "extensao")}
       />
     </main>

@@ -12,13 +12,14 @@ interface CurrentProjectsProps {
   title?: string
   projects: Project[]
   className?: string
+  link: string
 }
 
-function AllProjects({ title, projects, className }: CurrentProjectsProps) {
+function AllProjects({ title, projects, className, link }: CurrentProjectsProps) {
   // const [statusIsCompleted, setStatusIsCompleted] = useState("")
 
   return (
-    <div className={`bg-gradient-to-b from-gray-50 to-white py-20 ${className}`}>
+    <div id={link} className={`bg-gradient-to-b from-gray-50 to-white py-20 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {title && (
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-16">
@@ -50,6 +51,6 @@ function AllProjects({ title, projects, className }: CurrentProjectsProps) {
   )
 }
 
-export function AllProjectsList({ title, projects, className }: CurrentProjectsProps) {
-  return <AllProjects title={title} projects={projects} className={className} />
+export function AllProjectsList({ title, link, projects, className }: CurrentProjectsProps) {
+  return <AllProjects title={title} link={link} projects={projects} className={className} />
 }

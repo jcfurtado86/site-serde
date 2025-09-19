@@ -5,7 +5,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Nunito } from "next/font/google"
-import { useProjects } from "@/app/context/ProjectsContext"
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -16,7 +15,6 @@ export default function Nav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const pathname = usePathname()
-  const { projects } = useProjects()
   const defaultLinkStyle =
     "text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#4B5563] after:transition-transform after:duration-300"
   // 2. Referência para o link do tabmenu "Projetos de Pesquisa"
@@ -27,12 +25,6 @@ export default function Nav() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
-
-  const researchProjects = useMemo(() => {
-    const ongoing = projects.filter((p) => p.type === "pesquisa" && p.status === "Em andamento")
-    const finished = projects.filter((p) => p.type === "pesquisa" && p.status === "Finalizado")
-    return { ongoing, finished }
-  }, [projects])
 
   useEffect(() => {
     if (pathname === "/recursos-humanos") {
@@ -67,7 +59,7 @@ export default function Nav() {
         <div className="relative container mx-auto px-6 py-3">
           <div className="flex justify-between items-center mb-1">
             <Link href="/" className="flex items-center gap-2">
-              <Image
+              {/*<Image
                 src="/image/serde-planta.png"
                 alt="Logo"
                 width={150}
@@ -80,7 +72,14 @@ export default function Nav() {
                 <span style={{ color: "#1565C0" }}>r</span>
                 <span style={{ color: "#2E7D32" }}>d</span>
                 <span style={{ color: "#EF6C00" }}>e</span>
-              </h1>
+              </h1>*/}
+              <Image
+                src="/image/serde-final-horizontal.png"
+                alt="Logo"
+                width={150}
+                height={150}
+                className="w-auto h-8 md:h-12"
+              />
             </Link>
 
             <div className="hidden md:flex space-x-8">
@@ -105,53 +104,25 @@ export default function Nav() {
                 {/* 6. Estrutura do Dropdown com efeitos e largura dinâmica */}
                 <div
                   className={`
-              absolute top-full left-1/2 -translate-x-1/2 mt-2
-              w-56
-              bg-white rounded-md shadow-lg py-2 z-10 border border-gray-200 transition-all duration-300 ease-in-out origin-top
+              absolute top-full left-1/2 -translate-x-1/2
+              w-36 flex flex-col
+              bg-white rounded-md shadow-lg z-10 border border-gray-200 transition-all duration-300 ease-in-out origin-top
               ${isDropdownOpen ? "max-h-screen opacity-100 pointer-events-auto scale-y-100" : "max-h-0 opacity-0 pointer-events-none scale-y-0"}
                               `}
-                  // style={{ width: dropdownWidth }} // 7. Aplicar a largura dinâmica aqui
                 >
-                  <div className="px-4 py-2">
-                    <h3 className="font-bold text-sm text-gray-800 border-b pb-2 mb-2">
-                      Em andamento
-                    </h3>
-                    {researchProjects.ongoing.length > 0 ? (
-                      researchProjects.ongoing.map((project) => (
-                        <Link
-                          key={project.title}
-                          href={`/projetos/${createSlug(project.title)}`}
-                          className="block text-sm text-gray-600 hover:text-white hover:bg-[#295984] rounded-md px-3 py-2 transition-colors duration-200 "
-                          title={project.title}
-                          onClick={() => setIsDropdownOpen(false)} // Fecha ao clicar
-                        >
-                          {project.title}
-                        </Link>
-                      ))
-                    ) : (
-                      <p className="text-sm text-gray-400 px-3 py-1">Nenhum projeto.</p>
-                    )}
-                  </div>
-                  <div className="px-4 py-2">
-                    <h3 className="font-bold text-sm text-gray-800 border-b pb-2 mb-2">
-                      Finalizados
-                    </h3>
-                    {researchProjects.finished.length > 0 ? (
-                      researchProjects.finished.map((project) => (
-                        <Link
-                          key={project.title}
-                          href={`/projetos/${createSlug(project.title)}`}
-                          className="block text-sm text-gray-600 hover:text-white hover:bg-[#295984] rounded-md px-3 py-2 transition-colors duration-200"
-                          title={project.title}
-                          onClick={() => setIsDropdownOpen(false)} // Fecha ao clicar
-                        >
-                          {project.title}
-                        </Link>
-                      ))
-                    ) : (
-                      <p className="text-sm text-gray-400 px-3 py-1">Nenhum projeto.</p>
-                    )}
-                  </div>
+                  <Link
+                    href="/projetos/#em-andamento"
+                    className="w-full rounded font-semibold text-sm text-gray-800 border-b py-2 px-4 hover:bg-blue-200 transition-colors"
+                  >
+                    Em andamento
+                  </Link>
+
+                  <Link
+                    href="/projetos/#finalizados"
+                    className="w-full rounded font-semibold text-sm text-gray-800 border-b py-2 px-4 hover:bg-blue-200 transition-colors"
+                  >
+                    Finalizados
+                  </Link>
                 </div>
               </div>
 
@@ -215,7 +186,7 @@ export default function Nav() {
             <div className="flex flex-col h-full">
               <div className="flex items-center justify-between p-4 border-b border-gray-200">
                 <div className="flex items-center pl-2">
-                  <Image
+                  {/*<Image
                     src="/image/serde-planta.png"
                     alt="Logo"
                     width={100}
@@ -228,7 +199,14 @@ export default function Nav() {
                     <span style={{ color: "#1565C0" }}>r</span>
                     <span style={{ color: "#2E7D32" }}>d</span>
                     <span style={{ color: "#EF6C00" }}>e</span>
-                  </h1>
+                  </h1>*/}
+                  <Image
+                    src="/image/serde-final-horizontal.png"
+                    alt="Logo"
+                    width={150}
+                    height={150}
+                    className="w-auto h-8 md:h-12"
+                  />
                 </div>
                 <button
                   onClick={toggleMobileMenu}
