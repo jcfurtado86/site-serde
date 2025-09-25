@@ -29,7 +29,7 @@ const tccs: TCCProps[] = [
   {
     title:
       "UMA ANÁLISE DA APLICAÇÃO DE JOGOS PARA ENSINO DE PROGRAMAÇÃO BÁSICA A PARTIR DE UM MAPEAMENTO SISTEMÁTICO DA LITERATURA",
-    link: "#",
+    link: "analise-aplicacao-de-jogos-para-",
     status: "Finalizado",
     students: ["Alexsandro Nascimento Callins", "Davi Alberto Correa do Carmo"],
     advisor: "Julio Cezar Costa Furtado",
@@ -37,26 +37,25 @@ const tccs: TCCProps[] = [
   },
   {
     title: "EDUGAMES: UM CATÁLOGO ONLINE DE JOGOS DIGITAIS EDUCATIVOS PARA O ENSINO DE COMPUTAÇÃO",
-    link: "#",
+    link: "edugames-um-catalogo-online-de-jogos-digitais",
     status: "Finalizado",
     students: ["Eduardo Rodrigues Nogueira"],
     advisor: "Nome do Orientador",
     year: "2024",
   },
-
   {
     title:
       "MAPEAMENTO SISTEMÁTICO DE TÉCNICAS EMERGENTES DE PRÉ- PROCESSAMENTO PARA MITIGAÇÃO DE VIÉS EM DADOS DE TREINAMENTO",
-    link: "#",
-    status: "Em andamento",
+    link: "mapeamento-sistematico-de-tecnicas-emergentes-de-pre",
+    status: "Finalizado",
     students: ["Marco Antonio da Silva Neves Filho"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
   },
   {
     title: "CLASSUP: UMA PLATAFORMA GAMIFICADA PARA AUXÍLIO DO APRENDIZADO UTILIZANDO QUIZZES",
-    link: "#",
-    status: "Em andamento",
+    link: "classup-uma-plataforma-gamificada-para-auxilio-do",
+    status: "Finalizado",
     students: ["Luís César Martins Amaral"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
@@ -64,8 +63,8 @@ const tccs: TCCProps[] = [
   {
     title:
       "Desafios enfrentados por Profissionais e Empresas da Área de T.I. durante a pandemia de Covid-19 no Brasil",
-    link: "#",
-    status: "Em andamento",
+    link: "desafios-enfrentados-por-profissionais-e-empresas-da",
+    status: "Finalizado",
     students: ["Eduardo Luigi Tavares da Silva Ciuffi"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2023",
@@ -73,15 +72,15 @@ const tccs: TCCProps[] = [
   {
     title:
       "Papel ou IDE: Uma análise sobre as formas de avaliação em turmas iniciantes de programação",
-    link: "#",
-    status: "Em andamento",
+    link: "papel-ou-ide-uma-analise-sobre-as",
+    status: "Finalizado",
     students: [" Felipe Monteiro Farias"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
   },
   {
     title: " A evasão em cursos de computação: Um estudo de caso na Universidade Federal do Amapá",
-    link: "#",
+    link: "a-evasao-em-cursos-de-computacao-um",
     status: "Finalizado",
     students: ["Mateus Bezerra da Silva"],
     advisor: "Julio Cezar Costa Furtado",
@@ -90,7 +89,7 @@ const tccs: TCCProps[] = [
   {
     title:
       "Um catálogo de práticas de IHC para aplicativos móveis. 2022. Trabalho de Conclusão de Curso",
-    link: "#",
+    link: "um-catalogo-de-praticas-de-ihc-para",
     status: "Finalizado",
     students: ["Aíla Maciel"],
     advisor: "Julio Cezar Costa Furtado",
@@ -99,7 +98,7 @@ const tccs: TCCProps[] = [
   {
     title:
       "Uma Proposta de Identificação de Componentes Reutilizáveis Baseada em Interações de Classes",
-    link: "#",
+    link: "uma-proposta-de-identificacao-de-componentes-reutilizaveis",
     status: "Finalizado",
     students: ["Gabriel Melo da Silveira"],
     advisor: "Julio Cezar Costa Furtado",
@@ -107,7 +106,7 @@ const tccs: TCCProps[] = [
   },
   {
     title: "Uma Ferramenta para Identificação Automática de Bad Smells",
-    link: "#",
+    link: "uma-ferramenta-para-identificacao-automatica-de-bad",
     status: "Finalizado",
     students: ["Matheus Costa Silva"],
     advisor: "Julio Cezar Costa Furtado",
@@ -115,7 +114,7 @@ const tccs: TCCProps[] = [
   },
   {
     title: "Uma Análise Sobre Hard e Soft Skills na Engenharia de Software",
-    link: "#",
+    link: "uma-analise-sobre-hard-e-soft-skills",
     status: "Finalizado",
     students: ["Juliana Leal Alves"],
     advisor: "Julio Cezar Costa Furtado",
@@ -123,7 +122,7 @@ const tccs: TCCProps[] = [
   },
   {
     title: "Uma Abordagem para Ajustar o Controle de Versão à Natureza das Aplicações Web",
-    link: "#",
+    link: "uma-abordagem-para-ajustar-o-controle-de",
     status: "Finalizado",
     students: ["Erick da Cunha Sampaio"],
     advisor: "Julio Cezar Costa Furtado",
@@ -132,7 +131,7 @@ const tccs: TCCProps[] = [
   {
     title:
       "Proj-o-poly: Um Jogo para o Ensino de Gerenciamento de Projetos em Disciplinas de Engenharia de Software",
-    link: "#",
+    link: "proj-o-poly-um-jogo-para-o-ensino",
     status: "Finalizado",
     students: ["Carlos Eduardo Brito"],
     advisor: "Julio Cezar Costa Furtado",
@@ -141,7 +140,7 @@ const tccs: TCCProps[] = [
   {
     title:
       "Um Estudo sobre as Principais Dificuldades na Empregabilidade de um Engenheiros de Software",
-    link: "#",
+    link: "um-estudo-sobre-as-principais-dificuldades-na",
     status: "Finalizado",
     students: ["Edson Monteiro Neto"],
     advisor: "Julio Cezar Costa Furtado",
@@ -149,7 +148,7 @@ const tccs: TCCProps[] = [
   },
   {
     title: "Uma Abordagem para o Ensino de Engenharia de Requisitos Focada no Aluno",
-    link: "#",
+    link: "uma-abordagem-para-o-ensino-de-engenharia",
     status: "Finalizado",
     students: ["Anderson Guerra"],
     advisor: "Julio Cezar Costa Furtado",
@@ -160,26 +159,26 @@ const projectsData: Project[] = [
   {
     title: "Projeto SERDE - Software Engineering: Research, Development and Education",
     description: "Descrição do projeto SERDE",
-    professor: "Julio",
-    status: "Em andamento",
-    type: "pesquisa",
+    professor: "Julio Cezar Costa Furtado",
+    status: "Finalizado",
+    type: "Pesquisa",
     link: "/projeto-serde",
   },
   {
     title: "Uma Metodologia Ágil para Gestão da Aquisição de Software e Serviços Correlatos",
     description: "Descrição da metodologia",
-    professor: "Julio",
+    professor: "Julio Cezar Costa Furtado",
     status: "Finalizado",
-    type: "pesquisa",
-    link: "",
+    type: "Pesquisa",
+    link: "metodologia-agil-gestao-aquisicao-software-servicos-correlatos",
   },
   {
     title: "Laboratório de Desenvolvimento de Software Aplicado ao Judiciário",
     description: "Descrição do laboratório",
-    professor: "Julio",
+    professor: "Julio Cezar Costa Furtado",
     status: "Em andamento",
-    type: "extensao",
-    link: "",
+    type: "Extensão",
+    link: "laboratorio-software-judiciario",
   },
 ]
 
