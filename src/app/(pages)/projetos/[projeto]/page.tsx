@@ -39,7 +39,7 @@ function ProjectDetails({ project }: { project: Project }) {
   }
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg my-12">
+    <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
       <div className="p-8 md:p-12">
         {/* Seção do Título e Metadados */}
         <header>
@@ -133,7 +133,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     mergedArray.find((projeto) => projeto.link === projetoLink) || null
 
   return (
-    <main className="pt-20 pb-px bg-gray-50">
+    <main className="pt-20 pb-16  bg-gray-50">
       <Breadcrumb
         items={[
           { label: "Projetos", href: "/projetos" },
