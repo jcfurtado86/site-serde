@@ -131,7 +131,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   const projetoLink = resolvedParams.projeto
   const projeto: Project | null =
     mergedArray.find((projeto) => projeto.link === projetoLink) || null
-  console.log(projeto)
 
   return (
     <main className="pt-20 pb-px bg-gray-50">
