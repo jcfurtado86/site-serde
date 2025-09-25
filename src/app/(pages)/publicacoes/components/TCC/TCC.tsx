@@ -1,18 +1,21 @@
+"use client"
+import { useProjects } from "@/app/context/ProjectsContext"
+
 interface TCCProps {
   title: string
   link: string
-  student: string
+  students: string[]
   advisor: string
   year: string
 }
 
-function TCC({ title, link, student, advisor, year }: TCCProps) {
+function TCC({ title, link, students, advisor, year }: TCCProps) {
   return (
     <div className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 p-8">
       <h2 className="text-2xl text-gray-800 font-bold mb-4 line-clamp-2 group-hover:text-gray-900 transition-colors duration-300">
         {title}
       </h2>
-      <p className="text-base text-gray-600 mb-2">Aluno: {student}</p>
+      <p className="text-base text-gray-600 mb-2">Aluno(s): {students.join(", ")}</p>
       <p className="text-base text-gray-600 mb-6">
         Orientador: {advisor} - {year}
       </p>
@@ -37,15 +40,7 @@ function TCC({ title, link, student, advisor, year }: TCCProps) {
 }
 
 export function TCCs() {
-  const tccs: TCCProps[] = [
-    {
-      title: "Nome do TCC 1",
-      link: "#",
-      student: "Nome do Aluno",
-      advisor: "Nome do Orientador",
-      year: "2024",
-    },
-  ]
+  const { tccs } = useProjects()
 
   return (
     <main id="tcc" className="bg-gradient-to-b from-white to-gray-100 py-20">

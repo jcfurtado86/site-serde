@@ -1,26 +1,55 @@
 "use client"
 
-import { ResearchLineList } from "./components/ResearchLine/ReaserchLine"
 import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
 import { AllProjectsList } from "./components/AllProjects/AllProjects"
 import { useProjects } from "@/app/context/ProjectsContext"
 
+export interface Project {
+  title: string
+  description: string
+  professor: string
+  status: string
+  type: string
+  link: string
+}
+
 export default function ProjetosPesquisa() {
-  const { projects } = useProjects()
+  const { projects, tccs } = useProjects()
+
+  const transformedTCCs: Project[] = tccs.map((tcc) => {
+    // Constrói uma descrição a partir dos dados do TCC
+    const description = `TCC desenvolvido por ${tcc.students.join(", ")} no ano de ${tcc.year}.`
+
+    return {
+      // Mapeamentos diretos
+      title: tcc.title,
+      link: tcc.link,
+
+      // Mapeamento adaptado: 'advisor' vira 'professor'
+      professor: tcc.advisor,
+
+      // Campos gerados com valores padrão ou construídos
+      description: description,
+      status: tcc.status, // Assumimos que TCCs listados estão concluídos
+      type: "TCC", // Definimos o tipo como 'TCC' para fácil identificação
+    }
+  })
+
+  // 2. Combina o array de projetos original com os TCCs transformados
+  const mergedArray = [...projects, ...transformedTCCs]
+
   return (
     <main className="pt-20 bg-gray-50">
-      <Breadcrumb items={[{ label: "Projetos de Pesquisa", href: "/projetos-pesquisa" }]} />
-      <ResearchLineList className="bg-gradient-to-b from-gray-50 to-white" />
-
+      <Breadcrumb items={[{ label: "Projetos", href: "/projetos" }]} />
       <AllProjectsList
-        title="Projetos de Pesquisa"
+        title="Projetos Em Andamento"
         link="em-andamento"
-        projects={projects.filter((project) => project.type === "pesquisa")}
+        projects={mergedArray.filter((project) => project.status === "Em andamento")}
       />
       <AllProjectsList
-        title="Projetos de Extensão"
+        title="Projetos Finalizados"
         link="finalizados"
-        projects={projects.filter((project) => project.type === "extensao")}
+        projects={mergedArray.filter((project) => project.status === "Finalizado")}
       />
     </main>
   )

@@ -105,20 +105,20 @@ export default function Nav() {
                 <div
                   className={`
               absolute top-full left-1/2 -translate-x-1/2
-              w-36 flex flex-col
+               flex flex-col w-max
               bg-white rounded-md shadow-lg z-10 border border-gray-200 transition-all duration-300 ease-in-out origin-top
               ${isDropdownOpen ? "max-h-screen opacity-100 pointer-events-auto scale-y-100" : "max-h-0 opacity-0 pointer-events-none scale-y-0"}
                               `}
                 >
                   <Link
-                    href="/projetos/#em-andamento"
+                    href="/projetos#em-andamento"
                     className="w-full rounded font-semibold text-sm text-gray-800 border-b py-2 px-4 hover:bg-blue-200 transition-colors"
                   >
                     Em andamento
                   </Link>
 
                   <Link
-                    href="/projetos/#finalizados"
+                    href="/projetos#finalizados"
                     className="w-full rounded font-semibold text-sm text-gray-800 border-b py-2 px-4 hover:bg-blue-200 transition-colors"
                   >
                     Finalizados
@@ -233,7 +233,7 @@ export default function Nav() {
                     Início
                   </Link>
                   <Link
-                    href="/projetos-pesquisa"
+                    href="/projetos"
                     className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

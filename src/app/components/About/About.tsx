@@ -35,23 +35,6 @@ export default function About() {
         </div>
         {/*linhas de pesquisa*/}
         <ResearchLineList className="pt-2 bg-none" />
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-10">
-          Projetos
-        </h2>
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-gray-900 text-center my-5">
-          Finalizados
-        </h2>
-        <AllProjectsList
-          projects={projects.filter((project) => project.status === "Finalizado")}
-          className="!py-2 bg-none"
-        />
-        <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-gray-900 text-center my-5">
-          Em andamento
-        </h2>
-        <AllProjectsList
-          projects={projects.filter((project) => project.status === "Em andamento")}
-          className="!py-2 bg-none mb-10"
-        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           <Link
