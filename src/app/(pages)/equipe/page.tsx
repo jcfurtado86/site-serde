@@ -1,18 +1,16 @@
+"use client"
 import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
-import { Docentes } from "./components/Docentes/Docentes"
-import { Students } from "./components/Academicos/Academicos"
-import { ExStudents } from "./components/Egressos/Egressos"
+import { useProjects } from "@/app/context/ProjectsContext"
+import { Members } from "./components/Members/Members"
+
 export default function ProjetosPesquisa() {
-    return (
-        <main className="pt-20 bg-gray-50">
-                <Breadcrumb 
-                items={[
-            { label: 'Recursos Humanos', href: '/recursos-humanos' },
-            ]} 
-                />
-                <Docentes />
-                <Students />
-                <ExStudents />
-        </main>
-    )
+  const { students, exStudents, teachers } = useProjects()
+  return (
+    <main className="pt-20 bg-gray-50">
+      <Breadcrumb items={[{ label: "Equipe", href: "/equipe" }]} />
+      <Members members={teachers} title="Docentes" />
+      <Members members={students} title="Acadêmicos" />
+      <Members members={exStudents} title="Egressos" />
+    </main>
+  )
 }
