@@ -314,14 +314,6 @@ const students: StudentProps[] = [
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1546897P6",
   },
   {
-    name: "Marco Antonio da Silva Neves Filho",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    email: "email@unifap.br",
-    curriculumLink: "http://lattes.cnpq.br/7123969561902651",
-    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4373842E3",
-  },
-  {
     name: "Marcus Vinícyus Santos Figueira",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -460,6 +452,14 @@ const exStudents: ExStudentProps[] = [
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2109801U5",
   },
   {
+    name: "Marco Antonio da Silva Neves Filho",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/7123969561902651",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4373842E3",
+  },
+  {
     name: "Mateus Bezerra da Silva",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -509,6 +509,14 @@ const teachers: TeacherProps[] = [
     curriculumLink: "http://lattes.cnpq.br/7801947090551930",
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8583463P7",
   },
+  // {
+  //   name: "Thiago Pinheiro do Nascimento",
+  //   institution: "Unifap",
+  //   campus: "Campus Unifap",
+  //   email: "email@unifap.br",
+  //   curriculumLink: "http://lattes.cnpq.br/3122065417402092",
+  //   imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4373842E3",
+  // },
 ]
 
 const tccs: TCCProps[] = [

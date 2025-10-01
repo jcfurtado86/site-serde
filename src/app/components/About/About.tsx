@@ -151,7 +151,7 @@ export default function About() {
 
         <div className="mt-12 text-center">
           <Link
-            href="http://dgp.cnpq.br/dgp/espelhogrupo/0123456789"
+            href="http://dgp.cnpq.br/dgp/espelhogrupo/225177"
             target="_blank"
             className="text-[#1565C0] hover:text-white inline-flex items-center gap-2 transition-all duration-300 border-2 border-[#1565C0] hover:bg-[#1565C0] rounded-lg px-6 py-3 mt-6 font-medium"
           >
