@@ -27,7 +27,7 @@ export default function Nav() {
   }
 
   useEffect(() => {
-    if (pathname === "/recursos-humanos") {
+    if (pathname === "/equipe") {
       const imageToPreload =
         "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K9052777Y7"
       const img = new window.Image()
@@ -240,11 +240,11 @@ export default function Nav() {
                     Projetos de Pesquisa
                   </Link>
                   <Link
-                    href="/recursos-humanos"
+                    href="/equipe"
                     className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Recursos Humanos
+                    Equipe
                   </Link>
                   <Link
                     href="/publicacoes"
