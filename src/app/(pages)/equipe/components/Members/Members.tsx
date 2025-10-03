@@ -116,11 +116,14 @@ export function Members({ members, title }: MemberComponentProps) {
 
     preloadImages()
   }, [])
-  const usersToFix = ["victor gabriel gomes bahia"]
+  const usersToFix = ["victor gabriel gomes bahia", "davi alberto correa silva do carmo"]
+  const masterUsers = ["josilene aline soares ferreira de oliveira"]
   const fixedPositionMembers = members.filter((member) =>
     usersToFix.some((user) => member.name.toLowerCase().includes(user))
   )
-  console.log(fixedPositionMembers)
+  const masterUsersMembers = members.filter((member) =>
+    masterUsers.some((user) => member.name.toLowerCase().includes(user))
+  )
   return (
     <main className="bg-gradient-to-b from-gray-50 to-white py-3 sm:py-20">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -134,6 +137,26 @@ export function Members({ members, title }: MemberComponentProps) {
               className="group bg-white rounded-xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full"
             >
               <div className="relative w-full h-[200px] sm:h-[20rem] overflow-hidden bg-gray-100">
+                {member.name === "Julio Cezar Costa Furtado" && (
+                  <div className="absolute bottom-3 flex z-10 w-full">
+                    <span
+                      className={`mx-auto w-fit  text-teal-600 bg-teal-100 group-hover:bg-teal-200 text-sm font-medium px-2 py-1 rounded-full  transition-colors duration-300`}
+                    >
+                      Coordenador
+                    </span>
+                  </div>
+                )}
+                {title === "Alunos" && (
+                  <div className="absolute bottom-3 flex z-10 w-full">
+                    <span
+                      className={`mx-auto w-fit text-orange-600 bg-orange-100 group-hover:bg-orange-200 text-sm font-medium px-2 py-1 rounded-full  transition-colors duration-300`}
+                    >
+                      {masterUsersMembers.some((masterUser) => masterUser.name === member.name)
+                        ? "Mestrado"
+                        : "Graduação"}
+                    </span>
+                  </div>
+                )}
                 {member.imageUrl ? (
                   <Image
                     src={member.imageUrl}
@@ -167,6 +190,7 @@ export function Members({ members, title }: MemberComponentProps) {
                 <h2 className="text-sm sm:text-lg lg:text-lg text-gray-800 font-bold line-clamp-2 group-hover:text-gray-900 group-hover:brightness-125 transition-all duration-300">
                   {member.name}
                 </h2>
+
                 <div className="flex items-center justify-between gap-1 sm:gap-4">
                   {title === "Docentes" && (
                     <a
