@@ -8,8 +8,8 @@ export default function ProjetosPesquisa() {
   return (
     <main className="pt-20 bg-gray-50">
       <Breadcrumb items={[{ label: "Equipe", href: "/equipe" }]} />
-      <Members members={teachers} title="Docentes" />
-      <Members members={students} title="Acadêmicos" />
+      <Members members={teachers} title="Pesquisadores" />
+      <Members members={students} title="Alunos" />
       <Members members={exStudents} title="Egressos" />
     </main>
   )
