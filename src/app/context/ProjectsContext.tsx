@@ -380,12 +380,28 @@ const exStudents: ExStudentProps[] = [
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2100157A0",
   },
   {
+    name: "Alexsandro Monteiro Nascimento Callins",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/2451866311989595",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1148930T6",
+  },
+  {
     name: "Carlos Eduardo Brito da Silva dos Santos",
     institution: "Unifap",
     campus: "Campus Unifap",
     email: "julio@unifap.br",
     curriculumLink: "http://lattes.cnpq.br/7238237839067724",
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8804965Z9",
+  },
+  {
+    name: "Davi Alberto Correa Silva do Carmo",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/1934281181551924",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2774836U2",
   },
   {
     name: "Edson Monteiro Neto",
