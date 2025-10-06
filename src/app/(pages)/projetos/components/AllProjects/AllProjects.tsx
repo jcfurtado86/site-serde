@@ -14,13 +14,12 @@ interface CurrentProjectsProps {
   className?: string
   link: string
 }
-
+const typeColors = [
+  { type: "Extensão", color: "text-teal-600 bg-teal-100 group-hover:bg-teal-200" },
+  { type: "Pesquisa", color: "text-purple-600 bg-purple-100 group-hover:bg-purple-200" },
+  { type: "TCC", color: "text-orange-600 bg-orange-100 group-hover:bg-orange-200" },
+]
 export function AllProjectsList({ title, projects, className, link }: CurrentProjectsProps) {
-  const typeColors = [
-    { type: "Extensão", color: "text-teal-600 bg-teal-100 group-hover:bg-teal-200" },
-    { type: "Pesquisa", color: "text-purple-600 bg-purple-100 group-hover:bg-purple-200" },
-    { type: "TCC", color: "text-orange-600 bg-orange-100 group-hover:bg-orange-200" },
-  ]
   return (
     <div id={link} className={`bg-gradient-to-b from-gray-50 to-white py-20 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

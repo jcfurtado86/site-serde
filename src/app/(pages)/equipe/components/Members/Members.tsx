@@ -1,7 +1,6 @@
 "use client"
 import Image from "next/image"
 import { useEffect } from "react"
-import { useProjects } from "@/app/context/ProjectsContext"
 
 interface MemberProps {
   name: string
@@ -16,93 +15,11 @@ interface MemberComponentProps {
   members: MemberProps[]
   title: string
 }
-
-function Member({ name, institution, campus, email, curriculumLink, imageUrl }: MemberProps) {
-  return (
-    <div className="group bg-white rounded-xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full">
-      <div className="relative w-full h-[200px] sm:h-[300px] overflow-hidden bg-gray-100">
-        {imageUrl ? (
-          <Image
-            src={imageUrl}
-            alt={name}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-            priority
-            className="object-cover object-top group-hover:scale-105 transition-transform duration-300 "
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSAyUC0zLyYuLy0xPDZCNzIrLjM9RUdQRUVHSUlNTU1CQUJISUhNTU3/2wBDAQwXFx0aHR4dHU1MLSU1TU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU3/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-          />
-        ) : (
-          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-            <svg
-              className="w-16 h-16 sm:w-24 sm:h-24 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-              />
-            </svg>
-          </div>
-        )}
-      </div>
-      <div className="p-2 sm:p-4 flex flex-col justify-between flex-grow">
-        <h2 className="text-sm sm:text-lg lg:text-lg text-gray-800 font-bold line-clamp-2 group-hover:text-gray-900 group-hover:brightness-125 transition-all duration-300">
-          {name}
-        </h2>
-        {/*<p className="text-xs sm:text-sm text-gray-600 mt-auto">
-          {institution} - {campus}
-        </p>*/}
-        <div className="flex items-center justify-start gap-1 sm:gap-4">
-          <a
-            href={`mailto:${email}`}
-            className="flex-1 text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center gap-1 sm:gap-2 py-1 sm:py-2 px-1.5 sm:px-3 rounded-lg hover:bg-blue-50 transition-all duration-300 text-xs sm:text-base"
-          >
-            <svg
-              className="w-3 h-3 sm:w-5 sm:h-5 flex-shrink-0"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              />
-            </svg>
-            <span className="whitespace-nowrap">Email</span>
-          </a>
-          <a
-            href={curriculumLink}
-            className="flex-1 text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center gap-1 sm:gap-2 py-1 sm:py-2 px-1.5 sm:px-3 rounded-lg hover:bg-blue-50 transition-all duration-300 text-xs sm:text-base"
-            target="_blank"
-          >
-            <svg
-              className="w-3 h-3 sm:w-5 sm:h-5 flex-shrink-0"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V7a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-            <span className="whitespace-nowrap">Lattes</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  )
-}
-
+const typeColors = [
+  { type: "Graduação", color: "text-teal-600 bg-teal-100 group-hover:bg-teal-200" },
+  { type: "Pesquisa", color: "text-purple-600 bg-purple-100 group-hover:bg-purple-200" },
+  { type: "Mestrado", color: "text-orange-600 bg-orange-100 group-hover:bg-orange-200" },
+]
 export function Members({ members, title }: MemberComponentProps) {
   useEffect(() => {
     const preloadImages = () => {
@@ -149,7 +66,7 @@ export function Members({ members, title }: MemberComponentProps) {
                 {title === "Alunos" && (
                   <div className="absolute bottom-3 flex z-10 w-full">
                     <span
-                      className={`mx-auto w-fit text-orange-600 bg-orange-100 group-hover:bg-orange-200 text-sm font-medium px-2 py-1 rounded-full  transition-colors duration-300`}
+                      className={`mx-auto w-fit ${masterUsersMembers.some((masterUser) => masterUser.name === member.name) ? typeColors.find((type) => type.type === "Mestrado")?.color : typeColors.find((type) => type.type === "Graduação")?.color} text-sm font-medium px-2 py-1 rounded-full  transition-colors duration-300`}
                     >
                       {masterUsersMembers.some((masterUser) => masterUser.name === member.name)
                         ? "Mestrado"
