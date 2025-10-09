@@ -46,6 +46,12 @@ export interface Project {
   link: string
 }
 
+export interface ParceiroProps {
+  title: string
+  description: string
+  logoURL: string
+}
+
 // 2. Defina os dados que serão compartilhados.
 const students: StudentProps[] = [
   {
