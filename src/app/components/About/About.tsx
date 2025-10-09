@@ -4,11 +4,16 @@ import Link from "next/link"
 import { ResearchLineList } from "@/app/(pages)/projetos/components/ResearchLine/ReaserchLine"
 import { AllProjectsList } from "@/app/(pages)/projetos/components/AllProjects/AllProjects"
 import { useProjects } from "@/app/context/ProjectsContext"
+interface ResultItemProps {
+  href: string
+  label: string
+  quantity: number
+}
 
 // Um componente simples para os itens da lista, para evitar repetição
-const ResultItem = ({ href, label }) => (
+const ResultItem = ({ href, label, quantity }: ResultItemProps) => (
   <div className="text-center md:text-left">
-    <span className="text-yellow-400 font-mono text-xl">...</span>
+    <span className="text-yellow-400 font-mono text-xl">{quantity}</span>
     <Link
       href={href}
       className="block mt-2 text-lg font-semibold text-white hover:text-yellow-300 transition-colors duration-300"
@@ -18,8 +23,56 @@ const ResultItem = ({ href, label }) => (
   </div>
 )
 
+const ResearchResults = ({ researchItems }: { researchItems: ResultItemProps[] }) => (
+  <section className="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-gray-800 text-white">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {/* Coluna de Texto */}
+      <div className="md:pr-8">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-12 text-center md:text-left">
+          RESULTADOS DE PESQUISAS
+        </h2>
+        <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-7">
+          {researchItems.map((item, index) => (
+            <ResultItem key={index} {...item} />
+          ))}
+        </div>
+      </div>
+
+      {/* Coluna da Imagem */}
+      <div className="flex justify-center">
+        <div className="p-3 bg-orange-500 rounded-lg shadow-2xl transform hover:rotate-3 transition-transform duration-300 md:rotate-0">
+          {/* URL aleatória como solicitado. Você pode substituir por uma imagem estática ou dinâmica */}
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
+            alt="Equipe de pesquisa colaborando em um projeto"
+            className="rounded-md w-full h-full object-cover max-w-md"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+)
+
 export default function About() {
-  const { projects } = useProjects()
+  const { projects, tccs } = useProjects()
+  const researchItems = [
+    {
+      href: "/publicacoes",
+      label: "Artigos publicados",
+      quantity: 16,
+    },
+    {
+      href: "/publicacoes#tcc",
+      label: "TCCs defendidos",
+      quantity: tccs.length,
+    },
+    {
+      href: "/projetos",
+      label: "Projetos",
+      quantity: projects.length,
+    },
+  ]
+
   return (
     <div
       className="w-full bg-gradient-to-b from-gray-50 to-white flex flex-col items-center p-4 pb-2 pt-2 sm:p-6 sm:pb-4 sm:pt-4 lg:p-8 lg:pb-6 lg:pt-6"
@@ -55,46 +108,19 @@ export default function About() {
             profissionais preparados para atuar em processos de desenvolvimento de software. O SERDE
             tem como objetivo produzir conhecimento científico na área de Engenharia de Software, ao
             mesmo tempo em que desenvolve metodologias, ferramentas e práticas que aproximam a
-            teoria da prática, favorecendo tanto o ensino quanto a aplicação profissional. O grupo
-            também busca fortalecer a formação acadêmica, promovendo experiências que conectem
-            estudantes a desafios reais, além de estimular a inovação tecnológica como motor de
-            desenvolvimento regional e social. Um de seus diferenciais é ter surgido enraizado na
-            realidade amazônica, com a convicção de que a qualidade de software e a transformação
-            digital podem ser instrumentos para o desenvolvimento sustentável. Mais do que criar
-            soluções tecnológicas, o SERDE se dedica a avaliar o impacto efetivo de seu uso,
-            garantindo que a inovação produza resultados concretos para a sociedade e contribua para
-            a construção de um ecossistema de conhecimento e inovação sólido na região.
+            teoria da prática, favorecendo tanto o ensino quanto a aplicação profissional.
+            <br />O grupo também busca fortalecer a formação acadêmica, promovendo experiências que
+            conectem estudantes a desafios reais, além de estimular a inovação tecnológica como
+            motor de desenvolvimento regional e social. Um de seus diferenciais é ter surgido
+            enraizado na realidade amazônica, com a convicção de que a qualidade de software e a
+            transformação digital podem ser instrumentos para o desenvolvimento sustentável. Mais do
+            que criar soluções tecnológicas, o SERDE se dedica a avaliar o impacto efetivo de seu
+            uso, garantindo que a inovação produza resultados concretos para a sociedade e contribua
+            para a construção de um ecossistema de conhecimento e inovação sólido na região.
           </p>
         </div>
-        <section className={`bg-gray-800 text-white`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              {/* Coluna de Texto */}
-              <div className="md:pr-8">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-12 text-center md:text-left">
-                  RESULTADOS DE PESQUISAS
-                </h2>
-                <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-10">
-                  <ResultItem href="/publicacoes" label="Artigos Publicados" />
-                  <ResultItem href="/publicacoes#tcc" label="TCCs Defendidos" />
-                  <ResultItem href="/projetos" label="Projetos" />
-                </div>
-              </div>
-
-              {/* Coluna da Imagem */}
-              <div className="flex justify-center">
-                <div className="p-3 bg-orange-500 rounded-lg shadow-2xl transform md:rotate-3 transition-transform duration-300 hover:rotate-0">
-                  {/* URL aleatória como solicitado. Você pode substituir por uma imagem estática ou dinâmica */}
-                  <img
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
-                    alt="Equipe de pesquisa colaborando em um projeto"
-                    className="rounded-md w-full h-full object-cover max-w-md"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/*resultados de pesquisa*/}
+        {/*<ResearchResults researchItems={researchItems} />*/}
         {/*linhas de pesquisa*/}
         <ResearchLineList className="pt-2 bg-none" />
 
