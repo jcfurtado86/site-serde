@@ -54,7 +54,8 @@ const ResearchResults = ({ researchItems }: { researchItems: ResultItemProps[] }
 )
 
 export default function About() {
-  const { projects, tccs } = useProjects()
+  const { projects, tccs, students, exStudents, teachers } = useProjects()
+  const equipe = [...students, ...exStudents, ...teachers]
   const researchItems = [
     {
       href: "/publicacoes",
@@ -140,6 +141,9 @@ export default function About() {
                 </svg>
               </div>
             </div>
+            <h3 className="text-xl lg:text-2xl font-bold text-center text-black">
+              {projects.length}
+            </h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">Projetos</h3>
             <p className="text-gray-600 text-center">
               Acesse aqui as linhas de pesquisa do grupo e os projetos de pesquisa em andamento e já
@@ -162,6 +166,7 @@ export default function About() {
                 </svg>
               </div>
             </div>
+            <h3 className="text-xl lg:text-2xl font-bold text-center text-black">16</h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">
               Publicações
             </h3>
@@ -186,6 +191,7 @@ export default function About() {
                 </svg>
               </div>
             </div>
+            <h3 className="text-xl lg:text-2xl font-bold text-center text-black">{tccs.length}</h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">
               Orientações
             </h3>
@@ -195,7 +201,7 @@ export default function About() {
             </p>
           </Link>
           <Link
-            href="/equipe"
+            href="/membros"
             className="group bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex justify-center mb-6">
@@ -209,7 +215,10 @@ export default function About() {
                 </svg>
               </div>
             </div>
-            <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">Equipe</h3>
+            <h3 className="text-xl lg:text-2xl font-bold text-center text-black">
+              {equipe.length}
+            </h3>
+            <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">Membros</h3>
             <p className="text-gray-600 text-center">
               Esta página contém a lista de docentes e discentes que fazem parte do grupo, bem como
               a atuação de cada um nas pesquisas desenvolvidas

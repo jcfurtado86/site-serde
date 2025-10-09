@@ -7,7 +7,7 @@ export default function ProjetosPesquisa() {
   const { students, exStudents, teachers } = useProjects()
   return (
     <main className="pt-20 bg-gray-50">
-      <Breadcrumb items={[{ label: "Equipe", href: "/equipe" }]} />
+      <Breadcrumb items={[{ label: "Membros", href: "/membros" }]} />
       <Members members={teachers} title="Pesquisadores" />
       <Members members={students} title="Alunos" />
       <Members members={exStudents} title="Egressos" />

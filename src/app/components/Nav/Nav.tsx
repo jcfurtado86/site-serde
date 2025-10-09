@@ -27,7 +27,7 @@ export default function Nav() {
   }
 
   useEffect(() => {
-    if (pathname === "/equipe") {
+    if (pathname === "/membros") {
       const imageToPreload =
         "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K9052777Y7"
       const img = new window.Image()
@@ -133,10 +133,10 @@ export default function Nav() {
                 Publicações
               </Link>
               <Link
-                href="/equipe"
-                className={`${defaultLinkStyle} ${pathname === "/equipe" ? "after:scale-x-100 text-[#295984]" : ""}`}
+                href="/membros"
+                className={`${defaultLinkStyle} ${pathname === "/membros" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
-                Equipe
+                Membros
               </Link>
               <Link
                 href="/parcerias"
@@ -240,7 +240,7 @@ export default function Nav() {
                     Projetos de Pesquisa
                   </Link>
                   <Link
-                    href="/equipe"
+                    href="/membros"
                     className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
