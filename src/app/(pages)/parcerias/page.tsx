@@ -5,7 +5,7 @@ import { Parceria } from "@/app/(pages)/parcerias/components/Parceria"
 export default function ProjetosPesquisa() {
   const { parcerias } = useProjects()
   return (
-    <main className="pt-20 bg-gray-50">
+    <main className="pt-20 bg-gray-50 min-h-[calc(100vh-89px)]">
       <Breadcrumb items={[{ label: "Parcerias", href: "/parcerias" }]} />
       <section className="bg-gradient-to-b from-gray-50 to-white py-3 sm:py-20">
         <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
