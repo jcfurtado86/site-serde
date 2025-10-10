@@ -28,7 +28,7 @@ export const Parceria = ({ parceria }: { parceria: ParceiroProps }) => {
       rel="noopener noreferrer"
       // [ESTILO] Classes base do card para consistência com o resto do site.
       // 'group' é a chave para a mágica do hover no ícone.
-      className="group relative flex h-64 flex-col rounded-xl border border-gray-200 bg-white py-6 px-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      className="group relative flex h-64 flex-col rounded-xl border border-gray-200 bg-white py-6 px-6 lg:px-10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       {/* [INTERATIVIDADE] Ícone de link externo que aparece no hover do card */}
       <div className="absolute right-5 top-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -36,20 +36,20 @@ export const Parceria = ({ parceria }: { parceria: ParceiroProps }) => {
       </div>
 
       {/* Logo do Parceiro */}
-      <div className="flex items-center justify-center">
+      <div className="flex h-4/5 items-center justify-center">
         <Image
           width={96}
           height={96}
           src={parceria.logoURL}
           alt={`Logo de ${parceria.title}`}
           // object-contain garante que o logo não seja distorcido.
-          className="lg:h-36 w-full object-contain"
+          className="h-full sm:h-24 md:h-28 lg:h-36 w-full object-contain"
         />
       </div>
 
       {/* Conteúdo de Texto */}
       <div className="flex flex-grow flex-col text-center">
-        <h3 className="mt-4 text-xl font-bold text-gray-800">{parceria.title}</h3>
+        <h3 className="mt-4 text-lg md:text-xl font-bold text-gray-800">{parceria.title}</h3>
         {/* flex-grow faz a descrição ocupar o espaço disponível, alinhando o conteúdo em cards de alturas diferentes */}
         {/*<p className="flex-grow text-sm text-gray-600">{parceria.description}</p>*/}
       </div>

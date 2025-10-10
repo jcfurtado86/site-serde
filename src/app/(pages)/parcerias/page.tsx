@@ -12,7 +12,7 @@ export default function ProjetosPesquisa() {
           <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black text-center mb-3 sm:mb-10">
             Parcerias
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-3">
             {parcerias.map((parceria, index) => (
               <Parceria key={index} parceria={parceria} />
             ))}
