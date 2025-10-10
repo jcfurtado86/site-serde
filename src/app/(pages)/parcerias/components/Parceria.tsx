@@ -1,4 +1,4 @@
-import { ParceiroProps } from "@/app/(pages)/parcerias/components/Parceria" // Seu tipo importado
+import { ParceiroProps } from "@/app/context/ProjectsContext"
 import Image from "next/image"
 import Link from "next/link"
 
