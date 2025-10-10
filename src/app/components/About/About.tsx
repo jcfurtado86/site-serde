@@ -193,7 +193,7 @@ export default function About() {
             </div>
             <h3 className="text-xl lg:text-2xl font-bold text-center text-black">{tccs.length}</h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">
-              Orientações
+              Orientações Concluídas
             </h3>
             <p className="text-gray-600 text-center">
               Conheça os trabalhos de orientação em andamento e concluídos pelos docentes do grupo

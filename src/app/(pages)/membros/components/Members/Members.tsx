@@ -150,7 +150,7 @@ export function Members({ members, title }: MemberComponentProps) {
                     </svg>
                     <span className="whitespace-nowrap">Lattes</span>
                   </a>
-                  {title !== "Docentes" && (
+                  {title !== "Pesquisadores" && (
                     <a
                       href={"/"}
                       className="flex-1 text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center gap-1 sm:gap-2 py-1 sm:py-2 px-1.5 sm:px-3 rounded-lg hover:bg-blue-50 transition-all duration-300 text-xs sm:text-base"

@@ -1,8 +1,7 @@
 // app/context/ProjectsContext.js
 "use client" // Contextos que mantêm estado (useState) precisam ser Client Components.
-
 import { createContext, useContext } from "react"
-
+import logo from "public/logo.png"
 interface StudentProps {
   name: string
   institution: string
@@ -50,6 +49,7 @@ export interface ParceiroProps {
   title: string
   description: string
   logoURL: string
+  websiteURL: string
 }
 
 // 2. Defina os dados que serão compartilhados.
@@ -699,18 +699,52 @@ const projectsData: Project[] = [
   },
 ]
 
+const parcerias: ParceiroProps[] = [
+  {
+    title: "Unifap Digital",
+    description: "",
+    logoURL: "/image/parceiros/logo-unifap-digital.png",
+    websiteURL: "https://unifapdigital.unifap.br/",
+  },
+  {
+    title: "Tribunal Regional Eleitoral do Amapá",
+    description: "",
+    logoURL: "/image/parceiros/tre-ap-logo-transparent.png",
+    websiteURL: "https://www.tre-ap.jus.br/",
+  },
+  {
+    title: "Tribunal de Justiça Estado do Amapá",
+    description: "",
+    logoURL: "/image/parceiros/tjap-logo-ouro-2024.png",
+    websiteURL: "https://www.tjap.jus.br/portal/",
+  },
+  {
+    title: "Projeto SPIDER",
+    description: "",
+    logoURL: "/image/parceiros/spider.png",
+    websiteURL: "https://projeto-spider.github.io/",
+  },
+  {
+    title: "LAFocA",
+    description: "",
+    logoURL: "/image/parceiros/lafoca-logo.png",
+    websiteURL: "https://lafoca.com.br/",
+  },
+]
 const ProjectsContext = createContext<{
   projects: Project[]
   tccs: TCCProps[]
   teachers: TeacherProps[]
   exStudents: ExStudentProps[]
   students: StudentProps[]
+  parcerias: ParceiroProps[]
 }>({
   projects: [],
   tccs: [],
   teachers: [],
   exStudents: [],
   students: [],
+  parcerias: [],
 })
 
 // 4. Crie o Componente Provider
@@ -724,6 +758,7 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
     teachers: teachers,
     exStudents: exStudents,
     students: students,
+    parcerias: parcerias,
   }
 
   return <ProjectsContext.Provider value={value}>{children}</ProjectsContext.Provider>
