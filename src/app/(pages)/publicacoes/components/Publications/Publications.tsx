@@ -2,7 +2,7 @@
 import { useState, useMemo } from "react"
 import { Search } from "@/app/components/SearcBar/Search"
 import { Tooltip } from "@/app/(pages)/publicacoes/components/Tooltip/Tooltip"
-
+import { useProjects } from "@/app/context/ProjectsContext"
 interface PublicationProps {
   type: "article" | "book" | "chapter" | "congress"
   number?: number
@@ -130,79 +130,7 @@ export function Publications() {
   const [sortBy, setSortBy] = useState("chronological")
   const [searchTerm, setSearchTerm] = useState("")
   const [filterType, setFilterType] = useState("all")
-
-  const publications: PublicationProps[] = [
-    // Livros
-    {
-      type: "book",
-      title: "Abordagens para Apoio à Implementação da Melhoria do Processo de Software",
-      authors: ["OLIVEIRA, S. R. B.", "VASCONCELOS, A. M. L.", "FURTADO, Julio C."],
-      publisher: "Editora UFPE",
-      edition: "1. ed",
-      year: "2016",
-      pages: "562p",
-      link: "#",
-    },
-    {
-      type: "chapter",
-      title: "PROJ-O-POLY: UM JOGO DE BANCO IMOBILIÁRIO DE APOIO AO ENSINO DA GERÊNCIA DE PROJETOS",
-      authors: ["BRITO, C. E.", "FURTADO, S. D. F.", "GUERRA, A.", "FURTADO, Julio C."],
-      publisher: "Current practices and strategies",
-      edition: "1ed",
-      year: "2024",
-      pages: "p. 25-",
-      link: "#",
-    },
-
-    // Congressos
-    {
-      type: "congress",
-      title:
-        "A Methodology to Teaching Statistical Process Control for Software Engineers: An Overview",
-      authors: ["FURTADO, Julio C.", "OLIVEIRA, S. R. B."],
-      event: "40th International Conference on Software Engineering",
-      location: "Gothenburg, Sweden",
-      proceedings: "Proceedings of 40th ICSE",
-      year: "2018",
-      link: "#",
-    },
-    {
-      type: "congress",
-      title: "Spider-ACQ: Uma Ferramenta de Apoio à Gerência de Projetos de Aquisição",
-      authors: ["FURTADO, Julio C.", "OLIVEIRA, Sandro Ronaldo Bezerra"],
-      event: "WAMPS 2011 - Ferramentas",
-      location: "Campinas - SP",
-      proceedings: "Anais do WAMPS 2011",
-      year: "2011",
-      link: "#",
-    },
-    {
-      type: "congress",
-      title:
-        "SPIDER - Um Suite de Ferramentas de Software Livre de Apoio à Implementação do Modelo MPS.BR",
-      authors: [
-        "OLIVEIRA, S. R. B.",
-        "YOSHIDOME, E.",
-        "LIRA, W.",
-        "FURTADO, Julio C.",
-        "NEIVA, J.",
-        "ALHO, F. M.",
-        "TELES, M. P.",
-        "SOUZA, M.",
-        "Mezzomo, L. P.",
-        "ESTACIO, B. J. S.",
-        "VALENTE, K.",
-        "BALDEZ, G.",
-        "OLIVEIRA, S.",
-        "AFONSO, P.",
-      ],
-      event: "VIII Encontro Anual de Computação",
-      location: "Catalão - GO",
-      proceedings: "Anais do VIII ENACOMP",
-      year: "2010",
-      link: "#",
-    },
-  ]
+  const { publications } = useProjects()
 
   const sortedPublications = useMemo(() => {
     let filtered = publications

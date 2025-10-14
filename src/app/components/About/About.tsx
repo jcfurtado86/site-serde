@@ -54,8 +54,8 @@ const ResearchResults = ({ researchItems }: { researchItems: ResultItemProps[] }
 )
 
 export default function About() {
-  const { projects, tccs, students, exStudents, teachers } = useProjects()
-  const equipe = [...students, ...exStudents, ...teachers]
+  const { projects, tccs, students, teachers } = useProjects()
+  const equipe = [...students, ...teachers]
   const researchItems = [
     {
       href: "/publicacoes",
@@ -70,7 +70,7 @@ export default function About() {
     {
       href: "/projetos",
       label: "Projetos",
-      quantity: projects.length,
+      quantity: projects.length + tccs.length,
     },
   ]
 
@@ -110,14 +110,15 @@ export default function About() {
             tem como objetivo produzir conhecimento científico na área de Engenharia de Software, ao
             mesmo tempo em que desenvolve metodologias, ferramentas e práticas que aproximam a
             teoria da prática, favorecendo tanto o ensino quanto a aplicação profissional.
-            <br />O grupo também busca fortalecer a formação acadêmica, promovendo experiências que
-            conectem estudantes a desafios reais, além de estimular a inovação tecnológica como
-            motor de desenvolvimento regional e social. Um de seus diferenciais é ter surgido
-            enraizado na realidade amazônica, com a convicção de que a qualidade de software e a
-            transformação digital podem ser instrumentos para o desenvolvimento sustentável. Mais do
-            que criar soluções tecnológicas, o SERDE se dedica a avaliar o impacto efetivo de seu
-            uso, garantindo que a inovação produza resultados concretos para a sociedade e contribua
-            para a construção de um ecossistema de conhecimento e inovação sólido na região.
+            <br /> <br />O grupo também busca fortalecer a formação acadêmica, promovendo
+            experiências que conectem estudantes a desafios reais, além de estimular a inovação
+            tecnológica como motor de desenvolvimento regional e social. Um de seus diferenciais é
+            ter surgido enraizado na realidade amazônica, com a convicção de que a qualidade de
+            software e a transformação digital podem ser instrumentos para o desenvolvimento
+            sustentável. Mais do que criar soluções tecnológicas, o SERDE se dedica a avaliar o
+            impacto efetivo de seu uso, garantindo que a inovação produza resultados concretos para
+            a sociedade e contribua para a construção de um ecossistema de conhecimento e inovação
+            sólido na região.
           </p>
         </div>
         {/*resultados de pesquisa*/}
@@ -142,7 +143,7 @@ export default function About() {
               </div>
             </div>
             <h3 className="text-xl lg:text-2xl font-bold text-center text-black">
-              {projects.length}
+              {projects.length + tccs.length}
             </h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">Projetos</h3>
             <p className="text-gray-600 text-center">

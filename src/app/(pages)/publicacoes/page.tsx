@@ -6,16 +6,12 @@ import { SumPublished } from "./components/SumPublished/SumPublished"
 import { Publications } from "./components/Publications/Publications"
 
 export default function ProjetosPesquisa() {
-    return (
-        <main className="pt-20 bg-gray-50">
-                <Breadcrumb 
-                items={[
-            { label: 'Publicações', href: '/publicacoes' },
-            ]} 
-                />
-                <Articles />
-                <Publications />
-                <TCCs />
-        </main>
-    )
+  return (
+    <main className="pt-20 bg-gray-50">
+      <Breadcrumb items={[{ label: "Publicações", href: "/publicacoes" }]} />
+      {/*<Articles />*/}
+      <Publications />
+      {/*<TCCs />*/}
+    </main>
+  )
 }
