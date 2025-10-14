@@ -54,7 +54,7 @@ const ResearchResults = ({ researchItems }: { researchItems: ResultItemProps[] }
 )
 
 export default function About() {
-  const { projects, tccs, students, teachers } = useProjects()
+  const { projects, tccs, publications, students, teachers } = useProjects()
   const equipe = [...students, ...teachers]
   const researchItems = [
     {
@@ -167,7 +167,9 @@ export default function About() {
                 </svg>
               </div>
             </div>
-            <h3 className="text-xl lg:text-2xl font-bold text-center text-black">16</h3>
+            <h3 className="text-xl lg:text-2xl font-bold text-center text-black">
+              {publications.length}
+            </h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">
               Publicações
             </h3>
