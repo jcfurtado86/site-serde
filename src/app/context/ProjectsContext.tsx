@@ -3,7 +3,7 @@
 import { createContext, useContext } from "react"
 
 interface PublicationProps {
-  type: "article" | "book" | "chapter" | "congress"
+  type: "article" | "book" | "chapter" | "congress" | "conferenceAbstract" | "patent"
   number?: number
   title: string
   authors: string[]
@@ -20,6 +20,24 @@ interface PublicationProps {
   scieloCitations?: number
   jcrImpact?: number
   importance?: number
+
+  // --- Campos Opcionais para Patentes ---
+  patentNumber?: string // Ex: "BR512021001576-2"
+  registrationDate?: string // Ex: "30/10/2020"
+  registrationInstitution?: string // Ex: "INPI - Instituto Nacional da Propriedade Industrial"
+  patentType?: string
+}
+
+interface PatentProps {
+  number?: number
+  title: string
+  authors: string[]
+  year: number | string
+  link?: string
+  patentNumber?: string // Ex: "BR512021001576-2"
+  registrationDate?: string // Ex: "30/10/2020"
+  registrationInstitution?: string // Ex: "INPI - Instituto Nacional da Propriedade Industrial"
+  patentType?: string
 }
 
 interface StudentProps {
@@ -66,7 +84,85 @@ export interface ParceiroProps {
   websiteURL: string
 }
 
+const patents: PatentProps[] = [
+  {
+    authors: ["COSTA, E. S.", "LIMA, R. P.", "FURTADO, Julio C. C."],
+    title: "Plataforma do Quintal",
+    year: "2020",
+    patentNumber: "BR512021001576-2",
+    registrationDate: "30/10/2020",
+    registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    patentType: "Programa de Computador",
+  },
+  {
+    authors: ["LIMA, R. P.", "SILVA, N. G.", "FURTADO, Julio C.", "MELO, A. M. S.", "SILVA, J. G."],
+    title: "Plataforma WEB AGROWIK",
+    year: 2021,
+    patentNumber: "BR512021001558-4",
+    registrationDate: "05/06/2021",
+    registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    patentType: "Programa de Computador",
+  },
+  {
+    authors: ["FURTADO, Julio C.", "GUERRA, A.", "MARTINS, L."],
+    title: "ClassUp: Uma Plataforma Gamificada Para Auxílio Do Aprendizado Utilizando Quizzes",
+    year: 2025,
+    patentNumber: "BR512025001279-9",
+    registrationDate: "08/04/2025",
+    registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    patentType: "Programa de Computador",
+  },
+  {
+    authors: ["FURTADO, Julio C.", "SILVA, M. C."],
+    title: "JSniffer - Uma Ferramenta Para Identificação Automática De Bad Smells",
+    year: 2025,
+    patentNumber: "BR512025001280-2",
+    registrationDate: "08/04/2025",
+    registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    patentType: "Programa de Computador",
+  },
+  {
+    authors: ["FURTADO, Julio C.", "GUERRA, A."],
+    title: "Plataforma de Gestão de Concursos e Processos Seletivos do DEPSEC/UNIFAP",
+    year: 2025,
+    patentNumber: "BR512025001281-0",
+    registrationDate: "08/04/2025",
+    registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    patentType: "Programa de Computador",
+  },
+  {
+    authors: ["NOGUEIRA, E. R.", "FURTADO, Julio C."],
+    title: "EduGames",
+    year: 2025,
+    patentNumber: "BR512025003392-3",
+    registrationDate: "22/04/2025",
+    registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    patentType: "Programa de Computador",
+  },
+]
+
 const publications: PublicationProps[] = [
+  // Livros
+  {
+    type: "book",
+    title: "Abordagens para Apoio à Implementação da Melhoria do Processo de Software",
+    authors: ["OLIVEIRA, S. R. B.", "VASCONCELOS, A. M. L.", "FURTADO, Julio C."],
+    publisher: "Editora UFPE",
+    edition: "1. ed",
+    year: "2016",
+    pages: "562p",
+    link: "#",
+  },
+  {
+    type: "chapter",
+    title: "PROJ-O-POLY: UM JOGO DE BANCO IMOBILIÁRIO DE APOIO AO ENSINO DA GERÊNCIA DE PROJETOS",
+    authors: ["BRITO, C. E.", "FURTADO, S. D. F.", "GUERRA, A.", "FURTADO, Julio C."],
+    publisher: "Current practices and strategies",
+    edition: "1ed",
+    year: "2024",
+    pages: "p. 25-",
+    link: "#",
+  },
   //articles
   {
     authors: ["CALLINS, A. M. N.", "CARMO, D. A. C.", "FURTADO, Julio C."],
@@ -399,27 +495,7 @@ const publications: PublicationProps[] = [
   //   scopusCitations: 35,
   //   importance: 16,
   // },
-  // Livros
-  {
-    type: "book",
-    title: "Abordagens para Apoio à Implementação da Melhoria do Processo de Software",
-    authors: ["OLIVEIRA, S. R. B.", "VASCONCELOS, A. M. L.", "FURTADO, Julio C."],
-    publisher: "Editora UFPE",
-    edition: "1. ed",
-    year: "2016",
-    pages: "562p",
-    link: "#",
-  },
-  {
-    type: "chapter",
-    title: "PROJ-O-POLY: UM JOGO DE BANCO IMOBILIÁRIO DE APOIO AO ENSINO DA GERÊNCIA DE PROJETOS",
-    authors: ["BRITO, C. E.", "FURTADO, S. D. F.", "GUERRA, A.", "FURTADO, Julio C."],
-    publisher: "Current practices and strategies",
-    edition: "1ed",
-    year: "2024",
-    pages: "p. 25-",
-    link: "#",
-  },
+  // patentes
 
   // Congressos
   {
@@ -829,6 +905,46 @@ const publications: PublicationProps[] = [
     year: "2016",
     link: "#",
     type: "congress",
+  },
+  {
+    type: "conferenceAbstract",
+    authors: ["NEVES, F.", "MACHADO, J.", "FURTADO, Julio C."],
+    title:
+      "Preliminary Evidence on the Use of Chatbots to Support Junior Software Professionals in Process Guidance",
+    year: 2025,
+    event: "XVIII Escola Regional de Informática Norte 2 (ERIN2)",
+    location: "Macapá/AP",
+    proceedings: "Anais da ERIN2",
+  },
+  {
+    type: "conferenceAbstract",
+    authors: ["NOGUEIRA, E. R.", "FURTADO, Julio C."],
+    title:
+      "EduGames: Uma Plataforma Web de Consulta a Jogos Digitais Educativos Para o Ensino de Computação",
+    year: 2025,
+    event: "XVIII Escola Regional de Informática Norte 2 (ERIN2)",
+    location: "Macapá/AP",
+    proceedings: "Anais da ERIN2",
+  },
+  {
+    type: "conferenceAbstract",
+    authors: ["FILHO, M.", "FURTADO, Julio C."],
+    title:
+      "Um Mapeamento Sistemático Sobre as Técnicas Emergentes de Pré-Processamento para Mitigação de Viés em Dados de Treinamento",
+    year: 2025,
+    event: "XVIII Escola Regional de Informática Norte 2 (ERIN2)",
+    location: "Macapá/AP",
+    proceedings: "Anais da ERIN2",
+  },
+  {
+    type: "conferenceAbstract",
+    authors: ["FURTADO, Julio C.", "OLIVEIRA, S. R. B."],
+    title:
+      "A Methodology to Teaching Statistical Process Control for Software Engineers: An Overview",
+    year: 2018,
+    event: "40th International Conference on Software Engineering",
+    location: "Gothenburg, Sweden",
+    proceedings: "Proceedings of 40th ICSE",
   },
 ]
 
@@ -1571,6 +1687,7 @@ const ProjectsContext = createContext<{
   students: StudentProps[]
   parcerias: ParceiroProps[]
   publications: PublicationProps[]
+  patents: PatentProps[]
 }>({
   projects: [],
   tccs: [],
@@ -1578,6 +1695,7 @@ const ProjectsContext = createContext<{
   students: [],
   parcerias: [],
   publications: [],
+  patents: [],
 })
 
 // 4. Crie o Componente Provider
@@ -1592,6 +1710,7 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
     students: students,
     parcerias: parcerias,
     publications: publications,
+    patents: patents,
   }
 
   return <ProjectsContext.Provider value={value}>{children}</ProjectsContext.Provider>
