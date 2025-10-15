@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { ResearchLineList } from "@/app/(pages)/projetos/components/ResearchLine/ReaserchLine"
-import { AllProjectsList } from "@/app/(pages)/projetos/components/AllProjects/AllProjects"
 import { useProjects } from "@/app/context/ProjectsContext"
 interface ResultItemProps {
   href: string

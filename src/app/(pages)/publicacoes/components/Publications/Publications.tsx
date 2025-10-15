@@ -61,7 +61,7 @@ function Publication({
       case "chapter":
         return "bg-orange-100 text-orange-800 border border-orange-200"
       case "congress":
-        return "bg-rose-100 text-rose-800 border border-rose-200"
+        return "bg-teal-100 text-teal-800 border border-teal-200"
       default:
         return ""
     }
