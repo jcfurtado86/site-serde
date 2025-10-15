@@ -4,7 +4,7 @@ import { Search } from "@/app/components/SearcBar/Search"
 import { Tooltip } from "@/app/(pages)/publicacoes/components/Tooltip/Tooltip"
 import { useProjects } from "@/app/context/ProjectsContext"
 interface PublicationProps {
-  type: "article" | "book" | "chapter" | "congress"
+  type: "article" | "book" | "chapter" | "congress" | "conferenceAbstract" | "patent"
   number?: number
   title: string
   authors: string[]
@@ -21,6 +21,11 @@ interface PublicationProps {
   scieloCitations?: number
   jcrImpact?: number
   importance?: number
+  // --- Campos Opcionais para Patentes ---
+  patentNumber?: string // Ex: "BR512021001576-2"
+  registrationDate?: string // Ex: "30/10/2020"
+  registrationInstitution?: string // Ex: "INPI - Instituto Nacional da Propriedade Industrial"
+  patentType?: string
 }
 
 function Publication({
@@ -36,17 +41,25 @@ function Publication({
   location,
   proceedings,
   number,
+  patentNumber,
+  registrationDate,
+  registrationInstitution,
+  patentType,
 }: PublicationProps) {
   const getTypeLabel = () => {
     switch (type) {
       case "article":
-        return "Artigo"
+        return "Periódico"
       case "book":
         return "Livro"
       case "chapter":
         return "Capítulo de Livro"
       case "congress":
+        return "Congresso"
+      case "conferenceAbstract":
         return "Resumo em Congresso"
+      case "patent":
+        return "Patente"
       default:
         return ""
     }
@@ -62,6 +75,10 @@ function Publication({
         return "bg-orange-100 text-orange-800 border border-orange-200"
       case "congress":
         return "bg-teal-100 text-teal-800 border border-teal-200"
+      case "conferenceAbstract":
+        return "bg-purple-100 text-purple-800 border border-purple-200"
+      case "patent":
+        return "bg-yellow-100 text-yellow-800 border border-yellow-200"
       default:
         return ""
     }
@@ -81,9 +98,7 @@ function Publication({
             {title}
           </h2>
         </div>
-
         <p className="text-base text-gray-600 pl-[calc(24px+0.75rem)]">{authors.join("; ")}</p>
-
         {(publisher || event) && (
           <p className="text-base text-gray-600 pl-[calc(24px+0.75rem)]">
             {publisher && `${publisher}${edition ? `, ${edition}` : ""}`}
@@ -93,7 +108,37 @@ function Publication({
             {pages && `, ${pages}`}
           </p>
         )}
-
+        {type === "patent" ? (
+          <div className="text-base text-gray-600 pl-[calc(24px+0.75rem)] flex flex-col gap-1">
+            <p>
+              {registrationInstitution && (
+                <>
+                  <strong>Instituição de Registro:</strong> {registrationInstitution}
+                </>
+              )}
+            </p>
+            <p>
+              {patentNumber && (
+                <>
+                  <strong>Número do Registro:</strong> {patentNumber}
+                </>
+              )}
+              {registrationDate && (
+                <span className="ml-2 text-gray-500">(em {registrationDate})</span>
+              )}
+            </p>
+          </div>
+        ) : (
+          (publisher || event) && (
+            <p className="text-base text-gray-600 pl-[calc(24px+0.75rem)]">
+              {publisher && `${publisher}${edition ? `, v. ${edition}` : ""}`}
+              {event && `${event}, ${location}`}
+              {proceedings && `, ${proceedings}`}
+              {`, ${year}`}
+              {pages && `, p. ${pages}`}
+            </p>
+          )
+        )}
         <div className="flex justify-end mt-2">
           {link && link !== "#" ? (
             <a
@@ -127,7 +172,7 @@ function Publication({
 }
 
 export function Publications() {
-  const [sortBy, setSortBy] = useState("chronological")
+  const [sortBy, setSortBy] = useState("year")
   const [searchTerm, setSearchTerm] = useState("")
   const [filterType, setFilterType] = useState("all")
   const { publications } = useProjects()
