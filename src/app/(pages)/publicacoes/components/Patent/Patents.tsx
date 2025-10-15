@@ -94,7 +94,7 @@ export function Patents() {
     <main className="bg-gradient-to-b from-white to-gray-100 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-16">
-          Patentes
+          Patentes e Registros
         </h2>
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">

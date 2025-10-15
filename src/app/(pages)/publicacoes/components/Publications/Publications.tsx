@@ -108,37 +108,7 @@ function Publication({
             {pages && `, ${pages}`}
           </p>
         )}
-        {type === "patent" ? (
-          <div className="text-base text-gray-600 pl-[calc(24px+0.75rem)] flex flex-col gap-1">
-            <p>
-              {registrationInstitution && (
-                <>
-                  <strong>Instituição de Registro:</strong> {registrationInstitution}
-                </>
-              )}
-            </p>
-            <p>
-              {patentNumber && (
-                <>
-                  <strong>Número do Registro:</strong> {patentNumber}
-                </>
-              )}
-              {registrationDate && (
-                <span className="ml-2 text-gray-500">(em {registrationDate})</span>
-              )}
-            </p>
-          </div>
-        ) : (
-          (publisher || event) && (
-            <p className="text-base text-gray-600 pl-[calc(24px+0.75rem)]">
-              {publisher && `${publisher}${edition ? `, v. ${edition}` : ""}`}
-              {event && `${event}, ${location}`}
-              {proceedings && `, ${proceedings}`}
-              {`, ${year}`}
-              {pages && `, p. ${pages}`}
-            </p>
-          )
-        )}
+
         <div className="flex justify-end mt-2">
           {link && link !== "#" ? (
             <a
