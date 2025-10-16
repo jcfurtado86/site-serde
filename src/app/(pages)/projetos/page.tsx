@@ -42,14 +42,9 @@ export default function ProjetosPesquisa() {
     <main className="pt-20 bg-gray-50">
       <Breadcrumb items={[{ label: "Projetos", href: "/projetos" }]} />
       <AllProjectsList
-        title="Projetos Em Andamento"
+        title="Projetos"
         link="em-andamento"
-        projects={mergedArray.filter((project) => project.status === "Em andamento")}
-      />
-      <AllProjectsList
-        title="Projetos Finalizados"
-        link="finalizados"
-        projects={mergedArray.filter((project) => project.status === "Finalizado")}
+        projects={mergedArray.sort((a, b) => a.status.localeCompare(b.status))}
       />
     </main>
   )
