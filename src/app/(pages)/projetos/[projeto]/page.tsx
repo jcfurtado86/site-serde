@@ -2,7 +2,7 @@
 import { use } from "react"
 import { useProjects } from "@/app/context/ProjectsContext"
 import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
-import { Project } from "@/app/context/ProjectsContext"
+import { Project, TCCProps } from "@/app/context/ProjectsContext"
 import { Lightbulb, CheckCircle, SquareUser as User, ExternalLink } from "lucide-react"
 /**
  * Define o tipo das props que a página receberá.
@@ -16,16 +16,19 @@ type ProjectPageProps = {
   }>
 }
 
-/**
- * Este é o componente da página do projeto.
- * Ele recebe as props e extrai o `slug` de `params`.
- * @param {ProjectPageProps} props - As propriedades passadas pelo Next.js.
- * @returns JSX.Element
- */
+interface ProjectProps {
+  title: string
+  link: string
+  status: string
+  type: string
+  students: string[]
+  professor: string
+  year: string
+  keywords: string[]
+  description: string
+}
 
-// 2. O componente que renderiza os detalhes do projeto
-//    Ele recebe o objeto 'project' como uma propriedade (prop).
-function ProjectDetails({ project }: { project: Project }) {
+function ProjectDetails({ project }: { project: ProjectProps }) {
   // Função auxiliar para determinar a cor do badge de status
   const getStatusClasses = () => {
     if (project.status.toLowerCase() === "finalizado") {
@@ -66,37 +69,43 @@ function ProjectDetails({ project }: { project: Project }) {
 
         <hr className="my-8 border-gray-200" />
 
-        {/* Seção Sobre o Projeto */}
-        <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Sobre o Projeto</h2>
-          <p className="text-gray-700 leading-relaxed text-base">{project.description}</p>
-        </section>
+        {/* Seção Sobre o TCC / Projeto*/}
+        {project.type === "TCC" ? (
+          <section className="flex flex-col gap-4">
+            <p className="text-gray-700 leading-relaxed text-base">
+              <strong>Alunos:</strong> {project?.students?.join(", ")}
+            </p>
 
+            <p className="text-gray-700 leading-relaxed text-base">
+              <strong>Resumo:</strong> {project.description}
+            </p>
+
+            <p className="text-gray-700 leading-relaxed text-base">
+              <strong>Palavras-chave:</strong> {project?.keywords}
+            </p>
+          </section>
+        ) : (
+          <section className="flex flex-col gap-4">
+            <p className="text-gray-700 leading-relaxed text-base">
+              <strong>Resumo:</strong> {project.description}
+            </p>
+          </section>
+        )}
         <hr className="my-8 border-gray-200" />
 
-        {/* Seção do Professor Responsável */}
+        {/* Seção do orientador */}
         <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Professor Responsável</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            {project.type === "TCC" ? "Orientador" : "Professor Responsável"}
+          </h2>
           <div className="flex items-center gap-3 text-gray-700">
             <User size={24} className="text-teal-500" />
             <span className="text-lg">{project.professor}</span>
           </div>
         </section>
+        {/* Seção Sobre o Projeto */}
 
         <hr className="my-8 border-gray-200" />
-
-        {/* Seção do Link Externo / Chamada para Ação */}
-        <footer>
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-teal-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-teal-700 transition-transform transform hover:scale-105 duration-300 shadow-md"
-          >
-            Acessar Página do Projeto
-            <ExternalLink />
-          </a>
-        </footer>
       </div>
     </div>
   )
@@ -107,18 +116,16 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   const transformedTCCs: Project[] = tccs.map((tcc) => {
     // Constrói uma descrição a partir dos dados do TCC
-    const description = `TCC desenvolvido por ${tcc.students.join(", ")} no ano de ${tcc.year}.`
 
     return {
       // Mapeamentos diretos
       title: tcc.title,
       link: tcc.link,
-
       // Mapeamento adaptado: 'advisor' vira 'professor'
       professor: tcc.advisor,
-
-      // Campos gerados com valores padrão ou construídos
-      description: description,
+      students: tcc.students || [],
+      keywords: tcc.keywords || [],
+      description: tcc.description || "fake description",
       status: tcc.status, // Assumimos que TCCs listados estão concluídos
       type: "TCC", // Definimos o tipo como 'TCC' para fácil identificação
     }
@@ -129,11 +136,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   const resolvedParams = use(params)
   const projetoLink = resolvedParams.projeto
-  const projeto: Project | null =
-    mergedArray.find((projeto) => projeto.link === projetoLink) || null
+  const projeto: any | null = mergedArray.find((projeto) => projeto.link === projetoLink) || null
 
   return (
-    <main className="pt-20 pb-16  bg-gray-50">
+    <main className="pt-20 pb-16 min-h-[calc(100vh-5.6rem)]  bg-gray-50">
       <Breadcrumb
         items={[
           { label: "Projetos", href: "/projetos" },
