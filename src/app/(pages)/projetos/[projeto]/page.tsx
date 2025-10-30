@@ -3,7 +3,8 @@ import { use } from "react"
 import { useProjects } from "@/app/context/ProjectsContext"
 import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
 import { Project, TCCProps } from "@/app/context/ProjectsContext"
-import { Lightbulb, CheckCircle, SquareUser as User, ExternalLink } from "lucide-react"
+import { Lightbulb, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon } from "lucide-react"
+import Link from "next/link"
 /**
  * Define o tipo das props que a página receberá.
  * O Next.js passa um objeto `params` contendo os segmentos dinâmicos da URL.
@@ -19,6 +20,7 @@ type ProjectPageProps = {
 interface ProjectProps {
   title: string
   link: string
+  articleLink?: string
   status: string
   type: string
   students: string[]
@@ -40,7 +42,7 @@ function ProjectDetails({ project }: { project: ProjectProps }) {
     // Cor padrão para outros status
     return "bg-gray-100 text-gray-800"
   }
-
+  console.log(project)
   return (
     <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
       <div className="p-8 md:p-12">
@@ -61,9 +63,20 @@ function ProjectDetails({ project }: { project: ProjectProps }) {
             <span
               className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${getStatusClasses()}`}
             >
-              <CheckCircle />
+              {project.status === "Finalizado" ? <CheckCircle /> : <LoaderIcon />}
               {project.status}
             </span>
+            <div>
+              {project.articleLink && (
+                <Link
+                  target="_blank"
+                  href={project.articleLink || "#"}
+                  className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800"
+                >
+                  <ExternalLink /> Link para o Artigo
+                </Link>
+              )}
+            </div>
           </div>
         </header>
 
@@ -121,6 +134,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       // Mapeamentos diretos
       title: tcc.title,
       link: tcc.link,
+      articleLink: tcc.articleLink,
       // Mapeamento adaptado: 'advisor' vira 'professor'
       professor: tcc.advisor,
       students: tcc.students || [],
