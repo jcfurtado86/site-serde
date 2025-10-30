@@ -59,10 +59,16 @@ interface TeacherProps {
   imageUrl: string
 }
 
+export interface FileProps {
+  name: string
+  type: "article" | "video"
+  link: string
+}
+
 export interface TCCProps {
   title: string
   link: string
-  articleLink?: string
+  documentation?: FileProps[]
   status: string
   students: string[]
   advisor: string
@@ -78,6 +84,7 @@ export interface Project {
   status: string
   type: string
   link: string
+  documentation: FileProps[]
 }
 
 export interface ParceiroProps {
@@ -1500,7 +1507,13 @@ const tccs: TCCProps[] = [
     description:
       "Este artigo realiza um mapeamento sistemático sobre o uso de jogos digitais no ensino de programação, analisando publicações de 2013 a 2024. O estudo busca identificar quais jogos são utilizados para ensinar conceitos de programação e em quais áreas esses jogos têm impacto educacional. Utilizando critérios rigorosos de inclusão e exclusão, a pesquisa selecionou artigos em bases como ACM Digital Library e IEEE Xplore. O mapeamento identificou 49 jogos voltados para o ensino de programação, com predominância de gêneros como indie, educativos e de simulação, disponíveis em plataformas como Windows, MacOS, Linux e web. As áreas de conhecimento cobertas pelos jogos incluem lógica de programação, manipulação de dados, sintaxe, funções, e debugging, promovendo o desenvolvimento dessas habilidades em um ambiente motivador. Os resultados sugerem que os jogos digitais são ferramentas eficazes para engajar estudantes e facilitar o aprendizado de conceitos abstratos em programação. Oferecendo prática interativa e feedback imediato, esses jogos complementam métodos de ensino tradicionais, tornando o aprendizado mais acessível e dinâmico. A pesquisa conclui que a integração de jogos no ensino de programação pode aumentar o interesse dos alunos e apoiar a assimilação de conteúdos complexos. Além disso, recomenda-se a continuidade de estudos sobre o impacto de jogos em habilidades de longo prazo, visando adaptar essas ferramentas a diferentes níveis educacionais e contextos de ensino.",
     link: "analise-aplicacao-de-jogos-para-",
-    articleLink: "http://dx.doi.org/10.56238/arev7n1-176",
+    documentation: [
+      {
+        name: "UMA ANÁLISE DA APLICAÇÃO DE JOGOS PARA ENSINO DE PROGRAMAÇÃO BÁSICA A PARTIR DE UM MAPEAMENTO SISTEMÁTICO DA LITERATURA",
+        type: "article",
+        link: "http://dx.doi.org/10.56238/arev7n1-176",
+      },
+    ],
     status: "Finalizado",
     students: ["Alexsandro Nascimento Callins", "Davi Alberto Correa do Carmo"],
     advisor: "Julio Cezar Costa Furtado",
@@ -1546,7 +1559,13 @@ const tccs: TCCProps[] = [
     description:
       "O surgimento da pandemia de COVID-19 afetou grandemente a população mundial e os setores comerciais, inclusive o setor de desenvolvimento de software (NETO et al., 2021). Consequentemente, foram adotadas medidas de contenção que forçaram muitas empresas e funcionários a migrarem repentinamente para um ambiente remoto de trabalho (JÚNIOR et al., 2020). Nesse sentido, este trabalho tem como objetivo analisar as perspectivas dos profissionais da área de T.I., no Brasil, a respeito dos desafios e  mudanças enfrentados durante a pandemia de COVID-19; os reflexos que a mesma causou no cotidiano dos desenvolvedores e como esses afetaram sua produtividade e bem-estar. Como forma de atingir esse objetivo, uma pesquisa de opinião online foi definida e aplicada em profissionais da área de T.I. com questões pertinentes ao tema.",
     link: "desafios-enfrentados-por-profissionais-e-empresas-da",
-    articleLink: "http://dx.doi.org/10.54033/cadpedv21n4-158",
+    documentation: [
+      {
+        name: "Desafios enfrentados por Profissionais e Empresas da Área de T.I. durante a pandemia de Covid-19 no Brasil",
+        type: "article",
+        link: "http://dx.doi.org/10.54033/cadpedv21n4-158",
+      },
+    ],
     status: "Finalizado",
     students: ["Eduardo Luigi Tavares da Silva Ciuffi"],
     advisor: "Julio Cezar Costa Furtado",
@@ -1620,7 +1639,14 @@ const tccs: TCCProps[] = [
       "Este trabalho de conclusão visa realizar uma análise sobre Hard e Soft Skills na Engenharia de Software através de dados coletados via questionário próprio. Sua motivação parte do mapeamento do mercado de trabalho atual, levantamento de dificuldades encontradas por profissionais qualificados, Cursos superiores com grades curriculares atrasadas e graduados despreparados para a demanda recebida. Para tanto, segue a metodologia de coleta de informações via questionário próprio referenciado por trabalhos na mesma linha de pesquisa, em uma faixa de tempo de 20 anos e posterior análise de resultados coletados.",
     keywords: "Hard-Skill. Soft-Skill. Engenharia de Software. Brasil. Questionário",
     link: "uma-analise-sobre-hard-e-soft-skills",
-    articleLink: "http://dx.doi.org/10.5748/19CONTECSI/PSE/EDU/6995",
+    documentation: [
+      {
+        name: "Uma Análise Sobre Hard e Soft Skills na Engenharia de Software",
+        type: "article",
+        link: "http://dx.doi.org/10.5748/19CONTECSI/PSE/EDU/6995",
+      },
+    ],
+
     status: "Finalizado",
     students: ["Juliana Leal Alves"],
     advisor: "Julio Cezar Costa Furtado",
@@ -1644,7 +1670,13 @@ const tccs: TCCProps[] = [
       "O Gerenciamento de Projetos se propõe a aplicar conhecimentos e técnicas no andamento do projeto, a fim de cumprir seus requisitos. Sabendo-se da relevância do Gerenciamento de Projetos na engenharia de software, e consequentemente no desenvolvimento de software, é de suma importância que o ensino de tal área no meio acadêmico seja eficiente. Em geral, essas áreas são ensinadas na academia de forma tradicional, teórica e centradas no professor. Dessa forma, causando nos acadêmicos a sensação de que tais áreas são chatas e monótonas; e acarretando assim na pouca assimilação desses conteúdos. Já a indústria de desenvolvimento de software, aponta que a maioria dos projetos de software não são entregues no prazo ou dentro do orçamento. No contexto do ensino do Gerenciamento dos Projetos em sala de aula, os jogos podem ser uma importante ferramenta para a complementação do aprendizado dos alunos. Jogos possuem a característica lúdica, o que faz com que os alunos se divirtam enquanto aprendem. Partindo dessas premissas, o presente trabalho tem como objetivo a criação de um jogo de tabuleiro que sirva como material de apoio a disciplina de Gerenciamento de Projetos, apoiando-se nas recomendações do Guia PMBOK (Project Management Body of Knowledge). O jogo será aplicado a alunos que estejam cursando a disciplina de Engenharia de Software e será avaliado através de questionários. ",
     keywords: "Gerenciamento de projetos. Engenharia de software. Ensino. Jogos",
     link: "proj-o-poly-um-jogo-para-o-ensino",
-    articleLink: "http://dx.doi.org/10.54033/cadpedv21n8-012",
+    documentation: [
+      {
+        name: "PROJ-O-POLY: um jogo de banco imobiliário de apoio ao ensino da gerência de projetos",
+        type: "article",
+        link: "http://dx.doi.org/10.54033/cadpedv21n8-012",
+      },
+    ],
     status: "Finalizado",
     students: ["Carlos Eduardo Brito"],
     advisor: "Julio Cezar Costa Furtado",
@@ -1657,7 +1689,13 @@ const tccs: TCCProps[] = [
       "A Empregabilidade pode ser definida como a possibilidade de uma pessoa dominar    aptidões e conhecimentos requisitados em consoante oscilação das imposições do    mercado de trabalho. Dados sobre empregabilidade são importantes para obtenção de    métricas que direcionam a decisão de institutos de ensino na criação de cursos, visto que estes envolvem necessidades de mercado e gastos para sua criação e manutenção. Neste contexto, o objetivo desse trabalho é aplicar um questionário que será submetido aos profissionais graduados da área de engenharia de software atuantes no Brasil. De modo a analisar aspectos que influenciam na empregabilidade do profissional, buscando sinalizar lacunas de conhecimento entre o meio acadêmico e o mercado de trabalho com o objetivo de guiar possíveis trabalhos didáticos que amenizem as carências da formação acadêmica. ",
     keywords: "Empregabilidade. Engenharia de Software. Brasil. Questionário",
     link: "um-estudo-sobre-as-principais-dificuldades-na",
-    articleLink: "http://dx.doi.org/10.55905/revconv.17n.3-298",
+    documentation: [
+      {
+        name: "Um estudo sobre as principais dificuldades na empregabilidade de um engenheiro de software",
+        type: "article",
+        link: "http://dx.doi.org/10.55905/revconv.17n.3-298",
+      },
+    ],
     status: "Finalizado",
     students: ["Edson Monteiro Neto"],
     advisor: "Julio Cezar Costa Furtado",
@@ -1685,6 +1723,7 @@ const projectsData: Project[] = [
     status: "Finalizado",
     type: "Pesquisa",
     link: "projeto-serde",
+    documentation: [],
   },
   {
     title: "Uma Metodologia Ágil para Gestão da Aquisição de Software e Serviços Correlatos",
@@ -1693,6 +1732,7 @@ const projectsData: Project[] = [
     status: "Finalizado",
     type: "Pesquisa",
     link: "metodologia-agil-gestao-aquisicao-software-servicos-correlatos",
+    documentation: [],
   },
   {
     title: "Laboratório de Desenvolvimento de Software Aplicado ao Judiciário",
@@ -1701,6 +1741,7 @@ const projectsData: Project[] = [
     status: "Em andamento",
     type: "Extensão",
     link: "laboratorio-software-judiciario",
+    documentation: [],
   },
 ]
 

@@ -2,7 +2,7 @@
 import { use } from "react"
 import { useProjects } from "@/app/context/ProjectsContext"
 import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
-import { Project, TCCProps } from "@/app/context/ProjectsContext"
+import { Project, FileProps } from "@/app/context/ProjectsContext"
 import { Lightbulb, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon } from "lucide-react"
 import Link from "next/link"
 /**
@@ -20,7 +20,7 @@ type ProjectPageProps = {
 interface ProjectProps {
   title: string
   link: string
-  articleLink?: string
+  documentation: FileProps[]
   status: string
   type: string
   students: string[]
@@ -33,16 +33,26 @@ interface ProjectProps {
 function ProjectDetails({ project }: { project: ProjectProps }) {
   // Função auxiliar para determinar a cor do badge de status
   const getStatusClasses = () => {
-    if (project.status.toLowerCase() === "finalizado") {
-      return "bg-green-100 text-green-800"
+    switch (project.status.toLowerCase()) {
+      case "finalizado":
+        return "bg-green-100 text-green-600"
+      case "em andamento":
+        return "bg-yellow-100 text-yellow-600"
+      default:
+        return "bg-gray-100 text-gray-600"
     }
-    if (project.status.toLowerCase() === "em andamento") {
-      return "bg-yellow-100 text-yellow-800"
-    }
-    // Cor padrão para outros status
-    return "bg-gray-100 text-gray-800"
   }
-  console.log(project)
+
+  const getDocType = (type: String) => {
+    switch (type) {
+      case "article":
+        return "Artigo"
+      case "video":
+        return "Vídeo"
+      default:
+        return "Documento"
+    }
+  }
   return (
     <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
       <div className="p-8 md:p-12">
@@ -66,17 +76,6 @@ function ProjectDetails({ project }: { project: ProjectProps }) {
               {project.status === "Finalizado" ? <CheckCircle /> : <LoaderIcon />}
               {project.status}
             </span>
-            <div>
-              {project.articleLink && (
-                <Link
-                  target="_blank"
-                  href={project.articleLink || "#"}
-                  className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800"
-                >
-                  <ExternalLink /> Link para o Artigo
-                </Link>
-              )}
-            </div>
           </div>
         </header>
 
@@ -116,8 +115,29 @@ function ProjectDetails({ project }: { project: ProjectProps }) {
             <span className="text-lg">{project.professor}</span>
           </div>
         </section>
-        {/* Seção Sobre o Projeto */}
 
+        {/* Seção de anexos */}
+        {project.documentation.length > 0 && (
+          <>
+            <hr className="my-8 border-gray-200" />
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Matérias</h2>
+              <div className="flex items-center gap-3 text-gray-700">
+                {project.documentation.map((doc, index) => (
+                  <Link
+                    target="_blank"
+                    href={doc.link || "#"}
+                    key={index}
+                    className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800"
+                  >
+                    <ExternalLink size={24} className="text-teal-500" />
+                    {doc.name} ({getDocType(doc.type)})
+                  </Link>
+                ))}
+              </div>
+            </section>
+          </>
+        )}
         <hr className="my-8 border-gray-200" />
       </div>
     </div>
@@ -134,7 +154,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       // Mapeamentos diretos
       title: tcc.title,
       link: tcc.link,
-      articleLink: tcc.articleLink,
+      documentation: tcc.documentation || [],
       // Mapeamento adaptado: 'advisor' vira 'professor'
       professor: tcc.advisor,
       students: tcc.students || [],
