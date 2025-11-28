@@ -1,0 +1,34 @@
+name: Deploy to DigitalOcean
+
+on:
+  push:
+    branches:
+      - main  # Ou 'master', dependendo do nome da sua branch principal
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          # Entra na pasta do projeto
+          cd ~/GitHub/site-serde
+          
+          # Baixa as atualizações
+          git pull origin main
+          
+          # Instala dependências novas (caso tenha mudado o package.json)
+          npm install
+          
+          # Faz o build de produção (Lembre-se do swap!)
+          # Usamos a flag de memória para garantir
+          NODE_OPTIONS='--max-old-space-size=2048' npm run build
+          
+          # Reinicia o servidor para aplicar as mudanças
+          pm2 restart site-serde
