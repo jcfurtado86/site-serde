@@ -1,14 +1,16 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'servicosweb.cnpq.br',
+        protocol: "http",
+        hostname: "servicosweb.cnpq.br",
       },
     ],
   },
-};
-
-export default nextConfig;
+}
+module.exports = {
+  distDir: "build",
+}
+export default nextConfig
