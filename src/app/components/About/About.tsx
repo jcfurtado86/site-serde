@@ -146,8 +146,7 @@ export default function About() {
             </h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">Projetos</h3>
             <p className="text-gray-600 text-center">
-              Acesse aqui as linhas de pesquisa do grupo e os projetos de pesquisa em andamento e já
-              encerrados
+              Projetos desenvolvidos pelo grupo, em andamento ou já concluídos
             </p>
           </Link>
 
@@ -173,8 +172,7 @@ export default function About() {
               Publicações
             </h3>
             <p className="text-gray-600 text-center">
-              Visualize as publicações geradas pelos integrantes do grupo de pesquisa, sejam elas
-              artigos, livros, trabalhos de conclusão, dissertações e teses
+             Produção científica do grupo, incluindo artigos, livros e trabalhos acadêmicos
             </p>
           </Link>
 
@@ -198,8 +196,7 @@ export default function About() {
               Orientações Concluídas
             </h3>
             <p className="text-gray-600 text-center">
-              Conheça os trabalhos de orientação em andamento e concluídos pelos docentes do grupo
-              de pesquisa
+             Trabalhos acadêmicos concluídos sob orientação dos docentes do grupo.
             </p>
           </Link>
           <Link
@@ -222,8 +219,7 @@ export default function About() {
             </h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">Membros</h3>
             <p className="text-gray-600 text-center">
-              Esta página contém a lista de docentes e discentes que fazem parte do grupo, bem como
-              a atuação de cada um nas pesquisas desenvolvidas
+             Docentes e discentes que integram o grupo de pesquisa
             </p>
           </Link>
         </div>
