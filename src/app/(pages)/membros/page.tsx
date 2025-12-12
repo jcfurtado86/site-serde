@@ -9,9 +9,9 @@ export default function ProjetosPesquisa() {
     <main className="pt-20 bg-gray-50">
       <Breadcrumb items={[{ label: "Membros", href: "/membros" }]} />
       <Members members={teachers} title="Pesquisadores" />
-      <Members members={students.filter((student) => student.type === "Student")} title="Alunos" />
+      <Members members={students.filter((student) => student.type === "Student").sort((a, b) => a.name.localeCompare(b.name, "pt-BR", { sensitivity: "base" }))} title="Alunos" />
       <Members
-        members={students.filter((student) => student.type === "ExStudent")}
+        members={students.filter((student) => student.type === "ExStudent").sort((a, b) => a.name.localeCompare(b.name, "pt-BR", { sensitivity: "base" }))}
         title="Egressos"
       />
     </main>

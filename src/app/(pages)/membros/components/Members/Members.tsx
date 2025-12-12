@@ -9,6 +9,7 @@ interface MemberProps {
   email: string
   curriculumLink: string
   imageUrl: string
+  degree?: string
 }
 
 interface MemberComponentProps {
@@ -33,14 +34,12 @@ export function Members({ members, title }: MemberComponentProps) {
 
     preloadImages()
   }, [])
+
   const usersToFix = ["victor gabriel gomes bahia", "davi alberto correa silva do carmo"]
-  const masterUsers = ["josilene aline soares ferreira de oliveira"]
   const fixedPositionMembers = members.filter((member) =>
     usersToFix.some((user) => member.name.toLowerCase().includes(user))
   )
-  const masterUsersMembers = members.filter((member) =>
-    masterUsers.some((user) => member.name.toLowerCase().includes(user))
-  )
+
   return (
     <main className="bg-gradient-to-b from-gray-50 to-white py-3 sm:py-20">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -64,16 +63,18 @@ export function Members({ members, title }: MemberComponentProps) {
                   </div>
                 )}
                 {title === "Alunos" && (
-                  <div className="absolute bottom-3 flex z-10 w-full">
+                  <div className="absolute bottom-3 z-10 flex w-full">
                     <span
-                      className={`mx-auto w-fit ${masterUsersMembers.some((masterUser) => masterUser.name === member.name) ? typeColors.find((type) => type.type === "Mestrado")?.color : typeColors.find((type) => type.type === "Graduação")?.color} text-sm font-medium px-2 py-1 rounded-full  transition-colors duration-300`}
+                      className={`mx-auto w-fit ${member.degree === "Master"
+                          ? typeColors.find((type) => type.type === "Mestrado")?.color
+                          : typeColors.find((type) => type.type === "Graduação")?.color
+                        } text-sm font-medium px-2 py-1 rounded-full transition-colors duration-300`}
                     >
-                      {masterUsersMembers.some((masterUser) => masterUser.name === member.name)
-                        ? "Mestrado"
-                        : "Graduação"}
+                      {member.degree === "Master" ? "Mestrado" : "Graduação"}
                     </span>
                   </div>
                 )}
+
                 {member.imageUrl ? (
                   <Image
                     src={member.imageUrl}
