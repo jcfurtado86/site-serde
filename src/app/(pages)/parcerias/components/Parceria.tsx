@@ -36,14 +36,16 @@ export const Parceria = ({ parceria }: { parceria: ParceiroProps }) => {
       </div>
 
       {/* Logo do Parceiro */}
-      <div className="flex h-4/5 items-center justify-center">
+      <div className="relative flex h-4/5 w-full items-center justify-center">
         <Image
-          width={96}
-          height={96}
           src={parceria.logoURL}
           alt={`Logo de ${parceria.title}`}
-          // object-contain garante que o logo não seja distorcido.
-          className="h-full sm:h-24 md:h-28 lg:h-36 w-full object-contain"
+          fill
+          sizes="(max-width: 640px) 96px,
+           (max-width: 768px) 112px,
+           144px"
+          className="object-contain"
+          quality={90}
         />
       </div>
 
