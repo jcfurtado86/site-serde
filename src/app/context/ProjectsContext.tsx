@@ -993,7 +993,7 @@ const students: StudentProps[] = [
     email: "email@unifap.br",
     curriculumLink: "http://lattes.cnpq.br/4624599784919056",
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1546828T8",
-    type: "Student",
+    type: "ExStudent",
   },
   {
     name: "Carlos Henrique Barreto Mareco",
@@ -1039,7 +1039,7 @@ const students: StudentProps[] = [
     email: "email@unifap.br",
     curriculumLink: "http://lattes.cnpq.br/0262199390232721",
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1539994D7",
-    type: "Student",
+    type: "ExStudent",
   },
   {
     name: "Enzo Cardoso de Castilho",
@@ -1057,7 +1057,7 @@ const students: StudentProps[] = [
     email: "email@unifap.br",
     curriculumLink: "http://lattes.cnpq.br/8768694050430103",
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8145617U2",
-    type: "Student",
+    type: "http",
   },
   {
     name: "Gabriel Enrique Almeida Gonçalves",
@@ -1129,7 +1129,7 @@ const students: StudentProps[] = [
     email: "email@unifap.br",
     curriculumLink: "http://lattes.cnpq.br/8539615512841442",
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2726689P6",
-    type: "Student",
+    type: "ExStudent",
   },
   {
     name: "Johnathan Rocha de Sousa",
@@ -1291,7 +1291,7 @@ const students: StudentProps[] = [
     email: "email@unifap.br",
     curriculumLink: "http://lattes.cnpq.br/0003988321971896",
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1530663D5",
-    type: "Student",
+    type: "ExStudent",
   },
   {
     name: "Paula Maria Lacerda de Oliveira Costa",
