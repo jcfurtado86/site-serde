@@ -54,7 +54,7 @@ const ResearchResults = ({ researchItems }: { researchItems: ResultItemProps[] }
 
 export default function About() {
   const { projects, tccs, publications, students, teachers } = useProjects()
-  const equipe = [...students, ...teachers]
+  const equipe = [...students.filter(s => s.type === "Student"), ...teachers]
   const researchItems = [
     {
       href: "/publicacoes",
