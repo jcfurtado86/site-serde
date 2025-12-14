@@ -121,7 +121,7 @@ function ProjectDetails({ project }: { project: ProjectProps }) {
           <>
             <hr className="my-8 border-gray-200" />
             <section>
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Matérias</h2>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Materiais</h2>
               <div className="flex items-center gap-3 text-gray-700">
                 {project.documentation.map((doc, index) => (
                   <Link
