@@ -48,6 +48,7 @@ interface StudentProps {
   curriculumLink: string
   imageUrl: string
   type: string
+  degree?: string
 }
 
 interface TeacherProps {
@@ -960,6 +961,16 @@ const publications: PublicationProps[] = [
 
 const students: StudentProps[] = [
   {
+    name: "Lucas Fauro de Araújo",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/8597077841665177",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4311856U0",
+    type: "Student",
+    degree: "Master"
+  },
+  {
     name: "Adriane da Costa Ferreira",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -1057,7 +1068,7 @@ const students: StudentProps[] = [
     email: "email@unifap.br",
     curriculumLink: "http://lattes.cnpq.br/8768694050430103",
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8145617U2",
-    type: "http",
+    type: "ExStudent",
   },
   {
     name: "Gabriel Enrique Almeida Gonçalves",
@@ -1175,6 +1186,7 @@ const students: StudentProps[] = [
     curriculumLink: "http://lattes.cnpq.br/6490034202076915",
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1511232Z6",
     type: "Student",
+    degree: "Master"
   },
   {
     name: "Julia Vitoria Costa dos Santos",
@@ -1403,15 +1415,6 @@ const students: StudentProps[] = [
     type: "ExStudent",
   },
   {
-    name: "Edson Monteiro Neto",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    email: "julio@unifap.br",
-    curriculumLink: "http://lattes.cnpq.br/1270283553777603",
-    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8151323E4",
-    type: "ExStudent",
-  },
-  {
     name: "Juliana Leal Alves",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -1481,6 +1484,22 @@ const teachers: TeacherProps[] = [
     email: "julio@unifap.br",
     curriculumLink: "http://lattes.cnpq.br/7694692886453388",
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4202733D9",
+  },
+  {
+    name: "Marco Antonio Leal da Silva",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "julio@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/7989567709418880",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4205687P3",
+  },
+  {
+    name: "Thiago Pinheiro do Nascimento",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "julio@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/3122065417402092",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4467040P6",
   },
   {
     name: "Anderson dos Santos Guerra",
