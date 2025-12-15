@@ -958,7 +958,6 @@ const publications: PublicationProps[] = [
     proceedings: "Proceedings of 40th ICSE",
   },
 ]
-
 const students: StudentProps[] = [
   {
     name: "Lucas Fauro de Araújo",
