@@ -10,29 +10,32 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Deploy via SSH
-      uses: appleboy/ssh-action@v1.0.3
+    # 1. Configura o "Agente SSH" e carrega sua chave OPENSSH na memória
+    - name: Setup SSH
+      uses: webfactory/ssh-action@v0.9.0
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        port: 22
-        # AUMENTO DE TEMPO: Dá 30 minutos para o build terminar antes de dar erro
-        command_timeout: 30m
-        script: |
-          # Entra na pasta do projeto
-          cd ~/site-serde
+        ssh-private-key: ${{ secrets.SSH_KEY }}
+
+  # 2. Adiciona o IP do servidor aos hosts conhecidos (para evitar perguntas de Sim/Não)
+    - name: Add Remote to Known Hosts
+      run: ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+  # 3. Executa os comandos via SSH nativo
+    - name: Deploy Script
+      run: | 
+        ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
+          # Carrega NVM
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
           
-          # Baixa as atualizações
+          # Entra na pasta
+          cd ~/site-serde || exit 1
+          
+          # Comandos de deploy
           git pull origin main
-          
-          # Instala dependências novas (caso tenha mudado o package.json)
           npm install
-          
-          # Faz o build de produção (Lembre-se do swap!)
-          # Usamos a flag de memória para garantir
           # NODE_OPTIONS='--max-old-space-size=2048' 
           npm run build
           
-          # Reinicia o servidor para aplicar as mudanças
+          # Reinicia PM2
           pm2 restart serde
+        EOF
