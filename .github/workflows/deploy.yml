@@ -18,7 +18,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           # Entra na pasta do projeto
-          cd ~/GitHub/site-serde
+          cd ~/site-serde
           
           # Baixa as atualizações
           git pull origin main
