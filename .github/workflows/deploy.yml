@@ -12,7 +12,7 @@ jobs:
     steps:
     # 1. Configura o "Agente SSH" e carrega sua chave OPENSSH na memória
     - name: Setup SSH
-      uses: webfactory/ssh-action@v0.9.0
+      uses: webfactory/ssh-agent@v0.9.0
       with:
         ssh-private-key: ${{ secrets.SSH_KEY }}
 
