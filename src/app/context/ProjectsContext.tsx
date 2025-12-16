@@ -959,6 +959,15 @@ const publications: PublicationProps[] = [
   },
 ]
 const students: StudentProps[] = [
+     {
+    name: "Aldair Jose Tenorio Moreira Junior",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/1340494859600801",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1561810U9",
+    type: "Student",
+  },
    {
     name: "Pedro Lucas Gomes Brito",
     institution: "Unifap",
