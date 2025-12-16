@@ -28,7 +28,8 @@ jobs:
           
           # Faz o build de produção (Lembre-se do swap!)
           # Usamos a flag de memória para garantir
-          NODE_OPTIONS='--max-old-space-size=2048' npm run build
+          # NODE_OPTIONS='--max-old-space-size=2048' 
+          npm run build
           
           # Reinicia o servidor para aplicar as mudanças
           pm2 restart site-serde
