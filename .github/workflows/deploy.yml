@@ -32,4 +32,4 @@ jobs:
           npm run build
           
           # Reinicia o servidor para aplicar as mudanças
-          pm2 restart site-serde
+          pm2 restart serde
