@@ -54,7 +54,7 @@ const ResearchResults = ({ researchItems }: { researchItems: ResultItemProps[] }
 
 export default function About() {
   const { projects, tccs, publications, students, teachers } = useProjects()
-  const equipe = [...students.filter(s => s.type === "Student"), ...teachers]
+  const equipe = [...students.filter((s) => s.type === "Student"), ...teachers]
   const researchItems = [
     {
       href: "/publicacoes",
@@ -81,7 +81,7 @@ export default function About() {
       <div className="max-w-[1240px] mx-auto pt-8 md:pt-6 pb-4 md:pb-2">
         <div className="text-center mb-8 md:mb-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 md:mb-4">
-            Sobre o Grupo
+            Sobre o Grupo teste
           </h1>
           <p className="pt-5 text-gray-600 text-left text-sm sm:text-base lg:text-lg max-w-7xl mx-auto leading-relaxed pb-10">
             {/* antiga descricao */}
@@ -172,7 +172,7 @@ export default function About() {
               Publicações
             </h3>
             <p className="text-gray-600 text-center">
-             Produção científica do grupo, incluindo artigos, livros e trabalhos acadêmicos
+              Produção científica do grupo, incluindo artigos, livros e trabalhos acadêmicos
             </p>
           </Link>
 
@@ -196,7 +196,7 @@ export default function About() {
               Orientações Concluídas
             </h3>
             <p className="text-gray-600 text-center">
-             Trabalhos acadêmicos concluídos sob orientação dos docentes do grupo.
+              Trabalhos acadêmicos concluídos sob orientação dos docentes do grupo.
             </p>
           </Link>
           <Link
@@ -219,7 +219,7 @@ export default function About() {
             </h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">Membros</h3>
             <p className="text-gray-600 text-center">
-             Docentes e discentes que integram o grupo de pesquisa
+              Docentes e discentes que integram o grupo de pesquisa
             </p>
           </Link>
         </div>
