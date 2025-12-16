@@ -959,7 +959,16 @@ const publications: PublicationProps[] = [
   },
 ]
 const students: StudentProps[] = [
-     {
+  {
+    name: "Marcos Taylon Custodio Praia",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/5362036886249655",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1561504H2",
+    type: "Student",
+  },
+  {
     name: "Aldair Jose Tenorio Moreira Junior",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -968,7 +977,7 @@ const students: StudentProps[] = [
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1561810U9",
     type: "Student",
   },
-   {
+  {
     name: "Pedro Lucas Gomes Brito",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -977,7 +986,7 @@ const students: StudentProps[] = [
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2825236T6",
     type: "Student",
   },
-   {
+  {
     name: "Kelvin Marques Rodrigues",
     institution: "Unifap",
     campus: "Campus Unifap",
