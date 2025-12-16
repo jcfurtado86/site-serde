@@ -16,6 +16,9 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
+        port: 22
+        # AUMENTO DE TEMPO: Dá 30 minutos para o build terminar antes de dar erro
+        command_timeout: 30m
         script: |
           # Entra na pasta do projeto
           cd ~/site-serde
