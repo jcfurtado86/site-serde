@@ -81,7 +81,7 @@ export default function About() {
       <div className="max-w-[1240px] mx-auto pt-8 md:pt-6 pb-4 md:pb-2">
         <div className="text-center mb-8 md:mb-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 md:mb-4">
-            Sobre o Grupo teste
+            Sobre o Grupo testee
           </h1>
           <p className="pt-5 text-gray-600 text-left text-sm sm:text-base lg:text-lg max-w-7xl mx-auto leading-relaxed pb-10">
             {/* antiga descricao */}
