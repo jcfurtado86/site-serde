@@ -959,6 +959,24 @@ const publications: PublicationProps[] = [
   },
 ]
 const students: StudentProps[] = [
+   {
+    name: "Pedro Lucas Gomes Brito",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/3795503159897269",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2825236T6",
+    type: "Student",
+  },
+   {
+    name: "Kelvin Marques Rodrigues",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/4764480010325451",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1581278Z0",
+    type: "Student",
+  },
   {
     name: "Lucas Fauro de Araújo",
     institution: "Unifap",
