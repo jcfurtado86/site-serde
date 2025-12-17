@@ -959,6 +959,15 @@ const publications: PublicationProps[] = [
   },
 ]
 const students: StudentProps[] = [
+   {
+    name: "Tainá Tenório Malheiros",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/9730418549327217",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1263413Y6",
+    type: "Student",
+  },
   {
     name: "Marcos Taylon Custodio Praia",
     institution: "Unifap",
