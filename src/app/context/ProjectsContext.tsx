@@ -959,6 +959,16 @@ const publications: PublicationProps[] = [
   },
 ]
 const students: StudentProps[] = [
+  
+   {
+    name: "Gabriel Felipe Assunção de Souza",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/2957036714526782",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1109711U3",
+    type: "Student",
+  },
    {
     name: "Tainá Tenório Malheiros",
     institution: "Unifap",
