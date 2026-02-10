@@ -18,7 +18,7 @@ const nunito = Nunito({
 })
 
 export const metadata: Metadata = {
-  title: "Serde",
+  title: "SERDE",
   description: "Serde",
 }
 
