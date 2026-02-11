@@ -959,8 +959,16 @@ const publications: PublicationProps[] = [
   },
 ]
 const students: StudentProps[] = [
-  
-   {
+  {
+    name: "Nicolas Veloso de Araújo",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/4024686507174987",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1567945A1",
+    type: "Student",
+  },
+  {
     name: "Gabriel Felipe Assunção de Souza",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -969,7 +977,7 @@ const students: StudentProps[] = [
     imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1109711U3",
     type: "Student",
   },
-   {
+  {
     name: "Tainá Tenório Malheiros",
     institution: "Unifap",
     campus: "Campus Unifap",
