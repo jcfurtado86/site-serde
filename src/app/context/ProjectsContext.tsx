@@ -959,6 +959,24 @@ const publications: PublicationProps[] = [
   },
 ]
 const students: StudentProps[] = [
+   {
+    name: "Gabriel Victor Auzier dos Santos",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/9709624231548253",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1561335U2",
+    type: "Student",
+  },
+  {
+    name: "Rayanne dos Santos Silva Marques",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/1036051313578597",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1560367P1",
+    type: "Student",
+  },
   {
     name: "Lucas Alexander de Souza Brito",
     institution: "Unifap",
