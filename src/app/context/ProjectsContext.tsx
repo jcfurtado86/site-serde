@@ -960,6 +960,24 @@ const publications: PublicationProps[] = [
 ]
 const students: StudentProps[] = [
   {
+    name: "Lucas Alexander de Souza Brito",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/1353756041228793",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1148069Y9",
+    type: "Student",
+  },
+  {
+    name: "Danilo dos Santos Ferreira",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/7423437888188340",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1152393H2",
+    type: "Student",
+  },
+  {
     name: "Nicolas Veloso de Araújo",
     institution: "Unifap",
     campus: "Campus Unifap",
