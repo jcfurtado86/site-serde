@@ -960,6 +960,15 @@ const publications: PublicationProps[] = [
 ]
 const students: StudentProps[] = [
    {
+    name: "Lara Lethicia de Oliveira Araújo",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    email: "email@unifap.br",
+    curriculumLink: "http://lattes.cnpq.br/6443957234671960",
+    imageUrl: "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1121105U9",
+    type: "Student",
+  },
+   {
     name: "Gabriel Victor Auzier dos Santos",
     institution: "Unifap",
     campus: "Campus Unifap",
