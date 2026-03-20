@@ -558,6 +558,9 @@ export function parseProjects($: CheerioAPI, minYear: number): Project[] {
 
       const period = periodMatch[0].trim()
 
+      // Only include projects where we are the coordinator
+      if (professor !== "Julio Cezar Costa Furtado") return
+
       projects.push({
         title,
         description,
@@ -711,13 +714,17 @@ export function parseOrientations($: CheerioAPI, minYear: number): TCCProps[] {
         // Remove trailing period from title
         title = title.replace(/\.\s*$/, "")
 
+        // Skip entries where we are co-advisor (not main advisor)
+        const coAdvisorMatch = text.match(/Coorientador:\s*(.+?)\./)
+        if (coAdvisorMatch && coAdvisorMatch[1].includes("Julio Cezar")) {
+          $el = $el.next()
+          continue
+        }
+
         // Extract advisor name
         let advisor = "Julio Cezar Costa Furtado"
         const advisorMatch = text.match(/Orientador:\s*(.+?)\./)
         if (advisorMatch) advisor = advisorMatch[1].trim()
-        // For co-advisor
-        const coAdvisorMatch = text.match(/Coorientador:\s*(.+?)\./)
-        if (coAdvisorMatch) advisor = coAdvisorMatch[1].trim()
 
         orientations.push({
           title,

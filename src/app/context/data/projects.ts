@@ -3,40 +3,6 @@ import type { Project } from "../types"
 export const projectsData: Project[] = [
   {
     title:
-      "Abordagem para Ensino de Melhoria do Processo de Software a partir do uso de Metodologias Ativas",
-    description:
-      "Este projeto visa desenvolver uma abordagem para ensino de Melhoria do Processo de Software em Cursos de Computação a partir da adoção de Metodologias Ativas",
-    professor: "Sandro Ronaldo Bezerra Oliveira",
-    status: "Finalizado",
-    type: "Pesquisa",
-    link: "abordagem-para-ensino-de-melhoria-do-processo-de-software-a-",
-    documentation: [],
-    period: "2021 - 2025",
-    team: [
-      "Julio Cezar Costa Furtado",
-      "Sandro Ronaldo Bezerra Oliveira",
-      "Adolfo Colares",
-    ],
-  },
-  {
-    title:
-      "Um jogo de RPG como Instrumento de Apoio ao Ensino da Construção de Produto de Software",
-    description:
-      "A Engenharia de Software é uma das disciplinas que permite que acadêmicos consigam realizar o desenvolvimento de software. Apesar da sua importância, algumas das dificuldades em relação ao seu ensino incluem identificar formas de aprendizagem que consigam motivar os acadêmicos e fazer com que eles efetivem o conhecimento necessário para ser utilizado na indústria. Com base nisso, este trabalho tem como objetivo apresentar um jogo de RPG que pode ser utilizado como ferramenta para auxiliar no ensino de Engenharia de Software, com foco na construção de produtos de software. Para a sua elaboração, inicialmente foi realizado um Mapeamento Sistemático da Literatura com o intuito de encontrar os principais tipos de jogos utilizados no ensino de Engenharia de Software e, em seguida, mapear com a taxonomia revisada de Bloom. Posteriormente foi realizado um estudo do sistema de RPG chamado GURPS Lite, para poder entender os diferentes tipos de regras existentes em um jogo de RPG. Após esse estudo o jogo de RPG ConES foi elaborado e, para validar suas mecânicas e dinâmicas, foram realizadas duas avaliações com estudantes de diferentes níveis de experiência na área de Engenharia de Software, todos cursavam graduação em Ciência da Computação. As avaliações do protótipo indicaram que as mecânicas elaboradas são satisfatórias, necessitando apenas alguns ajustes. Após a implementação dos ajustes, o jogo foi testado em uma de sala de aula com 20 estudantes do Curso de Ciência da Computação da Universidade Federal do Amapá. Como resultado foi possível identificar a eficácia do ConES como ferramenta de apoio, bem como avaliar a sua aplicabilidade em um ambiente de ensino",
-    professor: "Sandro Ronaldo Bezerra Oliveira",
-    status: "Finalizado",
-    type: "Pesquisa",
-    link: "um-jogo-de-rpg-como-instrumento-de-apoio-ao-ensino-da-constr",
-    documentation: [],
-    period: "2021 - 2023",
-    team: [
-      "Julio Cezar Costa Furtado",
-      "Sandro Ronaldo Bezerra Oliveira",
-      "Anderson Guerra",
-    ],
-  },
-  {
-    title:
       "Projeto SERDE - Software Engineering: Research, Development and Education",
     description:
       "De acordo com a ACM / IEEE, a Engenharia de Software (ES) é uma disciplina interessada na aplicação de teoria, conhecimento e prática para o desenvolvimento eficaz e eficiente de sistemas de software que atendam aos requisitos dos usuários. Apesar da importância destes conhecimentos relativos às atividades da ES, pesquisam já verificaram que os profissionais aprendem mais sobre estas atividades durante o seu trabalho do que durante a sua formação e em geral, a indústria de software sofre com a falta de profissionais qualificados para trabalhar em atividades que envolvem o processo de desenvolvimento de software. Esta dificuldade em encontrar profissionais de Ciência da Computação com domínio dos tópicos da Engenharia de Software pode estar relacionada ao tipo de formação que estes receberam durante os anos de graduação. Assim, neste contexto, este projeto tem como objetivo desenvolver metodologias e ferramentas que auxiliem na aplicação e no ensino dos conteúdos da Engenharia de Software, seja no âmbito acadêmico ou na indústria de software",
@@ -47,24 +13,6 @@ export const projectsData: Project[] = [
     documentation: [],
     period: "2020 - Atual",
     team: ["Julio Cezar Costa Furtado"],
-  },
-  {
-    title:
-      "UMA ABORDAGEM BASEADA EM ENGENHARIA DIRIGIDA POR MODELOS PARA MIGRAÇÃO DE BANCO DE DADOS RELACIONAL PARA BANCO DE DADOS NÃO RELACIONAL: UM ESTUDO DE CASO COM SISTEMAS DE REGISTROS MÉDICOS ELETRÔNICOS",
-    description:
-      "O paradigma de desenvolvimento dirigido por modelos foi proposto para diminuir a complexidade de evoluir software; e a migração é considerada uma atividade relativa a evolução de software. Model-Driven Engineering é uma abordagem de desenvolvimento de software que concentra o desenvolvimento de software na estruturação e transformação de modelos; e que é utilizada para adaptar e evoluir diferentes tecnologias. Essa abordagem de desenvolvimento é foco do presente pesquisa, onde uma metodologia para migração semiautomática de base de dados escrita em banco de dados relacional para banco de dados não relacional será proposta",
-    professor: "Thiago Pinheiro do Nascimento",
-    status: "Finalizado",
-    type: "Pesquisa",
-    link: "uma-abordagem-baseada-em-engenharia-dirigida-por-modelos-par",
-    documentation: [],
-    period: "2018 - 2019",
-    team: [
-      "Julio Cezar Costa Furtado",
-      "Marco Leal",
-      "Adeildo Teles",
-      "Thiago Pinheiro do Nascimento",
-    ],
   },
   {
     title:
@@ -107,23 +55,6 @@ export const projectsData: Project[] = [
   },
   {
     title:
-      "Escritório Modelo do Curso Ciência da Computação",
-    description:
-      "O Escritório Modelo de Ciência da Computação é uma iniciativa proposta pelo curso de Ciência da Computação da Universidade Federal do Amapá, que visa o desenvolvimento de soluções computacionais para a sociedade acadêmica e comunidade de forma geral. Essas soluções visam o estabelecimento de serviços de infraestrutura, bem como a implementação de sistemas de software e modelos de negócios. As atividades a serem desenvolvidas pela referida iniciativa serão realizadas por alunos e professores vinculados ao curso de Ciência https://sigaa.unifap.br/sigaa/extensao/Atividade/ lista_minhas_atividades.jsf 26/07/2025, 13:28 Página 1 de 3 da Computação. Portanto, essa iniciativa objetiva capacitar alunos, ao mesmo tempo em que potencializa o desenvolvimento tecnológico da sociedade acadêmica e a comunidade",
-    professor: "Thiago Pinheiro do Nascimento",
-    status: "Em andamento",
-    type: "Extensão",
-    link: "escritorio-modelo-do-curso-ciencia-da-computacao",
-    documentation: [],
-    period: "2025 - Atual",
-    team: [
-      "Julio Cezar Costa Furtado",
-      "Marco Leal",
-      "Thiago Pinheiro do Nascimento",
-    ],
-  },
-  {
-    title:
       "Laboratório de Desenvolvimento de Software Aplicado ao Judiciário",
     description:
       "O projeto propõe a criação de uma laboratório em Ciência da Computação com enfoque em aplicações judrídicas, em parceria com o Judiciário, voltada para o desenvolvimento de profissionais altamente capacitados nas áreas de desenvolvimento de software, segurança de dados, DevOps, Machine Learning e Ciência de Dados. Esta formação prática e especializada ocorrerá em um ambiente, com a orientação de professores e mentores técnicos experientes. Os objetivos do programa incluem a formação de profissionais capazes de atender às demandas tecnológicas específicas do judiciário, fortalecendo a parceria entre a universidade e o órgão público. Além disso, o projeto visa proporcionar uma experiência de aprendizado imersiva e prática, preparando os alunos para enfrentar desafios reais e contribuir para a modernização do setor de justiça estadual",
@@ -139,67 +70,6 @@ export const projectsData: Project[] = [
       "Thiago Pinheiro do Nascimento",
     ],
     funding: "Fundação de Amparo à Pesquisa do Estado do Acre - Bolsa",
-  },
-  {
-    title:
-      "Unifap Digital 4.0",
-    description:
-      "O Projeto UNIFAP DIGITAL 4.0 consiste em uma ação de extensão que visa oportunizar para comunidade acadêmica e sociedade em geral cursos nas áreas de INCLUSÃO E EDUCAÇÃO DIGITAL e DESENVOLVIMENTO DE SOFTWARE. O projeto também prevê a implantação de uma FÁBRICA DE SOFTWARE por meio das equipes",
-    professor: "José Alípio Diniz de Moraes Júnior",
-    status: "Em andamento",
-    type: "Extensão",
-    link: "unifap-digital-40",
-    documentation: [],
-    period: "2022 - Atual",
-    team: [
-      "Julio Cezar Costa Furtado",
-      "Rafael Pontes Lima",
-      "José Alípio Diniz de Moraes Júnior",
-    ],
-  },
-  {
-    title:
-      "ESCRITÓRIO MODELO DO CURSO DE CIÊNCIA DA COMPUTAÇÃO",
-    description:
-      "O escritório modelo de ciência da computação tem como objetivo central o desenvolvimento de soluções computacionais para a comunidade acadêmica, setores públicos e órgãos privados, e para a sociedade de modo geral. As atividades a serem desenvolvidas por essa iniciativa serão realizadas por alunos e professores vinculados ao curso de ciência da computação. Ao mesmo tempo em que visa contribuir para o crescimento da sociedade, o escritório modelo também visa capacitar os alunos envolvidos para atuarem no mercado de trabalho",
-    professor: "Thiago Pinheiro do Nascimento",
-    status: "Finalizado",
-    type: "Extensão",
-    link: "escritorio-modelo-do-curso-de-ciencia-da-computacao",
-    documentation: [],
-    period: "2018 - 2019",
-    team: [
-      "Julio Cezar Costa Furtado",
-      "Adolfo Colares",
-      "Marco Leal",
-      "Leonardo Góes",
-      "José Cárdenas Walter Sótil",
-      "Adeildo Teles",
-      "Thiago Pinheiro do Nascimento",
-    ],
-  },
-  {
-    title:
-      "Projeto Programação na Escola",
-    description:
-      "O Projeto Programação na Escola tem como objetivo despertar o interesse de professores e alunos da rede pública de ensino na programação de computadores, fazendo uso de uma ferramenta chamada Scratch. Através de sua linguagem simples, será possível desenvolver aplicações criativas como jogos e animações. Além do mais, o projeto contará com um evento de culminância para divulgar os resultados realizado durante o projeto, bem como, disseminar a cultura de programação de computadores através de minicursos, palestras e competições",
-    professor: "Adeildo Teles",
-    status: "Finalizado",
-    type: "Extensão",
-    link: "projeto-programacao-na-escola",
-    documentation: [],
-    period: "2017 - 2020",
-    team: [
-      "Julio Cezar Costa Furtado",
-      "Adolfo Colares",
-      "Marco Leal",
-      "Leonardo Góes",
-      "José Cárdenas Walter Sótil",
-      "Adeildo Teles",
-      "Thiago Pinheiro do Nascimento",
-      "Matheus Furtado",
-      "Gabriel Silveira",
-    ],
   },
   {
     title:

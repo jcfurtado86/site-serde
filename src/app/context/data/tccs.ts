@@ -231,18 +231,6 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "UMA ABORDAGEM PARA ENSINO DE MELHORIA DO PROCESSO DE SOFTWARE EM CURSOS DE COMPUTAÇÃO",
-    description: "",
-    link: "uma-abordagem-para-ensino-de-melhoria-do-processo-de-softwar",
-    status: "Finalizado",
-    students: ["Adolfo Francesco de Oliveira Colares"],
-    advisor: "Julio Cezar Costa Furtado",
-    year: "2025",
-    keywords: "",
-    degree: "Doutorado",
-  },
-  {
-    title:
       "UMA ANÁLISE DA APLICAÇÃO DE JOGOS PARA ENSINO DE PROGRAMAÇÃO BÁSICA A PARTIR DE UM MAPEAMENTO SISTEMÁTICO DA LITERATURA",
     description: "",
     link: "uma-analise-da-aplicacao-de-jogos-para-ensino-de-programacao",
@@ -387,18 +375,6 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "CONES: Um Jogo de RPG como Instrumento de Apoio ao Ensino da Construção de Produto de Software",
-    description: "",
-    link: "cones-um-jogo-de-rpg-como-instrumento-de-apoio-ao-ensino-da-",
-    status: "Finalizado",
-    students: ["Anderson dos Santos Guerra"],
-    advisor: "Julio Cezar Costa Furtado",
-    year: "2023",
-    keywords: "",
-    degree: "Mestrado",
-  },
-  {
-    title:
       "Desafios enfrentados por Profissionais e Empresas da Área de T.I. durante a pandemia de Covid-19 no Brasil",
     description: "",
     link: "desafios-enfrentados-por-profissionais-e-empresas-da-area-de",
@@ -516,18 +492,6 @@ export const tccs: TCCProps[] = [
     year: "2020",
     keywords: "",
     degree: "TCC",
-  },
-  {
-    title:
-      "Uso de Jogos de Tabuleiro Modernos para Aprimorar a Habilidade de Resolução de Problemas em Alunos de Introdução à Programação de Computadores",
-    description: "",
-    link: "uso-de-jogos-de-tabuleiro-modernos-para-aprimorar-a-habilida",
-    status: "Finalizado",
-    students: ["Elvis Azevedo de Araújo"],
-    advisor: "Julio Cezar Costa Furtado",
-    year: "2019",
-    keywords: "",
-    degree: "Mestrado",
   },
   {
     title:
