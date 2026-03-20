@@ -1,4 +1,4 @@
-import type { PublicationProps, PatentProps } from "../src/app/context/types"
+import type { PublicationProps, PatentProps, Project, TCCProps } from "../src/app/context/types"
 
 function escapeString(s: string): string {
   return s.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\n")
@@ -102,5 +102,68 @@ export function generatePublicationsFile(
   lines.push("]")
   lines.push("")
 
+  return lines.join("\n")
+}
+
+function formatProject(p: Project): string {
+  const lines: string[] = []
+  lines.push("  {")
+  lines.push(`    title:\n      "${escapeString(p.title)}",`)
+  lines.push(`    description:\n      "${escapeString(p.description)}",`)
+  lines.push(`    professor: "${escapeString(p.professor)}",`)
+  lines.push(`    status: "${escapeString(p.status)}",`)
+  lines.push(`    type: "${escapeString(p.type)}",`)
+  lines.push(`    link: "${escapeString(p.link)}",`)
+  lines.push("    documentation: [],")
+  if (p.period) lines.push(`    period: "${escapeString(p.period)}",`)
+  if (p.team && p.team.length > 0) lines.push(`    team: ${formatStringArray(p.team, "    ")},`)
+  if (p.funding) lines.push(`    funding: "${escapeString(p.funding)}",`)
+  lines.push("  },")
+  return lines.join("\n")
+}
+
+export function generateProjectsFile(projects: Project[]): string {
+  const lines: string[] = []
+  lines.push('import type { Project } from "../types"')
+  lines.push("")
+  lines.push("export const projectsData: Project[] = [")
+  for (const p of projects) {
+    lines.push(formatProject(p))
+  }
+  lines.push("]")
+  lines.push("")
+  return lines.join("\n")
+}
+
+function formatTCC(t: TCCProps): string {
+  const lines: string[] = []
+  lines.push("  {")
+  lines.push(`    title:\n      "${escapeString(t.title)}",`)
+  lines.push(`    description: "${escapeString(t.description || "")}",`)
+  lines.push(`    link: "${escapeString(t.link)}",`)
+  lines.push(`    status: "${escapeString(t.status)}",`)
+  lines.push(`    students: ${formatStringArray(t.students, "    ")},`)
+  lines.push(`    advisor: "${escapeString(t.advisor)}",`)
+  lines.push(`    year: "${escapeString(t.year)}",`)
+  lines.push(`    keywords: "${escapeString(t.keywords || "")}",`)
+  if (t.degree) lines.push(`    degree: "${escapeString(t.degree)}",`)
+  lines.push("  },")
+  return lines.join("\n")
+}
+
+export function generateTccsFile(tccs: TCCProps[]): string {
+  const lines: string[] = []
+  lines.push('import type { TCCProps } from "../types"')
+  lines.push("")
+  lines.push("export const tccs: TCCProps[] = [")
+
+  // Sort by year descending
+  const sorted = [...tccs].sort((a, b) => parseInt(b.year, 10) - parseInt(a.year, 10))
+  for (const t of sorted) {
+    lines.push(formatTCC(t))
+  }
+
+  lines.push("]")
+  lines.push("")
   return lines.join("\n")
 }

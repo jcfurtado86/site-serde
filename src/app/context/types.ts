@@ -70,6 +70,7 @@ export interface TCCProps {
   year: string
   keywords: string
   description?: string
+  degree?: string
 }
 
 export interface Project {
@@ -80,6 +81,9 @@ export interface Project {
   type: string
   link: string
   documentation: FileProps[]
+  period?: string
+  team?: string[]
+  funding?: string
 }
 
 export interface ParceiroProps {

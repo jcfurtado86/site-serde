@@ -30,8 +30,8 @@ export default function ProjetosPesquisa() {
 
       // Campos gerados com valores padrão ou construídos
       description: description,
-      status: tcc.status, // Assumimos que TCCs listados estão concluídos
-      type: "TCC", // Definimos o tipo como 'TCC' para fácil identificação
+      status: tcc.status,
+      type: tcc.degree || "TCC",
     }
   })
 

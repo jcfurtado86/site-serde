@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "update-publications": "npx tsx scripts/update-publications.ts"
+    "update-lattes": "npx tsx scripts/update-lattes.ts"
   },
   "dependencies": {
     "lucide-react": "^0.556.0",

@@ -1,5 +1,5 @@
 import * as cheerio from "cheerio"
-import type { PublicationProps, PatentProps } from "../src/app/context/types"
+import type { PublicationProps, PatentProps, Project, TCCProps } from "../src/app/context/types"
 
 type CheerioAPI = ReturnType<typeof cheerio.load>
 
@@ -469,6 +469,291 @@ export function parsePatents($: CheerioAPI): PatentProps[] {
   return patents
 }
 
+function slugify(text: string): string {
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // remove accents
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+    .substring(0, 60)
+}
+
+export function parseProjects($: CheerioAPI, minYear: number): Project[] {
+  const projects: Project[] = []
+
+  const sections: { anchor: string; type: string }[] = [
+    { anchor: "ProjetosPesquisa", type: "Pesquisa" },
+    { anchor: "ProjetosExtensao", type: "Extensão" },
+    { anchor: "ProjetosDesenvolvimento", type: "Desenvolvimento" },
+  ]
+
+  for (const section of sections) {
+    const anchor = $(`a[name="${section.anchor}"]`)
+    if (anchor.length === 0) continue
+
+    const container = anchor.closest("div.title-wrapper").find("div.layout-cell-12")
+    if (container.length === 0) continue
+
+    // Each project starts with an <a name="PP_..."> anchor
+    container.find('a[name^="PP_"]').each((_, anchorEl) => {
+      const $anchor = $(anchorEl)
+
+      // Period: next layout-cell-3
+      const $periodCell = $anchor.nextAll("div.layout-cell-3").first()
+      const periodText = cleanText($periodCell.text())
+      const periodMatch = periodText.match(/(\d{4})\s*-\s*(\d{4}|Atual)/)
+      if (!periodMatch) return
+
+      const startYear = parseInt(periodMatch[1], 10)
+      if (startYear < minYear) return
+
+      // Title: next layout-cell-9
+      const $titleCell = $periodCell.nextAll("div.layout-cell-9").first()
+      const title = cleanText($titleCell.text())
+      if (!title) return
+
+      // Details: skip one more layout-cell-3 (empty), then next layout-cell-9
+      const $emptyCell = $titleCell.nextAll("div.layout-cell-3").first()
+      const $detailsCell = $emptyCell.nextAll("div.layout-cell-9").first()
+      const detailsText = cleanText($detailsCell.text())
+
+      // Parse description
+      const descMatch = detailsText.match(/Descri..o:\s*(.+?)(?=Situa..o:|$)/)
+      const description = descMatch ? descMatch[1].trim().replace(/\.\.\s*$/, ".").replace(/\.\s*$/, "") : ""
+
+      // Parse status
+      const statusMatch = detailsText.match(/Situa..o:\s*(.+?);/)
+      let status = statusMatch ? statusMatch[1].trim() : "Em andamento"
+      if (status.includes("Conclu")) status = "Finalizado"
+
+      // Parse natureza (type) - use section type as default
+      const natMatch = detailsText.match(/Natureza:\s*(.+?)\./)
+      const type = natMatch ? natMatch[1].trim() : section.type
+
+      // Parse coordinator and team from integrantes
+      const intMatch = detailsText.match(/Integrantes:\s*(.+?)(?=Financiador|$)/)
+      let professor = "Julio Cezar Costa Furtado"
+      const team: string[] = []
+      if (intMatch) {
+        const members = intMatch[1].split("/")
+        for (const member of members) {
+          const nameRole = member.trim().replace(/\.\s*$/, "")
+          if (!nameRole) continue
+          if (nameRole.includes("Coordenador")) {
+            const nameMatch = nameRole.match(/(.+?)\s*-\s*Coordenador/)
+            if (nameMatch) professor = nameMatch[1].trim()
+          }
+          // Extract just the name (before " - Role")
+          const justName = nameRole.replace(/\s*-\s*(Coordenador|Integrante).*$/, "").trim()
+          if (justName) team.push(justName)
+        }
+      }
+
+      // Parse funding
+      const fundMatch = detailsText.match(/Financiador\(es\):\s*(.+?)\./)
+      const funding = fundMatch ? fundMatch[1].trim() : undefined
+
+      const period = periodMatch[0].trim()
+
+      projects.push({
+        title,
+        description,
+        professor,
+        status,
+        type,
+        link: slugify(title),
+        documentation: [],
+        period,
+        ...(team.length > 0 && { team }),
+        ...(funding && { funding }),
+      })
+    })
+  }
+
+  return projects
+}
+
+export function parseOrientations($: CheerioAPI, minYear: number): TCCProps[] {
+  const orientations: TCCProps[] = []
+
+  // Map section headers to degree types (skip IC)
+  const degreeMap: Record<string, string> = {
+    "mestrado": "Mestrado",
+    "doutorado": "Doutorado",
+    "gradua": "TCC",
+    "aperfei": "Especialização",
+  }
+  const skipHeaders = ["cient"] // skip Iniciação Científica
+
+  function getDegree(headerText: string): string | null {
+    const lower = headerText.toLowerCase()
+    // Skip Iniciação Científica
+    for (const skip of skipHeaders) {
+      if (lower.includes(skip)) return null
+    }
+    for (const [key, value] of Object.entries(degreeMap)) {
+      if (lower.includes(key)) return value
+    }
+    return "TCC"
+  }
+
+  // Parse both in-progress and completed sections
+  const sectionAnchors = [
+    { name: "Orientacaoemandamento", status: "Em andamento" },
+    { name: "Orientacoesconcluidas", status: "Finalizado" },
+  ]
+
+  for (const section of sectionAnchors) {
+    const anchor = $(`a[name="${section.name}"]`)
+    if (anchor.length === 0) continue
+
+    // Find all subsection headers and their entries
+    let currentDegree = "Graduação"
+
+    // Walk through all siblings after the anchor
+    let $el = anchor.next()
+    while ($el.length > 0) {
+      // Stop at next major section
+      if ($el.hasClass("title-wrapper")) break
+      // Stop if we hit another named anchor (next section)
+      if ($el.is("a[name]") && $el.attr("name") !== section.name) break
+
+      // Check for subsection header
+      if ($el.hasClass("cita-artigos")) {
+        const headerText = cleanText($el.text())
+        const degree = getDegree(headerText)
+        if (degree === null) {
+          // Skip this entire subsection (e.g. Iniciação Científica)
+          currentDegree = "__skip__"
+        } else {
+          currentDegree = degree
+        }
+        $el = $el.next()
+        continue
+      }
+
+      // Check for inst_back header (used in the "Orientações e supervisões" headers)
+      if ($el.hasClass("inst_back")) {
+        $el = $el.next()
+        continue
+      }
+
+      // Parse entry: layout-cell-11 contains the orientation text
+      if ($el.hasClass("layout-cell") && $el.hasClass("layout-cell-11")) {
+        // Skip entries from excluded subsections
+        if (currentDegree === "__skip__") { $el = $el.next(); continue }
+
+        const text = cleanText($el.find("span.transform").text())
+        if (!text) { $el = $el.next(); continue }
+
+        // Extract year
+        let year: string | undefined
+        if (section.status === "Em andamento") {
+          const yearMatch = text.match(/In.cio:\s*(\d{4})/)
+          year = yearMatch ? yearMatch[1] : undefined
+        } else {
+          // Completed: year is standalone after title
+          const yearMatch = text.match(/\.\s*(\d{4})\.\s/)
+          year = yearMatch ? yearMatch[1] : undefined
+        }
+
+        if (!year || parseInt(year, 10) < minYear) {
+          $el = $el.next()
+          continue
+        }
+
+        // Extract student name(s) and title
+        // Format: "STUDENT. TITLE. [Início:|YEAR.]..."
+        // Students come before the first ". " followed by an uppercase letter (title start)
+        let students: string[] = []
+        let title = ""
+
+        // Find the title boundary - it ends before "Início:" or before "YEAR.\n"
+        if (section.status === "Em andamento") {
+          // Format: "STUDENT. TITLE. Início: YEAR..."
+          const match = text.match(/^(.+?)\.\s*In.cio:\s*\d{4}/)
+          if (match) {
+            const beforeYear = match[1].trim()
+            // Last ". " separates student from title... but student name has "." too
+            // Actually the format is: "Student Name. Title Text"
+            // We need a smarter split - find where student ends and title begins
+            const firstDot = beforeYear.indexOf(". ")
+            if (firstDot > 0) {
+              const studentPart = beforeYear.substring(0, firstDot).trim()
+              title = beforeYear.substring(firstDot + 2).trim()
+              students = splitStudents(studentPart)
+            } else {
+              title = beforeYear
+            }
+          }
+        } else {
+          // Completed format: "Student Name. Title. YEAR. Type..."
+          // Find the year position
+          const yearIdx = text.indexOf(`. ${year}.`)
+          if (yearIdx > 0) {
+            const beforeYear = text.substring(0, yearIdx).trim()
+            const firstDot = beforeYear.indexOf(". ")
+            if (firstDot > 0) {
+              const studentPart = beforeYear.substring(0, firstDot).trim()
+              title = beforeYear.substring(firstDot + 2).trim()
+              students = splitStudents(studentPart)
+            } else {
+              title = beforeYear
+            }
+          }
+        }
+
+        if (!title) { $el = $el.next(); continue }
+
+        // Remove trailing period from title
+        title = title.replace(/\.\s*$/, "")
+
+        // Extract advisor name
+        let advisor = "Julio Cezar Costa Furtado"
+        const advisorMatch = text.match(/Orientador:\s*(.+?)\./)
+        if (advisorMatch) advisor = advisorMatch[1].trim()
+        // For co-advisor
+        const coAdvisorMatch = text.match(/Coorientador:\s*(.+?)\./)
+        if (coAdvisorMatch) advisor = coAdvisorMatch[1].trim()
+
+        orientations.push({
+          title,
+          description: "",
+          link: slugify(title),
+          status: section.status,
+          students,
+          advisor,
+          year,
+          keywords: "",
+          degree: currentDegree,
+        })
+      }
+
+      $el = $el.next()
+    }
+  }
+
+  return orientations
+}
+
+function splitStudents(text: string): string[] {
+  // Students separated by ";" or " e " (when it's clearly between two names)
+  // e.g. "João;Maria" or "João e Maria" or "Eduardo Teixeira Flexa e Patrick Mirando dos Santos"
+  if (text.includes(";")) {
+    return text.split(";").map((s) => s.trim()).filter(Boolean)
+  }
+  // Check for " e " as separator between two student names
+  // Heuristic: if " e " appears and both sides look like names, split
+  const eParts = text.split(" e ")
+  if (eParts.length === 2 && eParts[0].trim().length > 3 && eParts[1].trim().length > 3) {
+    return eParts.map((s) => s.trim())
+  }
+  return [text.trim()]
+}
+
 export function parseLattes(html: string, minYear: number) {
   const $ = cheerio.load(html)
 
@@ -477,8 +762,10 @@ export function parseLattes(html: string, minYear: number) {
   const chapters = parseChapters($, minYear)
   const congressPapers = parseCongressPapers($, minYear)
   const patents = parsePatents($)
+  const projects = parseProjects($, minYear)
+  const orientations = parseOrientations($, minYear)
 
   const publications: PublicationProps[] = [...books, ...chapters, ...articles, ...congressPapers]
 
-  return { publications, patents }
+  return { publications, patents, projects, orientations }
 }

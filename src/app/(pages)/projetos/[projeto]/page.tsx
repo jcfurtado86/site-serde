@@ -28,6 +28,9 @@ interface ProjectProps {
   year: string
   keywords: string[]
   description: string
+  period?: string
+  team?: string[]
+  funding?: string
 }
 
 function ProjectDetails({ project }: { project: ProjectProps }) {
@@ -82,8 +85,13 @@ function ProjectDetails({ project }: { project: ProjectProps }) {
         <hr className="my-8 border-gray-200" />
 
         {/* Seção Sobre o TCC / Projeto*/}
-        {project.type === "TCC" ? (
+        {["TCC", "Mestrado", "Doutorado", "Especialização"].includes(project.type) ? (
           <section className="flex flex-col gap-4">
+            {project.year && (
+              <p className="text-gray-700 leading-relaxed text-base">
+                <strong>Ano de conclusão:</strong> {project.year}
+              </p>
+            )}
             <p className="text-gray-700 leading-relaxed text-base">
               <strong>Alunos:</strong> {project?.students?.join(", ")}
             </p>
@@ -98,9 +106,24 @@ function ProjectDetails({ project }: { project: ProjectProps }) {
           </section>
         ) : (
           <section className="flex flex-col gap-4">
+            {project.period && (
+              <p className="text-gray-700 leading-relaxed text-base">
+                <strong>Período:</strong> {project.period}
+              </p>
+            )}
             <p className="text-gray-700 leading-relaxed text-base">
               <strong>Resumo:</strong> {project.description}
             </p>
+            {project.team && project.team.length > 0 && (
+              <p className="text-gray-700 leading-relaxed text-base">
+                <strong>Equipe:</strong> {project.team.join(", ")}
+              </p>
+            )}
+            {project.funding && (
+              <p className="text-gray-700 leading-relaxed text-base">
+                <strong>Financiamento:</strong> {project.funding}
+              </p>
+            )}
           </section>
         )}
         <hr className="my-8 border-gray-200" />
@@ -108,7 +131,7 @@ function ProjectDetails({ project }: { project: ProjectProps }) {
         {/* Seção do orientador */}
         <section>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            {project.type === "TCC" ? "Orientador" : "Professor Responsável"}
+            {["TCC", "Mestrado", "Doutorado", "Especialização"].includes(project.type) ? "Orientador" : "Professor Responsável"}
           </h2>
           <div className="flex items-center gap-3 text-gray-700">
             <User size={24} className="text-teal-500" />
@@ -160,8 +183,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       students: tcc.students || [],
       keywords: tcc.keywords || [],
       description: tcc.description || "fake description",
-      status: tcc.status, // Assumimos que TCCs listados estão concluídos
-      type: "TCC", // Definimos o tipo como 'TCC' para fácil identificação
+      status: tcc.status,
+      type: tcc.degree || "TCC",
+      year: tcc.year,
     }
   })
 

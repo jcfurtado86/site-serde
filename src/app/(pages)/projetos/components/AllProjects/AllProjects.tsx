@@ -18,6 +18,10 @@ const typeColors = [
   { type: "Extensão", color: "text-teal-600 bg-teal-100 group-hover:bg-teal-200" },
   { type: "Pesquisa", color: "text-purple-600 bg-purple-100 group-hover:bg-purple-200" },
   { type: "TCC", color: "text-orange-600 bg-orange-100 group-hover:bg-orange-200" },
+  { type: "Mestrado", color: "text-blue-600 bg-blue-100 group-hover:bg-blue-200" },
+  { type: "Doutorado", color: "text-red-600 bg-red-100 group-hover:bg-red-200" },
+  { type: "Especialização", color: "text-pink-600 bg-pink-100 group-hover:bg-pink-200" },
+  { type: "Desenvolvimento", color: "text-indigo-600 bg-indigo-100 group-hover:bg-indigo-200" },
 ]
 export function AllProjectsList({ title, projects, className, link }: CurrentProjectsProps) {
   return (
@@ -44,7 +48,7 @@ export function AllProjectsList({ title, projects, className, link }: CurrentPro
                     {project.status}
                   </span>
                   <span
-                    className={`${typeColors.find((type) => type.type === project.type)?.color || typeColors[0].color}  text-sm font-medium px-4 py-2 rounded-full  transition-colors duration-300`}
+                    className={`${typeColors.find((type) => type.type === project.type)?.color || "text-gray-600 bg-gray-100 group-hover:bg-gray-200"}  text-sm font-medium px-4 py-2 rounded-full  transition-colors duration-300`}
                   >
                     {project.type}
                   </span>
