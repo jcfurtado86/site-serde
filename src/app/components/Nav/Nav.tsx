@@ -89,48 +89,24 @@ export default function Nav() {
               >
                 Apresentação
               </Link>
-              <div
-                className="relative"
-                onMouseEnter={() => setIsDropdownOpen(true)}
-                onMouseLeave={() => setIsDropdownOpen(false)}
+              <Link
+                href="/projetos"
+                className={`${defaultLinkStyle} ${pathname === "/projetos" || pathname?.startsWith("/projetos/") ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
-                <Link
-                  ref={researchProjectsLinkRef}
-                  href="/projetos"
-                  className={`${defaultLinkStyle} ${pathname === "/projetos" ? "after:scale-x-100 text-[#295984]" : ""}`}
-                >
-                  Projetos
-                </Link>
-                {/* 6. Estrutura do Dropdown com efeitos e largura dinâmica */}
-                <div
-                  className={`
-              absolute top-full left-1/2 -translate-x-1/2
-               flex flex-col w-max
-              bg-white rounded-md shadow-lg z-10 border border-gray-200 transition-all duration-300 ease-in-out origin-top
-              ${isDropdownOpen ? "max-h-screen opacity-100 pointer-events-auto scale-y-100" : "max-h-0 opacity-0 pointer-events-none scale-y-0"}
-                              `}
-                >
-                  <Link
-                    href="/projetos#em-andamento"
-                    className="w-full rounded font-semibold text-sm text-gray-800 border-b py-2 px-4 hover:bg-blue-200 transition-colors"
-                  >
-                    Em andamento
-                  </Link>
+                Projetos
+              </Link>
 
-                  <Link
-                    href="/projetos#finalizados"
-                    className="w-full rounded font-semibold text-sm text-gray-800 border-b py-2 px-4 hover:bg-blue-200 transition-colors"
-                  >
-                    Finalizados
-                  </Link>
-                </div>
-              </div>
-
+              <Link
+                href="/orientacoes"
+                className={`${defaultLinkStyle} ${pathname === "/orientacoes" || pathname?.startsWith("/orientacoes/") ? "after:scale-x-100 text-[#295984]" : ""}`}
+              >
+                Orientações
+              </Link>
               <Link
                 href="/publicacoes"
                 className={`${defaultLinkStyle} ${pathname === "/publicacoes" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
-                Publicações
+                Publicações e Patentes
               </Link>
               <Link
                 href="/membros"
@@ -240,6 +216,13 @@ export default function Nav() {
                     Projetos de Pesquisa
                   </Link>
                   <Link
+                    href="/orientacoes"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Orientações
+                  </Link>
+                  <Link
                     href="/membros"
                     className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -251,7 +234,7 @@ export default function Nav() {
                     className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Publicações
+                    Publicações e Patentes
                   </Link>
                   <Link
                     href="https://github.com/jcfurtado86/"

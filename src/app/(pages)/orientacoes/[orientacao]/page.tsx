@@ -6,15 +6,15 @@ import { FileProps } from "@/app/context/ProjectsContext"
 import { Lightbulb, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon } from "lucide-react"
 import Link from "next/link"
 
-type ProjectPageProps = {
+type OrientacaoPageProps = {
   params: Promise<{
-    projeto: string
+    orientacao: string
   }>
 }
 
-function ProjectDetails({ project }: { project: any }) {
+function OrientacaoDetails({ tcc }: { tcc: any }) {
   const getStatusClasses = () => {
-    switch (project.status.toLowerCase()) {
+    switch (tcc.status.toLowerCase()) {
       case "finalizado":
         return "bg-green-100 text-green-600"
       case "em andamento":
@@ -39,21 +39,21 @@ function ProjectDetails({ project }: { project: any }) {
     <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
       <div className="p-8 md:p-12">
         <header>
-          <p className="text-teal-600 font-semibold tracking-wide uppercase">Detalhes do Projeto</p>
+          <p className="text-teal-600 font-semibold tracking-wide uppercase">Detalhes da Orientação</p>
           <h1 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-            {project.title}
+            {tcc.title}
           </h1>
 
           <div className="mt-4 flex flex-wrap items-center gap-4">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
               <Lightbulb />
-              {project.type}
+              {tcc.degree || "TCC"}
             </span>
             <span
               className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${getStatusClasses()}`}
             >
-              {project.status === "Finalizado" ? <CheckCircle /> : <LoaderIcon />}
-              {project.status}
+              {tcc.status === "Finalizado" ? <CheckCircle /> : <LoaderIcon />}
+              {tcc.status}
             </span>
           </div>
         </header>
@@ -61,22 +61,22 @@ function ProjectDetails({ project }: { project: any }) {
         <hr className="my-8 border-gray-200" />
 
         <section className="flex flex-col gap-4">
-          {project.period && (
+          {tcc.year && (
             <p className="text-gray-700 leading-relaxed text-base">
-              <strong>Período:</strong> {project.period}
+              <strong>Ano de conclusão:</strong> {tcc.year}
             </p>
           )}
           <p className="text-gray-700 leading-relaxed text-base">
-            <strong>Resumo:</strong> {project.description}
+            <strong>Alunos:</strong> {tcc.students?.join(", ")}
           </p>
-          {project.team && project.team.length > 0 && (
+          {tcc.description && (
             <p className="text-gray-700 leading-relaxed text-base">
-              <strong>Equipe:</strong> {project.team.join(", ")}
+              <strong>Resumo:</strong> {tcc.description}
             </p>
           )}
-          {project.funding && (
+          {tcc.keywords && (
             <p className="text-gray-700 leading-relaxed text-base">
-              <strong>Financiamento:</strong> {project.funding}
+              <strong>Palavras-chave:</strong> {tcc.keywords}
             </p>
           )}
         </section>
@@ -84,20 +84,20 @@ function ProjectDetails({ project }: { project: any }) {
         <hr className="my-8 border-gray-200" />
 
         <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Professor Responsável</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Orientador</h2>
           <div className="flex items-center gap-3 text-gray-700">
             <User size={24} className="text-teal-500" />
-            <span className="text-lg">{project.professor}</span>
+            <span className="text-lg">{tcc.advisor}</span>
           </div>
         </section>
 
-        {project.documentation && project.documentation.length > 0 && (
+        {tcc.documentation && tcc.documentation.length > 0 && (
           <>
             <hr className="my-8 border-gray-200" />
             <section>
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">Materiais</h2>
               <div className="flex items-center gap-3 text-gray-700">
-                {project.documentation.map((doc: FileProps, index: number) => (
+                {tcc.documentation.map((doc: FileProps, index: number) => (
                   <Link
                     target="_blank"
                     href={doc.link || "#"}
@@ -118,25 +118,25 @@ function ProjectDetails({ project }: { project: any }) {
   )
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const { projects } = useProjects()
+export default function OrientacaoPage({ params }: OrientacaoPageProps) {
+  const { tccs } = useProjects()
 
   const resolvedParams = use(params)
-  const projetoLink = resolvedParams.projeto
-  const projeto = projects.find((p) => p.link === projetoLink) || null
+  const orientacaoLink = resolvedParams.orientacao
+  const tcc = tccs.find((t) => t.link === orientacaoLink) || null
 
   return (
     <main className="pt-20 pb-16 min-h-[calc(100vh-5.6rem)] bg-gray-50">
       <Breadcrumb
         items={[
-          { label: "Projetos", href: "/projetos" },
+          { label: "Orientações", href: "/orientacoes" },
           {
-            label: projeto ? projeto.title : "Projeto não encontrado",
-            href: "/projetos/" + projetoLink,
+            label: tcc ? tcc.title : "Orientação não encontrada",
+            href: "/orientacoes/" + orientacaoLink,
           },
         ]}
       />
-      {projeto && <ProjectDetails project={projeto} />}
+      {tcc && <OrientacaoDetails tcc={tcc} />}
     </main>
   )
 }

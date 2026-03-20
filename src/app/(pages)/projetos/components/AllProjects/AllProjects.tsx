@@ -6,6 +6,7 @@ interface Project {
   status: string
   type: string
   link: string
+  period?: string
 }
 
 interface CurrentProjectsProps {
@@ -17,10 +18,6 @@ interface CurrentProjectsProps {
 const typeColors = [
   { type: "Extensão", color: "text-teal-600 bg-teal-100 group-hover:bg-teal-200" },
   { type: "Pesquisa", color: "text-purple-600 bg-purple-100 group-hover:bg-purple-200" },
-  { type: "TCC", color: "text-orange-600 bg-orange-100 group-hover:bg-orange-200" },
-  { type: "Mestrado", color: "text-blue-600 bg-blue-100 group-hover:bg-blue-200" },
-  { type: "Doutorado", color: "text-red-600 bg-red-100 group-hover:bg-red-200" },
-  { type: "Especialização", color: "text-pink-600 bg-pink-100 group-hover:bg-pink-200" },
   { type: "Desenvolvimento", color: "text-indigo-600 bg-indigo-100 group-hover:bg-indigo-200" },
 ]
 export function AllProjectsList({ title, projects, className, link }: CurrentProjectsProps) {
@@ -52,6 +49,11 @@ export function AllProjectsList({ title, projects, className, link }: CurrentPro
                   >
                     {project.type}
                   </span>
+                  {project.period && (
+                    <span className="text-gray-500 bg-gray-100 text-sm font-medium px-4 py-2 rounded-full">
+                      {project.period}
+                    </span>
+                  )}
                 </div>
                 <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-6 group-hover:text-gray-900 group-hover:brightness-125 transition-all duration-300">
                   {project.title}
