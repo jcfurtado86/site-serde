@@ -18,7 +18,7 @@ function cleanText(text: string): string {
 function fixCasing(s: string): string {
   if (!s.trim()) return s
 
-  const smallWords = new Set(["de", "da", "do", "dos", "das", "e", "em", "a", "o", "ao", "na", "no", "nas", "nos", "para", "com", "por", "um", "uma"])
+  const smallWords = new Set(["de", "da", "do", "dos", "das", "e", "em", "a", "o", "ao", "na", "no", "nas", "nos", "para", "com", "por", "um", "uma", "of", "the", "and", "in", "on", "at", "to", "for", "with", "an", "is", "or", "by", "as", "from"])
   const acronyms = new Set(["erp", "api", "web", "ihc", "ti", "ia", "iot", "sql", "css", "html", "js", "pdf", "url", "uml", "bpm", "tcc", "ap", "serde", "unifap", "ufpa", "covid"])
 
   const words = s.split(" ")
