@@ -62,14 +62,14 @@ export default function About() {
       quantity: 16,
     },
     {
-      href: "/publicacoes#tcc",
-      label: "TCCs defendidos",
-      quantity: tccs.length,
+      href: "/orientacoes",
+      label: "Orientações concluídas",
+      quantity: tccs.filter((t) => t.status === "Finalizado").length,
     },
     {
       href: "/projetos",
       label: "Projetos",
-      quantity: projects.length + tccs.length,
+      quantity: projects.length,
     },
   ]
 
@@ -142,7 +142,7 @@ export default function About() {
               </div>
             </div>
             <h3 className="text-xl lg:text-2xl font-bold text-center text-black">
-              {projects.length + tccs.length}
+              {projects.length}
             </h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">Projetos</h3>
             <p className="text-gray-600 text-center">
@@ -177,7 +177,7 @@ export default function About() {
           </Link>
 
           <Link
-            href="/publicacoes#tcc"
+            href="/orientacoes"
             className="group bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex justify-center mb-6">
@@ -191,7 +191,9 @@ export default function About() {
                 </svg>
               </div>
             </div>
-            <h3 className="text-xl lg:text-2xl font-bold text-center text-black">{tccs.length}</h3>
+            <h3 className="text-xl lg:text-2xl font-bold text-center text-black">
+              {tccs.filter((t) => t.status === "Finalizado").length}
+            </h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">
               Orientações Concluídas
             </h3>
