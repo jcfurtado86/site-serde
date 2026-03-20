@@ -27,7 +27,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Avaliação de Usabilidade da Página Web do Detran-AP",
+      "Avaliação de Usabilidade da Página WEB do Detran-ap",
     description: "",
     link: "avaliacao-de-usabilidade-da-pagina-web-do-detran-ap",
     status: "Em andamento",
@@ -63,7 +63,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Um Estudo Sobre Competências Exigidas pelo Mercado para Engenheiros de Software",
+      "Um Estudo Sobre Competências Exigidas Pelo Mercado para Engenheiros de Software",
     description: "",
     link: "um-estudo-sobre-competencias-exigidas-pelo-mercado-para-enge",
     status: "Em andamento",
@@ -99,7 +99,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Uma Plataforma Digital para Apoio à Doação Consciente de Medicamentos",
+      "Uma Plataforma Digital para Apoio À Doação Consciente de Medicamentos",
     description: "",
     link: "uma-plataforma-digital-para-apoio-a-doacao-consciente-de-med",
     status: "Em andamento",
@@ -111,7 +111,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Uma Plataforma de Match entre Consumidores, Empresas e Ofertas",
+      "Uma Plataforma de Match Entre Consumidores, Empresas e Ofertas",
     description: "",
     link: "uma-plataforma-de-match-entre-consumidores-empresas-e-oferta",
     status: "Em andamento",
@@ -135,7 +135,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Análise da Experiência de Usuários com Deficiência Visual em Páginas Web",
+      "Análise da Experiência de Usuários com Deficiência Visual em Páginas WEB",
     description: "",
     link: "analise-da-experiencia-de-usuarios-com-deficiencia-visual-em",
     status: "Em andamento",
@@ -159,7 +159,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Sistema Inteligente de Apoio à Tomaa de Decisão Orçamentária em Órgão Público Estadual",
+      "Sistema Inteligente de Apoio À Tomaa de Decisão Orçamentária em Órgão Público Estadual",
     description: "",
     link: "sistema-inteligente-de-apoio-a-tomaa-de-decisao-orcamentaria",
     status: "Em andamento",
@@ -219,7 +219,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "TRABORI LA MONTON GRANITAN: CRIAÇÃO DE UM SITE PARA ENSINAR ESPERANTO EM MODALIDADE ASSÍNCRONA",
+      "Trabori La Monton Granitan: Criação de um Site para Ensinar Esperanto em Modalidade Assíncrona",
     description: "",
     link: "trabori-la-monton-granitan-criacao-de-um-site-para-ensinar-e",
     status: "Finalizado",
@@ -231,7 +231,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "UMA ANÁLISE DA APLICAÇÃO DE JOGOS PARA ENSINO DE PROGRAMAÇÃO BÁSICA A PARTIR DE UM MAPEAMENTO SISTEMÁTICO DA LITERATURA",
+      "Uma Análise da Aplicação de Jogos para Ensino de Programação Básica a Partir de um Mapeamento Sistemático da Literatura",
     description: "",
     link: "uma-analise-da-aplicacao-de-jogos-para-ensino-de-programacao",
     status: "Finalizado",
@@ -243,7 +243,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "WISDOWKEEPER: UMA FERRAMENTA WEB FULLSTACK DE GESTÃO DE CONHECIMENTO PARA AUXILIAR ESTAGIÁRIOS A SOLUCIONAR PROBLEMAS RECORRENTES ENVOLVENDO SISTEMAS ERP",
+      "Wisdowkeeper: Uma Ferramenta WEB Fullstack de Gestão de Conhecimento para Auxiliar Estagiários a Solucionar Problemas Recorrentes Envolvendo Sistemas ERP",
     description: "",
     link: "wisdowkeeper-uma-ferramenta-web-fullstack-de-gestao-de-conhe",
     status: "Finalizado",
@@ -255,7 +255,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "EDUGAMES: UM CATÁLOGO ONLINE DE JOGOS DIGITAIS EDUCATIVOS PARA O ENSINO DE COMPUTAÇÃO",
+      "Edugames: Um Catálogo Online de Jogos Digitais Educativos para o Ensino de Computação",
     description: "",
     link: "edugames-um-catalogo-online-de-jogos-digitais-educativos-par",
     status: "Finalizado",
@@ -267,7 +267,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "MAPEAMENTO SISTEMÁTICO DE TÉCNICAS EMERGENTES DE PRÉ- PROCESSAMENTO PARA MITIGAÇÃO DE VIÉS EM DADOS DE TREINAMENTO",
+      "Mapeamento Sistemático de Técnicas Emergentes de Pré- Processamento para Mitigação de Viés em Dados de Treinamento",
     description: "",
     link: "mapeamento-sistematico-de-tecnicas-emergentes-de-pre-process",
     status: "Finalizado",
@@ -279,7 +279,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "ESTUDO EXPERIMENTAL SOBRE O USO DE CHATBOTS NA RECUPERAÇÃO DE INFORMAÇÕES POR PROFISSIONAIS JUNIORES NO PROCESSO DE DESENVOLVIMENTO DE SOFTWARE",
+      "Estudo Experimental Sobre o Uso de Chatbots na Recuperação de Informações por Profissionais Juniores no Processo de Desenvolvimento de Software",
     description: "",
     link: "estudo-experimental-sobre-o-uso-de-chatbots-na-recuperacao-d",
     status: "Finalizado",
@@ -291,11 +291,11 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Um jogo de plataforma para o ensino de algoritmo",
+      "Um Jogo de Plataforma para o Ensino de Algoritmo",
     description: "",
     link: "um-jogo-de-plataforma-para-o-ensino-de-algoritmo",
     status: "Em andamento",
-    students: ["JOSÉ KAYNÃ PEREIRA DE SOUSA BITENCOURT", "JOSÉ OLÍMPIO"],
+    students: ["José Kaynã Pereira de Sousa Bitencourt", "José Olímpio"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
@@ -303,11 +303,11 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Regexmon: Um jogo de apoio ao ensino de expressões regulares",
+      "Regexmon: Um Jogo de Apoio ao Ensino de Expressões Regulares",
     description: "",
     link: "regexmon-um-jogo-de-apoio-ao-ensino-de-expressoes-regulares",
     status: "Em andamento",
-    students: ["LORENA ROBERTA NUNES GUIMARÃES"],
+    students: ["Lorena Roberta Nunes Guimarães"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
@@ -315,11 +315,11 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Um relato de caso da adequação a LGPD do setor de processos seletivos de uma universidade federal",
+      "Um Relato de Caso da Adequação a Lgpd do Setor de Processos Seletivos de uma Universidade Federal",
     description: "",
     link: "um-relato-de-caso-da-adequacao-a-lgpd-do-setor-de-processos-",
     status: "Em andamento",
-    students: ["MARIANE DA SILVA AZEVEDO"],
+    students: ["Mariane da Silva Azevedo"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
@@ -327,11 +327,11 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Um jogo sério para identificação de bad smells",
+      "Um Jogo Sério para Identificação de Bad Smells",
     description: "",
     link: "um-jogo-serio-para-identificacao-de-bad-smells",
     status: "Em andamento",
-    students: ["GABRIEL ENRIQUE ALMEIDA GONÇALVES"],
+    students: ["Gabriel Enrique Almeida Gonçalves"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
@@ -339,11 +339,11 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Um relato de caso sobre as vunerabilidades do site de processos seletivos de uma universidade federal",
+      "Um Relato de Caso Sobre As Vunerabilidades do Site de Processos Seletivos de uma Universidade Federal",
     description: "",
     link: "um-relato-de-caso-sobre-as-vunerabilidades-do-site-de-proces",
     status: "Em andamento",
-    students: ["CELESTE DOS SANTOS DANTAS"],
+    students: ["Celeste dos Santos Dantas"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
@@ -351,11 +351,11 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Um mapeamento sistemático para identificar indicadores de má qualidade na especificação de requisitos",
+      "Um Mapeamento Sistemático para Identificar Indicadores de Má Qualidade na Especificação de Requisitos",
     description: "",
     link: "um-mapeamento-sistematico-para-identificar-indicadores-de-ma",
     status: "Em andamento",
-    students: ["AYMMEE NADINE DINIZ NERIS"],
+    students: ["Aymmee Nadine Diniz Neris"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
@@ -363,7 +363,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "CLASSUP: UMA PLATAFORMA GAMIFICADA PARA AUXÍLIO DO APRENDIZADO UTILIZANDO QUIZZES",
+      "Classup: Uma Plataforma Gamificada para Auxílio do Aprendizado Utilizando Quizzes",
     description: "",
     link: "classup-uma-plataforma-gamificada-para-auxilio-do-aprendizad",
     status: "Finalizado",
@@ -375,7 +375,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Desafios enfrentados por Profissionais e Empresas da Área de T.I. durante a pandemia de Covid-19 no Brasil",
+      "Desafios Enfrentados por Profissionais e Empresas da Área de T.i. Durante a Pandemia de Covid-19 no Brasil",
     description: "",
     link: "desafios-enfrentados-por-profissionais-e-empresas-da-area-de",
     status: "Finalizado",
@@ -387,7 +387,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Papel ou IDE: Uma análise sobre as formas de avaliação em turmas iniciantes de programação",
+      "Papel Ou Ide: Uma Análise Sobre As Formas de Avaliação em Turmas Iniciantes de Programação",
     description: "",
     link: "papel-ou-ide-uma-analise-sobre-as-formas-de-avaliacao-em-tur",
     status: "Finalizado",
@@ -399,7 +399,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "A evasão em cursos de computação: Um estudo de caso na Universidade Federal do Amapá",
+      "A Evasão em Cursos de Computação: Um Estudo de Caso na Universidade Federal do Amapá",
     description: "",
     link: "a-evasao-em-cursos-de-computacao-um-estudo-de-caso-na-univer",
     status: "Finalizado",
@@ -411,7 +411,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Um catálogo de práticas de IHC para aplicativos móveis",
+      "Um Catálogo de Práticas de IHC para Aplicativos Móveis",
     description: "",
     link: "um-catalogo-de-praticas-de-ihc-para-aplicativos-moveis",
     status: "Finalizado",
@@ -459,7 +459,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Uma Abordagem para Ajustar o Controle de Versão à Natureza das Aplicações Web",
+      "Uma Abordagem para Ajustar o Controle de Versão À Natureza das Aplicações WEB",
     description: "",
     link: "uma-abordagem-para-ajustar-o-controle-de-versao-a-natureza-d",
     status: "Finalizado",
@@ -483,7 +483,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Um Estudo sobre as Principais Dificuldades na Empregabilidade de um Engenheiros de Software",
+      "Um Estudo Sobre As Principais Dificuldades na Empregabilidade de um Engenheiros de Software",
     description: "",
     link: "um-estudo-sobre-as-principais-dificuldades-na-empregabilidad",
     status: "Finalizado",
@@ -507,7 +507,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Uma Experiência de uso de ChatBot como documentação de processo de desenvolvimento de software",
+      "Uma Experiência de Uso de Chatbot Como Documentação de Processo de Desenvolvimento de Software",
     description: "",
     link: "uma-experiencia-de-uso-de-chatbot-como-documentacao-de-proce",
     status: "Em andamento",
@@ -519,7 +519,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "O DATA SHOW COMO FERRAMENTA PEDAGÓGICA DE APOIO NO PROCESSO ENSINO E APRENDIZAGEM",
+      "O Data Show Como Ferramenta Pedagógica de Apoio no Processo Ensino e Aprendizagem",
     description: "",
     link: "o-data-show-como-ferramenta-pedagogica-de-apoio-no-processo-",
     status: "Finalizado",
@@ -531,7 +531,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "O Sistema de avaliação do Pacto Nacional pela alfabetização na Idade Certa: análise das práticas pedagógicas e de gestão escolar",
+      "O Sistema de Avaliação do Pacto Nacional Pela Alfabetização na Idade Certa: Análise das Práticas Pedagógicas e de Gestão Escolar",
     description: "",
     link: "o-sistema-de-avaliacao-do-pacto-nacional-pela-alfabetizacao-",
     status: "Finalizado",
@@ -543,7 +543,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "A importância do uso das mídias para o desenvolvimento cognitivo dos alunos da escola Novo Horizonte ? Santana ? Amapá",
+      "A Importância do Uso das Mídias para o Desenvolvimento Cognitivo dos Alunos da Escola Novo Horizonte ? Santana ? Amapá",
     description: "",
     link: "a-importancia-do-uso-das-midias-para-o-desenvolvimento-cogni",
     status: "Finalizado",

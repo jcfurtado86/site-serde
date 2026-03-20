@@ -11,6 +11,37 @@ function cleanText(text: string): string {
 }
 
 /**
+ * If a string is fully uppercase, convert to title case.
+ * Preserves small words (de, da, do, dos, das, e, em, a, o) in lowercase.
+ * Keeps acronyms in parens untouched, e.g. "(IHC)" stays "(IHC)".
+ */
+function fixCasing(s: string): string {
+  if (!s.trim()) return s
+
+  const smallWords = new Set(["de", "da", "do", "dos", "das", "e", "em", "a", "o", "ao", "na", "no", "nas", "nos", "para", "com", "por", "um", "uma"])
+  const acronyms = new Set(["erp", "api", "web", "ihc", "ti", "ia", "iot", "sql", "css", "html", "js", "pdf", "url", "uml", "bpm", "tcc", "ap", "serde", "unifap", "ufpa", "covid"])
+
+  const words = s.split(" ")
+  return words
+    .map((word, i) => {
+      if (!word) return word
+      // Keep words in parens uppercase (likely acronyms like (IHC))
+      if (/^\(.*\)$/.test(word)) return word
+
+      const lower = word.toLowerCase()
+      // Capitalize after ":" (treat as sentence start)
+      const afterColon = i > 0 && words[i - 1]?.endsWith(":")
+      // Small words lowercase (except first word or after colon)
+      if (i > 0 && !afterColon && smallWords.has(lower)) return lower
+      // Known acronyms stay uppercase
+      if (acronyms.has(lower)) return word.toUpperCase()
+      // Title case everything else
+      return lower.charAt(0).toUpperCase() + lower.slice(1)
+    })
+    .join(" ")
+}
+
+/**
  * Find the ". " that separates title from publisher, ignoring dots inside parentheses.
  * Scans backwards from end: skips past balanced parens, then finds the last ". ".
  */
@@ -47,7 +78,7 @@ function parseAuthors(rawText: string): string[] {
   const authorsBlock = rawText.substring(0, dotSep)
   return authorsBlock
     .split(/\s*;\s*/)
-    .map((a) => a.trim())
+    .map((a) => fixCasing(a.trim()))
     .filter(Boolean)
 }
 
@@ -135,9 +166,9 @@ export function parseArticles($: CheerioAPI, minYear: number): PublicationProps[
 
     const pub: PublicationProps = {
       type: "article",
-      title,
+      title: fixCasing(title),
       authors,
-      publisher,
+      publisher: fixCasing(publisher),
       year: year.toString(),
       ...(edition && { edition }),
       ...(pages && { pages }),
@@ -208,10 +239,10 @@ export function parseBooks($: CheerioAPI, minYear: number): PublicationProps[] {
       if (year < minYear) continue
       books.push({
         type: "book",
-        title: bookMatch[1].trim(),
+        title: fixCasing(bookMatch[1].trim()),
         authors,
         edition: bookMatch[2].trim(),
-        publisher: bookMatch[4].trim(),
+        publisher: fixCasing(bookMatch[4].trim()),
         year: year.toString(),
         pages: bookMatch[6].trim(),
         link: "#",
@@ -226,7 +257,7 @@ export function parseBooks($: CheerioAPI, minYear: number): PublicationProps[] {
       const title = firstDot > 0 ? afterAuthors.substring(0, firstDot).trim() : afterAuthors.trim()
       books.push({
         type: "book",
-        title,
+        title: fixCasing(title),
         authors,
         year: year.toString(),
         link: "#",
@@ -263,9 +294,9 @@ export function parseChapters($: CheerioAPI, minYear: number): PublicationProps[
       if (year < minYear) continue
       chapters.push({
         type: "chapter",
-        title: chapterMatch[1].trim(),
+        title: fixCasing(chapterMatch[1].trim()),
         authors,
-        publisher: chapterMatch[3].trim(),
+        publisher: fixCasing(chapterMatch[3].trim()),
         edition: chapterMatch[4].trim(),
         year: year.toString(),
         pages: `p. ${chapterMatch[8].trim()}`,
@@ -298,7 +329,7 @@ export function parseChapters($: CheerioAPI, minYear: number): PublicationProps[
 
       chapters.push({
         type: "chapter",
-        title,
+        title: fixCasing(title),
         authors,
         year: year.toString(),
         ...(publisher && { publisher }),
@@ -360,12 +391,12 @@ export function parseCongressPapers($: CheerioAPI, minYear: number): Publication
 
         const pub: PublicationProps = {
           type: section.type,
-          title: m[1].trim(),
+          title: fixCasing(m[1].trim()),
           authors,
           year: year.toString(),
-          event: m[2].trim(),
-          location: m[4].trim(),
-          proceedings: m[5].trim(),
+          event: fixCasing(m[2].trim()),
+          location: fixCasing(m[4].trim()),
+          proceedings: fixCasing(m[5].trim()),
           ...(link && { link }),
           ...(congressMatch && m[6] && { pages: m[6].trim() }),
         }
@@ -400,12 +431,12 @@ export function parseCongressPapers($: CheerioAPI, minYear: number): Publication
 
         papers.push({
           type: section.type,
-          title,
+          title: fixCasing(title),
           authors,
           year: year.toString(),
-          ...(event && { event }),
-          ...(location && { location }),
-          ...(proceedings && { proceedings }),
+          ...(event && { event: fixCasing(event) }),
+          ...(location && { location: fixCasing(location) }),
+          ...(proceedings && { proceedings: fixCasing(proceedings) }),
           ...(link && { link }),
         })
       }
@@ -456,7 +487,7 @@ export function parsePatents($: CheerioAPI): PatentProps[] {
     const registrationInstitution = instMatch ? instMatch[1].trim().replace(/\.\s*$/, "") : undefined
 
     patents.push({
-      title,
+      title: fixCasing(title),
       authors,
       year,
       ...(patentNumber && { patentNumber }),
@@ -727,11 +758,11 @@ export function parseOrientations($: CheerioAPI, minYear: number): TCCProps[] {
         if (advisorMatch) advisor = advisorMatch[1].trim()
 
         orientations.push({
-          title,
+          title: fixCasing(title),
           description: "",
           link: slugify(title),
           status: section.status,
-          students,
+          students: students.map(fixCasing),
           advisor,
           year,
           keywords: "",
