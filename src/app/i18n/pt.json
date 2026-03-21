@@ -142,6 +142,10 @@
   "common": {
     "current": "Atual"
   },
+  "meta": {
+    "title": "SERDE - Software Engineering: Research, Development and Education",
+    "description": "Grupo de pesquisa em Engenharia de Software da UNIFAP - Universidade Federal do Amapá"
+  },
   "partnerships": {
     "title": "Parcerias"
   },

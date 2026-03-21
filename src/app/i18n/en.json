@@ -142,6 +142,10 @@
   "common": {
     "current": "Current"
   },
+  "meta": {
+    "title": "SERDE - Software Engineering: Research, Development and Education",
+    "description": "Software Engineering Research Group at UNIFAP - Federal University of Amapá"
+  },
   "partnerships": {
     "title": "Partnerships"
   },
