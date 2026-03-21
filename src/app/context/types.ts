@@ -38,9 +38,9 @@ export interface StudentProps {
   name: string
   institution: string
   campus: string
-  email: string
-  curriculumLink: string
-  imageUrl: string
+  email?: string
+  curriculumLink?: string
+  imageUrl?: string
   type: string
   degree?: string
 }
@@ -49,9 +49,9 @@ export interface TeacherProps {
   name: string
   institution: string
   campus: string
-  email: string
-  curriculumLink: string
-  imageUrl: string
+  email?: string
+  curriculumLink?: string
+  imageUrl?: string
 }
 
 export interface FileProps {

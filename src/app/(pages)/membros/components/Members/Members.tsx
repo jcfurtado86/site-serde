@@ -6,9 +6,9 @@ interface MemberProps {
   name: string
   institution: string
   campus: string
-  email: string
-  curriculumLink: string
-  imageUrl: string
+  email?: string
+  curriculumLink?: string
+  imageUrl?: string
   degree?: string
 }
 
@@ -112,7 +112,7 @@ export function Members({ members, title }: MemberComponentProps) {
                 </h2>
 
                 <div className="flex items-center justify-between gap-1 sm:gap-4">
-                  {title === "Docentes" && (
+                  {title === "Docentes" && member.email && (
                     <a
                       href={`mailto:${member.email}`}
                       className="flex-1 text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center gap-1 sm:gap-2 py-1 sm:py-2 px-1.5 sm:px-3 rounded-lg hover:bg-blue-50 transition-all duration-300 text-xs sm:text-base"
@@ -133,7 +133,7 @@ export function Members({ members, title }: MemberComponentProps) {
                       <span className="whitespace-nowrap">Email</span>
                     </a>
                   )}
-                  <a
+                  {member.curriculumLink && <a
                     href={member.curriculumLink}
                     className="flex-1 text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center gap-1 sm:gap-2 py-1 sm:py-2 px-1.5 sm:px-3 rounded-lg hover:bg-blue-50 transition-all duration-300 text-xs sm:text-base"
                     target="_blank"
@@ -152,33 +152,7 @@ export function Members({ members, title }: MemberComponentProps) {
                       />
                     </svg>
                     <span className="whitespace-nowrap">Lattes</span>
-                  </a>
-                  {title !== "Pesquisadores" && (
-                    <a
-                      href={"/"}
-                      className="flex-1 text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center gap-1 sm:gap-2 py-1 sm:py-2 px-1.5 sm:px-3 rounded-lg hover:bg-blue-50 transition-all duration-300 text-xs sm:text-base"
-                      target="_blank"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="lucide lucide-notebook-pen-icon lucide-notebook-pen size-3 sm:size-5 flex-shrink-0 mb-1"
-                      >
-                        <path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" />
-                        <path d="M2 6h4" />
-                        <path d="M2 10h4" />
-                        <path d="M2 14h4" />
-                        <path d="M2 18h4" />
-                        <path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
-                      </svg>
-                      <span className="whitespace-nowrap">Projeto</span>
-                    </a>
-                  )}
+                  </a>}
                 </div>
               </div>
             </div>

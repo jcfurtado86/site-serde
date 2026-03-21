@@ -15,31 +15,7 @@ function cleanText(text: string): string {
  * Preserves small words (de, da, do, dos, das, e, em, a, o) in lowercase.
  * Keeps acronyms in parens untouched, e.g. "(IHC)" stays "(IHC)".
  */
-function fixCasing(s: string): string {
-  if (!s.trim()) return s
-
-  const smallWords = new Set(["de", "da", "do", "dos", "das", "e", "em", "a", "o", "ao", "na", "no", "nas", "nos", "para", "com", "por", "um", "uma", "of", "the", "and", "in", "on", "at", "to", "for", "with", "an", "is", "or", "by", "as", "from"])
-  const acronyms = new Set(["erp", "api", "web", "ihc", "ti", "ia", "iot", "sql", "css", "html", "js", "pdf", "url", "uml", "bpm", "tcc", "ap", "serde", "unifap", "ufpa", "covid"])
-
-  const words = s.split(" ")
-  return words
-    .map((word, i) => {
-      if (!word) return word
-      // Keep words in parens uppercase (likely acronyms like (IHC))
-      if (/^\(.*\)$/.test(word)) return word
-
-      const lower = word.toLowerCase()
-      // Capitalize after ":" (treat as sentence start)
-      const afterColon = i > 0 && words[i - 1]?.endsWith(":")
-      // Small words lowercase (except first word or after colon)
-      if (i > 0 && !afterColon && smallWords.has(lower)) return lower
-      // Known acronyms stay uppercase
-      if (acronyms.has(lower)) return word.toUpperCase()
-      // Title case everything else
-      return lower.charAt(0).toUpperCase() + lower.slice(1)
-    })
-    .join(" ")
-}
+import { fixCasing } from "./fix-casing"
 
 /**
  * Find the ". " that separates title from publisher, ignoring dots inside parentheses.

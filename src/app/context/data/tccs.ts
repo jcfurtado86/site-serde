@@ -339,7 +339,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Um Relato de Caso Sobre As Vunerabilidades do Site de Processos Seletivos de uma Universidade Federal",
+      "Um Relato de Caso Sobre as Vunerabilidades do Site de Processos Seletivos de uma Universidade Federal",
     description: "",
     link: "um-relato-de-caso-sobre-as-vunerabilidades-do-site-de-proces",
     status: "Em andamento",
@@ -387,7 +387,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Papel Ou Ide: Uma Análise Sobre As Formas de Avaliação em Turmas Iniciantes de Programação",
+      "Papel Ou Ide: Uma Análise Sobre as Formas de Avaliação em Turmas Iniciantes de Programação",
     description: "",
     link: "papel-ou-ide-uma-analise-sobre-as-formas-de-avaliacao-em-tur",
     status: "Finalizado",
@@ -483,7 +483,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "Um Estudo Sobre As Principais Dificuldades na Empregabilidade de um Engenheiros de Software",
+      "Um Estudo Sobre as Principais Dificuldades na Empregabilidade de um Engenheiros de Software",
     description: "",
     link: "um-estudo-sobre-as-principais-dificuldades-na-empregabilidad",
     status: "Finalizado",

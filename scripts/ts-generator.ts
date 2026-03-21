@@ -1,4 +1,11 @@
-import type { PublicationProps, PatentProps, Project, TCCProps } from "../src/app/context/types"
+import type {
+  PublicationProps,
+  PatentProps,
+  Project,
+  TCCProps,
+  StudentProps,
+  TeacherProps,
+} from "../src/app/context/types"
 
 function escapeString(s: string): string {
   return s.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\n")
@@ -165,5 +172,63 @@ export function generateTccsFile(tccs: TCCProps[]): string {
 
   lines.push("]")
   lines.push("")
+  return lines.join("\n")
+}
+
+function formatStudent(s: StudentProps): string {
+  const lines: string[] = []
+  lines.push("  {")
+  lines.push(`    name: "${escapeString(s.name)}",`)
+  lines.push(`    institution: "${escapeString(s.institution)}",`)
+  lines.push(`    campus: "${escapeString(s.campus)}",`)
+  if (s.email) lines.push(`    email: "${escapeString(s.email)}",`)
+  if (s.curriculumLink) lines.push(`    curriculumLink: "${escapeString(s.curriculumLink)}",`)
+  if (s.imageUrl) lines.push(`    imageUrl:\n      "${escapeString(s.imageUrl)}",`)
+  lines.push(`    type: "${escapeString(s.type)}",`)
+  if (s.degree) lines.push(`    degree: "${escapeString(s.degree)}",`)
+  lines.push("  },")
+  return lines.join("\n")
+}
+
+function formatTeacher(t: TeacherProps): string {
+  const lines: string[] = []
+  lines.push("  {")
+  lines.push(`    name: "${escapeString(t.name)}",`)
+  lines.push(`    institution: "${escapeString(t.institution)}",`)
+  lines.push(`    campus: "${escapeString(t.campus)}",`)
+  if (t.email) lines.push(`    email: "${escapeString(t.email)}",`)
+  if (t.curriculumLink) lines.push(`    curriculumLink: "${escapeString(t.curriculumLink)}",`)
+  if (t.imageUrl) lines.push(`    imageUrl:\n      "${escapeString(t.imageUrl)}",`)
+  lines.push("  },")
+  return lines.join("\n")
+}
+
+export function generateMembersFile(students: StudentProps[], teachers: TeacherProps[]): string {
+  const lines: string[] = []
+  lines.push('import type { StudentProps, TeacherProps } from "../types"')
+  lines.push("")
+
+  lines.push("export const students: StudentProps[] = [")
+  const active = students.filter((s) => s.type === "Student").sort((a, b) => a.name.localeCompare(b.name, "pt-BR"))
+  const ex = students.filter((s) => s.type === "ExStudent").sort((a, b) => a.name.localeCompare(b.name, "pt-BR"))
+  for (const s of active) {
+    lines.push(formatStudent(s))
+  }
+  if (ex.length > 0) {
+    lines.push("  // Ex-alunos")
+    for (const s of ex) {
+      lines.push(formatStudent(s))
+    }
+  }
+  lines.push("]")
+  lines.push("")
+
+  lines.push("export const teachers: TeacherProps[] = [")
+  for (const t of teachers) {
+    lines.push(formatTeacher(t))
+  }
+  lines.push("]")
+  lines.push("")
+
   return lines.join("\n")
 }

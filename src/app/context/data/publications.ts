@@ -100,7 +100,7 @@ export const publications: PublicationProps[] = [
       "Furtado, Julio C.",
     ],
     year: "2024",
-    publisher: "Current Practices And Strategies",
+    publisher: "Current Practices and Strategies",
     edition: "1ed.",
     pages: "p. 25-",
     link: "#",
@@ -135,7 +135,7 @@ export const publications: PublicationProps[] = [
   {
     type: "article",
     title:
-      "Um Estudo Sobre As Principais Dificuldades na Empregabilidade de um Engenheiro de Software",
+      "Um Estudo Sobre as Principais Dificuldades na Empregabilidade de um Engenheiro de Software",
     authors: [
       "Monteiro Neto, E.",
       "Furtado, S. D. F.",
@@ -237,14 +237,14 @@ export const publications: PublicationProps[] = [
       "Chaves, R. O.",
     ],
     year: "2023",
-    publisher: "Pace-pacing And Clinical Electrophysiology",
+    publisher: "Pace-pacing and Clinical Electrophysiology",
     pages: "1-9",
     link: "https://dx.doi.org/10.1111/pace.14886",
   },
   {
     type: "article",
     title:
-      "An Experimental Evaluation Of a Teaching Approach For Statistical Process Control In Computer Courses",
+      "An Experimental Evaluation of a Teaching Approach for Statistical Process Control in Computer Courses",
     authors: [
       "Furtado, Julio C.",
       "Oliveira, S. R. B.",
@@ -253,7 +253,7 @@ export const publications: PublicationProps[] = [
       "Colares, A.",
     ],
     year: "2021",
-    publisher: "International Journal Of Information And Communication Technology Education",
+    publisher: "International Journal of Information and Communication Technology Education",
     edition: "17",
     pages: "154-171",
     link: "https://dx.doi.org/10.4018/ijicte.2021010110",
@@ -263,7 +263,7 @@ export const publications: PublicationProps[] = [
   {
     type: "article",
     title:
-      "Heart At Risk: Electronic Educational Game With Information On Doping In Athletes",
+      "Heart at Risk: Electronic Educational Game with Information on Doping in Athletes",
     authors: [
       "Silva, H. C.",
       "Miranda, E. F.",
@@ -286,7 +286,7 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "A Qualitative Evaluation Of An Experiment On The Application Of Active Methodologies In Teaching Software Process Improvement",
+      "A Qualitative Evaluation of an Experiment on the Application of Active Methodologies in Teaching Software Process Improvement",
     authors: [
       "Colares, A.",
       "Oliveira, Sandro Ronaldo Bezerra",
@@ -308,7 +308,7 @@ export const publications: PublicationProps[] = [
       "Furtado, Julio C.",
     ],
     year: "2024",
-    event: "International Conference On Information Systems And Technology Management - Contecsi",
+    event: "International Conference on Information Systems and Technology Management - Contecsi",
     location: "São Paulo - Sp",
     proceedings: "Archive Contecsi",
     link: "https://dx.doi.org/10.5748/20CONTECSI/PSE/%20EDU%20/7250%20e207250",
@@ -316,14 +316,14 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "Application Of Gamification In Spi Programs: A Literature Review Using Slr And Snowballing",
+      "Application of Gamification in Spi Programs: A Literature Review Using Slr and Snowballing",
     authors: [
       "Colares, A.",
       "Furtado, Julio C.",
       "Oliveira, S. R. B.",
     ],
     year: "2024",
-    event: "International Conference On Information Systems And Technology Management - Contecsi",
+    event: "International Conference on Information Systems and Technology Management - Contecsi",
     location: "São Paulo - Sp",
     proceedings: "Archive Contecsi",
     link: "https://dx.doi.org/10.5748/20CONTECSI/PSE/%20ESD%20/7182%20e207182",
@@ -331,14 +331,14 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "Perceptions On Teaching Of Software Process Improvement: An Interview With Professors",
+      "Perceptions on Teaching of Software Process Improvement: An Interview with Professors",
     authors: [
       "Colares, A.",
       "Furtado, Julio C. C.",
       "Oliveira, S. R. B.",
     ],
     year: "2024",
-    event: "International Conference On Information Systems And Technology Management - Contecsi",
+    event: "International Conference on Information Systems and Technology Management - Contecsi",
     location: "São Paulo - Sp",
     proceedings: "Archive Contecsi",
     link: "https://dx.doi.org/10.5748/20CONTECSI/PSE/%20ESD%20/7181%20e207181",
@@ -346,14 +346,14 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "Papel Ou Ide: Uma Análise Sobre As Formas de Avaliação em Turmas Iniciantes de Programação",
+      "Papel Ou Ide: Uma Análise Sobre as Formas de Avaliação em Turmas Iniciantes de Programação",
     authors: [
       "Farias, F. M.",
       "Furtado, S. D. F.",
       "Furtado, Julio C. C.",
     ],
     year: "2024",
-    event: "International Conference On Information Systems And Technology Management - Contecsi",
+    event: "International Conference on Information Systems and Technology Management - Contecsi",
     location: "São Paulo - Sp",
     proceedings: "Archive Contecsi",
     link: "https://dx.doi.org/10.5748/20CONTECSI/PSE/%20EDU%20/7171%20e207171",
@@ -369,7 +369,7 @@ export const publications: PublicationProps[] = [
       "Furtado, Julio C. C.",
     ],
     year: "2024",
-    event: "International Conference On Information Systems And Technology Management - Contecsi",
+    event: "International Conference on Information Systems and Technology Management - Contecsi",
     location: "São Paulo - Sp",
     proceedings: "Archive Contecsi",
     link: "https://dx.doi.org/10.5748/20CONTECSI/PSE/%20EDU%20/7176%20e207176",
@@ -377,7 +377,7 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "Content And Skills For Teaching Software Process Improvement In The Computer Science Course: A Mapping Of Acm / Ieee, Sbc, Swebok, Cmmi And Mr-mps-sw Assets",
+      "Content and Skills for Teaching Software Process Improvement in the Computer Science Course: A Mapping of Acm / Ieee, Sbc, Swebok, Cmmi and Mr-mps-sw Assets",
     authors: [
       "De Oliveira Colares, Adolfo Francesco",
       "Furtado, Julio Cezar Costa",
@@ -385,22 +385,22 @@ export const publications: PublicationProps[] = [
     ],
     year: "2023",
     pages: "1",
-    event: "2023 Ieee Frontiers In Education Conference (FIE)",
+    event: "2023 Ieee Frontiers in Education Conference (FIE)",
     location: "College Station",
-    proceedings: "2023 Ieee Frontiers In Education Conference (FIE)",
+    proceedings: "2023 Ieee Frontiers in Education Conference (FIE)",
     link: "https://dx.doi.org/10.1109/FIE58773.2023.10343447",
   },
   {
     type: "congress",
     title:
-      "Use Of Gamification As Implementation Approach For Software Process Improvement: Trends And Gaps",
+      "Use of Gamification as Implementation Approach for Software Process Improvement: Trends and Gaps",
     authors: [
       "Colares, A.",
       "Furtado, Julio C.",
       "Oliveira, S. R. B.",
     ],
     year: "2022",
-    proceedings: "Proceedings Of Enase 2022",
+    proceedings: "Proceedings of Enase 2022",
   },
   {
     type: "congress",
@@ -426,9 +426,9 @@ export const publications: PublicationProps[] = [
       "Oliveira, Sandro Ronaldo Bezerra",
     ],
     year: "2022",
-    event: "International Conference On Information Systems And Technology Management - Contecsi",
+    event: "International Conference on Information Systems and Technology Management - Contecsi",
     location: "São Paulo - Sp",
-    proceedings: "Proceedings Of 19h Contecsi",
+    proceedings: "Proceedings of 19h Contecsi",
     link: "https://dx.doi.org/10.5748/19CONTECSI/PSE/EDU/696",
   },
   {
@@ -465,9 +465,9 @@ export const publications: PublicationProps[] = [
       "Furtado, Julio C.",
     ],
     year: "2022",
-    event: "International Conference On Information Systems And Technology Management - Contecsi",
+    event: "International Conference on Information Systems and Technology Management - Contecsi",
     location: "São Paulo - Sp",
-    proceedings: "Proceedings Of 19h Contecsi",
+    proceedings: "Proceedings of 19h Contecsi",
     link: "https://dx.doi.org/10.5748/19CONTECSI/PSE/EDU/698",
   },
   {
@@ -485,17 +485,17 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "A Bibliometric Analysis Of Hci Approaches In The Context Of Mobile Applications",
+      "A Bibliometric Analysis of Hci Approaches in the Context of Mobile Applications",
     authors: ["Taynara Santos Moreira Maciel, Aíla", "Furtado, Julio"],
     year: "2021",
-    event: "Contecsi International Conference On Information Systems And Technology Management",
+    event: "Contecsi International Conference on Information Systems and Technology Management",
     location: "São Paulo - Sp, 2021",
     link: "https://dx.doi.org/10.5748/18CONTECSI/PSE/ESD/6840",
   },
   {
     type: "congress",
     title:
-      "A Bibliometric Analysis Of The Use Of Games For Teaching Software Engineering From a Systematic Literature Review",
+      "A Bibliometric Analysis of the Use of Games for Teaching Software Engineering from a Systematic Literature Review",
     authors: [
       "Dos Santos Guerra, Anderson",
       "Monteiro Neto, Edson",
@@ -503,21 +503,21 @@ export const publications: PublicationProps[] = [
       "Ronaldo Bezerra Oliveira, Sandro",
     ],
     year: "2021",
-    event: "Contecsi International Conference On Information Systems And Technology Management",
+    event: "Contecsi International Conference on Information Systems and Technology Management",
     location: "São Paulo - Sp, 2021",
     link: "https://dx.doi.org/10.5748/18contecsi/pse/esd/6734",
   },
   {
     type: "congress",
     title:
-      "Jsniffer: A Tool For Automatic Identification Of Bad Smells In Java",
+      "Jsniffer: A Tool for Automatic Identification of Bad Smells in Java",
     authors: [
       "Costa, M.",
       "Ciuffi, E.",
       "Furtado, Julio C.",
     ],
     year: "2021",
-    event: "International Conference On Information Systems And Technology Management - 18th Contcsi",
+    event: "International Conference on Information Systems and Technology Management - 18th Contcsi",
     location: "São Paulo - Sp",
     proceedings: "Archive Contecsi",
     link: "https://dx.doi.org/10.5748/18CONTECSI/PSE/ESD/672",
@@ -539,19 +539,19 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "An Experimental Evaluation Of a Teaching Approach For Statistical Process Control For Software Engineers: An Experimental Study",
+      "An Experimental Evaluation of a Teaching Approach for Statistical Process Control for Software Engineers: An Experimental Study",
     authors: ["Furtado, Julio", "Oliveira, Sandro"],
     year: "2019",
     pages: "153",
-    event: "14th International Conference On Software Technologies",
+    event: "14th International Conference on Software Technologies",
     location: "Prague",
-    proceedings: "Proceedings Of The 14th International Conference On Software Technologies",
+    proceedings: "Proceedings of the 14th International Conference on Software Technologies",
     link: "https://dx.doi.org/10.5220/0007772501530161",
   },
   {
     type: "congress",
     title:
-      "Um Estudo Sobre As Principais Dificuldades na Empregabilidade de um Engenheiro de Software",
+      "Um Estudo Sobre as Principais Dificuldades na Empregabilidade de um Engenheiro de Software",
     authors: ["Monteiro Neto, E.", "Furtado, Julio C."],
     year: "2019",
     event: "Iv Workshop Sobre Aspectos Sociais, Humanos e Econômicos de Software",
@@ -561,12 +561,12 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "A Practical Approach To Teaching Requirements Engineering In Computing Programs",
+      "A Practical Approach to Teaching Requirements Engineering in Computing Programs",
     authors: ["Guerra, A.", "Furtado, Julio C."],
     year: "2019",
-    event: "The Fourteenth International Conference On Software Engineering Advances",
+    event: "The Fourteenth International Conference on Software Engineering Advances",
     location: "Espanha",
-    proceedings: "Proceedings Of The Fourteenth International Conference On Software Engineering Advances",
+    proceedings: "Proceedings of the Fourteenth International Conference on Software Engineering Advances",
   },
   {
     type: "congress",
@@ -581,13 +581,13 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "A Methodology To Teaching Statistical Process Control In Computer Courses",
+      "A Methodology to Teaching Statistical Process Control in Computer Courses",
     authors: ["Furtado, Julio Cezar Costa", "Oliveira, Sandro Ronaldo Bezerra"],
     year: "2018",
     pages: "424",
-    event: "13th International Conference On Evaluation Of Novel Approaches To Software Engineering",
+    event: "13th International Conference on Evaluation of Novel Approaches to Software Engineering",
     location: "Funchal",
-    proceedings: "Proceedings Of The 13th International Conference On Evaluation Of Novel Approaches To Software Engineering",
+    proceedings: "Proceedings of the 13th International Conference on Evaluation of Novel Approaches to Software Engineering",
     link: "https://dx.doi.org/10.5220/0006800504240431",
   },
   {
@@ -596,24 +596,24 @@ export const publications: PublicationProps[] = [
       "An¿lise da Ader¿ncia da Ferramenta de Software Spc Explorer para Apoiar o Controle Estat¿stico de Processos de Software",
     authors: ["Oliveira Abreu, Diego", "Cezar Costa Furtado, Julio"],
     year: "2018",
-    event: "15th Contecsi International Conference On Information Systems And Technology Management",
+    event: "15th Contecsi International Conference on Information Systems and Technology Management",
     location: "2018",
     link: "https://dx.doi.org/10.5748/9788599693148-15CONTECSI/PS-5769",
   },
   {
     type: "congress",
     title:
-      "Evaluating Students' Perception Of Their Learning In a Student-centered Software Engineering Course - a Experimental Study",
+      "Evaluating Students' Perception of Their Learning in a Student-centered Software Engineering Course - a Experimental Study",
     authors: ["Furtado, Julio C.", "Oliveira, S. R. B."],
     year: "2018",
-    event: "13th International Conference On Software Technologies - Icsoft",
+    event: "13th International Conference on Software Technologies - Icsoft",
     location: "Porto, Portugal",
-    proceedings: "Proceedings Of 13th Icsoft",
+    proceedings: "Proceedings of 13th Icsoft",
   },
   {
     type: "congress",
     title:
-      "The Statistical Process Control In Software Development Projects: A Systematic Review Of Literature",
+      "The Statistical Process Control in Software Development Projects: A Systematic Review of Literature",
     authors: [
       "Ramos, Aluizio",
       "Furtado, Júlio",
@@ -627,7 +627,7 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "A Study On Perception Of The Usefulness Of Statistical Process Control In Software Development Organizations: An Application Of Survey",
+      "A Study on Perception of the Usefulness of Statistical Process Control in Software Development Organizations: An Application of Survey",
     authors: ["Furtado, Júlio", "Oliveira, Sandro R. B."],
     year: "2017",
     link: "https://dx.doi.org/10.5748/9788599693131-14CONTECSI/PS-4767",
@@ -635,13 +635,13 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "A Strategy For Statistical Process Control Education In Computer Science",
+      "A Strategy for Statistical Process Control Education in Computer Science",
     authors: ["Furtado, Julio C.", "Oliveira, S. R. B."],
     year: "2016",
     pages: "166-171",
-    event: "11th International Conference On Software Engineering Advances",
+    event: "11th International Conference on Software Engineering Advances",
     location: "Roma - Itália",
-    proceedings: "The Eleventh International Conference On Software Engineering Advances",
+    proceedings: "The Eleventh International Conference on Software Engineering Advances",
   },
   {
     type: "congress",
@@ -657,7 +657,7 @@ export const publications: PublicationProps[] = [
   {
     type: "conferenceAbstract",
     title:
-      "Preliminary Evidence On The Use Of Chatbots To Support Junior Software Professionals In Process Guidance",
+      "Preliminary Evidence on the Use of Chatbots to Support Junior Software Professionals in Process Guidance",
     authors: [
       "Neves, F.",
       "Machado, J.",
@@ -681,7 +681,7 @@ export const publications: PublicationProps[] = [
   {
     type: "conferenceAbstract",
     title:
-      "Um Mapeamento Sistemático Sobre As Técnicas Emergentes de Pré-processamento para Mitigação de Viés em Dados de Treinamento",
+      "Um Mapeamento Sistemático Sobre as Técnicas Emergentes de Pré-processamento para Mitigação de Viés em Dados de Treinamento",
     authors: ["Filho, M.", "Furtado, Julio C."],
     year: "2025",
     event: "Xviii Escola Regional de Informática Norte 2 (ERIN2)",
@@ -691,11 +691,11 @@ export const publications: PublicationProps[] = [
   {
     type: "conferenceAbstract",
     title:
-      "A Methodology To Teaching Statistical Process Control For Software Engineers: An Overview",
+      "A Methodology to Teaching Statistical Process Control for Software Engineers: An Overview",
     authors: ["Furtado, Julio C.", "Oliveira, S. R. B."],
     year: "2018",
-    event: "40th International Conference On Software Engineering",
+    event: "40th International Conference on Software Engineering",
     location: "Gothenburg, Sweden",
-    proceedings: "Proceedings Of 40th Icse",
+    proceedings: "Proceedings of 40th Icse",
   },
 ]
