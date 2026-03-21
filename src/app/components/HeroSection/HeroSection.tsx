@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link";
-import { Settings } from "lucide-react";
 import Image from "next/image";
 import { Nunito } from "next/font/google";
 import { useLanguage } from "@/app/i18n/context";
@@ -14,48 +13,20 @@ const nunito = Nunito({
 export default function HeroSection() {
   const { t } = useLanguage()
   return (
-    <div className="relative bg-gray-50 min-h-screen flex items-center overflow-hidden">
+    <div className="relative bg-gray-200 min-h-screen flex items-center overflow-hidden">
+      {/* Mobile: decoração leve, sem blur pesado nem shooting stars */}
       <div className="sm:hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-1/4 -left-1/4 w-[150%] h-[150%] bg-[#1565C0]/5 rounded-full blur-3xl animate-moveSlowly"></div>
-          <div className="absolute -bottom-1/4 -right-1/4 w-[150%] h-[150%] bg-[#2E7D32]/5 rounded-full blur-3xl animate-moveSlowly delay-1000"></div>
-        </div>
-        <div className="absolute -top-[50px] -right-[100px] w-[250px] h-[250px] border border-[#1565C0]/20 rounded-full animate-spin-very-slow"></div>
-        <div className="absolute -top-[30px] -right-[70px] w-[200px] h-[200px] border-2 border-[#2E7D32]/20 rounded-full animate-reverse-spin"></div>
-        <div className="absolute top-[10px] -right-[40px] w-[150px] h-[150px] border border-dashed border-[#EF6C00]/20 rounded-full animate-spin-slow"></div>
-        <div className="absolute top-[40px] -right-[10px] w-[80px] h-[80px] border-2 border-[#1565C0]/20 rounded-full animate-spin-very-slow"></div>
+        <div className="absolute -top-[50px] -right-[100px] w-[250px] h-[250px] border border-[#1565C0]/20 rounded-full"></div>
+        <div className="absolute -top-[30px] -right-[70px] w-[200px] h-[200px] border-2 border-[#2E7D32]/20 rounded-full"></div>
+        <div className="absolute top-[10px] -right-[40px] w-[150px] h-[150px] border border-dashed border-[#EF6C00]/20 rounded-full"></div>
 
         <div className="absolute -bottom-[100px] -left-[80px] w-[280px] h-[280px] border border-blue-400/15 rounded-full"></div>
         <div className="absolute -bottom-[70px] -left-[50px] w-[220px] h-[220px] border-2 border-blue-400/15 rounded-full"></div>
         <div className="absolute -bottom-[30px] -left-[20px] w-[160px] h-[160px] border border-dashed border-blue-400/20 rounded-full"></div>
-
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute h-[1px] w-[150%] bg-gradient-to-r from-transparent via-blue-400/40 to-transparent top-[35%] right-[-150%] animate-shootingStarLeft"></div>
-          <div className="absolute h-[1px] w-[150%] bg-gradient-to-r from-transparent via-blue-300/30 to-transparent bottom-[20%] left-[-150%] animate-shootingStarRight"></div>
-
-          <div className="absolute w-[1px] h-[150%] bg-gradient-to-b from-transparent via-blue-400/40 to-transparent left-[15%] top-[-150%] animate-shootingStarDown"></div>
-          <div className="absolute w-[1px] h-[150%] bg-gradient-to-b from-transparent via-blue-300/30 to-transparent right-[45%] bottom-[-150%] animate-shootingStarUp"></div>
-        </div>
-
-        <div className="absolute inset-0">
-          <div className="absolute w-1.5 h-1.5 bg-blue-400/50 rounded-full top-[35%] left-[15%] animate-pulseGlow shadow-[0_0_10px_rgba(96,165,250,0.4)]"></div>
-          <div className="absolute w-1.5 h-1.5 bg-blue-400/50 rounded-full bottom-[20%] right-[45%] animate-pulseGlow delay-700 shadow-[0_0_10px_rgba(96,165,250,0.4)]"></div>
-        </div>
-
-        <div className="sm:hidden">
-          <div className="absolute top-20 left-20 w-32 h-32 border border-dashed border-blue-400/20 rounded-full animate-spin-slow"></div>
-          <div className="absolute bottom-40 right-40 w-40 h-40 border-2 border-blue-400/20 rounded-full animate-reverse-spin"></div>
-          <div className="absolute top-1/3 right-1/4 w-24 h-24 border border-dashed border-blue-400/15 rounded-full animate-spin-very-slow"></div>
-          <div className="absolute bottom-1/4 right-1/3 w-28 h-28 border-2 border-dashed border-blue-400/20 rounded-full animate-spin-slow"></div>
-        </div>
       </div>
 
+      {/* Desktop: gradiente estático em vez de blur pesado, círculos sem animação de spin */}
       <div className="hidden sm:block">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-1/4 -left-1/4 w-[150%] h-[150%] bg-[#1565C0]/5 rounded-full blur-[100px]"></div>
-          <div className="absolute -top-1/4 -right-1/4 w-[150%] h-[150%] bg-[#2E7D32]/5 rounded-full blur-[100px]"></div>
-          <div className="absolute -bottom-1/4 -left-1/4 w-[150%] h-[150%] bg-[#EF6C00]/5 rounded-full blur-[100px]"></div>
-        </div>
 
         <div className="absolute top-0 right-0 w-[900px] h-[900px] border border-dashed border-[#1565C0]/10 rounded-full"></div>
         <div className="absolute top-20 right-20 w-[700px] h-[700px] border-2 border-[#2E7D32]/10 rounded-full"></div>
@@ -67,11 +38,9 @@ export default function HeroSection() {
         <div className="absolute -bottom-[100px] left-0 w-[600px] h-[600px] border border-dashed border-blue-400/20 rounded-full"></div>
 
         <div className="absolute top-20 left-20 w-48 h-48 border border-dashed border-blue-400/20 rounded-full"></div>
-        <div className="absolute bottom-40 right-40 w-64 h-64 border-2 border-dashed border-blue-400/20 rounded-full animate-reverse-spin"></div>
+        <div className="absolute bottom-40 right-40 w-64 h-64 border-2 border-dashed border-blue-400/20 rounded-full"></div>
         <div className="absolute top-1/3 left-1/4 w-32 h-32 border border-dashed border-blue-400/15 rounded-full"></div>
-        <div className="absolute bottom-1/4 right-1/3 w-40 h-40 border-2 border-dashed border-blue-400/20 rounded-full animate-spin-slow"></div>
-        <div className="absolute top-2/3 left-1/3 w-24 h-24 border border-dashed border-blue-400/15 rounded-full"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-36 h-36 border-2 border-dashed border-blue-400/15 rounded-full animate-spin-very-slow"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-40 h-40 border-2 border-dashed border-blue-400/20 rounded-full"></div>
 
         <svg
           className="absolute inset-0 w-[200%] h-[200%] -translate-x-[25%] -translate-y-[25%] opacity-20"
@@ -249,7 +218,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full filter blur-3xl opacity-[0.02] -z-10"></div>
       </div>
     </div>
   );
