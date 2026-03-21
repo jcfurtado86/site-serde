@@ -83,8 +83,8 @@ export function generatePublicationsFile(
     book: "Livros",
     chapter: "Capítulos",
     article: "Artigos",
-    congress: "Congressos",
-    conferenceAbstract: "Resumos em congressos",
+    congress: "Completos em evento",
+    conferenceAbstract: "Resumos em evento",
   }
 
   lines.push("export const publications: PublicationProps[] = [")

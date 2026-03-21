@@ -221,6 +221,7 @@ export const publications: PublicationProps[] = [
     publisher: "Revista Educaonline",
     edition: "17",
     pages: "100-115",
+    link: "https://sol.sbc.org.br/index.php/sbgames_estendido/article/view/32134",
   },
   {
     type: "article",
@@ -282,7 +283,7 @@ export const publications: PublicationProps[] = [
     webCitations: 4,
     scopusCitations: 4,
   },
-  // Congressos
+  // Completos em evento
   {
     type: "congress",
     title:
@@ -296,6 +297,7 @@ export const publications: PublicationProps[] = [
     event: "Xxiv Simpósio Brasileiro de Qualidade de Software (SBQS)",
     location: "São José dos Campos - Sp",
     proceedings: "Anais do Sbqs 2025",
+    link: "https://sol.sbc.org.br/index.php/sbqs/article/view/39035",
   },
   {
     type: "congress",
@@ -400,7 +402,9 @@ export const publications: PublicationProps[] = [
       "Oliveira, S. R. B.",
     ],
     year: "2022",
+    event: "17th International Conference on Evaluation of Novel Approaches to Software Engineering - Enase",
     proceedings: "Proceedings of Enase 2022",
+    link: "https://sol.sbc.org.br/index.php/sbgames_estendido/article/view/32139",
   },
   {
     type: "congress",
@@ -415,6 +419,7 @@ export const publications: PublicationProps[] = [
     event: "Sbgames 2022",
     location: "Natal",
     proceedings: "Anais do Sbgames 2022",
+    link: "https://sol.sbc.org.br/index.php/sbgames_estendido/article/view/32134",
   },
   {
     type: "congress",
@@ -437,6 +442,7 @@ export const publications: PublicationProps[] = [
       "Desafios Enfrentados por Profissionais e Empresas da Area de T.i. Durante a Pandemia de Covid-19 no Brasil",
     authors: ["Luigi Tavares da Silva Ciuffi, Eduardo", "Cezar Costa Furtado, Julio"],
     year: "2022",
+    event: "19th Contecsi International Conference on Information Systems and Technology Management",
     link: "https://dx.doi.org/10.5748/19CONTECSI/PSE/SOC/6970",
   },
   {
@@ -445,6 +451,7 @@ export const publications: PublicationProps[] = [
       "As Principais Abordagens em IHC Utilizadas para Desenvolvimento de Aplicativos Moveis",
     authors: ["Taynara Santos Moreira Maciel, Aila", "Cezar Costa Furtado, Julio"],
     year: "2022",
+    event: "19th Contecsi International Conference on Information Systems and Technology Management",
     link: "https://dx.doi.org/10.5748/19CONTECSI/PSE/ESD/6971",
   },
   {
@@ -453,6 +460,7 @@ export const publications: PublicationProps[] = [
       "A Evasao dos Estudantes em Cursos de Computacao: Um Estudo Sobre a Universidade Federal do Amapa",
     authors: ["Bezerra da Silva, Mateus", "Cezar Costa Furtado, Julio"],
     year: "2022",
+    event: "19th Contecsi International Conference on Information Systems and Technology Management",
     link: "https://dx.doi.org/10.5748/19CONTECSI/PSE/EDU/6972",
   },
   {
@@ -480,6 +488,7 @@ export const publications: PublicationProps[] = [
       "Cezar Costa Furtado, Julio",
     ],
     year: "2022",
+    event: "19th Contecsi International Conference on Information Systems and Technology Management",
     link: "https://dx.doi.org/10.5748/19CONTECSI/PSE/EDU/6995",
   },
   {
@@ -557,6 +566,7 @@ export const publications: PublicationProps[] = [
     event: "Iv Workshop Sobre Aspectos Sociais, Humanos e Econômicos de Software",
     location: "Belém - Pa",
     proceedings: "Csbc 2019 - Washes",
+    link: "https://sol.sbc.org.br/index.php/washes/article/view/6413",
   },
   {
     type: "congress",
@@ -609,6 +619,7 @@ export const publications: PublicationProps[] = [
     event: "13th International Conference on Software Technologies - Icsoft",
     location: "Porto, Portugal",
     proceedings: "Proceedings of 13th Icsoft",
+    link: "https://sol.sbc.org.br/index.php/sbqs/article/view/39035",
   },
   {
     type: "congress",
@@ -622,6 +633,7 @@ export const publications: PublicationProps[] = [
       "Oliveira, Sandro R. B.",
     ],
     year: "2017",
+    event: "14th Contecsi International Conference on Information Systems and Technology Management",
     link: "https://dx.doi.org/10.5748/9788599693131-14contecsi/ps-4766",
   },
   {
@@ -630,6 +642,7 @@ export const publications: PublicationProps[] = [
       "A Study on Perception of the Usefulness of Statistical Process Control in Software Development Organizations: An Application of Survey",
     authors: ["Furtado, Júlio", "Oliveira, Sandro R. B."],
     year: "2017",
+    event: "14th Contecsi International Conference on Information Systems and Technology Management",
     link: "https://dx.doi.org/10.5748/9788599693131-14CONTECSI/PS-4767",
   },
   {
@@ -642,6 +655,7 @@ export const publications: PublicationProps[] = [
     event: "11th International Conference on Software Engineering Advances",
     location: "Roma - Itália",
     proceedings: "The Eleventh International Conference on Software Engineering Advances",
+    link: "https://sol.sbc.org.br/index.php/sbqs/article/view/39035",
   },
   {
     type: "congress",
@@ -652,8 +666,9 @@ export const publications: PublicationProps[] = [
     event: "Ix Fórum de Educação em Engenharia de Software no Xxx Simpósio Brasileiro de Engenharia de Software",
     location: "Maringá - Pr",
     proceedings: "Anais do Sbes 2016",
+    link: "https://sol.sbc.org.br/index.php/sbqs/article/view/39035",
   },
-  // Resumos em congressos
+  // Resumos em evento
   {
     type: "conferenceAbstract",
     title:
@@ -667,6 +682,7 @@ export const publications: PublicationProps[] = [
     event: "Xviii Escola Regional de Informática Norte 2 (ERIN2)",
     location: "Macapá/ap",
     proceedings: "Anais da Erin2",
+    link: "https://sol.sbc.org.br/index.php/erin/article/view/38253",
   },
   {
     type: "conferenceAbstract",
@@ -677,6 +693,7 @@ export const publications: PublicationProps[] = [
     event: "Xviii Escola Regional de Informática Norte 2 (ERIN2)",
     location: "Macapá/ap",
     proceedings: "Anais da Erin2",
+    link: "https://sol.sbc.org.br/index.php/erin/article/view/38252",
   },
   {
     type: "conferenceAbstract",
@@ -687,6 +704,7 @@ export const publications: PublicationProps[] = [
     event: "Xviii Escola Regional de Informática Norte 2 (ERIN2)",
     location: "Macapá/ap",
     proceedings: "Anais da Erin2",
+    link: "https://sol.sbc.org.br/index.php/erin/article/view/38259",
   },
   {
     type: "conferenceAbstract",
@@ -697,5 +715,6 @@ export const publications: PublicationProps[] = [
     event: "40th International Conference on Software Engineering",
     location: "Gothenburg, Sweden",
     proceedings: "Proceedings of 40th Icse",
+    link: "https://sol.sbc.org.br/index.php/sbqs/article/view/39035",
   },
 ]

@@ -55,9 +55,9 @@ function Publication({
       case "chapter":
         return "Capítulo de Livro"
       case "congress":
-        return "Congresso"
+        return "Completo em Evento"
       case "conferenceAbstract":
-        return "Resumo em Congresso"
+        return "Resumo em Evento"
       case "patent":
         return "Patente"
       default:
@@ -102,7 +102,7 @@ function Publication({
         {(publisher || event) && (
           <p className="text-base text-gray-600 pl-[calc(24px+0.75rem)]">
             {publisher && `${publisher}${edition ? `, ${edition}` : ""}`}
-            {event && `${event}, ${location}`}
+            {event && `${event}${location ? `, ${location}` : ""}`}
             {proceedings && `, ${proceedings}`}
             {`, ${year}`}
             {pages && `, ${pages}`}
@@ -193,7 +193,8 @@ export function Publications() {
                 <option value="article">Artigos</option>
                 <option value="book">Livros</option>
                 <option value="chapter">Capítulos</option>
-                <option value="congress">Congressos</option>
+                <option value="congress">Completos em Evento</option>
+                <option value="conferenceAbstract">Resumos em Evento</option>
               </select>
             </div>
 

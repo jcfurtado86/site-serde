@@ -110,7 +110,7 @@ export function SumPublished() {
     <main className="bg-gradient-to-b from-gray-50 to-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-900 text-center mb-16">
-          Resumos em Anais de Congressos
+          Resumos em Eventos
         </h2>
         
         {congresses.length > 0 ? (

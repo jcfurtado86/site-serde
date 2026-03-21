@@ -396,10 +396,17 @@ export function parseCongressPapers($: CheerioAPI, minYear: number): Publication
         let proceedings: string | undefined
         if (inIdx > 0) {
           const inPart = afterAuthors.substring(inIdx + 5)
-          const eventMatch = inPart.match(/(.+?),\s*\d{4},\s*(.+?)\./)
-          if (eventMatch) {
-            event = eventMatch[1].trim()
-            location = eventMatch[2].trim()
+          // Try event with location: "Event Name, YYYY, Location."
+          const eventWithLoc = inPart.match(/(.+?),\s*\d{4},\s*(.+?)\./)
+          if (eventWithLoc) {
+            event = eventWithLoc[1].trim()
+            location = eventWithLoc[2].trim()
+          } else {
+            // Event without location: "Event Name, YYYY."
+            const eventOnly = inPart.match(/(.+?),\s*\d{4}\./)
+            if (eventOnly) {
+              event = eventOnly[1].trim()
+            }
           }
           const procMatch = inPart.match(/\.\s*(.+?),\s*\d{4}/)
           if (procMatch) proceedings = procMatch[1].trim()
