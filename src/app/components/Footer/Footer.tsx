@@ -108,11 +108,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 pt-6 text-center">
-          <p className="text-sm text-gray-500">
-            &copy;{new Date().getFullYear()} - SERDE/CCC/UNIFAP
-          </p>
-        </div>
+      </div>
+      <div className="pt-6 pb-6 text-center">
+        <p className="text-sm text-gray-500">
+          &copy;{new Date().getFullYear()} - SERDE/CCC/UNIFAP
+        </p>
       </div>
     </footer>
   )
