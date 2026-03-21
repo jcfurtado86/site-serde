@@ -529,10 +529,21 @@ export function parseProjects($: CheerioAPI, minYear: number): Project[] {
       const title = cleanText($titleCell.text())
       if (!title) return
 
-      // Details: skip one more layout-cell-3 (empty), then next layout-cell-9
-      const $emptyCell = $titleCell.nextAll("div.layout-cell-3").first()
-      const $detailsCell = $emptyCell.nextAll("div.layout-cell-9").first()
-      const detailsText = cleanText($detailsCell.text())
+      // Details: skip layout-cell-3/9 pairs until we find the one with "Descri" or "Situa"
+      let $cursor = $titleCell
+      let detailsText = ""
+      while (true) {
+        const $nextCell3 = $cursor.nextAll("div.layout-cell-3").first()
+        if ($nextCell3.length === 0) break
+        const $nextCell9 = $nextCell3.nextAll("div.layout-cell-9").first()
+        if ($nextCell9.length === 0) break
+        const text = cleanText($nextCell9.text())
+        if (text.match(/Descri..o:|Situa..o:|Integrantes:/)) {
+          detailsText = text
+          break
+        }
+        $cursor = $nextCell9
+      }
 
       // Parse description
       const descMatch = detailsText.match(/Descri..o:\s*(.+?)(?=Situa..o:|$)/)
@@ -549,7 +560,7 @@ export function parseProjects($: CheerioAPI, minYear: number): Project[] {
 
       // Parse coordinator and team from integrantes
       const intMatch = detailsText.match(/Integrantes:\s*(.+?)(?=Financiador|$)/)
-      let professor = "Julio Cezar Costa Furtado"
+      let professor = ""
       const team: string[] = []
       if (intMatch) {
         const members = intMatch[1].split("/")
