@@ -414,204 +414,180 @@ export const students: StudentProps[] = [
     name: "Aíla Taynara Santos Moreira Maciel",
     institution: "Unifap",
     campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Alexander Silva de Leão",
-    institution: "Unifap",
-    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/0285174097186394",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2100157A0",
     type: "ExStudent",
   },
   {
     name: "Alexsandro Monteiro Nascimento Callins",
     institution: "Unifap",
     campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/2451866311989595",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1148930T6",
     type: "ExStudent",
   },
   {
     name: "Anderson dos Santos Guerra",
     institution: "Unifap",
     campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Augusto Fadanelli de Sousa",
-    institution: "Unifap",
-    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/7801947090551930",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8583463P7",
     type: "ExStudent",
   },
   {
     name: "Carlos Alberto Barbosa de Almeida Junior",
     institution: "Unifap",
     campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/4624599784919056",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1546828T8",
     type: "ExStudent",
   },
   {
     name: "Carlos Eduardo Brito da Silva dos Santos",
     institution: "Unifap",
     campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/7238237839067724",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8804965Z9",
     type: "ExStudent",
   },
   {
     name: "Davi Alberto Correa Silva do Carmo",
     institution: "Unifap",
     campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Ederson de Souza Costa",
-    institution: "Unifap",
-    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/1934281181551924",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2774836U2",
     type: "ExStudent",
   },
   {
     name: "Edson Monteiro Neto",
     institution: "Unifap",
     campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/1270283553777603",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8151323E4",
     type: "ExStudent",
   },
   {
     name: "Eduardo Luigi Tavares da Silva Ciuffi",
     institution: "Unifap",
     campus: "Campus Unifap",
+    curriculumLink: " http://lattes.cnpq.br/8996710321421005",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2701533T0",
     type: "ExStudent",
   },
   {
     name: "Eduardo Rodrigues Nogueira",
     institution: "Unifap",
     campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/3772381642880757",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8068695T1",
     type: "ExStudent",
   },
   {
     name: "Eduardo Teixeira Flexa",
     institution: "Unifap",
     campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/0262199390232721",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1539994D7",
     type: "ExStudent",
   },
   {
     name: "Erick da Cunha Sampaio",
     institution: "Unifap",
     campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Erick Hermann Facundes da Silva",
-    institution: "Unifap",
-    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/3394751225824953",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8169200T6",
     type: "ExStudent",
   },
   {
     name: "Fernando Rafael Serra Neves",
     institution: "Unifap",
     campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/8768694050430103",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8145617U2",
     type: "ExStudent",
   },
   {
     name: "Gabriel Melo da Silveira",
     institution: "Unifap",
     campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Gabriella Silva Monteiro",
-    institution: "Unifap",
-    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/1810258668918861",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8151934Y3",
     type: "ExStudent",
   },
   {
     name: "João Victor Machado de Andrade",
     institution: "Unifap",
     campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/8539615512841442",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2726689P6",
     type: "ExStudent",
   },
   {
     name: "Juliana Leal Alves",
     institution: "Unifap",
     campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Leonardo de Andrade Oliveira",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Lucas Alexander de Souza Brito",
-    institution: "Unifap",
-    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/4617405056839703",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8913815D6",
     type: "ExStudent",
   },
   {
     name: "Luís César Martins Amaral",
     institution: "Unifap",
     campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Luís Felipe Sobreira Amaral",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Luis Henrique Campos Mafra",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Manoel Franck Melo Silva",
-    institution: "Unifap",
-    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/8829459581349801",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2109801U5",
     type: "ExStudent",
   },
   {
     name: "Marco Antonio da Silva Neves Filho",
     institution: "Unifap",
     campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Mariane da Silva Azevedo",
-    institution: "Unifap",
-    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/7123969561902651",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4373842E3",
     type: "ExStudent",
   },
   {
     name: "Mateus Bezerra da Silva",
     institution: "Unifap",
     campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/0650268746194141",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8846994Y0",
     type: "ExStudent",
   },
   {
     name: "Matheus Costa Silva",
     institution: "Unifap",
     campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Nilmara Gurjão da Silva",
-    institution: "Unifap",
-    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/9735600071757777",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8972040P1",
     type: "ExStudent",
   },
   {
     name: "Patrick Miranda dos Santos",
     institution: "Unifap",
     campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Robson Rodrigues Neves Aguiar",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    type: "ExStudent",
-  },
-  {
-    name: "Vitor Hugo Amanajas Rocha",
-    institution: "Unifap",
-    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/0003988321971896",
+    imageUrl:
+      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1530663D5",
     type: "ExStudent",
   },
 ]

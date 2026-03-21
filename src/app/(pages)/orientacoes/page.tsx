@@ -5,7 +5,7 @@ import { useProjects } from "@/app/context/ProjectsContext"
 import Link from "next/link"
 
 const degreeColors: Record<string, string> = {
-  TCC: "text-orange-600 bg-orange-100 group-hover:bg-orange-200",
+  Graduação: "text-orange-600 bg-orange-100 group-hover:bg-orange-200",
   Mestrado: "text-blue-600 bg-blue-100 group-hover:bg-blue-200",
   Doutorado: "text-red-600 bg-red-100 group-hover:bg-red-200",
   Especialização: "text-pink-600 bg-pink-100 group-hover:bg-pink-200",
@@ -43,9 +43,9 @@ export default function Orientacoes() {
                     {tcc.status}
                   </span>
                   <span
-                    className={`${degreeColors[tcc.degree || "TCC"] || "text-gray-600 bg-gray-100 group-hover:bg-gray-200"} text-sm font-medium px-4 py-2 rounded-full transition-colors duration-300`}
+                    className={`${degreeColors[tcc.degree || "Graduação"] || "text-gray-600 bg-gray-100 group-hover:bg-gray-200"} text-sm font-medium px-4 py-2 rounded-full transition-colors duration-300`}
                   >
-                    {tcc.degree || "TCC"}
+                    {tcc.degree || "Graduação"}
                   </span>
                   {tcc.status === "Finalizado" && (
                     <span className="text-gray-500 bg-gray-100 text-sm font-medium px-4 py-2 rounded-full">

@@ -4,9 +4,11 @@ import * as path from "path"
 import { generateMembersFile } from "./ts-generator"
 import { fixCasing } from "./fix-casing"
 import type { StudentProps, TeacherProps } from "../src/app/context/types"
+import { tccs } from "../src/app/context/data/tccs"
 
 const CNPq_URL = "http://dgp.cnpq.br/dgp/espelhogrupo/225177"
 const OUTPUT_PATH = path.join(__dirname, "..", "src", "app", "context", "data", "members.ts")
+const CACHE_PATH = path.join(__dirname, "..", "src", "app", "context", "data", "members copy.ts")
 
 function mapDegree(titulacao: string): string | undefined {
   const lower = titulacao.toLowerCase()
@@ -159,6 +161,18 @@ async function main() {
     })
   }
 
+  // Build degree lookup from in-progress orientations
+  const orientationDegree = new Map<string, string>()
+  for (const tcc of tccs) {
+    if (tcc.status === "Em andamento" && tcc.degree) {
+      const degree = tcc.degree === "Mestrado" || tcc.degree === "Doutorado" || tcc.degree === "Especialização"
+        ? "Master" : undefined
+      for (const student of tcc.students) {
+        orientationDegree.set(student.toLowerCase(), degree ?? "")
+      }
+    }
+  }
+
   const students: StudentProps[] = []
   for (let i = 0; i < estudantes.length; i++) {
     const s = estudantes[i]
@@ -167,34 +181,132 @@ async function main() {
     if (numericId) {
       shortId = await fetchLattesShortId(numericId)
     }
-    console.log(`  [S] ${s.name} → ${numericId || "?"} / ${shortId || "?"}`)
+    const name = fixCasing(s.name)
+    const degree = orientationDegree.get(name.toLowerCase()) ?? mapDegree(s.titulacao)
+    console.log(`  [S] ${s.name} → ${numericId || "?"} / ${shortId || "?"} (${degree || "Graduação"})`)
     students.push({
-      name: fixCasing(s.name),
+      name,
       institution: "Unifap",
       campus: "Campus Unifap",
       type: "Student",
-      ...(mapDegree(s.titulacao) ? { degree: mapDegree(s.titulacao) } : {}),
+      ...(degree ? { degree } : {}),
       ...(numericId ? { curriculumLink: buildCurriculumLink(numericId) } : {}),
       ...(shortId ? { imageUrl: buildImageUrl(shortId) } : {}),
     })
   }
 
-  // Egressos don't have Lattes buttons on DGP
-  const exStudents: StudentProps[] = egressosEstudantes.map((e) => ({
-    name: fixCasing(e.name),
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    type: "ExStudent",
-  }))
+  // Build lookup from resolved active members (students + teachers)
+  const resolvedMembers = new Map<string, { curriculumLink?: string; imageUrl?: string }>()
+  for (const s of students) {
+    resolvedMembers.set(s.name.toLowerCase(), { curriculumLink: s.curriculumLink, imageUrl: s.imageUrl })
+  }
+  for (const t of teachers) {
+    resolvedMembers.set(t.name.toLowerCase(), { curriculumLink: t.curriculumLink, imageUrl: t.imageUrl })
+  }
 
-  const allStudents = [...students, ...exStudents]
+  // Load cache from members copy (original file with manually populated egresso data)
+  if (fs.existsSync(CACHE_PATH)) {
+    const cacheContent = fs.readFileSync(CACHE_PATH, "utf-8")
+    const blocks = cacheContent.split(/\n  \{/)
+    for (const block of blocks) {
+      const nameMatch = block.match(/name:\s*"([^"]+)"/)
+      if (!nameMatch) continue
+      const clMatch = block.match(/curriculumLink:\s*"([^"]*)"/)
+      const imgMatch = block.match(/imageUrl:\s*\n?\s*"([^"]*)"/)
+      if (clMatch || imgMatch) {
+        const key = nameMatch[1].toLowerCase()
+        if (!resolvedMembers.has(key)) {
+          resolvedMembers.set(key, { curriculumLink: clMatch?.[1], imageUrl: imgMatch?.[1] })
+        }
+      }
+    }
+    console.log(`\nCache loaded: ${resolvedMembers.size} total members with Lattes data`)
+  }
+
+  // Only include egressos who completed an orientation (from tccs.ts)
+  const completedStudents = new Set<string>()
+  for (const tcc of tccs) {
+    if (tcc.status === "Finalizado") {
+      for (const student of tcc.students) {
+        completedStudents.add(student.toLowerCase())
+      }
+    }
+  }
+
+  function hasCompletedOrientation(name: string): boolean {
+    const lower = name.toLowerCase()
+    // Exact match
+    if (completedStudents.has(lower)) return true
+    // Approximate: first name + last name must match, and at least one middle part must overlap
+    const parts = lower.split(" ")
+    if (parts.length < 2) return false
+    const first = parts[0]
+    const last = parts[parts.length - 1]
+    const middleParts = new Set(parts.slice(1, -1))
+    for (const completed of completedStudents) {
+      const cParts = completed.split(" ")
+      if (cParts.length < 2) continue
+      if (cParts[0] !== first || cParts[cParts.length - 1] !== last) continue
+      // If both have no middle parts, first+last is enough
+      if (middleParts.size === 0 || cParts.length <= 2) {
+        console.log(`    ⚠ approximate match: "${name}" ≈ "${completed}"`)
+        return true
+      }
+      // Require at least one shared middle part
+      const hasSharedMiddle = cParts.slice(1, -1).some((p) => middleParts.has(p))
+      if (hasSharedMiddle) {
+        console.log(`    ⚠ approximate match: "${name}" ≈ "${completed}"`)
+        return true
+      }
+    }
+    return false
+  }
+
+  // Egressos: filter to completed orientations, then cross-reference with cache
+  console.log(`\nResolving egressos...`)
+  const missingEgressos: string[] = []
+  const exStudents: StudentProps[] = []
+  for (const e of egressosEstudantes) {
+    const name = fixCasing(e.name)
+    if (!hasCompletedOrientation(name)) {
+      console.log(`  [E] ${e.name} → skipped (no completed orientation)`)
+      continue
+    }
+
+    const resolved = resolvedMembers.get(name.toLowerCase())
+    if (resolved?.curriculumLink || resolved?.imageUrl) {
+      console.log(`  [E] ${e.name} → found`)
+      exStudents.push({
+        name, institution: "Unifap", campus: "Campus Unifap", type: "ExStudent",
+        ...(resolved.curriculumLink ? { curriculumLink: resolved.curriculumLink } : {}),
+        ...(resolved.imageUrl ? { imageUrl: resolved.imageUrl } : {}),
+      })
+    } else {
+      console.log(`  [E] ${e.name} → no Lattes data`)
+      missingEgressos.push(e.name)
+      exStudents.push({ name, institution: "Unifap", campus: "Campus Unifap", type: "ExStudent" })
+    }
+  }
+
+  // Remove students who are now egressos with completed orientation
+  const egressoNames = new Set(exStudents.map((s) => s.name.toLowerCase()))
+  const activeStudents = students.filter((s) => !egressoNames.has(s.name.toLowerCase()))
+
+  const allStudents = [...activeStudents, ...exStudents]
 
   const content = generateMembersFile(allStudents, teachers)
   fs.writeFileSync(OUTPUT_PATH, content, "utf-8")
   console.log(`\nGenerated ${OUTPUT_PATH}`)
   console.log(`  Teachers: ${teachers.length}`)
   console.log(`  Students: ${students.length}`)
-  console.log(`  Ex-students: ${exStudents.length}`)
+  console.log(`  Ex-students: ${exStudents.length} (${exStudents.length - missingEgressos.length} with Lattes)`)
+
+  if (missingEgressos.length > 0) {
+    console.log(`\n⚠ Egressos without Lattes data (no active member match):`)
+    for (const name of missingEgressos) {
+      console.log(`  - ${name}`)
+    }
+  }
 }
 
 main().catch((err) => {

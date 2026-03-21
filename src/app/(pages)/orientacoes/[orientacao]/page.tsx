@@ -47,7 +47,7 @@ function OrientacaoDetails({ tcc }: { tcc: any }) {
           <div className="mt-4 flex flex-wrap items-center gap-4">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
               <Lightbulb />
-              {tcc.degree || "TCC"}
+              {tcc.degree || "Graduação"}
             </span>
             <span
               className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${getStatusClasses()}`}

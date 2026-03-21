@@ -593,7 +593,7 @@ export function parseOrientations($: CheerioAPI, minYear: number): TCCProps[] {
   const degreeMap: Record<string, string> = {
     "mestrado": "Mestrado",
     "doutorado": "Doutorado",
-    "gradua": "TCC",
+    "gradua": "Graduação",
     "aperfei": "Especialização",
   }
   const skipHeaders = ["cient"] // skip Iniciação Científica
@@ -607,7 +607,7 @@ export function parseOrientations($: CheerioAPI, minYear: number): TCCProps[] {
     for (const [key, value] of Object.entries(degreeMap)) {
       if (lower.includes(key)) return value
     }
-    return "TCC"
+    return "Graduação"
   }
 
   // Parse both in-progress and completed sections

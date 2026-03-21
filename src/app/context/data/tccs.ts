@@ -35,7 +35,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -47,7 +47,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -59,7 +59,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -71,7 +71,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -83,7 +83,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -95,7 +95,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -107,7 +107,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -119,7 +119,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -131,7 +131,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -143,7 +143,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -155,7 +155,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -167,7 +167,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -179,7 +179,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -191,7 +191,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -203,7 +203,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -215,7 +215,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -227,7 +227,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -235,11 +235,11 @@ export const tccs: TCCProps[] = [
     description: "",
     link: "uma-analise-da-aplicacao-de-jogos-para-ensino-de-programacao",
     status: "Finalizado",
-    students: ["Alexsandro Nascimento Callins", "Davi Alberto Correa do Carmo"],
+    students: ["Alexsandro Monteiro Nascimento Callins", "Davi Alberto Correa Silva do Carmo"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -247,11 +247,11 @@ export const tccs: TCCProps[] = [
     description: "",
     link: "wisdowkeeper-uma-ferramenta-web-fullstack-de-gestao-de-conhe",
     status: "Finalizado",
-    students: ["Eduardo Teixeira Flexa", "Patrick Mirando dos Santos"],
+    students: ["Eduardo Teixeira Flexa", "Patrick Miranda dos Santos"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -263,7 +263,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -275,7 +275,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -287,7 +287,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -299,7 +299,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -311,7 +311,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -323,7 +323,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -335,7 +335,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -347,7 +347,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -359,7 +359,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -371,7 +371,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -383,7 +383,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2023",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -395,7 +395,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2023",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -407,7 +407,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2023",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -415,11 +415,11 @@ export const tccs: TCCProps[] = [
     description: "",
     link: "um-catalogo-de-praticas-de-ihc-para-aplicativos-moveis",
     status: "Finalizado",
-    students: ["Aíla Maciel"],
+    students: ["Aíla Taynara Santos Moreira Maciel"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2022",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -431,7 +431,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2021",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -443,7 +443,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2021",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -455,7 +455,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2021",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -467,7 +467,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2021",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -475,11 +475,11 @@ export const tccs: TCCProps[] = [
     description: "",
     link: "proj-o-poly-um-jogo-para-o-ensino-de-gerenciamento-de-projet",
     status: "Finalizado",
-    students: ["Carlos Eduardo Brito"],
+    students: ["Carlos Eduardo Brito da Silva dos Santos"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2020",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -491,7 +491,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2020",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -503,7 +503,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2019",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
@@ -515,7 +515,7 @@ export const tccs: TCCProps[] = [
     advisor: "Julio Cezar Costa Furtado",
     year: "2018",
     keywords: "",
-    degree: "TCC",
+    degree: "Graduação",
   },
   {
     title:
