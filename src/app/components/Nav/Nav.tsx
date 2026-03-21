@@ -245,22 +245,28 @@ export default function Nav() {
                   >
                     GitHub
                   </Link>
-                  <button onClick={toggle} className="hover:scale-110 transition-transform block py-3 px-2 border-b border-gray-200" title={locale === "pt" ? "Switch to English" : "Mudar para Português"}>
+                  <button onClick={toggle} className="w-full flex items-center gap-2 hover:scale-105 transition-transform py-3 px-2 border-b border-gray-200 text-gray-600" title={locale === "pt" ? "Switch to English" : "Mudar para Português"}>
                     {locale === "pt" ? (
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-6 h-4 rounded-sm shadow-sm">
-                        <clipPath id="us-m"><rect width="60" height="30"/></clipPath>
-                        <g clipPath="url(#us-m)">
-                          <rect width="60" height="30" fill="#B22234"/>
-                          {[0,1,2,3,4,5,6].map(i => <rect key={i} y={i*4.6+2.3} width="60" height="2.3" fill="#fff"/>)}
-                          <rect width="24" height="16" fill="#3C3B6E"/>
-                        </g>
-                      </svg>
+                      <>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 42" className="w-6 h-4 rounded-sm shadow-sm">
+                          <rect width="60" height="42" fill="#009c3b"/>
+                          <polygon points="30,4 56,21 30,38 4,21" fill="#ffdf00"/>
+                          <circle cx="30" cy="21" r="9" fill="#002776"/>
+                        </svg>
+                        <span className="text-sm">Português</span>
+                      </>
                     ) : (
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 42" className="w-6 h-4 rounded-sm shadow-sm">
-                        <rect width="60" height="42" fill="#009c3b"/>
-                        <polygon points="30,4 56,21 30,38 4,21" fill="#ffdf00"/>
-                        <circle cx="30" cy="21" r="9" fill="#002776"/>
-                      </svg>
+                      <>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-6 h-4 rounded-sm shadow-sm">
+                          <clipPath id="us-m"><rect width="60" height="30"/></clipPath>
+                          <g clipPath="url(#us-m)">
+                            <rect width="60" height="30" fill="#B22234"/>
+                            {[0,1,2,3,4,5,6].map(i => <rect key={i} y={i*4.6+2.3} width="60" height="2.3" fill="#fff"/>)}
+                            <rect width="24" height="16" fill="#3C3B6E"/>
+                          </g>
+                        </svg>
+                        <span className="text-sm">English</span>
+                      </>
                     )}
                   </button>
                 </div>
