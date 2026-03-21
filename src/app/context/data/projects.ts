@@ -3,30 +3,6 @@ import type { Project } from "../types"
 export const projectsData: Project[] = [
   {
     title:
-      "Abordagem para Ensino de Melhoria do Processo de Software a partir do uso de Metodologias Ativas",
-    description:
-      "",
-    professor: "Julio Cezar Costa Furtado",
-    status: "Em andamento",
-    type: "Pesquisa",
-    link: "abordagem-para-ensino-de-melhoria-do-processo-de-software-a-",
-    documentation: [],
-    period: "2021 - 2025",
-  },
-  {
-    title:
-      "Um jogo de RPG como Instrumento de Apoio ao Ensino da Construção de Produto de Software",
-    description:
-      "",
-    professor: "Julio Cezar Costa Furtado",
-    status: "Em andamento",
-    type: "Pesquisa",
-    link: "um-jogo-de-rpg-como-instrumento-de-apoio-ao-ensino-da-constr",
-    documentation: [],
-    period: "2021 - 2023",
-  },
-  {
-    title:
       "Projeto SERDE - Software Engineering: Research, Development and Education",
     description:
       "De acordo com a ACM / IEEE, a Engenharia de Software (ES) é uma disciplina interessada na aplicação de teoria, conhecimento e prática para o desenvolvimento eficaz e eficiente de sistemas de software que atendam aos requisitos dos usuários. Apesar da importância destes conhecimentos relativos às atividades da ES, pesquisam já verificaram que os profissionais aprendem mais sobre estas atividades durante o seu trabalho do que durante a sua formação e em geral, a indústria de software sofre com a falta de profissionais qualificados para trabalhar em atividades que envolvem o processo de desenvolvimento de software. Esta dificuldade em encontrar profissionais de Ciência da Computação com domínio dos tópicos da Engenharia de Software pode estar relacionada ao tipo de formação que estes receberam durante os anos de graduação. Assim, neste contexto, este projeto tem como objetivo desenvolver metodologias e ferramentas que auxiliem na aplicação e no ensino dos conteúdos da Engenharia de Software, seja no âmbito acadêmico ou na indústria de software",
