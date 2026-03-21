@@ -224,7 +224,9 @@ export function generateMembersFile(students: StudentProps[], teachers: TeacherP
   lines.push("")
 
   lines.push("export const teachers: TeacherProps[] = [")
-  for (const t of teachers) {
+  const coordinator = teachers.filter((t) => t.name === "Julio Cezar Costa Furtado")
+  const others = teachers.filter((t) => t.name !== "Julio Cezar Costa Furtado").sort((a, b) => a.name.localeCompare(b.name, "pt-BR"))
+  for (const t of [...coordinator, ...others]) {
     lines.push(formatTeacher(t))
   }
   lines.push("]")

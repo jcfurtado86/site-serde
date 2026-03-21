@@ -15,14 +15,71 @@ function mapDegree(titulacao: string): string | undefined {
   return undefined
 }
 
-async function fetchPage(): Promise<string> {
+function buildCurriculumLink(lattesNumericId: string): string {
+  return `http://lattes.cnpq.br/${lattesNumericId}`
+}
+
+function buildImageUrl(lattesShortId: string): string {
+  return `http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=${lattesShortId}`
+}
+
+// --- JSF session management ---
+
+interface JsfSession {
+  cookies: string
+  viewState: string
+}
+
+async function initSession(): Promise<JsfSession> {
   console.log(`Fetching ${CNPq_URL}...`)
   const res = await fetch(CNPq_URL)
-  if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`)
+  if (!res.ok) throw new Error(`HTTP ${res.status}`)
+
+  const cookies = res.headers.getSetCookie().map((c) => c.split(";")[0]).join("; ")
   const html = await res.text()
   console.log(`Fetched ${html.length} bytes`)
-  return html
+
+  const viewStateMatch = html.match(/name="javax\.faces\.ViewState"[^/]*value="([^"]*)"/)
+  if (!viewStateMatch) throw new Error("ViewState not found")
+
+  return { cookies, viewState: viewStateMatch[1] }
 }
+
+async function fetchLattesId(session: JsfSession, tableId: string, index: number): Promise<string | null> {
+  const buttonId = `idFormVisualizarGrupoPesquisa:${tableId}:${index}:btnAcessoLattes2`
+
+  const body = new URLSearchParams({
+    "idFormVisualizarGrupoPesquisa": "idFormVisualizarGrupoPesquisa",
+    [buttonId]: buttonId,
+    "javax.faces.ViewState": session.viewState,
+  })
+
+  const res = await fetch(CNPq_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Cookie": session.cookies,
+    },
+    body: body.toString(),
+    redirect: "manual",
+  })
+
+  const location = res.headers.get("location")
+  if (!location || !location.includes("lattes.cnpq.br/")) return null
+
+  const numericId = location.split("/").pop() || null
+  return numericId
+}
+
+async function fetchLattesShortId(numericId: string): Promise<string | null> {
+  const res = await fetch(`http://lattes.cnpq.br/${numericId}`)
+  if (!res.ok) return null
+  const html = await res.text()
+  const match = html.match(/<input[^>]*name="id"[^>]*value="([^"]*)"/)
+  return match ? match[1] : null
+}
+
+// --- Parsing ---
 
 interface ParsedMember {
   name: string
@@ -63,27 +120,14 @@ function parseEgressosTable($: cheerio.CheerioAPI, containerIdPart: string): Par
   return egressos
 }
 
-function buildTeacher(name: string): TeacherProps {
-  return {
-    name: fixCasing(name),
-    institution: "Unifap",
-    campus: "Campus Unifap",
-  }
-}
-
-function buildStudent(name: string, type: "Student" | "ExStudent", degree?: string): StudentProps {
-  return {
-    name: fixCasing(name),
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    type,
-    ...(degree ? { degree } : {}),
-  }
-}
+// --- Main ---
 
 async function main() {
-  const html = await fetchPage()
-  const $ = cheerio.load(html)
+  const session = await initSession()
+  const $ = cheerio.load(await (await fetch(CNPq_URL)).text())
+
+  // Re-init session for POST requests (fresh ViewState)
+  const postSession = await initSession()
 
   const pesquisadores = parseTable($, "j_idt271")
   const estudantes = parseTable($, "j_idt288")
@@ -94,15 +138,54 @@ async function main() {
   console.log(`  Estudantes: ${estudantes.length}`)
   console.log(`  Egressos estudantes: ${egressosEstudantes.length}`)
 
-  const teachers: TeacherProps[] = pesquisadores.map((p) => buildTeacher(p.name))
+  // Resolve Lattes IDs for active members via JSF POSTs
+  console.log(`\nResolving Lattes IDs...`)
 
-  const students: StudentProps[] = estudantes.map((s) =>
-    buildStudent(s.name, "Student", mapDegree(s.titulacao))
-  )
+  const teachers: TeacherProps[] = []
+  for (let i = 0; i < pesquisadores.length; i++) {
+    const p = pesquisadores[i]
+    const numericId = await fetchLattesId(postSession, "j_idt271", i)
+    let shortId: string | null = null
+    if (numericId) {
+      shortId = await fetchLattesShortId(numericId)
+    }
+    console.log(`  [P] ${p.name} → ${numericId || "?"} / ${shortId || "?"}`)
+    teachers.push({
+      name: fixCasing(p.name),
+      institution: "Unifap",
+      campus: "Campus Unifap",
+      ...(numericId ? { curriculumLink: buildCurriculumLink(numericId) } : {}),
+      ...(shortId ? { imageUrl: buildImageUrl(shortId) } : {}),
+    })
+  }
 
-  const exStudents: StudentProps[] = egressosEstudantes.map((e) =>
-    buildStudent(e.name, "ExStudent")
-  )
+  const students: StudentProps[] = []
+  for (let i = 0; i < estudantes.length; i++) {
+    const s = estudantes[i]
+    const numericId = await fetchLattesId(postSession, "j_idt288", i)
+    let shortId: string | null = null
+    if (numericId) {
+      shortId = await fetchLattesShortId(numericId)
+    }
+    console.log(`  [S] ${s.name} → ${numericId || "?"} / ${shortId || "?"}`)
+    students.push({
+      name: fixCasing(s.name),
+      institution: "Unifap",
+      campus: "Campus Unifap",
+      type: "Student",
+      ...(mapDegree(s.titulacao) ? { degree: mapDegree(s.titulacao) } : {}),
+      ...(numericId ? { curriculumLink: buildCurriculumLink(numericId) } : {}),
+      ...(shortId ? { imageUrl: buildImageUrl(shortId) } : {}),
+    })
+  }
+
+  // Egressos don't have Lattes buttons on DGP
+  const exStudents: StudentProps[] = egressosEstudantes.map((e) => ({
+    name: fixCasing(e.name),
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    type: "ExStudent",
+  }))
 
   const allStudents = [...students, ...exStudents]
 
