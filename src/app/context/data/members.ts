@@ -108,7 +108,6 @@ export const students: StudentProps[] = [
     imageUrl:
       "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1109711U3",
     type: "Student",
-    degree: "Master",
   },
   {
     name: "Gabriel Victor Auzier dos Santos",

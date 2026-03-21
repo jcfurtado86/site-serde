@@ -287,6 +287,20 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
+      "Inteligência Artificial e Acesso À Justiça: Modelo de Indicadores e Índice de Impacto Alinhado ao Ods 16",
+    authors: [
+      "Azevedo, A.",
+      "Furtado, Julio C.",
+      "Leite, A.",
+    ],
+    year: "2026",
+    event: "Xvi Prospect&i e X Congresso Internacional Profnit",
+    location: "Maceió (AL)",
+    proceedings: "Anais do Xvi Prospect&i e X Congresso Internacional Profnit",
+  },
+  {
+    type: "congress",
+    title:
       "A Qualitative Evaluation of an Experiment on the Application of Active Methodologies in Teaching Software Process Improvement",
     authors: [
       "Colares, A.",
