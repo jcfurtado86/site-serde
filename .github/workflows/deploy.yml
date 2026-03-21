@@ -33,6 +33,7 @@ jobs:
           cd ~/site-serde || exit 1
 
           # Comandos de deploy
+          git checkout -- .
           git pull origin main
           npm install
           NODE_OPTIONS='--max-old-space-size=2048' npm run build
