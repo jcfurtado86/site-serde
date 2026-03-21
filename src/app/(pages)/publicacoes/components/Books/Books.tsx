@@ -97,9 +97,9 @@ interface BookProps {
     ]
   
     return (
-      <main className="bg-gradient-to-b from-gray-50 to-white py-20">
+      <main className="bg-gradient-to-b from-gray-50 to-white py-6 sm:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-900 text-center mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-blue-900 text-center mb-16">
             Livros e Capítulos
           </h2>
           

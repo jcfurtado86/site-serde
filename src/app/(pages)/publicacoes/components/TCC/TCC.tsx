@@ -43,9 +43,9 @@ export function TCCs() {
   const { tccs } = useProjects()
 
   return (
-    <main id="tcc" className="bg-gradient-to-b from-white to-gray-100 py-20">
+    <main id="tcc" className="bg-gradient-to-b from-gray-50 to-white py-6 sm:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-16">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 text-center mb-16">
           Trabalhos de Conclusão de Curso
         </h2>
         {tccs.length > 0 ? (

@@ -4,79 +4,10 @@ import Link from "next/link"
 import { ResearchLineList } from "@/app/(pages)/projetos/components/ResearchLine/ReaserchLine"
 import { useProjects } from "@/app/context/ProjectsContext"
 import { useLanguage } from "@/app/i18n/context"
-interface ResultItemProps {
-  href: string
-  label: string
-  quantity: number
-}
-
-// Um componente simples para os itens da lista, para evitar repetição
-const ResultItem = ({ href, label, quantity }: ResultItemProps) => (
-  <div className="text-center md:text-left">
-    <span className="text-yellow-400 font-mono text-xl">{quantity}</span>
-    <Link
-      href={href}
-      className="block mt-2 text-lg font-semibold text-white hover:text-yellow-300 transition-colors duration-300"
-    >
-      {label}
-    </Link>
-  </div>
-)
-
-const ResearchResults = ({ researchItems }: { researchItems: ResultItemProps[] }) => {
-  const { t } = useLanguage()
-  return (
-  <section className="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-gray-800 text-white">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      {/* Coluna de Texto */}
-      <div className="md:pr-8">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-12 text-center md:text-left">
-          {t("about.research_results")}
-        </h2>
-        <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-7">
-          {researchItems.map((item, index) => (
-            <ResultItem key={index} {...item} />
-          ))}
-        </div>
-      </div>
-
-      {/* Coluna da Imagem */}
-      <div className="flex justify-center">
-        <div className="p-3 bg-orange-500 rounded-lg shadow-2xl transform hover:rotate-3 transition-transform duration-300 md:rotate-0">
-          {/* URL aleatória como solicitado. Você pode substituir por uma imagem estática ou dinâmica */}
-          <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
-            alt="Equipe de pesquisa colaborando em um projeto"
-            className="rounded-md w-full h-full object-cover max-w-md"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-  )
-}
-
 export default function About() {
   const { t } = useLanguage()
   const { projects, tccs, publications, students, teachers } = useProjects()
   const equipe = [...students.filter((s) => s.type === "Student"), ...teachers]
-  const researchItems = [
-    {
-      href: "/publicacoes",
-      label: t("about.published_articles"),
-      quantity: 16,
-    },
-    {
-      href: "/orientacoes",
-      label: t("about.completed_guidance"),
-      quantity: tccs.filter((t) => t.status === "Finalizado").length,
-    },
-    {
-      href: "/projetos",
-      label: t("about.projects"),
-      quantity: projects.length,
-    },
-  ]
 
   return (
     <div
@@ -85,7 +16,7 @@ export default function About() {
     >
       <div className="max-w-[1240px] mx-auto pt-8 md:pt-6 pb-4 md:pb-2">
         <div className="text-center mb-8 md:mb-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 md:mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6 md:mb-4">
             {t("about.title")}
           </h1>
           <p className="pt-5 text-gray-600 text-left text-sm sm:text-base lg:text-lg max-w-7xl mx-auto leading-relaxed pb-10">
@@ -100,7 +31,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           <Link
             href="/projetos"
-            className="group bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1"
+            className="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex justify-center mb-6">
               <div className="bg-blue-50 p-4 rounded-xl group-hover:bg-blue-100 transition-colors">
@@ -124,7 +55,7 @@ export default function About() {
 
           <Link
             href="/publicacoes"
-            className="group bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1"
+            className="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex justify-center mb-6">
               <div className="bg-orange-50 p-4 rounded-xl group-hover:bg-orange-100 transition-colors">
@@ -150,7 +81,7 @@ export default function About() {
 
           <Link
             href="/orientacoes"
-            className="group bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1"
+            className="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex justify-center mb-6">
               <div className="bg-blue-50 p-4 rounded-xl group-hover:bg-blue-100 transition-colors">
@@ -175,7 +106,7 @@ export default function About() {
           </Link>
           <Link
             href="/membros"
-            className="group bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.16)] transition-all duration-300 hover:-translate-y-1"
+            className="group bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex justify-center mb-6">
               <div className="bg-green-50 p-4 rounded-xl group-hover:bg-green-100 transition-colors">

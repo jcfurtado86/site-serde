@@ -109,7 +109,7 @@
     "researchers": "Researchers",
     "students": "Students",
     "alumni": "Alumni",
-    "coordinator": "Coordinator",
+    "coordinator": "Leader",
     "teachers": "Faculty",
     "email": "Email",
     "lattes": "Lattes",
@@ -144,5 +144,11 @@
   },
   "partnerships": {
     "title": "Partnerships"
+  },
+  "footer": {
+    "quick_links": "Quick Links",
+    "contact": "Contact",
+    "university": "Federal University of Amapá",
+    "department": "Computer Science Department"
   }
 }

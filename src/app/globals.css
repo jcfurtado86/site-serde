@@ -15,11 +15,6 @@
   }
 }
 
-.animate-drawLine {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-}
-
 .animate-drawLineInfinite {
   stroke-dasharray: 1000;
 }

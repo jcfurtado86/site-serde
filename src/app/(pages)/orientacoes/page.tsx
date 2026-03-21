@@ -36,9 +36,9 @@ export default function Orientacoes() {
   return (
     <main className="pt-20 bg-gray-50">
       <Breadcrumb items={[{ label: t("breadcrumb.guidance"), href: "/orientacoes" }]} />
-      <div className="bg-gradient-to-b from-gray-50 to-white py-20">
+      <div className="bg-gradient-to-b from-gray-50 to-white py-6 sm:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 text-center mb-16">
             {t("guidance.title")}
           </h2>
 
@@ -47,7 +47,7 @@ export default function Orientacoes() {
               <Link
                 href={"/orientacoes/" + tcc.link}
                 key={index}
-                className="group bg-white p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-lg cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col min-h-[12rem] sm:min-h-[15rem]"
+                className="group bg-white p-4 sm:p-8 rounded-2xl shadow-lg cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col min-h-[12rem] sm:min-h-[15rem]"
               >
                 <div className="flex flex-wrap justify-start mb-4 sm:mb-6 gap-2">
                   <span

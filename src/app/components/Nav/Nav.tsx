@@ -18,7 +18,7 @@ export default function Nav() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const pathname = usePathname()
   const defaultLinkStyle =
-    "text-gray-600 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#4B5563] after:transition-transform after:duration-300"
+    "text-gray-700 hover:text-[#295984] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:bg-[#4B5563] after:transition-transform after:duration-300"
   // 2. Referência para o link do tabmenu "Projetos de Pesquisa"
   const researchProjectsLinkRef = useRef<HTMLAnchorElement>(null)
   // 3. Estado para armazenar a largura do link
@@ -61,20 +61,6 @@ export default function Nav() {
         <div className="relative container mx-auto px-6 py-3">
           <div className="flex justify-between items-center mb-1">
             <Link href="/" className="flex items-center gap-2">
-              {/*<Image
-                src="/image/serde-planta.png"
-                alt="Logo"
-                width={150}
-                height={150}
-                className="w-auto h-8 lg:h-12"
-              />
-              <h1 className={`text-4xl mt-1 font-[Questrial] `}>
-                <span style={{ color: "#000000" }}>s</span>
-                <span style={{ color: "#000000" }}>e</span>
-                <span style={{ color: "#1565C0" }}>r</span>
-                <span style={{ color: "#2E7D32" }}>d</span>
-                <span style={{ color: "#EF6C00" }}>e</span>
-              </h1>*/}
               <Image
                 src="/image/serde-final-horizontal.png"
                 alt="Logo"
@@ -129,7 +115,8 @@ export default function Nav() {
               <Link
                 href="https://github.com/jcfurtado86/"
                 target="_blank"
-                className={`${defaultLinkStyle} ${pathname === "/pages/QuemSomos" ? "after:scale-x-100 text-[#295984]" : ""}`}
+                rel="noopener noreferrer"
+                className={`${defaultLinkStyle}`}
               >
                 GitHub
               </Link>
@@ -182,20 +169,6 @@ export default function Nav() {
             <div className="flex flex-col h-full">
               <div className="flex items-center justify-between p-4 border-b border-gray-200">
                 <div className="flex items-center pl-2">
-                  {/*<Image
-                    src="/image/serde-planta.png"
-                    alt="Logo"
-                    width={100}
-                    height={100}
-                    className="w-auto h-8"
-                  />
-                  <h1 className={`text-4xl font-[Questrial] ml-2`}>
-                    <span style={{ color: "#000000" }}>s</span>
-                    <span style={{ color: "#000000" }}>e</span>
-                    <span style={{ color: "#1565C0" }}>r</span>
-                    <span style={{ color: "#2E7D32" }}>d</span>
-                    <span style={{ color: "#EF6C00" }}>e</span>
-                  </h1>*/}
                   <Image
                     src="/image/serde-final-horizontal.png"
                     alt="Logo"
@@ -266,6 +239,7 @@ export default function Nav() {
                   <Link
                     href="https://github.com/jcfurtado86/"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

@@ -144,5 +144,11 @@
   },
   "partnerships": {
     "title": "Parcerias"
+  },
+  "footer": {
+    "quick_links": "Links Rápidos",
+    "contact": "Contato",
+    "university": "Universidade Federal do Amapá",
+    "department": "Curso de Ciência da Computação"
   }
 }

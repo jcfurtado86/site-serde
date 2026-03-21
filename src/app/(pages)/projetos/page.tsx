@@ -14,7 +14,7 @@ export default function ProjetosPesquisa() {
   return (
     <main className="pt-20 bg-gray-50">
       <Breadcrumb items={[{ label: t("breadcrumb.projects"), href: "/projetos" }]} />
-      <AllProjectsList title="Projetos" link="em-andamento" projects={sorted} />
+      <AllProjectsList title={t("nav.projects")} link="em-andamento" projects={sorted} />
     </main>
   )
 }

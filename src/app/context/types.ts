@@ -43,6 +43,7 @@ export interface StudentProps {
   imageUrl?: string
   type: string
   degree?: string
+  imagePosition?: "center" | "top"
 }
 
 export interface TeacherProps {
@@ -52,6 +53,7 @@ export interface TeacherProps {
   email?: string
   curriculumLink?: string
   imageUrl?: string
+  imagePosition?: "center" | "top"
 }
 
 export interface FileProps {

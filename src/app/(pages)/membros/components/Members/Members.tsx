@@ -11,18 +11,20 @@ interface MemberProps {
   curriculumLink?: string
   imageUrl?: string
   degree?: string
+  imagePosition?: "center" | "top"
 }
 
 interface MemberComponentProps {
   members: MemberProps[]
   title: string
+  className?: string
 }
 const typeColors = [
   { type: "Graduação", color: "text-teal-600 bg-teal-100 group-hover:bg-teal-200" },
   { type: "Pesquisa", color: "text-purple-600 bg-purple-100 group-hover:bg-purple-200" },
   { type: "Mestrado", color: "text-orange-600 bg-orange-100 group-hover:bg-orange-200" },
 ]
-export function Members({ members, title }: MemberComponentProps) {
+export function Members({ members, title, className = "bg-gradient-to-b from-gray-50 to-white" }: MemberComponentProps) {
   const { t } = useLanguage()
   useEffect(() => {
     const preloadImages = () => {
@@ -37,22 +39,17 @@ export function Members({ members, title }: MemberComponentProps) {
     preloadImages()
   }, [])
 
-  const usersToFix = ["victor gabriel gomes bahia", "davi alberto correa silva do carmo"]
-  const fixedPositionMembers = members.filter((member) =>
-    usersToFix.some((user) => member.name.toLowerCase().includes(user))
-  )
-
   return (
-    <main className="bg-gradient-to-b from-gray-50 to-white py-3 sm:py-20">
+    <main className={`${className} py-6 sm:py-10`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black text-center mb-3 sm:mb-16">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-black text-center mb-6 sm:mb-16">
           {title}
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6 lg:gap-8 auto-rows-auto sm:auto-rows-[28rem]">
           {members.map((member, index) => (
             <div
               key={index}
-              className="group bg-white rounded-xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full"
+              className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col h-full"
             >
               <div className="relative w-full h-[14rem] sm:h-[20rem] overflow-hidden bg-gray-100">
                 {member.name === "Julio Cezar Costa Furtado" && (
@@ -84,7 +81,7 @@ export function Members({ members, title }: MemberComponentProps) {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     priority
-                    className={`${fixedPositionMembers.some((fixedMember) => fixedMember.name === member.name) ? "object-center" : "object-top"} object-cover group-hover:scale-105 transition-transform duration-300 `}
+                    className={`${member.imagePosition === "center" ? "object-center" : "object-top"} object-cover group-hover:scale-105 transition-transform duration-300`}
                     placeholder="blur"
                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSAyUC0zLyYuLy0xPDZCNzIrLjM9RUdQRUVHSUlNTU1CQUJISUhNTU3/2wBDAQwXFx0aHR4dHU1MLSU1TU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU3/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                     unoptimized

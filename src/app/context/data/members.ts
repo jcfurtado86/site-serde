@@ -399,6 +399,7 @@ export const students: StudentProps[] = [
     imageUrl:
       "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1109471Z0",
     type: "Student",
+    imagePosition: "center",
   },
   {
     name: "Yasmim Pereira Melo",
@@ -463,6 +464,7 @@ export const students: StudentProps[] = [
     imageUrl:
       "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2774836U2",
     type: "ExStudent",
+    imagePosition: "center",
   },
   {
     name: "Edson Monteiro Neto",
