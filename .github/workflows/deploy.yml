@@ -12,7 +12,7 @@ jobs:
     steps:
     # 1. Configura o "Agente SSH" e carrega sua chave OPENSSH na memória
     - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.9.0
+      uses: webfactory/ssh-agent@v0.9.1
       with:
         ssh-private-key: ${{ secrets.SSH_KEY }}
 
@@ -23,19 +23,20 @@ jobs:
     - name: Deploy Script
       run: | 
         ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
+          set -e
+
           # Carrega NVM
           export NVM_DIR=~/.nvm
           source ~/.nvm/nvm.sh
-          
+
           # Entra na pasta
           cd ~/site-serde || exit 1
-          
+
           # Comandos de deploy
           git pull origin main
           npm install
-          # NODE_OPTIONS='--max-old-space-size=2048' 
-          npm run build
-          
+          NODE_OPTIONS='--max-old-space-size=2048' npm run build
+
           # Reinicia PM2
           pm2 restart serde
         EOF

@@ -610,30 +610,6 @@ export const teachers: TeacherProps[] = [
       "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4202733D9",
   },
   {
-    name: "Carlos dos Santos Portela",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    curriculumLink: "http://lattes.cnpq.br/7707594869367480",
-    imageUrl:
-      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4463711U3",
-  },
-  {
-    name: "Daniel Santiago Chaves Ribeiro",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    curriculumLink: "http://lattes.cnpq.br/0478434658759664",
-    imageUrl:
-      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4525842D7",
-  },
-  {
-    name: "Diana Regina dos Santos Alves de Oliveira",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    curriculumLink: "http://lattes.cnpq.br/9792094982597839",
-    imageUrl:
-      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4295544E4",
-  },
-  {
     name: "Marco Antonio Leal da Silva",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -642,28 +618,12 @@ export const teachers: TeacherProps[] = [
       "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4205687P3",
   },
   {
-    name: "Rafael Oliveira Chaves",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    curriculumLink: "http://lattes.cnpq.br/6174902705031173",
-    imageUrl:
-      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4229988P3",
-  },
-  {
     name: "Rafael Pontes Lima",
     institution: "Unifap",
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/3248608898278519",
     imageUrl:
       "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4133837P0",
-  },
-  {
-    name: "Sandro Ronaldo Bezerra Oliveira",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    curriculumLink: "http://lattes.cnpq.br/2080791630485427",
-    imageUrl:
-      "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4776788Y2",
   },
   {
     name: "Thiago Pinheiro do Nascimento",
