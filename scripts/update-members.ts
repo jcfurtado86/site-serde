@@ -7,6 +7,21 @@ import type { StudentProps, TeacherProps } from "../src/app/context/types"
 import { tccs } from "../src/app/context/data/tccs"
 
 const CNPq_URL = "http://dgp.cnpq.br/dgp/espelhogrupo/225177"
+const MAX_RETRIES = 3
+const RETRY_DELAY_MS = 2000
+
+async function fetchWithRetry(url: string, options?: RequestInit): Promise<Response> {
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      return await fetch(url, options)
+    } catch (err: any) {
+      if (attempt === MAX_RETRIES) throw err
+      console.log(`    ⚠ ${err.code || err.message} on attempt ${attempt}/${MAX_RETRIES}, retrying in ${RETRY_DELAY_MS * attempt}ms...`)
+      await new Promise((r) => setTimeout(r, RETRY_DELAY_MS * attempt))
+    }
+  }
+  throw new Error("unreachable")
+}
 const OUTPUT_PATH = path.join(__dirname, "..", "src", "app", "context", "data", "members.ts")
 const CACHE_PATH = path.join(__dirname, "..", "src", "app", "context", "data", "members copy.ts")
 
@@ -34,7 +49,7 @@ interface JsfSession {
 
 async function initSession(): Promise<JsfSession> {
   console.log(`Fetching ${CNPq_URL}...`)
-  const res = await fetch(CNPq_URL)
+  const res = await fetchWithRetry(CNPq_URL)
   if (!res.ok) throw new Error(`HTTP ${res.status}`)
 
   const cookies = res.headers.getSetCookie().map((c) => c.split(";")[0]).join("; ")
@@ -56,7 +71,7 @@ async function fetchLattesId(session: JsfSession, tableId: string, index: number
     "javax.faces.ViewState": session.viewState,
   })
 
-  const res = await fetch(CNPq_URL, {
+  const res = await fetchWithRetry(CNPq_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -74,7 +89,13 @@ async function fetchLattesId(session: JsfSession, tableId: string, index: number
 }
 
 async function fetchLattesShortId(numericId: string): Promise<string | null> {
-  const res = await fetch(`http://lattes.cnpq.br/${numericId}`)
+  let res: Response
+  try {
+    res = await fetchWithRetry(`http://lattes.cnpq.br/${numericId}`)
+  } catch {
+    console.log(`    ⚠ failed to fetch Lattes short ID for ${numericId} after ${MAX_RETRIES} attempts`)
+    return null
+  }
   if (!res.ok) return null
   const html = await res.text()
   const match = html.match(/<input[^>]*name="id"[^>]*value="([^"]*)"/)
@@ -126,7 +147,7 @@ function parseEgressosTable($: cheerio.CheerioAPI, containerIdPart: string): Par
 
 async function main() {
   const session = await initSession()
-  const $ = cheerio.load(await (await fetch(CNPq_URL)).text())
+  const $ = cheerio.load(await (await fetchWithRetry(CNPq_URL)).text())
 
   // Re-init session for POST requests (fresh ViewState)
   const postSession = await initSession()
