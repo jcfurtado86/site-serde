@@ -87,22 +87,22 @@ function Publication({
   }
 
   return (
-    <div className="border-b border-gray-200 py-6 bg-white hover:bg-gray-50/80 transition-all duration-200 px-6 relative group">
-      <div className="flex flex-col gap-3">
-        <div className="flex items-start gap-4">
-          <span className="text-gray-500 font-medium min-w-[24px]">{number}.</span>
+    <div className="border-b border-gray-200 py-4 sm:py-6 bg-white hover:bg-gray-50/80 transition-all duration-200 px-3 sm:px-6 relative group">
+      <div className="flex flex-col gap-2 sm:gap-3">
+        <div className="flex flex-wrap items-start gap-2 sm:gap-4">
+          <span className="text-gray-500 font-medium min-w-[20px] sm:min-w-[24px] text-sm sm:text-base">{number}.</span>
           <span
-            className={`inline-flex items-center px-4 py-1.5 rounded-full text-sm font-medium ${getTypeColor()} shadow-sm`}
+            className={`inline-flex items-center px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium ${getTypeColor()} shadow-sm`}
           >
             {getTypeLabel()}
           </span>
-          <h2 className="flex-1 text-xl text-gray-800 font-medium group-hover:text-gray-900">
+          <h2 className="basis-full sm:basis-0 sm:flex-1 text-base sm:text-xl text-gray-800 font-medium group-hover:text-gray-900">
             {title}
           </h2>
         </div>
-        <p className="text-base text-gray-600 pl-[calc(24px+0.75rem)]">{authors.join("; ")}</p>
+        <p className="text-sm sm:text-base text-gray-600 pl-0 sm:pl-[calc(24px+0.75rem)]">{authors.join("; ")}</p>
         {(publisher || event) && (
-          <p className="text-base text-gray-600 pl-[calc(24px+0.75rem)]">
+          <p className="text-sm sm:text-base text-gray-600 pl-0 sm:pl-[calc(24px+0.75rem)]">
             {publisher && `${publisher}${edition ? `, ${edition}` : ""}`}
             {event && `${event}${location ? `, ${location}` : ""}`}
             {proceedings && `, ${proceedings}`}

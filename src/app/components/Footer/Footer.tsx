@@ -6,13 +6,13 @@ export default function Footer() {
       <div className="container mx-auto px-4 flex flex-col items-center gap-6">
 
         {/* Logos */}
-        <div className="flex items-center gap-20 py-8">
+        <div className="flex items-center gap-6 sm:gap-12 md:gap-20 py-8">
           <a
             href="https://www.unifap.br/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Site da UNIFAP"
-            className="h-[80px]"
+            className="h-[50px] sm:h-[80px]"
           >
             <img
               src="/image/unifap-h-b.png"
@@ -26,7 +26,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Site do curso de Ciência da Computação da UNIFAP"
-            className="h-[60px]"
+            className="h-[40px] sm:h-[60px]"
           >
             <img
               src="/image/ccc-unifap-b.png"

@@ -48,13 +48,13 @@ export function Members({ members, title }: MemberComponentProps) {
         <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black text-center mb-3 sm:mb-16">
           {title}
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6 lg:gap-8 auto-rows-[28rem]">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-6 lg:gap-8 auto-rows-auto sm:auto-rows-[28rem]">
           {members.map((member, index) => (
             <div
               key={index}
               className="group bg-white rounded-xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col h-full"
             >
-              <div className="relative w-full h-[200px] sm:h-[20rem] overflow-hidden bg-gray-100">
+              <div className="relative w-full h-[14rem] sm:h-[20rem] overflow-hidden bg-gray-100">
                 {member.name === "Julio Cezar Costa Furtado" && (
                   <div className="absolute bottom-3 flex z-10 w-full">
                     <span
@@ -108,8 +108,8 @@ export function Members({ members, title }: MemberComponentProps) {
                   </div>
                 )}
               </div>
-              <div className="p-2 sm:px-4 flex flex-col justify-between flex-grow">
-                <h2 className="text-sm sm:text-lg lg:text-lg text-gray-800 font-bold line-clamp-2 group-hover:text-gray-900 group-hover:brightness-125 transition-all duration-300">
+              <div className="p-3 sm:px-4 flex flex-col justify-between flex-grow">
+                <h2 className="text-base sm:text-lg lg:text-lg text-gray-800 font-bold line-clamp-2 group-hover:text-gray-900 group-hover:brightness-125 transition-all duration-300">
                   {member.name}
                 </h2>
 
@@ -117,10 +117,10 @@ export function Members({ members, title }: MemberComponentProps) {
                   {title === t("members.teachers") && member.email && (
                     <a
                       href={`mailto:${member.email}`}
-                      className="flex-1 text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center gap-1 sm:gap-2 py-1 sm:py-2 px-1.5 sm:px-3 rounded-lg hover:bg-blue-50 transition-all duration-300 text-xs sm:text-base"
+                      className="flex-1 text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center gap-1 sm:gap-2 py-1 sm:py-2 px-1.5 sm:px-3 rounded-lg hover:bg-blue-50 transition-all duration-300 text-sm sm:text-base"
                     >
                       <svg
-                        className="w-3 h-3 sm:w-5 sm:h-5 flex-shrink-0"
+                        className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -137,11 +137,11 @@ export function Members({ members, title }: MemberComponentProps) {
                   )}
                   {member.curriculumLink && <a
                     href={member.curriculumLink}
-                    className="flex-1 text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center gap-1 sm:gap-2 py-1 sm:py-2 px-1.5 sm:px-3 rounded-lg hover:bg-blue-50 transition-all duration-300 text-xs sm:text-base"
+                    className="flex-1 text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center gap-1 sm:gap-2 py-1 sm:py-2 px-1.5 sm:px-3 rounded-lg hover:bg-blue-50 transition-all duration-300 text-sm sm:text-base"
                     target="_blank"
                   >
                     <svg
-                      className="size-3 sm:size-6 flex-shrink-0 mb-1"
+                      className="size-4 sm:size-6 flex-shrink-0 mb-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

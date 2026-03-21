@@ -22,7 +22,7 @@ function buildCurriculumLink(lattesNumericId: string): string {
 }
 
 function buildImageUrl(lattesShortId: string): string {
-  return `http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=${lattesShortId}`
+  return `https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=${lattesShortId}`
 }
 
 // --- JSF session management ---

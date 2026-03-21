@@ -20,14 +20,14 @@ export default function HeroSection() {
           <div className="absolute -top-1/4 -left-1/4 w-[150%] h-[150%] bg-[#1565C0]/5 rounded-full blur-3xl animate-moveSlowly"></div>
           <div className="absolute -bottom-1/4 -right-1/4 w-[150%] h-[150%] bg-[#2E7D32]/5 rounded-full blur-3xl animate-moveSlowly delay-1000"></div>
         </div>
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] border border-[#1565C0]/20 rounded-full animate-spin-very-slow"></div>
-        <div className="absolute top-10 right-10 w-[300px] h-[300px] border-2 border-[#2E7D32]/20 rounded-full animate-reverse-spin"></div>
-        <div className="absolute top-20 right-20 w-[200px] h-[200px] border border-dashed border-[#EF6C00]/20 rounded-full animate-spin-slow"></div>
-        <div className="absolute top-30 right-30 w-[100px] h-[100px] border-2 border-[#1565C0]/20 rounded-full animate-spin-very-slow"></div>
+        <div className="absolute -top-[50px] -right-[100px] w-[250px] h-[250px] border border-[#1565C0]/20 rounded-full animate-spin-very-slow"></div>
+        <div className="absolute -top-[30px] -right-[70px] w-[200px] h-[200px] border-2 border-[#2E7D32]/20 rounded-full animate-reverse-spin"></div>
+        <div className="absolute top-[10px] -right-[40px] w-[150px] h-[150px] border border-dashed border-[#EF6C00]/20 rounded-full animate-spin-slow"></div>
+        <div className="absolute top-[40px] -right-[10px] w-[80px] h-[80px] border-2 border-[#1565C0]/20 rounded-full animate-spin-very-slow"></div>
 
-        <div className="absolute -bottom-[200px] -left-[100px] w-[500px] h-[500px] border border-blue-400/15 rounded-full"></div>
-        <div className="absolute -bottom-[150px] -left-[50px] w-[400px] h-[400px] border-2 border-blue-400/15 rounded-full"></div>
-        <div className="absolute -bottom-[50px] left-0 w-[300px] h-[300px] border border-dashed border-blue-400/20 rounded-full"></div>
+        <div className="absolute -bottom-[100px] -left-[80px] w-[280px] h-[280px] border border-blue-400/15 rounded-full"></div>
+        <div className="absolute -bottom-[70px] -left-[50px] w-[220px] h-[220px] border-2 border-blue-400/15 rounded-full"></div>
+        <div className="absolute -bottom-[30px] -left-[20px] w-[160px] h-[160px] border border-dashed border-blue-400/20 rounded-full"></div>
 
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute h-[1px] w-[150%] bg-gradient-to-r from-transparent via-blue-400/40 to-transparent top-[35%] right-[-150%] animate-shootingStarLeft"></div>

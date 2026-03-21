@@ -66,7 +66,7 @@ export default function Nav() {
                 alt="Logo"
                 width={150}
                 height={150}
-                className="w-auto h-8 md:h-12"
+                className="w-auto h-8 lg:h-12"
               />
               <h1 className={`text-4xl mt-1 font-[Questrial] `}>
                 <span style={{ color: "#000000" }}>s</span>
@@ -80,11 +80,11 @@ export default function Nav() {
                 alt="Logo"
                 width={150}
                 height={150}
-                className="w-auto h-8 md:h-12"
+                className="w-auto h-8 lg:h-12"
               />
             </Link>
 
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden lg:flex space-x-4 xl:space-x-8">
               <Link
                 href="/"
                 className={`${defaultLinkStyle} ${pathname === "/" ? "after:scale-x-100 text-[#295984]" : ""}`}
@@ -155,7 +155,7 @@ export default function Nav() {
 
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-lg"
+              className="lg:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-lg"
             >
               <svg
                 className="w-6 h-6"
@@ -177,7 +177,7 @@ export default function Nav() {
           <div
             className={`fixed inset-0 z-50 bg-white transform ${
               isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-            } transition-transform duration-300 ease-in-out md:hidden`}
+            } transition-transform duration-300 ease-in-out lg:hidden`}
           >
             <div className="flex flex-col h-full">
               <div className="flex items-center justify-between p-4 border-b border-gray-200">
@@ -201,7 +201,7 @@ export default function Nav() {
                     alt="Logo"
                     width={150}
                     height={150}
-                    className="w-auto h-8 md:h-12"
+                    className="w-auto h-8 lg:h-12"
                   />
                 </div>
                 <button
@@ -255,6 +255,13 @@ export default function Nav() {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {t("nav.publications_patents")}
+                  </Link>
+                  <Link
+                    href="/parcerias"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {t("nav.partnerships")}
                   </Link>
                   <Link
                     href="https://github.com/jcfurtado86/"
