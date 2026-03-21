@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { ResearchLineList } from "@/app/(pages)/projetos/components/ResearchLine/ReaserchLine"
 import { useProjects } from "@/app/context/ProjectsContext"
+import { useLanguage } from "@/app/i18n/context"
 interface ResultItemProps {
   href: string
   label: string
@@ -22,13 +23,15 @@ const ResultItem = ({ href, label, quantity }: ResultItemProps) => (
   </div>
 )
 
-const ResearchResults = ({ researchItems }: { researchItems: ResultItemProps[] }) => (
+const ResearchResults = ({ researchItems }: { researchItems: ResultItemProps[] }) => {
+  const { t } = useLanguage()
+  return (
   <section className="max-w-7xl mx-auto mb-8 px-4 sm:px-6 lg:px-8 py-16 md:py-24 bg-gray-800 text-white">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       {/* Coluna de Texto */}
       <div className="md:pr-8">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-12 text-center md:text-left">
-          RESULTADOS DE PESQUISAS
+          {t("about.research_results")}
         </h2>
         <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-7">
           {researchItems.map((item, index) => (
@@ -50,25 +53,27 @@ const ResearchResults = ({ researchItems }: { researchItems: ResultItemProps[] }
       </div>
     </div>
   </section>
-)
+  )
+}
 
 export default function About() {
+  const { t } = useLanguage()
   const { projects, tccs, publications, students, teachers } = useProjects()
   const equipe = [...students.filter((s) => s.type === "Student"), ...teachers]
   const researchItems = [
     {
       href: "/publicacoes",
-      label: "Artigos publicados",
+      label: t("about.published_articles"),
       quantity: 16,
     },
     {
       href: "/orientacoes",
-      label: "Orientações concluídas",
+      label: t("about.completed_guidance"),
       quantity: tccs.filter((t) => t.status === "Finalizado").length,
     },
     {
       href: "/projetos",
-      label: "Projetos",
+      label: t("about.projects"),
       quantity: projects.length,
     },
   ]
@@ -81,43 +86,10 @@ export default function About() {
       <div className="max-w-[1240px] mx-auto pt-8 md:pt-6 pb-4 md:pb-2">
         <div className="text-center mb-8 md:mb-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 md:mb-4">
-            Sobre o Grupo
+            {t("about.title")}
           </h1>
           <p className="pt-5 text-gray-600 text-left text-sm sm:text-base lg:text-lg max-w-7xl mx-auto leading-relaxed pb-10">
-            {/* antiga descricao */}
-            {/*De acordo com a ACM / IEEE, a Engenharia de Software (ES) é uma disciplina interessada
-            na aplicação de teoria, conhecimento e prática para o desenvolvimento eficaz e eficiente
-            de sistemas de software que atendam aos requisitos dos usuários. Apesar da importância
-            destes conhecimentos relativos às atividades da ES, pesquisam já verificaram que os
-            profissionais aprendem mais sobre estas atividades durante o seu trabalho do que durante
-            a sua formação e em geral, a indústria de software sofre com a falta de profissionais
-            qualificados para trabalhar em atividades que envolvem o processo de desenvolvimento de
-            software. Esta dificuldade em encontrar profissionais de Ciência da Computação com
-            domínio dos tópicos da Engenharia de Software pode estar relacionada ao tipo de formação
-            que estes receberam durante os anos de graduação. Assim, neste contexto, este projeto
-            tem como objetivo desenvolver metodologias e ferramentas que auxiliem na aplicação e no
-            ensino dos conteúdos da Engenharia de Software, seja no âmbito acadêmico ou na indústria
-            de software.*/}
-            O Software Engineering: Research, Development, and Education (SERDE) é um grupo de
-            pesquisa criado em 2016 na Universidade Federal do Amapá (UNIFAP), a partir da evolução
-            de um projeto de pesquisa homônimo. O grupo nasceu do reconhecimento de que a formação
-            acadêmica em Ciência da Computação, muitas vezes, não contempla de maneira suficiente a
-            prática da Engenharia de Software, fazendo com que os profissionais aprendam suas
-            principais atividades apenas no mercado de trabalho. Esse descompasso contribui para a
-            falta de especialistas qualificados e para a dificuldade da indústria em encontrar
-            profissionais preparados para atuar em processos de desenvolvimento de software. O SERDE
-            tem como objetivo produzir conhecimento científico na área de Engenharia de Software, ao
-            mesmo tempo em que desenvolve metodologias, ferramentas e práticas que aproximam a
-            teoria da prática, favorecendo tanto o ensino quanto a aplicação profissional.
-            <br /> <br />O grupo também busca fortalecer a formação acadêmica, promovendo
-            experiências que conectem estudantes a desafios reais, além de estimular a inovação
-            tecnológica como motor de desenvolvimento regional e social. Um de seus diferenciais é
-            ter surgido enraizado na realidade amazônica, com a convicção de que a qualidade de
-            software e a transformação digital podem ser instrumentos para o desenvolvimento
-            sustentável. Mais do que criar soluções tecnológicas, o SERDE se dedica a avaliar o
-            impacto efetivo de seu uso, garantindo que a inovação produza resultados concretos para
-            a sociedade e contribua para a construção de um ecossistema de conhecimento e inovação
-            sólido na região.
+            {t("about.description")}
           </p>
         </div>
         {/*resultados de pesquisa*/}
@@ -144,9 +116,9 @@ export default function About() {
             <h3 className="text-xl lg:text-2xl font-bold text-center text-black">
               {projects.length}
             </h3>
-            <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">Projetos</h3>
+            <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">{t("about.projects_card")}</h3>
             <p className="text-gray-600 text-center">
-              Projetos desenvolvidos pelo grupo, em andamento ou já concluídos
+              {t("about.projects_description")}
             </p>
           </Link>
 
@@ -169,10 +141,10 @@ export default function About() {
               {publications.length}
             </h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">
-              Publicações
+              {t("about.publications_card")}
             </h3>
             <p className="text-gray-600 text-center">
-              Produção científica do grupo, incluindo artigos, livros e trabalhos acadêmicos
+              {t("about.publications_description")}
             </p>
           </Link>
 
@@ -195,10 +167,10 @@ export default function About() {
               {tccs.filter((t) => t.status === "Finalizado").length}
             </h3>
             <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">
-              Orientações Concluídas
+              {t("about.completed_guidance_card")}
             </h3>
             <p className="text-gray-600 text-center">
-              Trabalhos acadêmicos concluídos sob orientação dos docentes do grupo.
+              {t("about.guidance_description")}
             </p>
           </Link>
           <Link
@@ -219,9 +191,9 @@ export default function About() {
             <h3 className="text-xl lg:text-2xl font-bold text-center text-black">
               {equipe.length}
             </h3>
-            <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">Membros</h3>
+            <h3 className="text-xl lg:text-2xl font-bold text-center mb-4 text-black">{t("about.members_card")}</h3>
             <p className="text-gray-600 text-center">
-              Docentes e discentes que integram o grupo de pesquisa
+              {t("about.members_description")}
             </p>
           </Link>
         </div>
@@ -232,7 +204,7 @@ export default function About() {
             target="_blank"
             className="text-[#1565C0] hover:text-white inline-flex items-center gap-2 transition-all duration-300 border-2 border-[#1565C0] hover:bg-[#1565C0] rounded-lg px-6 py-3 mt-6 font-medium"
           >
-            Diretório do Grupo no CNPq
+            {t("about.cnpq_directory")}
             <svg
               className="w-5 h-5"
               viewBox="0 0 24 24"

@@ -1,0 +1,148 @@
+{
+  "nav": {
+    "presentation": "About",
+    "projects": "Projects",
+    "guidance": "Guidance",
+    "publications_patents": "Publications & Patents",
+    "members": "Members",
+    "partnerships": "Partnerships",
+    "home": "Home",
+    "research_projects": "Research Projects",
+    "team": "Team"
+  },
+  "hero": {
+    "learn_more": "Learn More"
+  },
+  "about": {
+    "title": "About the Group",
+    "published_articles": "Published articles",
+    "completed_guidance": "Completed guidance",
+    "projects": "Projects",
+    "description": "SERDE (Software Engineering: Research, Development and Education) is a research group affiliated with the Federal University of Amapá (UNIFAP), dedicated to advancing Software Engineering through research, development, and education. With a multidisciplinary team of researchers and students, the group seeks to promote innovation and academic excellence, contributing to the training of qualified professionals and to regional and national technological progress.",
+    "projects_card": "Projects",
+    "projects_description": "Projects developed by the group, ongoing or already completed",
+    "publications_card": "Publications",
+    "publications_description": "Scientific production of the group, including articles, books, and academic papers",
+    "completed_guidance_card": "Completed Guidance",
+    "guidance_description": "Academic works completed under the guidance of the group's professors.",
+    "members_card": "Members",
+    "members_description": "Professors and students who are part of the research group",
+    "cnpq_directory": "Group Directory on CNPq",
+    "research_results": "RESEARCH RESULTS"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "projects": "Projects",
+    "publications": "Publications",
+    "members": "Members",
+    "guidance": "Guidance",
+    "partnerships": "Partnerships",
+    "blog": "Blog"
+  },
+  "not_found": {
+    "title": "Page not found",
+    "back_home": "Back to home page"
+  },
+  "projects": {
+    "title": "Projects",
+    "type_extension": "Extension",
+    "type_research": "Research",
+    "type_development": "Development",
+    "status_done": "Completed",
+    "status_in_progress": "In Progress"
+  },
+  "project_detail": {
+    "title": "Project Details",
+    "period": "Period:",
+    "summary": "Summary:",
+    "team": "Team:",
+    "funding": "Funding:",
+    "responsible_professor": "Lead Professor",
+    "materials": "Materials",
+    "not_found": "Project not found",
+    "doc_article": "Article",
+    "doc_video": "Video",
+    "doc_document": "Document"
+  },
+  "research_lines": {
+    "title": "Research Lines",
+    "software_education": "Software Engineering Education",
+    "software_engineering": "Software Engineering",
+    "hci": "Human-Computer Interaction - HCI",
+    "methods_processes": "Software Engineering Methods and Processes"
+  },
+  "publications": {
+    "title": "Publications",
+    "type_journal": "Journal",
+    "type_book": "Book",
+    "type_chapter": "Book Chapter",
+    "type_conference": "Full Paper",
+    "type_abstract": "Short Paper",
+    "type_patent": "Patent",
+    "view": "View publication",
+    "no_link": "Link not available",
+    "filter_label": "Filter by type:",
+    "filter_all": "All",
+    "filter_articles": "Articles",
+    "filter_books": "Books",
+    "filter_chapters": "Chapters",
+    "filter_conference": "Full Papers",
+    "filter_abstract": "Short Papers",
+    "sort_label": "Sort by:",
+    "sort_year": "Year",
+    "sort_citations": "Citations",
+    "search_placeholder": "Search publications...",
+    "no_results": "No publications found"
+  },
+  "patents": {
+    "title": "Patents & Registrations",
+    "filing_year": "Filing Year:",
+    "institution": "Registration Institution:",
+    "number": "Registration Number:",
+    "date": "Registration Date:",
+    "sort_label": "Sort by:",
+    "sort_year": "Year",
+    "search_placeholder": "Search patents...",
+    "no_results": "No patents found"
+  },
+  "members": {
+    "researchers": "Researchers",
+    "students": "Students",
+    "alumni": "Alumni",
+    "coordinator": "Coordinator",
+    "teachers": "Faculty",
+    "email": "Email",
+    "lattes": "Lattes",
+    "degree_undergraduate": "Undergraduate",
+    "degree_master": "Master's",
+    "degree_research": "Research"
+  },
+  "guidance": {
+    "title": "Guidance",
+    "degree_undergraduate": "Undergraduate",
+    "degree_master": "Master's",
+    "degree_doctorate": "Doctorate",
+    "degree_specialization": "Specialization",
+    "status_done": "Completed",
+    "status_in_progress": "In Progress"
+  },
+  "guidance_detail": {
+    "title": "Guidance Details",
+    "completion_year": "Completion year:",
+    "students": "Students:",
+    "summary": "Summary:",
+    "keywords": "Keywords:",
+    "advisor": "Advisor",
+    "materials": "Materials",
+    "not_found": "Guidance not found",
+    "doc_article": "Article",
+    "doc_video": "Video",
+    "doc_document": "Document"
+  },
+  "common": {
+    "current": "Current"
+  },
+  "partnerships": {
+    "title": "Partnerships"
+  }
+}

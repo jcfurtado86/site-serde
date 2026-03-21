@@ -1,8 +1,12 @@
+"use client"
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { Settings } from "lucide-react"
+import { useLanguage } from "@/app/i18n/context"
 
 export default function NotFound() {
+    const { t } = useLanguage()
     return (
       <div className="relative bg-white min-h-screen flex flex-col items-center justify-center overflow-hidden">
         {/* Background leaves */}
@@ -46,7 +50,7 @@ export default function NotFound() {
         
           
           <p className="text-xl text-blue-950/70">
-            Página não encontrada
+            {t("not_found.title")}
           </p>
 
           <div className="mt-8">
@@ -63,7 +67,7 @@ export default function NotFound() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
-              <span>Voltar para página principal</span>
+              <span>{t("not_found.back_home")}</span>
             </Link>
           </div>
         </div>

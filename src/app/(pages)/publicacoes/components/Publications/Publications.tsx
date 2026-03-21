@@ -3,6 +3,7 @@ import { useState, useMemo } from "react"
 import { Search } from "@/app/components/SearcBar/Search"
 import { Tooltip } from "@/app/(pages)/publicacoes/components/Tooltip/Tooltip"
 import { useProjects } from "@/app/context/ProjectsContext"
+import { useLanguage } from "@/app/i18n/context"
 interface PublicationProps {
   type: "article" | "book" | "chapter" | "congress" | "conferenceAbstract" | "patent"
   number?: number
@@ -46,20 +47,21 @@ function Publication({
   registrationInstitution,
   patentType,
 }: PublicationProps) {
+  const { t } = useLanguage()
   const getTypeLabel = () => {
     switch (type) {
       case "article":
-        return "Periódico"
+        return t("publications.type_journal")
       case "book":
-        return "Livro"
+        return t("publications.type_book")
       case "chapter":
-        return "Capítulo de Livro"
+        return t("publications.type_chapter")
       case "congress":
-        return "Completo em Evento"
+        return t("publications.type_conference")
       case "conferenceAbstract":
-        return "Resumo em Evento"
+        return t("publications.type_abstract")
       case "patent":
-        return "Patente"
+        return t("publications.type_patent")
       default:
         return ""
     }
@@ -117,7 +119,7 @@ function Publication({
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors duration-200 group"
             >
-              <span className="group-hover:underline">Ver publicação</span>
+              <span className="group-hover:underline">{t("publications.view")}</span>
               <svg
                 className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200"
                 fill="none"
@@ -133,7 +135,7 @@ function Publication({
               </svg>
             </a>
           ) : (
-            <span className="text-gray-500">Link não disponível</span>
+            <span className="text-gray-500">{t("publications.no_link")}</span>
           )}
         </div>
       </div>
@@ -146,6 +148,7 @@ export function Publications() {
   const [searchTerm, setSearchTerm] = useState("")
   const [filterType, setFilterType] = useState("all")
   const { publications } = useProjects()
+  const { t } = useLanguage()
 
   const sortedPublications = useMemo(() => {
     let filtered = publications
@@ -174,14 +177,14 @@ export function Publications() {
     <main className="bg-gradient-to-b from-white to-gray-100 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 text-center mb-16">
-          Publicações
+          {t("publications.title")}
         </h2>
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <div>
               <label htmlFor="filter" className="block text-sm font-medium text-gray-700 mb-2">
-                Filtrar por tipo:
+                {t("publications.filter_label")}
               </label>
               <select
                 id="filter"
@@ -189,18 +192,18 @@ export function Publications() {
                 onChange={(e) => setFilterType(e.target.value)}
                 className="block w-full sm:w-auto px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 font-medium hover:border-gray-400 transition-colors duration-200"
               >
-                <option value="all">Todos</option>
-                <option value="article">Artigos</option>
-                <option value="book">Livros</option>
-                <option value="chapter">Capítulos</option>
-                <option value="congress">Completos em Evento</option>
-                <option value="conferenceAbstract">Resumos em Evento</option>
+                <option value="all">{t("publications.filter_all")}</option>
+                <option value="article">{t("publications.filter_articles")}</option>
+                <option value="book">{t("publications.filter_books")}</option>
+                <option value="chapter">{t("publications.filter_chapters")}</option>
+                <option value="congress">{t("publications.filter_conference")}</option>
+                <option value="conferenceAbstract">{t("publications.filter_abstract")}</option>
               </select>
             </div>
 
             <div>
               <label htmlFor="sort" className="block text-sm font-medium text-gray-700 mb-2">
-                Ordenar por:
+                {t("publications.sort_label")}
               </label>
               <select
                 id="sort"
@@ -208,15 +211,15 @@ export function Publications() {
                 onChange={(e) => setSortBy(e.target.value)}
                 className="block w-full sm:w-auto px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 font-medium hover:border-gray-400 transition-colors duration-200"
               >
-                <option value="year">Ano</option>
-                <option value="webCitations">Citações</option>
+                <option value="year">{t("publications.sort_year")}</option>
+                <option value="webCitations">{t("publications.sort_citations")}</option>
               </select>
             </div>
           </div>
 
           <Search
             onSearch={setSearchTerm}
-            placeholder="Buscar publicações..."
+            placeholder={t("publications.search_placeholder")}
             className="w-full sm:w-72"
             inputClassName="bg-white"
           />
@@ -229,7 +232,7 @@ export function Publications() {
 
           {sortedPublications.length === 0 && (
             <div className="text-center py-10">
-              <p className="text-gray-500 text-lg">Nenhuma publicação encontrada</p>
+              <p className="text-gray-500 text-lg">{t("publications.no_results")}</p>
             </div>
           )}
         </div>

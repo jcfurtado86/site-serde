@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image"
 import { useEffect } from "react"
+import { useLanguage } from "@/app/i18n/context"
 
 interface MemberProps {
   name: string
@@ -22,6 +23,7 @@ const typeColors = [
   { type: "Mestrado", color: "text-orange-600 bg-orange-100 group-hover:bg-orange-200" },
 ]
 export function Members({ members, title }: MemberComponentProps) {
+  const { t } = useLanguage()
   useEffect(() => {
     const preloadImages = () => {
       members.forEach((member) => {
@@ -58,11 +60,11 @@ export function Members({ members, title }: MemberComponentProps) {
                     <span
                       className={`mx-auto w-fit  text-teal-600 bg-teal-100 group-hover:bg-teal-200 text-sm font-medium px-2 py-1 rounded-full  transition-colors duration-300`}
                     >
-                      Coordenador
+                      {t("members.coordinator")}
                     </span>
                   </div>
                 )}
-                {title === "Alunos" && (
+                {title === t("members.students") && (
                   <div className="absolute bottom-3 z-10 flex w-full">
                     <span
                       className={`mx-auto w-fit ${member.degree === "Master"
@@ -70,7 +72,7 @@ export function Members({ members, title }: MemberComponentProps) {
                           : typeColors.find((type) => type.type === "Graduação")?.color
                         } text-sm font-medium px-2 py-1 rounded-full transition-colors duration-300`}
                     >
-                      {member.degree === "Master" ? "Mestrado" : "Graduação"}
+                      {member.degree === "Master" ? t("members.degree_master") : t("members.degree_undergraduate")}
                     </span>
                   </div>
                 )}
@@ -112,7 +114,7 @@ export function Members({ members, title }: MemberComponentProps) {
                 </h2>
 
                 <div className="flex items-center justify-between gap-1 sm:gap-4">
-                  {title === "Docentes" && member.email && (
+                  {title === t("members.teachers") && member.email && (
                     <a
                       href={`mailto:${member.email}`}
                       className="flex-1 text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center gap-1 sm:gap-2 py-1 sm:py-2 px-1.5 sm:px-3 rounded-lg hover:bg-blue-50 transition-all duration-300 text-xs sm:text-base"
@@ -130,7 +132,7 @@ export function Members({ members, title }: MemberComponentProps) {
                           d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                         />
                       </svg>
-                      <span className="whitespace-nowrap">Email</span>
+                      <span className="whitespace-nowrap">{t("members.email")}</span>
                     </a>
                   )}
                   {member.curriculumLink && <a
@@ -151,7 +153,7 @@ export function Members({ members, title }: MemberComponentProps) {
                         d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V7a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                       />
                     </svg>
-                    <span className="whitespace-nowrap">Lattes</span>
+                    <span className="whitespace-nowrap">{t("members.lattes")}</span>
                   </a>}
                 </div>
               </div>

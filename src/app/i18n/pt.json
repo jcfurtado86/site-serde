@@ -1,0 +1,148 @@
+{
+  "nav": {
+    "presentation": "Apresentação",
+    "projects": "Projetos",
+    "guidance": "Orientações",
+    "publications_patents": "Publicações e Patentes",
+    "members": "Membros",
+    "partnerships": "Parcerias",
+    "home": "Início",
+    "research_projects": "Projetos de Pesquisa",
+    "team": "Equipe"
+  },
+  "hero": {
+    "learn_more": "Saiba Mais"
+  },
+  "about": {
+    "title": "Sobre o Grupo",
+    "published_articles": "Artigos publicados",
+    "completed_guidance": "Orientações concluídas",
+    "projects": "Projetos",
+    "description": "O SERDE (Software Engineering: Research, Development and Education) é um grupo de pesquisa vinculado à Universidade Federal do Amapá (UNIFAP), dedicado ao avanço da Engenharia de Software por meio de pesquisa, desenvolvimento e educação. Com uma equipe multidisciplinar de pesquisadores e alunos, o grupo busca promover inovação e excelência acadêmica, contribuindo para a formação de profissionais qualificados e para o progresso tecnológico regional e nacional.",
+    "projects_card": "Projetos",
+    "projects_description": "Projetos desenvolvidos pelo grupo, em andamento ou já concluídos",
+    "publications_card": "Publicações",
+    "publications_description": "Produção científica do grupo, incluindo artigos, livros e trabalhos acadêmicos",
+    "completed_guidance_card": "Orientações Concluídas",
+    "guidance_description": "Trabalhos acadêmicos concluídos sob orientação dos docentes do grupo.",
+    "members_card": "Membros",
+    "members_description": "Docentes e discentes que integram o grupo de pesquisa",
+    "cnpq_directory": "Diretório do Grupo no CNPq",
+    "research_results": "RESULTADOS DE PESQUISAS"
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "projects": "Projetos",
+    "publications": "Publicações",
+    "members": "Membros",
+    "guidance": "Orientações",
+    "partnerships": "Parcerias",
+    "blog": "Blog"
+  },
+  "not_found": {
+    "title": "Página não encontrada",
+    "back_home": "Voltar para página principal"
+  },
+  "projects": {
+    "title": "Projetos",
+    "type_extension": "Extensão",
+    "type_research": "Pesquisa",
+    "type_development": "Desenvolvimento",
+    "status_done": "Finalizado",
+    "status_in_progress": "Em andamento"
+  },
+  "project_detail": {
+    "title": "Detalhes do Projeto",
+    "period": "Período:",
+    "summary": "Resumo:",
+    "team": "Equipe:",
+    "funding": "Financiamento:",
+    "responsible_professor": "Professor Responsável",
+    "materials": "Materiais",
+    "not_found": "Projeto não encontrado",
+    "doc_article": "Artigo",
+    "doc_video": "Vídeo",
+    "doc_document": "Documento"
+  },
+  "research_lines": {
+    "title": "Linhas de Pesquisa",
+    "software_education": "Educação na Engenharia de Software",
+    "software_engineering": "Engenharia de Software",
+    "hci": "Interação Humano-Computador - IHC",
+    "methods_processes": "Métodos e Processos de Engenharia de Software"
+  },
+  "publications": {
+    "title": "Publicações",
+    "type_journal": "Periódico",
+    "type_book": "Livro",
+    "type_chapter": "Capítulo de Livro",
+    "type_conference": "Completo em Evento",
+    "type_abstract": "Resumo em Evento",
+    "type_patent": "Patente",
+    "view": "Ver publicação",
+    "no_link": "Link não disponível",
+    "filter_label": "Filtrar por tipo:",
+    "filter_all": "Todos",
+    "filter_articles": "Artigos",
+    "filter_books": "Livros",
+    "filter_chapters": "Capítulos",
+    "filter_conference": "Completos em Evento",
+    "filter_abstract": "Resumos em Evento",
+    "sort_label": "Ordenar por:",
+    "sort_year": "Ano",
+    "sort_citations": "Citações",
+    "search_placeholder": "Buscar publicações...",
+    "no_results": "Nenhuma publicação encontrada"
+  },
+  "patents": {
+    "title": "Patentes e Registros",
+    "filing_year": "Ano do Depósito:",
+    "institution": "Instituição de Registro:",
+    "number": "Número do Registro:",
+    "date": "Data do Registro:",
+    "sort_label": "Ordenar por:",
+    "sort_year": "Ano",
+    "search_placeholder": "Buscar patentes...",
+    "no_results": "Nenhuma patente encontrada"
+  },
+  "members": {
+    "researchers": "Pesquisadores",
+    "students": "Alunos",
+    "alumni": "Egressos",
+    "coordinator": "Coordenador",
+    "teachers": "Docentes",
+    "email": "Email",
+    "lattes": "Lattes",
+    "degree_undergraduate": "Graduação",
+    "degree_master": "Mestrado",
+    "degree_research": "Pesquisa"
+  },
+  "guidance": {
+    "title": "Orientações",
+    "degree_undergraduate": "Graduação",
+    "degree_master": "Mestrado",
+    "degree_doctorate": "Doutorado",
+    "degree_specialization": "Especialização",
+    "status_done": "Finalizado",
+    "status_in_progress": "Em andamento"
+  },
+  "guidance_detail": {
+    "title": "Detalhes da Orientação",
+    "completion_year": "Ano de conclusão:",
+    "students": "Alunos:",
+    "summary": "Resumo:",
+    "keywords": "Palavras-chave:",
+    "advisor": "Orientador",
+    "materials": "Materiais",
+    "not_found": "Orientação não encontrada",
+    "doc_article": "Artigo",
+    "doc_video": "Vídeo",
+    "doc_document": "Documento"
+  },
+  "common": {
+    "current": "Atual"
+  },
+  "partnerships": {
+    "title": "Parcerias"
+  }
+}

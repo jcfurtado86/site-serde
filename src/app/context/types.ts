@@ -62,6 +62,7 @@ export interface FileProps {
 
 export interface TCCProps {
   title: string
+  title_en?: string
   link: string
   documentation?: FileProps[]
   status: string
@@ -70,12 +71,15 @@ export interface TCCProps {
   year: string
   keywords: string
   description?: string
+  description_en?: string
   degree?: string
 }
 
 export interface Project {
   title: string
+  title_en?: string
   description: string
+  description_en?: string
   professor: string
   status: string
   type: string

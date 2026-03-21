@@ -1,7 +1,10 @@
+"use client"
+
 import Link from "next/link";
 import { Settings } from "lucide-react";
 import Image from "next/image";
 import { Nunito } from "next/font/google";
+import { useLanguage } from "@/app/i18n/context";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -9,6 +12,7 @@ const nunito = Nunito({
 });
 
 export default function HeroSection() {
+  const { t } = useLanguage()
   return (
     <div className="relative bg-gray-50 min-h-screen flex items-center overflow-hidden">
       <div className="sm:hidden">
@@ -240,7 +244,7 @@ export default function HeroSection() {
               href="#sobre"
               className="inline-block px-6 sm:px-14 py-3 sm:py-5 bg-gray-900/5 backdrop-blur-sm border-2 border-gray-900/20 text-gray-900 text-sm sm:text-xl font-medium rounded-xl hover:bg-gray-900/10 hover:border-gray-900/30 hover:tracking-wider transition-all duration-300 ease-in-out text-center transform hover:scale-102 hover:shadow-lg hover:shadow-gray-500/30 active:scale-95"
             >
-              Saiba Mais
+              {t("hero.learn_more")}
             </Link>
           </div>
         </div>

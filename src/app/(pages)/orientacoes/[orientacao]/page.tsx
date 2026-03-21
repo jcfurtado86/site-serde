@@ -5,6 +5,7 @@ import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
 import { FileProps } from "@/app/context/ProjectsContext"
 import { Lightbulb, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon } from "lucide-react"
 import Link from "next/link"
+import { useLanguage } from "@/app/i18n/context"
 
 type OrientacaoPageProps = {
   params: Promise<{
@@ -13,6 +14,18 @@ type OrientacaoPageProps = {
 }
 
 function OrientacaoDetails({ tcc }: { tcc: any }) {
+  const { t, locale } = useLanguage()
+  const l = (pt: string, en?: string) => locale === "en" && en ? en : pt
+  const statusDisplayText: Record<string, string> = {
+    "Finalizado": t("guidance.status_done"),
+    "Em andamento": t("guidance.status_in_progress"),
+  }
+  const degreeDisplayText: Record<string, string> = {
+    "Graduação": t("guidance.degree_undergraduate"),
+    "Mestrado": t("guidance.degree_master"),
+    "Doutorado": t("guidance.degree_doctorate"),
+    "Especialização": t("guidance.degree_specialization"),
+  }
   const getStatusClasses = () => {
     switch (tcc.status.toLowerCase()) {
       case "finalizado":
@@ -27,11 +40,11 @@ function OrientacaoDetails({ tcc }: { tcc: any }) {
   const getDocType = (type: string) => {
     switch (type) {
       case "article":
-        return "Artigo"
+        return t("guidance_detail.doc_article")
       case "video":
-        return "Vídeo"
+        return t("guidance_detail.doc_video")
       default:
-        return "Documento"
+        return t("guidance_detail.doc_document")
     }
   }
 
@@ -39,21 +52,21 @@ function OrientacaoDetails({ tcc }: { tcc: any }) {
     <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
       <div className="p-8 md:p-12">
         <header>
-          <p className="text-teal-600 font-semibold tracking-wide uppercase">Detalhes da Orientação</p>
+          <p className="text-teal-600 font-semibold tracking-wide uppercase">{t("guidance_detail.title")}</p>
           <h1 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-            {tcc.title}
+            {l(tcc.title, tcc.title_en)}
           </h1>
 
           <div className="mt-4 flex flex-wrap items-center gap-4">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
               <Lightbulb />
-              {tcc.degree || "Graduação"}
+              {degreeDisplayText[tcc.degree || "Graduação"] || tcc.degree}
             </span>
             <span
               className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${getStatusClasses()}`}
             >
               {tcc.status === "Finalizado" ? <CheckCircle /> : <LoaderIcon />}
-              {tcc.status}
+              {statusDisplayText[tcc.status] || tcc.status}
             </span>
           </div>
         </header>
@@ -63,20 +76,20 @@ function OrientacaoDetails({ tcc }: { tcc: any }) {
         <section className="flex flex-col gap-4">
           {tcc.year && (
             <p className="text-gray-700 leading-relaxed text-base">
-              <strong>Ano de conclusão:</strong> {tcc.year}
+              <strong>{t("guidance_detail.completion_year")}</strong> {tcc.year}
             </p>
           )}
           <p className="text-gray-700 leading-relaxed text-base">
-            <strong>Alunos:</strong> {tcc.students?.join(", ")}
+            <strong>{t("guidance_detail.students")}</strong> {tcc.students?.join(", ")}
           </p>
           {tcc.description && (
             <p className="text-gray-700 leading-relaxed text-base">
-              <strong>Resumo:</strong> {tcc.description}
+              <strong>{t("guidance_detail.summary")}</strong> {l(tcc.description, tcc.description_en)}
             </p>
           )}
           {tcc.keywords && (
             <p className="text-gray-700 leading-relaxed text-base">
-              <strong>Palavras-chave:</strong> {tcc.keywords}
+              <strong>{t("guidance_detail.keywords")}</strong> {tcc.keywords}
             </p>
           )}
         </section>
@@ -84,7 +97,7 @@ function OrientacaoDetails({ tcc }: { tcc: any }) {
         <hr className="my-8 border-gray-200" />
 
         <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Orientador</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">{t("guidance_detail.advisor")}</h2>
           <div className="flex items-center gap-3 text-gray-700">
             <User size={24} className="text-teal-500" />
             <span className="text-lg">{tcc.advisor}</span>
@@ -95,7 +108,7 @@ function OrientacaoDetails({ tcc }: { tcc: any }) {
           <>
             <hr className="my-8 border-gray-200" />
             <section>
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Materiais</h2>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">{t("guidance_detail.materials")}</h2>
               <div className="flex items-center gap-3 text-gray-700">
                 {tcc.documentation.map((doc: FileProps, index: number) => (
                   <Link
@@ -120,6 +133,7 @@ function OrientacaoDetails({ tcc }: { tcc: any }) {
 
 export default function OrientacaoPage({ params }: OrientacaoPageProps) {
   const { tccs } = useProjects()
+  const { t, locale } = useLanguage()
 
   const resolvedParams = use(params)
   const orientacaoLink = resolvedParams.orientacao
@@ -129,9 +143,9 @@ export default function OrientacaoPage({ params }: OrientacaoPageProps) {
     <main className="pt-20 pb-16 min-h-[calc(100vh-5.6rem)] bg-gray-50">
       <Breadcrumb
         items={[
-          { label: "Orientações", href: "/orientacoes" },
+          { label: t("breadcrumb.guidance"), href: "/orientacoes" },
           {
-            label: tcc ? tcc.title : "Orientação não encontrada",
+            label: tcc ? (locale === "en" && tcc.title_en ? tcc.title_en : tcc.title) : t("guidance_detail.not_found"),
             href: "/orientacoes/" + orientacaoLink,
           },
         ]}

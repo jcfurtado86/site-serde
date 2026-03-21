@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Nunito } from "next/font/google"
+import { useLanguage } from "@/app/i18n/context"
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -12,6 +13,7 @@ const nunito = Nunito({
 })
 
 export default function Nav() {
+  const { t, toggle, locale } = useLanguage()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const pathname = usePathname()
@@ -87,38 +89,38 @@ export default function Nav() {
                 href="/"
                 className={`${defaultLinkStyle} ${pathname === "/" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
-                Apresentação
+                {t("nav.presentation")}
               </Link>
               <Link
                 href="/projetos"
                 className={`${defaultLinkStyle} ${pathname === "/projetos" || pathname?.startsWith("/projetos/") ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
-                Projetos
+                {t("nav.projects")}
               </Link>
 
               <Link
                 href="/orientacoes"
                 className={`${defaultLinkStyle} ${pathname === "/orientacoes" || pathname?.startsWith("/orientacoes/") ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
-                Orientações
+                {t("nav.guidance")}
               </Link>
               <Link
                 href="/publicacoes"
                 className={`${defaultLinkStyle} ${pathname === "/publicacoes" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
-                Publicações e Patentes
+                {t("nav.publications_patents")}
               </Link>
               <Link
                 href="/membros"
                 className={`${defaultLinkStyle} ${pathname === "/membros" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
-                Membros
+                {t("nav.members")}
               </Link>
               <Link
                 href="/parcerias"
                 className={`${defaultLinkStyle} ${pathname === "/parcerias" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
-                Parcerias
+                {t("nav.partnerships")}
               </Link>
               {/* <Link
                 href="/blog"
@@ -131,6 +133,24 @@ export default function Nav() {
               >
                 GitHub
               </Link>
+              <button onClick={toggle} className="hover:scale-110 transition-transform" title={locale === "pt" ? "Switch to English" : "Mudar para Português"}>
+                {locale === "pt" ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 42" className="w-6 h-4 rounded-sm shadow-sm">
+                    <rect width="60" height="42" fill="#009c3b"/>
+                    <polygon points="30,4 56,21 30,38 4,21" fill="#ffdf00"/>
+                    <circle cx="30" cy="21" r="9" fill="#002776"/>
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-6 h-4 rounded-sm shadow-sm">
+                    <clipPath id="us"><rect width="60" height="30"/></clipPath>
+                    <g clipPath="url(#us)">
+                      <rect width="60" height="30" fill="#B22234"/>
+                      {[0,1,2,3,4,5,6].map(i => <rect key={i} y={i*4.6+2.3} width="60" height="2.3" fill="#fff"/>)}
+                      <rect width="24" height="16" fill="#3C3B6E"/>
+                    </g>
+                  </svg>
+                )}
+              </button>
             </div>
 
             <button
@@ -206,35 +226,35 @@ export default function Nav() {
                     className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Início
+                    {t("nav.home")}
                   </Link>
                   <Link
                     href="/projetos"
                     className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Projetos de Pesquisa
+                    {t("nav.research_projects")}
                   </Link>
                   <Link
                     href="/orientacoes"
                     className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Orientações
+                    {t("nav.guidance")}
                   </Link>
                   <Link
                     href="/membros"
                     className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Equipe
+                    {t("nav.team")}
                   </Link>
                   <Link
                     href="/publicacoes"
                     className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Publicações e Patentes
+                    {t("nav.publications_patents")}
                   </Link>
                   <Link
                     href="https://github.com/jcfurtado86/"
@@ -244,6 +264,24 @@ export default function Nav() {
                   >
                     GitHub
                   </Link>
+                  <button onClick={toggle} className="hover:scale-110 transition-transform block py-3 px-2 border-b border-gray-200" title={locale === "pt" ? "Switch to English" : "Mudar para Português"}>
+                    {locale === "pt" ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" className="w-6 h-4 rounded-sm shadow-sm">
+                        <clipPath id="us-m"><rect width="60" height="30"/></clipPath>
+                        <g clipPath="url(#us-m)">
+                          <rect width="60" height="30" fill="#B22234"/>
+                          {[0,1,2,3,4,5,6].map(i => <rect key={i} y={i*4.6+2.3} width="60" height="2.3" fill="#fff"/>)}
+                          <rect width="24" height="16" fill="#3C3B6E"/>
+                        </g>
+                      </svg>
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 42" className="w-6 h-4 rounded-sm shadow-sm">
+                        <rect width="60" height="42" fill="#009c3b"/>
+                        <polygon points="30,4 56,21 30,38 4,21" fill="#ffdf00"/>
+                        <circle cx="30" cy="21" r="9" fill="#002776"/>
+                      </svg>
+                    )}
+                  </button>
                 </div>
               </div>
             </div>

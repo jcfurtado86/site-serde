@@ -5,6 +5,7 @@ import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
 import { FileProps } from "@/app/context/ProjectsContext"
 import { Lightbulb, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon } from "lucide-react"
 import Link from "next/link"
+import { useLanguage } from "@/app/i18n/context"
 
 type ProjectPageProps = {
   params: Promise<{
@@ -13,6 +14,19 @@ type ProjectPageProps = {
 }
 
 function ProjectDetails({ project }: { project: any }) {
+  const { t, locale } = useLanguage()
+  const l = (pt: string, en?: string) => locale === "en" && en ? en : pt
+  const statusDisplayText: Record<string, string> = {
+    "Finalizado": t("projects.status_done"),
+    "Em andamento": t("projects.status_in_progress"),
+  }
+  const typeDisplayText: Record<string, string> = {
+    "Extensão": t("projects.type_extension"),
+    "Pesquisa": t("projects.type_research"),
+    "Desenvolvimento": t("projects.type_development"),
+  }
+  const translatePeriod = (period: string) =>
+    period.replace("Atual", t("common.current"))
   const getStatusClasses = () => {
     switch (project.status.toLowerCase()) {
       case "finalizado":
@@ -27,11 +41,11 @@ function ProjectDetails({ project }: { project: any }) {
   const getDocType = (type: string) => {
     switch (type) {
       case "article":
-        return "Artigo"
+        return t("project_detail.doc_article")
       case "video":
-        return "Vídeo"
+        return t("project_detail.doc_video")
       default:
-        return "Documento"
+        return t("project_detail.doc_document")
     }
   }
 
@@ -39,21 +53,21 @@ function ProjectDetails({ project }: { project: any }) {
     <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
       <div className="p-8 md:p-12">
         <header>
-          <p className="text-teal-600 font-semibold tracking-wide uppercase">Detalhes do Projeto</p>
+          <p className="text-teal-600 font-semibold tracking-wide uppercase">{t("project_detail.title")}</p>
           <h1 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-            {project.title}
+            {l(project.title, project.title_en)}
           </h1>
 
           <div className="mt-4 flex flex-wrap items-center gap-4">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
               <Lightbulb />
-              {project.type}
+              {typeDisplayText[project.type] || project.type}
             </span>
             <span
               className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${getStatusClasses()}`}
             >
               {project.status === "Finalizado" ? <CheckCircle /> : <LoaderIcon />}
-              {project.status}
+              {statusDisplayText[project.status] || project.status}
             </span>
           </div>
         </header>
@@ -63,20 +77,20 @@ function ProjectDetails({ project }: { project: any }) {
         <section className="flex flex-col gap-4">
           {project.period && (
             <p className="text-gray-700 leading-relaxed text-base">
-              <strong>Período:</strong> {project.period}
+              <strong>{t("project_detail.period")}</strong> {translatePeriod(project.period)}
             </p>
           )}
           <p className="text-gray-700 leading-relaxed text-base">
-            <strong>Resumo:</strong> {project.description}
+            <strong>{t("project_detail.summary")}</strong> {l(project.description, project.description_en)}
           </p>
           {project.team && project.team.length > 0 && (
             <p className="text-gray-700 leading-relaxed text-base">
-              <strong>Equipe:</strong> {project.team.join(", ")}
+              <strong>{t("project_detail.team")}</strong> {project.team.join(", ")}
             </p>
           )}
           {project.funding && (
             <p className="text-gray-700 leading-relaxed text-base">
-              <strong>Financiamento:</strong> {project.funding}
+              <strong>{t("project_detail.funding")}</strong> {project.funding}
             </p>
           )}
         </section>
@@ -84,7 +98,7 @@ function ProjectDetails({ project }: { project: any }) {
         <hr className="my-8 border-gray-200" />
 
         <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Professor Responsável</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">{t("project_detail.responsible_professor")}</h2>
           <div className="flex items-center gap-3 text-gray-700">
             <User size={24} className="text-teal-500" />
             <span className="text-lg">{project.professor}</span>
@@ -95,7 +109,7 @@ function ProjectDetails({ project }: { project: any }) {
           <>
             <hr className="my-8 border-gray-200" />
             <section>
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">Materiais</h2>
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">{t("project_detail.materials")}</h2>
               <div className="flex items-center gap-3 text-gray-700">
                 {project.documentation.map((doc: FileProps, index: number) => (
                   <Link
@@ -120,6 +134,7 @@ function ProjectDetails({ project }: { project: any }) {
 
 export default function ProjectPage({ params }: ProjectPageProps) {
   const { projects } = useProjects()
+  const { t, locale } = useLanguage()
 
   const resolvedParams = use(params)
   const projetoLink = resolvedParams.projeto
@@ -129,9 +144,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     <main className="pt-20 pb-16 min-h-[calc(100vh-5.6rem)] bg-gray-50">
       <Breadcrumb
         items={[
-          { label: "Projetos", href: "/projetos" },
+          { label: t("breadcrumb.projects"), href: "/projetos" },
           {
-            label: projeto ? projeto.title : "Projeto não encontrado",
+            label: projeto ? (locale === "en" && projeto.title_en ? projeto.title_en : projeto.title) : t("project_detail.not_found"),
             href: "/projetos/" + projetoLink,
           },
         ]}

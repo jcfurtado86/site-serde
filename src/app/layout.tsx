@@ -6,6 +6,7 @@ import PageUp from "./components/PageUp/PageUp"
 import { Montserrat } from "next/font/google"
 import { Nunito } from "next/font/google"
 import { ProjectsProvider } from "./context/ProjectsContext"
+import { LanguageProvider } from "./i18n/context"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -30,13 +31,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` ${montserrat.className} ${nunito.className} antialiased `}>
-        <ProjectsProvider>
-          <Nav />
-          <PageUp />
-          {children}
-
-          <Footer />
-        </ProjectsProvider>
+        <LanguageProvider>
+          <ProjectsProvider>
+            <Nav />
+            <PageUp />
+            {children}
+            <Footer />
+          </ProjectsProvider>
+        </LanguageProvider>
       </body>
     </html>
   )

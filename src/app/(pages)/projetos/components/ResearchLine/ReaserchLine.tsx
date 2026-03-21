@@ -1,4 +1,6 @@
+"use client"
 import Link from 'next/link'
+import { useLanguage } from "@/app/i18n/context"
 
 interface ResearchLineProps {
   title: string
@@ -32,12 +34,13 @@ function ResearchLine({ title, items, className }: ResearchLineProps) {
 }
 
 export function ResearchLineList({ className }: { className?: string }) {
+  const { t } = useLanguage()
   const items: string[] = [
-    'Educação na Engenharia de Software',
-    'Engenharia de Software',
-    'Interação Humano-Computador - IHC',
-    'Métodos e Processos de Engenharia de Software',
+    t("research_lines.software_education"),
+    t("research_lines.software_engineering"),
+    t("research_lines.hci"),
+    t("research_lines.methods_processes"),
   ]
 
-  return <ResearchLine title="Linhas de Pesquisa" items={items} className={className} />
+  return <ResearchLine title={t("research_lines.title")} items={items} className={className} />
 }
