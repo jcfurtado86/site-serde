@@ -5,7 +5,9 @@ import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
 import { FileProps } from "@/app/context/ProjectsContext"
 import { Lightbulb, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useLanguage } from "@/app/i18n/context"
+import type { StudentProps } from "@/app/context/types"
 
 type OrientacaoPageProps = {
   params: Promise<{
@@ -13,7 +15,27 @@ type OrientacaoPageProps = {
   }>
 }
 
-function OrientacaoDetails({ tcc }: { tcc: any }) {
+function fuzzyMatchMember<T extends { name: string }>(name: string, members: T[]): T | undefined {
+  const lower = name.toLowerCase()
+  // Exact match first
+  const exact = members.find((m) => m.name.toLowerCase() === lower)
+  if (exact) return exact
+  // Fuzzy: first + last name match, at least one shared middle part
+  const parts = lower.split(" ")
+  if (parts.length < 2) return undefined
+  const first = parts[0]
+  const last = parts[parts.length - 1]
+  const middleParts = new Set(parts.slice(1, -1))
+  return members.find((m) => {
+    const mParts = m.name.toLowerCase().split(" ")
+    if (mParts.length < 2) return false
+    if (mParts[0] !== first || mParts[mParts.length - 1] !== last) return false
+    if (middleParts.size === 0 || mParts.length <= 2) return true
+    return mParts.slice(1, -1).some((p) => middleParts.has(p))
+  })
+}
+
+function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStudents: StudentProps[]; allTeachers: { name: string; imageUrl?: string }[] }) {
   const { t, locale } = useLanguage()
   const l = (pt: string, en?: string) => locale === "en" && en ? en : pt
   const statusDisplayText: Record<string, string> = {
@@ -79,9 +101,33 @@ function OrientacaoDetails({ tcc }: { tcc: any }) {
               <strong>{t("guidance_detail.completion_year")}</strong> {tcc.year}
             </p>
           )}
-          <p className="text-gray-700 leading-relaxed text-base">
-            <strong>{t("guidance_detail.students")}</strong> {tcc.students?.join(", ")}
-          </p>
+          <div>
+            <strong className="text-gray-700 text-base">{t("guidance_detail.students")}</strong>
+            <div className="flex flex-wrap gap-3 mt-2">
+              {tcc.students?.map((name: string, i: number) => {
+                const member = fuzzyMatchMember(name, allStudents)
+                return (
+                  <div key={i} className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-full">
+                    {member?.imageUrl ? (
+                      <Image
+                        src={member.imageUrl}
+                        alt={name}
+                        width={32}
+                        height={32}
+                        className="rounded-full object-cover w-8 h-8"
+                        unoptimized
+                      />
+                    ) : (
+                      <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+                        <User size={16} className="text-gray-400" />
+                      </div>
+                    )}
+                    <span className="text-gray-700 text-sm">{name}</span>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
           {tcc.description && (
             <p className="text-gray-700 leading-relaxed text-base">
               <strong>{t("guidance_detail.summary")}</strong> {l(tcc.description, tcc.description_en)}
@@ -98,10 +144,26 @@ function OrientacaoDetails({ tcc }: { tcc: any }) {
 
         <section>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">{t("guidance_detail.advisor")}</h2>
-          <div className="flex items-center gap-3 text-gray-700">
-            <User size={24} className="text-teal-500" />
-            <span className="text-lg">{tcc.advisor}</span>
-          </div>
+          {(() => {
+            const advisor = fuzzyMatchMember(tcc.advisor, allTeachers)
+            return (
+              <div className="flex items-center gap-3 text-gray-700">
+                {advisor?.imageUrl ? (
+                  <Image
+                    src={advisor.imageUrl}
+                    alt={tcc.advisor}
+                    width={32}
+                    height={32}
+                    className="rounded-full object-cover w-8 h-8"
+                    unoptimized
+                  />
+                ) : (
+                  <User size={24} className="text-teal-500" />
+                )}
+                <span className="text-lg">{tcc.advisor}</span>
+              </div>
+            )
+          })()}
         </section>
 
         {tcc.documentation && tcc.documentation.length > 0 && (
@@ -132,7 +194,7 @@ function OrientacaoDetails({ tcc }: { tcc: any }) {
 }
 
 export default function OrientacaoPage({ params }: OrientacaoPageProps) {
-  const { tccs } = useProjects()
+  const { tccs, students, teachers } = useProjects()
   const { t, locale } = useLanguage()
 
   const resolvedParams = use(params)
@@ -150,7 +212,7 @@ export default function OrientacaoPage({ params }: OrientacaoPageProps) {
           },
         ]}
       />
-      {tcc && <OrientacaoDetails tcc={tcc} />}
+      {tcc && <OrientacaoDetails tcc={tcc} allStudents={students} allTeachers={teachers} />}
     </main>
   )
 }
