@@ -8,7 +8,8 @@
     "partnerships": "Partnerships",
     "home": "Home",
     "research_projects": "Research Projects",
-    "team": "Team"
+    "team": "Team",
+    "innovation": "Innovation & Entrepreneurship"
   },
   "hero": {
     "learn_more": "Learn More"
@@ -37,6 +38,7 @@
     "members": "Members",
     "guidance": "Guidance",
     "partnerships": "Partnerships",
+    "innovation": "Innovation & Entrepreneurship",
     "blog": "Blog"
   },
   "not_found": {
@@ -139,6 +141,21 @@
     "doc_article": "Article",
     "doc_video": "Video",
     "doc_document": "Document"
+  },
+  "innovation": {
+    "title": "Innovation & Entrepreneurship",
+    "intro": "The SERDE group works in an integrated manner with the innovation ecosystem, encouraging the transformation of ideas into technological solutions with real impact.",
+    "intro2": "Through student training and applied project development, several initiatives have gained recognition in national funding programs.",
+    "program": "Funding Program:",
+    "year": "Year:",
+    "thematic_axis": "Thematic Axis:",
+    "problem": "Problem & Opportunity",
+    "context": "Origin Context",
+    "solution": "Proposed Solution",
+    "team": "Student Team",
+    "result": "Result & Recognition",
+    "not_found": "Project not found",
+    "detail_title": "Project Details"
   },
   "common": {
     "current": "Current"

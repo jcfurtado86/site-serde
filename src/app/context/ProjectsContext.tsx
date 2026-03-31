@@ -8,14 +8,16 @@ import type {
   TCCProps,
   Project,
   ParceiroProps,
+  InnovationProject,
 } from "./types"
 import { publications, patents } from "./data/publications"
 import { students, teachers } from "./data/members"
 import { tccs } from "./data/tccs"
 import { projectsData } from "./data/projects"
 import { parcerias } from "./data/parcerias"
+import { innovationProjects } from "./data/innovation"
 
-export type { FileProps, TCCProps, Project, ParceiroProps } from "./types"
+export type { FileProps, TCCProps, Project, ParceiroProps, InnovationProject } from "./types"
 
 const ProjectsContext = createContext<{
   projects: Project[]
@@ -25,6 +27,7 @@ const ProjectsContext = createContext<{
   parcerias: ParceiroProps[]
   publications: PublicationProps[]
   patents: PatentProps[]
+  innovationProjects: InnovationProject[]
 }>({
   projects: [],
   tccs: [],
@@ -33,6 +36,7 @@ const ProjectsContext = createContext<{
   parcerias: [],
   publications: [],
   patents: [],
+  innovationProjects: [],
 })
 
 export function ProjectsProvider({ children }: { children: React.ReactNode }) {
@@ -44,6 +48,7 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
     parcerias,
     publications,
     patents,
+    innovationProjects,
   }
 
   return <ProjectsContext.Provider value={value}>{children}</ProjectsContext.Provider>

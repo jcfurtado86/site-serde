@@ -92,6 +92,20 @@ export interface Project {
   funding?: string
 }
 
+export interface InnovationProject {
+  title: string
+  program: string
+  year: string
+  thematicAxis: string
+  problemAndOpportunity: string
+  originContext: string
+  proposedSolution: string
+  team: string[]
+  resultAndRecognition: string
+  link: string
+  logoUrl?: string
+}
+
 export interface ParceiroProps {
   title: string
   description: string

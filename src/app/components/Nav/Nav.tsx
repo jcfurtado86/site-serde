@@ -58,7 +58,7 @@ export default function Nav() {
       <div className="relative bg-gray-100 ">
         <div className="absolute inset-0  opacity-20"></div>
 
-        <div className="relative container mx-auto px-6 py-3">
+        <div className="relative w-full mx-auto px-4 lg:px-6 py-3">
           <div className="flex justify-between items-center mb-1">
             <Link href="/" className="flex items-center gap-2">
               <Image
@@ -95,6 +95,12 @@ export default function Nav() {
                 className={`${defaultLinkStyle} ${pathname === "/publicacoes" ? "after:scale-x-100 text-[#295984]" : ""}`}
               >
                 {t("nav.publications_patents")}
+              </Link>
+              <Link
+                href="/inovacao"
+                className={`${defaultLinkStyle} ${pathname === "/inovacao" || pathname?.startsWith("/inovacao/") ? "after:scale-x-100 text-[#295984]" : ""}`}
+              >
+                {t("nav.innovation")}
               </Link>
               <Link
                 href="/membros"
@@ -228,6 +234,13 @@ export default function Nav() {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {t("nav.publications_patents")}
+                  </Link>
+                  <Link
+                    href="/inovacao"
+                    className="block text-gray-600 hover:text-[#295984] py-3 px-2 transition-all duration-200 border-b border-gray-200"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {t("nav.innovation")}
                   </Link>
                   <Link
                     href="/parcerias"

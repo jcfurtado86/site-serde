@@ -8,7 +8,8 @@
     "partnerships": "Parcerias",
     "home": "Início",
     "research_projects": "Projetos de Pesquisa",
-    "team": "Equipe"
+    "team": "Equipe",
+    "innovation": "Inovação e Empreendedorismo"
   },
   "hero": {
     "learn_more": "Saiba Mais"
@@ -37,6 +38,7 @@
     "members": "Membros",
     "guidance": "Orientações",
     "partnerships": "Parcerias",
+    "innovation": "Inovação e Empreendedorismo",
     "blog": "Blog"
   },
   "not_found": {
@@ -139,6 +141,21 @@
     "doc_article": "Artigo",
     "doc_video": "Vídeo",
     "doc_document": "Documento"
+  },
+  "innovation": {
+    "title": "Inovação e Empreendedorismo",
+    "intro": "O grupo SERDE atua de forma integrada ao ecossistema de inovação, incentivando a transformação de ideias em soluções tecnológicas com impacto real.",
+    "intro2": "A partir da formação de alunos e do desenvolvimento de projetos aplicados, diversas iniciativas têm alcançado reconhecimento em programas nacionais de fomento.",
+    "program": "Programa de Fomento:",
+    "year": "Ano:",
+    "thematic_axis": "Eixo Temático:",
+    "problem": "Problema e Oportunidade",
+    "context": "Contexto de Origem",
+    "solution": "Solução Proposta",
+    "team": "Equipe Discente",
+    "result": "Resultado e Reconhecimento",
+    "not_found": "Projeto não encontrado",
+    "detail_title": "Detalhes do Projeto"
   },
   "common": {
     "current": "Atual"
