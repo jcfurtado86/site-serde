@@ -263,6 +263,7 @@ export const students: StudentProps[] = [
     imageUrl:
       "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4297288E3",
     type: "Student",
+    degree: "Master",
   },
   {
     name: "Kelvin Marques Rodrigues",
