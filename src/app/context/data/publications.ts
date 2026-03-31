@@ -221,7 +221,6 @@ export const publications: PublicationProps[] = [
     publisher: "Revista Educaonline",
     edition: "17",
     pages: "100-115",
-    link: "https://sol.sbc.org.br/index.php/sbgames_estendido/article/view/32134",
   },
   {
     type: "article",
@@ -418,7 +417,6 @@ export const publications: PublicationProps[] = [
     year: "2022",
     event: "17th International Conference on Evaluation of Novel Approaches to Software Engineering - Enase",
     proceedings: "Proceedings of Enase 2022",
-    link: "https://sol.sbc.org.br/index.php/sbgames_estendido/article/view/32139",
   },
   {
     type: "congress",
@@ -598,9 +596,10 @@ export const publications: PublicationProps[] = [
       "Uma Abordagem Focada no Aluno para o Ensino de Engenharia de Requisitos",
     authors: ["Guerra, A.", "Furtado, Julio C."],
     year: "2019",
-    event: "Eminário Argentina - Brasil de Tecnologias da Informação e da Comunicação 2019",
+    event: "Seminário Argentina - Brasil de Tecnologias da Informação e da Comunicação 2019",
     location: "Rio Grande - Rs",
-    proceedings: "Anais do Eminário Argentina - Brasil de Tecnologias da Informação e da Comunicação 2019",
+    proceedings: "Anais do Seminário Argentina - Brasil de Tecnologias da Informação e da Comunicação 2019",
+    link: "https://ojs.cuadernoseducacion.com/ojs/index.php/ced/article/view/2571",
   },
   {
     type: "congress",
@@ -633,7 +632,6 @@ export const publications: PublicationProps[] = [
     event: "13th International Conference on Software Technologies - Icsoft",
     location: "Porto, Portugal",
     proceedings: "Proceedings of 13th Icsoft",
-    link: "https://sol.sbc.org.br/index.php/sbqs/article/view/39035",
   },
   {
     type: "congress",
@@ -669,7 +667,6 @@ export const publications: PublicationProps[] = [
     event: "11th International Conference on Software Engineering Advances",
     location: "Roma - Itália",
     proceedings: "The Eleventh International Conference on Software Engineering Advances",
-    link: "https://sol.sbc.org.br/index.php/sbqs/article/view/39035",
   },
   {
     type: "congress",
@@ -680,7 +677,6 @@ export const publications: PublicationProps[] = [
     event: "Ix Fórum de Educação em Engenharia de Software no Xxx Simpósio Brasileiro de Engenharia de Software",
     location: "Maringá - Pr",
     proceedings: "Anais do Sbes 2016",
-    link: "https://sol.sbc.org.br/index.php/sbqs/article/view/39035",
   },
   // Resumos em evento
   {
@@ -729,6 +725,5 @@ export const publications: PublicationProps[] = [
     event: "40th International Conference on Software Engineering",
     location: "Gothenburg, Sweden",
     proceedings: "Proceedings of 40th Icse",
-    link: "https://sol.sbc.org.br/index.php/sbqs/article/view/39035",
   },
 ]
