@@ -7,7 +7,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/0201229307900067",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1564966Z5",
+      "/members/K1564966Z5.jpg",
     type: "Student",
   },
   {
@@ -16,7 +16,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/1340494859600801",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1561810U9",
+      "/members/K1561810U9.jpg",
     type: "Student",
   },
   {
@@ -25,7 +25,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/4905967797980110",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8077169T2",
+      "/members/K8077169T2.jpg",
     type: "Student",
   },
   {
@@ -34,7 +34,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/2629359369799722",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2703499D5",
+      "/members/K2703499D5.jpg",
     type: "Student",
   },
   {
@@ -43,7 +43,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/3855670927634348",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2863059J8",
+      "/members/K2863059J8.jpg",
     type: "Student",
   },
   {
@@ -52,7 +52,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/3115743863912814",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1176961E2",
+      "/members/K1176961E2.jpg",
     type: "Student",
   },
   {
@@ -61,7 +61,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/7423437888188340",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1152393H2",
+      "/members/K1152393H2.jpg",
     type: "Student",
   },
   {
@@ -70,7 +70,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/1169535933506040",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1582105J0",
+      "/members/K1582105J0.jpg",
     type: "Student",
   },
   {
@@ -79,7 +79,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/3954320570829034",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8254705U6",
+      "/members/K8254705U6.jpg",
     type: "Student",
   },
   {
@@ -88,7 +88,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/0919329108329523",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2547927T7",
+      "/members/K2547927T7.jpg",
     type: "Student",
   },
   {
@@ -97,7 +97,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/6118298421134507",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K9052777Y7",
+      "/members/K9052777Y7.jpg",
     type: "Student",
   },
   {
@@ -106,7 +106,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/2957036714526782",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1109711U3",
+      "/members/K1109711U3.jpg",
     type: "Student",
   },
   {
@@ -115,7 +115,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/9709624231548253",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1561335U2",
+      "/members/K1561335U2.jpg",
     type: "Student",
   },
   {
@@ -124,7 +124,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/6676365359182975",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2406638Y4",
+      "/members/K2406638Y4.jpg",
     type: "Student",
   },
   {
@@ -133,7 +133,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/7683827799391036",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K9360787E2",
+      "/members/K9360787E2.jpg",
     type: "Student",
   },
   {
@@ -142,7 +142,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/0368761867719344",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1567493H0",
+      "/members/K1567493H0.jpg",
     type: "Student",
   },
   {
@@ -151,7 +151,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/4972084328427721",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1124089J2",
+      "/members/K1124089J2.jpg",
     type: "Student",
   },
   {
@@ -160,7 +160,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/2338212383461581",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1545016U9",
+      "/members/K1545016U9.jpg",
     type: "Student",
   },
   {
@@ -169,7 +169,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/8605422148199555",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2896833J8",
+      "/members/K2896833J8.jpg",
     type: "Student",
   },
   {
@@ -178,7 +178,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/3678750924075733",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4404089Z4",
+      "/members/K4404089Z4.jpg",
     type: "Student",
   },
   {
@@ -187,7 +187,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/3622230002995531",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1267860A6",
+      "/members/K1267860A6.jpg",
     type: "Student",
     degree: "Master",
   },
@@ -197,7 +197,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/1617755992099891",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2896102D7",
+      "/members/K2896102D7.jpg",
     type: "Student",
   },
   {
@@ -206,7 +206,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/8979398424386518",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1563227E0",
+      "/members/K1563227E0.jpg",
     type: "Student",
   },
   {
@@ -215,7 +215,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/6283613146447214",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8080585T4",
+      "/members/K8080585T4.jpg",
     type: "Student",
   },
   {
@@ -224,7 +224,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/6490034202076915",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1511232Z6",
+      "/members/K1511232Z6.jpg",
     type: "Student",
     degree: "Master",
   },
@@ -234,7 +234,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/9085951782034759",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1545016Z6",
+      "/members/K1545016Z6.jpg",
     type: "Student",
   },
   {
@@ -243,7 +243,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/8478985982111322",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1160296T9",
+      "/members/K1160296T9.jpg",
     type: "Student",
   },
   {
@@ -252,7 +252,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/5709405973358001",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1536946Y9",
+      "/members/K1536946Y9.jpg",
     type: "Student",
   },
   {
@@ -261,7 +261,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/8161655467679267",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4297288E3",
+      "/members/K4297288E3.jpg",
     type: "Student",
     degree: "Master",
   },
@@ -271,7 +271,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/4764480010325451",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1581278Z0",
+      "/members/K1581278Z0.jpg",
     type: "Student",
   },
   {
@@ -280,7 +280,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/6443957234671960",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1121105U9",
+      "/members/K1121105U9.jpg",
     type: "Student",
   },
   {
@@ -289,7 +289,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/8067840813058871",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2406465Y1",
+      "/members/K2406465Y1.jpg",
     type: "Student",
   },
   {
@@ -298,7 +298,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/8597077841665177",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4311856U0",
+      "/members/K4311856U0.jpg",
     type: "Student",
     degree: "Master",
   },
@@ -308,7 +308,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/0003377526836527",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1508336H3",
+      "/members/K1508336H3.jpg",
     type: "Student",
   },
   {
@@ -317,7 +317,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/4400152259018443",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2896840T9",
+      "/members/K2896840T9.jpg",
     type: "Student",
   },
   {
@@ -326,7 +326,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/6967787408321484",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1561560P9",
+      "/members/K1561560P9.jpg",
     type: "Student",
   },
   {
@@ -335,7 +335,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/4278102715514258",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1546897P6",
+      "/members/K1546897P6.jpg",
     type: "Student",
   },
   {
@@ -344,7 +344,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/5362036886249655",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1561504H2",
+      "/members/K1561504H2.jpg",
     type: "Student",
   },
   {
@@ -353,7 +353,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/1581056759223655",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1546822D2",
+      "/members/K1546822D2.jpg",
     type: "Student",
   },
   {
@@ -362,7 +362,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/6344082541870444",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1561962J3",
+      "/members/K1561962J3.jpg",
     type: "Student",
   },
   {
@@ -371,7 +371,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/4024686507174987",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1567945A1",
+      "/members/K1567945A1.jpg",
     type: "Student",
   },
   {
@@ -380,7 +380,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/3684202517504539",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1544794A0",
+      "/members/K1544794A0.jpg",
     type: "Student",
   },
   {
@@ -389,7 +389,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/3795503159897269",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2825236T6",
+      "/members/K2825236T6.jpg",
     type: "Student",
   },
   {
@@ -398,7 +398,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/1036051313578597",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1560367P1",
+      "/members/K1560367P1.jpg",
     type: "Student",
   },
   {
@@ -407,7 +407,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/9730418549327217",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1263413Y6",
+      "/members/K1263413Y6.jpg",
     type: "Student",
   },
   {
@@ -416,7 +416,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/1336036540136342",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1109471Z0",
+      "/members/K1109471Z0.jpg",
     type: "Student",
     imagePosition: "center",
   },
@@ -426,7 +426,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/9750144066062051",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1544291J9",
+      "/members/K1544291J9.jpg",
     type: "Student",
   },
   // Ex-alunos
@@ -436,7 +436,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/0285174097186394",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2100157A0",
+      "/members/K2100157A0.jpg",
     type: "ExStudent",
   },
   {
@@ -445,7 +445,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/2451866311989595",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1148930T6",
+      "/members/K1148930T6.jpg",
     type: "ExStudent",
   },
   {
@@ -454,7 +454,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/7801947090551930",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8583463P7",
+      "/members/K8583463P7.jpg",
     type: "ExStudent",
   },
   {
@@ -463,7 +463,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/4624599784919056",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1546828T8",
+      "/members/K1546828T8.jpg",
     type: "ExStudent",
   },
   {
@@ -472,7 +472,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/7238237839067724",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8804965Z9",
+      "/members/K8804965Z9.jpg",
     type: "ExStudent",
   },
   {
@@ -481,7 +481,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/1934281181551924",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2774836U2",
+      "/members/K2774836U2.jpg",
     type: "ExStudent",
     imagePosition: "center",
   },
@@ -491,7 +491,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/1270283553777603",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8151323E4",
+      "/members/K8151323E4.jpg",
     type: "ExStudent",
   },
   {
@@ -500,7 +500,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: " http://lattes.cnpq.br/8996710321421005",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2701533T0",
+      "/members/K2701533T0.jpg",
     type: "ExStudent",
   },
   {
@@ -509,7 +509,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/3772381642880757",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8068695T1",
+      "/members/K8068695T1.jpg",
     type: "ExStudent",
   },
   {
@@ -518,7 +518,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/0262199390232721",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1539994D7",
+      "/members/K1539994D7.jpg",
     type: "ExStudent",
   },
   {
@@ -527,7 +527,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/3394751225824953",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8169200T6",
+      "/members/K8169200T6.jpg",
     type: "ExStudent",
   },
   {
@@ -536,7 +536,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/8768694050430103",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8145617U2",
+      "/members/K8145617U2.jpg",
     type: "ExStudent",
   },
   {
@@ -545,7 +545,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/1810258668918861",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8151934Y3",
+      "/members/K8151934Y3.jpg",
     type: "ExStudent",
   },
   {
@@ -554,7 +554,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/8539615512841442",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2726689P6",
+      "/members/K2726689P6.jpg",
     type: "ExStudent",
   },
   {
@@ -563,7 +563,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/4617405056839703",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8913815D6",
+      "/members/K8913815D6.jpg",
     type: "ExStudent",
   },
   {
@@ -572,7 +572,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/8829459581349801",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K2109801U5",
+      "/members/K2109801U5.jpg",
     type: "ExStudent",
   },
   {
@@ -581,7 +581,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/7123969561902651",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4373842E3",
+      "/members/K4373842E3.jpg",
     type: "ExStudent",
   },
   {
@@ -590,7 +590,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/0650268746194141",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8846994Y0",
+      "/members/K8846994Y0.jpg",
     type: "ExStudent",
   },
   {
@@ -599,7 +599,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/9735600071757777",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K8972040P1",
+      "/members/K8972040P1.jpg",
     type: "ExStudent",
   },
   {
@@ -608,7 +608,7 @@ export const students: StudentProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/0003988321971896",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1530663D5",
+      "/members/K1530663D5.jpg",
     type: "ExStudent",
   },
 ]
@@ -620,7 +620,7 @@ export const teachers: TeacherProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/9175382702970383",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4258925P6",
+      "/members/K4258925P6.jpg",
   },
   {
     name: "Adolfo Francesco de Oliveira Colares",
@@ -628,7 +628,7 @@ export const teachers: TeacherProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/7694692886453388",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4202733D9",
+      "/members/K4202733D9.jpg",
   },
   {
     name: "Marco Antonio Leal da Silva",
@@ -636,7 +636,7 @@ export const teachers: TeacherProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/7989567709418880",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4205687P3",
+      "/members/K4205687P3.jpg",
   },
   {
     name: "Rafael Pontes Lima",
@@ -644,7 +644,7 @@ export const teachers: TeacherProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/3248608898278519",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4133837P0",
+      "/members/K4133837P0.jpg",
   },
   {
     name: "Thiago Pinheiro do Nascimento",
@@ -652,6 +652,6 @@ export const teachers: TeacherProps[] = [
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/3122065417402092",
     imageUrl:
-      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4467040P6",
+      "/members/K4467040P6.jpg",
   },
 ]

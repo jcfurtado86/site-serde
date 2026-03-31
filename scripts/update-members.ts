@@ -24,6 +24,27 @@ async function fetchWithRetry(url: string, options?: RequestInit): Promise<Respo
 }
 const OUTPUT_PATH = path.join(__dirname, "..", "src", "app", "context", "data", "members.ts")
 const CACHE_PATH = path.join(__dirname, "..", "src", "app", "context", "data", "members copy.ts")
+const PHOTOS_DIR = path.join(__dirname, "..", "public", "members")
+
+function buildLocalImagePath(shortId: string): string {
+  return `/members/${shortId}.jpg`
+}
+
+async function downloadPhoto(shortId: string): Promise<boolean> {
+  const url = `https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=${shortId}`
+  try {
+    const res = await fetchWithRetry(url)
+    if (!res.ok) return false
+    const buffer = Buffer.from(await res.arrayBuffer())
+    // Skip if empty/tiny response (no photo available)
+    if (buffer.length < 1000) return false
+    if (!fs.existsSync(PHOTOS_DIR)) fs.mkdirSync(PHOTOS_DIR, { recursive: true })
+    fs.writeFileSync(path.join(PHOTOS_DIR, `${shortId}.jpg`), buffer)
+    return true
+  } catch {
+    return false
+  }
+}
 
 function mapDegree(titulacao: string): string | undefined {
   const lower = titulacao.toLowerCase()
@@ -419,6 +440,36 @@ async function main() {
     console.error("   O site do CNPq pode estar fora do ar ou os IDs dos elementos HTML mudaram.")
     process.exit(1)
   }
+
+  // Download photos for all members
+  console.log(`\n📷 Baixando fotos dos membros...`)
+  const allMembers = [...allStudents, ...teachers] as (StudentProps | TeacherProps)[]
+  let photosDownloaded = 0
+  let photosSkipped = 0
+  let photosFailed = 0
+
+  for (const member of allMembers) {
+    // Extract shortId from remote URL or local path
+    const remoteUrlMatch = member.imageUrl?.match(/[?&]id=([A-Z0-9]+)/i)
+    const localPathMatch = member.imageUrl?.match(/\/members\/([A-Z0-9]+)\.jpg/i)
+    const shortId = remoteUrlMatch?.[1] || localPathMatch?.[1]
+
+    if (!shortId) {
+      photosSkipped++
+      continue
+    }
+
+    const ok = await downloadPhoto(shortId)
+    if (ok) {
+      member.imageUrl = buildLocalImagePath(shortId)
+      photosDownloaded++
+    } else {
+      // Keep whatever URL was there (remote or local)
+      photosFailed++
+      console.log(`    ⚠ Falha ao baixar foto: ${member.name}`)
+    }
+  }
+  console.log(`  Baixadas: ${photosDownloaded}, Falhas: ${photosFailed}, Sem foto: ${photosSkipped}`)
 
   const content = generateMembersFile(allStudents, teachers)
   fs.writeFileSync(OUTPUT_PATH, content, "utf-8")

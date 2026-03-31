@@ -29,13 +29,7 @@ export default function Nav() {
   }
 
   useEffect(() => {
-    if (pathname === "/membros") {
-      const imageToPreload =
-        "http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K9052777Y7"
-      const img = new window.Image()
-      img.src = imageToPreload
-    }
-    // 4. Calcular a largura do link ao montar o componente ou quando o pathname muda
+    // Calcular a largura do link ao montar o componente ou quando o pathname muda
     if (researchProjectsLinkRef.current) {
       setDropdownWidth(`${researchProjectsLinkRef.current.offsetWidth}px`)
     }
