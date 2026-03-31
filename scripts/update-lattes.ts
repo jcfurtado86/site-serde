@@ -424,6 +424,13 @@ async function main() {
   }
   console.log(`\n   Links encontrados: ${found}/${withoutLink.length}`)
 
+  // Safety check: don't overwrite with empty data if parsing returned nothing
+  if (publications.length === 0 && localData.publications.length > 0) {
+    console.error("\n❌ Parse retornou 0 publicações! Abortando para não apagar a base local.")
+    console.error("   O HTML do Lattes pode estar corrompido ou em formato diferente.")
+    process.exit(1)
+  }
+
   // Merge with local data and write
   console.log("\n🔀 Merging com dados locais...")
   const mergedPubs = mergePublications(publications, localData.publications)

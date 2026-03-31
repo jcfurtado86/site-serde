@@ -182,6 +182,16 @@ export const students: StudentProps[] = [
     type: "Student",
   },
   {
+    name: "Jonson Ayslon Pureza Barreto",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/3622230002995531",
+    imageUrl:
+      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1267860A6",
+    type: "Student",
+    degree: "Master",
+  },
+  {
     name: "José Clêmer Teixeira Pantoja",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -243,6 +253,15 @@ export const students: StudentProps[] = [
     curriculumLink: "http://lattes.cnpq.br/5709405973358001",
     imageUrl:
       "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K1536946Y9",
+    type: "Student",
+  },
+  {
+    name: "Kelly Glauce da Silva Rosário",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/8161655467679267",
+    imageUrl:
+      "https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K4297288E3",
     type: "Student",
   },
   {

@@ -114,9 +114,23 @@ interface ParsedEgresso {
   period: string
 }
 
-function parseTable($: cheerio.CheerioAPI, containerIdPart: string): ParsedMember[] {
+// Find all tables by header text (order matches DOM order)
+function findTablesByHeader($: cheerio.CheerioAPI, headerText: string): cheerio.Cheerio<cheerio.Element>[] {
+  const results: cheerio.Cheerio<cheerio.Element>[] = []
+  $("div.ui-datatable").each((_, el) => {
+    const th = $(el).find("th span").first().text().trim()
+    if (th === headerText) results.push($(el))
+  })
+  return results
+}
+
+function extractTableId(table: cheerio.Cheerio<cheerio.Element>): string {
+  return (table.attr("id") || "").replace("idFormVisualizarGrupoPesquisa:", "")
+}
+
+function parseMemberTable(table: cheerio.Cheerio<cheerio.Element>, $: cheerio.CheerioAPI): ParsedMember[] {
   const members: ParsedMember[] = []
-  $(`div[id*="${containerIdPart}"] tbody tr`).each((_, el) => {
+  table.find("tbody tr").each((_, el) => {
     const cells = $(el).find('td[role="gridcell"]')
     if (cells.length < 3) return
     const name = cells.eq(0).text().trim()
@@ -128,9 +142,9 @@ function parseTable($: cheerio.CheerioAPI, containerIdPart: string): ParsedMembe
   return members
 }
 
-function parseEgressosTable($: cheerio.CheerioAPI, containerIdPart: string): ParsedEgresso[] {
+function parseEgressosFromTable(table: cheerio.Cheerio<cheerio.Element>, $: cheerio.CheerioAPI): ParsedEgresso[] {
   const egressos: ParsedEgresso[] = []
-  $(`div[id*="${containerIdPart}"] tbody tr`).each((_, el) => {
+  table.find("tbody tr").each((_, el) => {
     const cells = $(el).find('td[role="gridcell"]')
     if (cells.length < 2) return
     const nameCell = cells.eq(0)
@@ -170,14 +184,26 @@ async function main() {
   // Re-init session for POST requests (fresh ViewState)
   const postSession = await initSession()
 
-  const pesquisadores = parseTable($, "j_idt271")
-  const estudantes = parseTable($, "j_idt288")
-  const egressosEstudantes = parseEgressosTable($, "j_idt354")
+  // Find tables by header text - first match is active, second is egressos
+  const pesqTables = findTablesByHeader($, "Pesquisadores")
+  const studTables = findTablesByHeader($, "Estudantes")
+
+  const pesqTable = pesqTables[0]  // Active researchers
+  const studTable = studTables[0]  // Active students
+  const egressosStudTable = studTables[1]  // Egresso students
+
+  const pesqTableId = pesqTable ? extractTableId(pesqTable) : ""
+  const studTableId = studTable ? extractTableId(studTable) : ""
+  const egressosTableId = egressosStudTable ? extractTableId(egressosStudTable) : ""
+
+  const pesquisadores = pesqTable ? parseMemberTable(pesqTable, $) : []
+  const estudantes = studTable ? parseMemberTable(studTable, $) : []
+  const egressosEstudantes = egressosStudTable ? parseEgressosFromTable(egressosStudTable, $) : []
 
   console.log(`\nParsed from CNPq:`)
-  console.log(`  Pesquisadores: ${pesquisadores.length}`)
-  console.log(`  Estudantes: ${estudantes.length}`)
-  console.log(`  Egressos estudantes: ${egressosEstudantes.length}`)
+  console.log(`  Pesquisadores: ${pesquisadores.length} (table: ${pesqTableId})`)
+  console.log(`  Estudantes: ${estudantes.length} (table: ${studTableId})`)
+  console.log(`  Egressos estudantes: ${egressosEstudantes.length} (table: ${egressosTableId})`)
 
   // Resolve Lattes IDs for active members via JSF POSTs
   console.log(`\nResolving Lattes IDs...`)
@@ -200,7 +226,7 @@ async function main() {
       continue
     }
 
-    const numericId = await fetchLattesId(postSession, "j_idt271", i)
+    const numericId = await fetchLattesId(postSession, pesqTableId, i)
     let shortId: string | null = null
     if (numericId) {
       shortId = await fetchLattesShortId(numericId)
@@ -251,7 +277,7 @@ async function main() {
       continue
     }
 
-    const numericId = await fetchLattesId(postSession, "j_idt288", i)
+    const numericId = await fetchLattesId(postSession, studTableId, i)
     let shortId: string | null = null
     if (numericId) {
       shortId = await fetchLattesShortId(numericId)
@@ -386,6 +412,13 @@ async function main() {
   const activeStudents = students.filter((s) => !egressoNames.has(s.name.toLowerCase()))
 
   const allStudents = [...activeStudents, ...exStudents]
+
+  // Safety check: don't overwrite with empty data if CNPq returned nothing
+  if (teachers.length === 0 && students.length === 0 && localData.teachers.length > 0) {
+    console.error("\n❌ CNPq retornou dados vazios! Abortando para não apagar a base local.")
+    console.error("   O site do CNPq pode estar fora do ar ou os IDs dos elementos HTML mudaram.")
+    process.exit(1)
+  }
 
   const content = generateMembersFile(allStudents, teachers)
   fs.writeFileSync(OUTPUT_PATH, content, "utf-8")
