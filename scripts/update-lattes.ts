@@ -3,7 +3,7 @@ import { resolve } from "path"
 import * as cheerio from "cheerio"
 import { parseLattes } from "./lattes-html-parser"
 import { generatePublicationsFile, generateProjectsFile, generateTccsFile } from "./ts-generator"
-import type { PublicationProps } from "../src/app/context/types"
+import type { PublicationProps, PatentProps, Project, TCCProps } from "../src/app/context/types"
 
 const MIN_YEAR = 2016
 const DATA_DIR = resolve(__dirname, "../src/app/context/data")
@@ -149,6 +149,177 @@ async function searchPublicationLink(pub: PublicationProps): Promise<string | un
   return undefined
 }
 
+// --- Merge utilities ---
+
+function pubKey(p: PublicationProps | PatentProps): string {
+  const year = typeof p.year === "number" ? p.year : parseInt(String(p.year), 10)
+  return normalizeForComparison(p.title) + "|" + year
+}
+
+function projectKey(p: Project): string {
+  return normalizeForComparison(p.title)
+}
+
+function tccKey(t: TCCProps): string {
+  return normalizeForComparison(t.title)
+}
+
+async function loadLocalData() {
+  try {
+    const pubs = await import("../src/app/context/data/publications")
+    const projs = await import("../src/app/context/data/projects")
+    const tccsModule = await import("../src/app/context/data/tccs")
+    return {
+      publications: pubs.publications as PublicationProps[],
+      patents: pubs.patents as PatentProps[],
+      projects: projs.projectsData as Project[],
+      tccs: tccsModule.tccs as TCCProps[],
+    }
+  } catch {
+    console.log("⚠ Dados locais não encontrados, criando do zero")
+    return { publications: [], patents: [], projects: [], tccs: [] }
+  }
+}
+
+function mergePublications(imported: PublicationProps[], local: PublicationProps[]): PublicationProps[] {
+  const localMap = new Map<string, PublicationProps>()
+  for (const p of local) localMap.set(pubKey(p), p)
+
+  const matched = new Set<string>()
+  const merged: PublicationProps[] = []
+
+  for (const imp of imported) {
+    const key = pubKey(imp)
+    const loc = localMap.get(key)
+    if (loc) {
+      matched.add(key)
+      merged.push({
+        ...imp,
+        // Preservar do local se existir
+        link: (loc.link && loc.link !== "#") ? loc.link : imp.link,
+        importance: loc.importance ?? imp.importance,
+        scieloCitations: loc.scieloCitations ?? imp.scieloCitations,
+        jcrImpact: loc.jcrImpact ?? imp.jcrImpact,
+      })
+    } else {
+      merged.push(imp)
+    }
+  }
+
+  // Manter publicações que só existem no local
+  let localOnly = 0
+  for (const [key, loc] of localMap) {
+    if (!matched.has(key)) {
+      merged.push(loc)
+      localOnly++
+      console.log(`  ⚠ Local-only: ${loc.title.slice(0, 60)}...`)
+    }
+  }
+
+  console.log(`  Publicações: ${matched.size} matched, ${imported.length - matched.size} new, ${localOnly} local-only`)
+  return merged
+}
+
+function mergePatents(imported: PatentProps[], local: PatentProps[]): PatentProps[] {
+  const localMap = new Map<string, PatentProps>()
+  for (const p of local) localMap.set(pubKey(p), p)
+
+  const matched = new Set<string>()
+  const merged: PatentProps[] = []
+
+  for (const imp of imported) {
+    const key = pubKey(imp)
+    const loc = localMap.get(key)
+    if (loc) {
+      matched.add(key)
+      merged.push({ ...imp, link: (loc.link && loc.link !== "#") ? loc.link : imp.link })
+    } else {
+      merged.push(imp)
+    }
+  }
+
+  for (const [key, loc] of localMap) {
+    if (!matched.has(key)) merged.push(loc)
+  }
+
+  console.log(`  Patentes: ${matched.size} matched, ${imported.length - matched.size} new, ${localMap.size - matched.size} local-only`)
+  return merged
+}
+
+function mergeProjects(imported: Project[], local: Project[]): Project[] {
+  const localMap = new Map<string, Project>()
+  for (const p of local) localMap.set(projectKey(p), p)
+
+  const matched = new Set<string>()
+  const merged: Project[] = []
+
+  for (const imp of imported) {
+    const key = projectKey(imp)
+    const loc = localMap.get(key)
+    if (loc) {
+      matched.add(key)
+      merged.push({
+        ...imp,
+        documentation: loc.documentation || [],
+        link: loc.link || imp.link,
+        title_en: loc.title_en,
+        description_en: loc.description_en,
+      })
+    } else {
+      merged.push(imp)
+    }
+  }
+
+  let localOnly = 0
+  for (const [key, loc] of localMap) {
+    if (!matched.has(key)) {
+      merged.push(loc)
+      localOnly++
+      console.log(`  ⚠ Projeto local-only: ${loc.title.slice(0, 60)}`)
+    }
+  }
+
+  console.log(`  Projetos: ${matched.size} matched, ${imported.length - matched.size} new, ${localOnly} local-only`)
+  return merged
+}
+
+function mergeTccs(imported: TCCProps[], local: TCCProps[]): TCCProps[] {
+  const localMap = new Map<string, TCCProps>()
+  for (const t of local) localMap.set(tccKey(t), t)
+
+  const matched = new Set<string>()
+  const merged: TCCProps[] = []
+
+  for (const imp of imported) {
+    const key = tccKey(imp)
+    const loc = localMap.get(key)
+    if (loc) {
+      matched.add(key)
+      merged.push({
+        ...imp,
+        documentation: loc.documentation,
+        title_en: loc.title_en,
+        description_en: loc.description_en,
+        link: (loc.link && loc.link !== imp.link) ? loc.link : imp.link,
+      })
+    } else {
+      merged.push(imp)
+    }
+  }
+
+  let localOnly = 0
+  for (const [key, loc] of localMap) {
+    if (!matched.has(key)) {
+      merged.push(loc)
+      localOnly++
+      console.log(`  ⚠ TCC local-only: ${loc.title.slice(0, 60)}`)
+    }
+  }
+
+  console.log(`  TCCs: ${matched.size} matched, ${imported.length - matched.size} new, ${localOnly} local-only`)
+  return merged
+}
+
 // --- Main ---
 
 async function main() {
@@ -174,6 +345,10 @@ async function main() {
 
   console.log("🔍 Parseando dados do Lattes...")
   const { publications, patents, projects, orientations } = parseLattes(html, MIN_YEAR)
+
+  // Load local data for merge
+  console.log("\n📂 Carregando dados locais para merge...")
+  const localData = await loadLocalData()
 
   // Summary - Publications
   const byType: Record<string, number> = {}
@@ -212,7 +387,25 @@ async function main() {
     console.log(`   ${degree}: ${count}`)
   }
 
-  // Search Google for publications without links
+  // Transfer local links to imported publications before searching
+  const localPubMap = new Map<string, PublicationProps>()
+  for (const p of localData.publications) localPubMap.set(pubKey(p), p)
+
+  let linksFromLocal = 0
+  for (const pub of publications) {
+    if (!pub.link || pub.link === "#") {
+      const local = localPubMap.get(pubKey(pub))
+      if (local?.link && local.link !== "#") {
+        pub.link = local.link
+        linksFromLocal++
+      }
+    }
+  }
+  if (linksFromLocal > 0) {
+    console.log(`\n🔗 ${linksFromLocal} links preservados do local`)
+  }
+
+  // Search Google for publications without links (local or imported)
   const withoutLink = publications.filter((p) => !p.link || p.link === "#")
   console.log(`\n🔗 Buscando links para ${withoutLink.length} publicações...`)
 
@@ -231,14 +424,20 @@ async function main() {
   }
   console.log(`\n   Links encontrados: ${found}/${withoutLink.length}`)
 
-  // Generate and write all files
-  writeFileSync(PUBLICATIONS_PATH, generatePublicationsFile(publications, patents), "utf-8")
+  // Merge with local data and write
+  console.log("\n🔀 Merging com dados locais...")
+  const mergedPubs = mergePublications(publications, localData.publications)
+  const mergedPatents = mergePatents(patents, localData.patents)
+  const mergedProjects = mergeProjects(projects, localData.projects)
+  const mergedTccs = mergeTccs(orientations, localData.tccs)
+
+  writeFileSync(PUBLICATIONS_PATH, generatePublicationsFile(mergedPubs, mergedPatents), "utf-8")
   console.log(`\n✅ ${PUBLICATIONS_PATH}`)
 
-  writeFileSync(PROJECTS_PATH, generateProjectsFile(projects), "utf-8")
+  writeFileSync(PROJECTS_PATH, generateProjectsFile(mergedProjects), "utf-8")
   console.log(`✅ ${PROJECTS_PATH}`)
 
-  writeFileSync(TCCS_PATH, generateTccsFile(orientations), "utf-8")
+  writeFileSync(TCCS_PATH, generateTccsFile(mergedTccs), "utf-8")
   console.log(`✅ ${TCCS_PATH}`)
 }
 

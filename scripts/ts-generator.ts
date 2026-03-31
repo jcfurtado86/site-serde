@@ -50,6 +50,9 @@ function formatPublication(p: PublicationProps): string {
   if (p.link) lines.push(`    link: "${escapeString(p.link)}",`)
   if (p.webCitations !== undefined) lines.push(`    webCitations: ${p.webCitations},`)
   if (p.scopusCitations !== undefined) lines.push(`    scopusCitations: ${p.scopusCitations},`)
+  if (p.scieloCitations !== undefined) lines.push(`    scieloCitations: ${p.scieloCitations},`)
+  if (p.jcrImpact !== undefined) lines.push(`    jcrImpact: ${p.jcrImpact},`)
+  if (p.importance !== undefined) lines.push(`    importance: ${p.importance},`)
   lines.push("  },")
   return lines.join("\n")
 }
@@ -121,10 +124,20 @@ function formatProject(p: Project): string {
   lines.push(`    status: "${escapeString(p.status)}",`)
   lines.push(`    type: "${escapeString(p.type)}",`)
   lines.push(`    link: "${escapeString(p.link)}",`)
-  lines.push("    documentation: [],")
+  if (p.documentation && p.documentation.length > 0) {
+    lines.push("    documentation: [")
+    for (const doc of p.documentation) {
+      lines.push(`      { name: "${escapeString(doc.name)}", type: "${doc.type}", link: "${escapeString(doc.link)}" },`)
+    }
+    lines.push("    ],")
+  } else {
+    lines.push("    documentation: [],")
+  }
   if (p.period) lines.push(`    period: "${escapeString(p.period)}",`)
   if (p.team && p.team.length > 0) lines.push(`    team: ${formatStringArray(p.team, "    ")},`)
   if (p.funding) lines.push(`    funding: "${escapeString(p.funding)}",`)
+  if (p.title_en) lines.push(`    title_en: "${escapeString(p.title_en)}",`)
+  if (p.description_en) lines.push(`    description_en: "${escapeString(p.description_en)}",`)
   lines.push("  },")
   return lines.join("\n")
 }
@@ -154,6 +167,15 @@ function formatTCC(t: TCCProps): string {
   lines.push(`    year: "${escapeString(t.year)}",`)
   lines.push(`    keywords: "${escapeString(t.keywords || "")}",`)
   if (t.degree) lines.push(`    degree: "${escapeString(t.degree)}",`)
+  if (t.documentation && t.documentation.length > 0) {
+    lines.push("    documentation: [")
+    for (const doc of t.documentation) {
+      lines.push(`      { name: "${escapeString(doc.name)}", type: "${doc.type}", link: "${escapeString(doc.link)}" },`)
+    }
+    lines.push("    ],")
+  }
+  if (t.title_en) lines.push(`    title_en: "${escapeString(t.title_en)}",`)
+  if (t.description_en) lines.push(`    description_en: "${escapeString(t.description_en)}",`)
   lines.push("  },")
   return lines.join("\n")
 }
@@ -186,6 +208,7 @@ function formatStudent(s: StudentProps): string {
   if (s.imageUrl) lines.push(`    imageUrl:\n      "${escapeString(s.imageUrl)}",`)
   lines.push(`    type: "${escapeString(s.type)}",`)
   if (s.degree) lines.push(`    degree: "${escapeString(s.degree)}",`)
+  if (s.imagePosition) lines.push(`    imagePosition: "${s.imagePosition}",`)
   lines.push("  },")
   return lines.join("\n")
 }
@@ -199,6 +222,7 @@ function formatTeacher(t: TeacherProps): string {
   if (t.email) lines.push(`    email: "${escapeString(t.email)}",`)
   if (t.curriculumLink) lines.push(`    curriculumLink: "${escapeString(t.curriculumLink)}",`)
   if (t.imageUrl) lines.push(`    imageUrl:\n      "${escapeString(t.imageUrl)}",`)
+  if (t.imagePosition) lines.push(`    imagePosition: "${t.imagePosition}",`)
   lines.push("  },")
   return lines.join("\n")
 }

@@ -145,7 +145,25 @@ function parseEgressosTable($: cheerio.CheerioAPI, containerIdPart: string): Par
 
 // --- Main ---
 
+async function loadLocalMembers(): Promise<{ students: StudentProps[]; teachers: TeacherProps[] }> {
+  try {
+    const mod = await import("../src/app/context/data/members")
+    return { students: mod.students as StudentProps[], teachers: mod.teachers as TeacherProps[] }
+  } catch {
+    console.log("⚠ Dados locais de membros não encontrados, criando do zero")
+    return { students: [], teachers: [] }
+  }
+}
+
 async function main() {
+  // Load local data for merge
+  console.log("📂 Carregando dados locais de membros...")
+  const localData = await loadLocalMembers()
+  const localTeacherMap = new Map<string, TeacherProps>()
+  for (const t of localData.teachers) localTeacherMap.set(t.name.toLowerCase(), t)
+  const localStudentMap = new Map<string, StudentProps>()
+  for (const s of localData.students) localStudentMap.set(s.name.toLowerCase(), s)
+
   const session = await initSession()
   const $ = cheerio.load(await (await fetchWithRetry(CNPq_URL)).text())
 
@@ -167,6 +185,21 @@ async function main() {
   const teachers: TeacherProps[] = []
   for (let i = 0; i < pesquisadores.length; i++) {
     const p = pesquisadores[i]
+    const name = fixCasing(p.name)
+    const localTeacher = localTeacherMap.get(name.toLowerCase())
+
+    // Skip fetch if local already has both curriculumLink and imageUrl
+    if (localTeacher?.curriculumLink && localTeacher?.imageUrl) {
+      console.log(`  [P] ${p.name} → local (skip fetch)`)
+      teachers.push({
+        ...localTeacher,
+        name,
+        institution: "Unifap",
+        campus: "Campus Unifap",
+      })
+      continue
+    }
+
     const numericId = await fetchLattesId(postSession, "j_idt271", i)
     let shortId: string | null = null
     if (numericId) {
@@ -174,11 +207,14 @@ async function main() {
     }
     console.log(`  [P] ${p.name} → ${numericId || "?"} / ${shortId || "?"}`)
     teachers.push({
-      name: fixCasing(p.name),
+      name,
       institution: "Unifap",
       campus: "Campus Unifap",
-      ...(numericId ? { curriculumLink: buildCurriculumLink(numericId) } : {}),
-      ...(shortId ? { imageUrl: buildImageUrl(shortId) } : {}),
+      // Preserve manual local fields
+      ...(localTeacher?.email ? { email: localTeacher.email } : {}),
+      ...(localTeacher?.imagePosition ? { imagePosition: localTeacher.imagePosition } : {}),
+      ...(numericId ? { curriculumLink: buildCurriculumLink(numericId) } : localTeacher?.curriculumLink ? { curriculumLink: localTeacher.curriculumLink } : {}),
+      ...(shortId ? { imageUrl: buildImageUrl(shortId) } : localTeacher?.imageUrl ? { imageUrl: localTeacher.imageUrl } : {}),
     })
   }
 
@@ -197,13 +233,30 @@ async function main() {
   const students: StudentProps[] = []
   for (let i = 0; i < estudantes.length; i++) {
     const s = estudantes[i]
+    const name = fixCasing(s.name)
+    const localStudent = localStudentMap.get(name.toLowerCase())
+
+    // Skip fetch if local already has both curriculumLink and imageUrl
+    if (localStudent?.curriculumLink && localStudent?.imageUrl) {
+      const degree = orientationDegree.get(name.toLowerCase()) ?? mapDegree(s.titulacao) ?? localStudent.degree
+      console.log(`  [S] ${s.name} → local (skip fetch) (${degree || "Graduação"})`)
+      students.push({
+        ...localStudent,
+        name,
+        institution: "Unifap",
+        campus: "Campus Unifap",
+        type: "Student",
+        ...(degree ? { degree } : {}),
+      })
+      continue
+    }
+
     const numericId = await fetchLattesId(postSession, "j_idt288", i)
     let shortId: string | null = null
     if (numericId) {
       shortId = await fetchLattesShortId(numericId)
     }
-    const name = fixCasing(s.name)
-    const degree = orientationDegree.get(name.toLowerCase()) ?? mapDegree(s.titulacao)
+    const degree = orientationDegree.get(name.toLowerCase()) ?? mapDegree(s.titulacao) ?? localStudent?.degree
     console.log(`  [S] ${s.name} → ${numericId || "?"} / ${shortId || "?"} (${degree || "Graduação"})`)
     students.push({
       name,
@@ -211,12 +264,15 @@ async function main() {
       campus: "Campus Unifap",
       type: "Student",
       ...(degree ? { degree } : {}),
-      ...(numericId ? { curriculumLink: buildCurriculumLink(numericId) } : {}),
-      ...(shortId ? { imageUrl: buildImageUrl(shortId) } : {}),
+      // Preserve manual local fields
+      ...(localStudent?.email ? { email: localStudent.email } : {}),
+      ...(localStudent?.imagePosition ? { imagePosition: localStudent.imagePosition } : {}),
+      ...(numericId ? { curriculumLink: buildCurriculumLink(numericId) } : localStudent?.curriculumLink ? { curriculumLink: localStudent.curriculumLink } : {}),
+      ...(shortId ? { imageUrl: buildImageUrl(shortId) } : localStudent?.imageUrl ? { imageUrl: localStudent.imageUrl } : {}),
     })
   }
 
-  // Build lookup from resolved active members (students + teachers)
+  // Build lookup from resolved active members (students + teachers) + local data
   const resolvedMembers = new Map<string, { curriculumLink?: string; imageUrl?: string }>()
   for (const s of students) {
     resolvedMembers.set(s.name.toLowerCase(), { curriculumLink: s.curriculumLink, imageUrl: s.imageUrl })
@@ -224,8 +280,15 @@ async function main() {
   for (const t of teachers) {
     resolvedMembers.set(t.name.toLowerCase(), { curriculumLink: t.curriculumLink, imageUrl: t.imageUrl })
   }
+  // Also include local ex-students data (replaces the old cache file mechanism)
+  for (const s of localData.students.filter(s => s.type === "ExStudent")) {
+    const key = s.name.toLowerCase()
+    if (!resolvedMembers.has(key)) {
+      resolvedMembers.set(key, { curriculumLink: s.curriculumLink, imageUrl: s.imageUrl })
+    }
+  }
 
-  // Load cache from members copy (original file with manually populated egresso data)
+  // Load cache from members copy (fallback for data not yet in members.ts)
   if (fs.existsSync(CACHE_PATH)) {
     const cacheContent = fs.readFileSync(CACHE_PATH, "utf-8")
     const blocks = cacheContent.split(/\n  \{/)
@@ -283,7 +346,7 @@ async function main() {
     return false
   }
 
-  // Egressos: filter to completed orientations, then cross-reference with cache
+  // Egressos: filter to completed orientations, then cross-reference with cache/local
   console.log(`\nResolving egressos...`)
   const missingEgressos: string[] = []
   const exStudents: StudentProps[] = []
@@ -294,6 +357,7 @@ async function main() {
       continue
     }
 
+    const localEx = localStudentMap.get(name.toLowerCase())
     const resolved = resolvedMembers.get(name.toLowerCase())
     if (resolved?.curriculumLink || resolved?.imageUrl) {
       console.log(`  [E] ${e.name} → found`)
@@ -301,11 +365,19 @@ async function main() {
         name, institution: "Unifap", campus: "Campus Unifap", type: "ExStudent",
         ...(resolved.curriculumLink ? { curriculumLink: resolved.curriculumLink } : {}),
         ...(resolved.imageUrl ? { imageUrl: resolved.imageUrl } : {}),
+        // Preserve manual local fields from ex-student
+        ...(localEx?.email ? { email: localEx.email } : {}),
+        ...(localEx?.imagePosition ? { imagePosition: localEx.imagePosition } : {}),
       })
     } else {
       console.log(`  [E] ${e.name} → no Lattes data`)
       missingEgressos.push(e.name)
-      exStudents.push({ name, institution: "Unifap", campus: "Campus Unifap", type: "ExStudent" })
+      exStudents.push({
+        name, institution: "Unifap", campus: "Campus Unifap", type: "ExStudent",
+        // Preserve manual local fields even without Lattes data
+        ...(localEx?.email ? { email: localEx.email } : {}),
+        ...(localEx?.imagePosition ? { imagePosition: localEx.imagePosition } : {}),
+      })
     }
   }
 
