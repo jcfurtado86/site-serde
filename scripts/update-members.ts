@@ -136,8 +136,8 @@ interface ParsedEgresso {
 }
 
 // Find all tables by header text (order matches DOM order)
-function findTablesByHeader($: cheerio.CheerioAPI, headerText: string): cheerio.Cheerio<cheerio.Element>[] {
-  const results: cheerio.Cheerio<cheerio.Element>[] = []
+function findTablesByHeader($: cheerio.CheerioAPI, headerText: string): cheerio.Cheerio<any>[] {
+  const results: cheerio.Cheerio<any>[] = []
   $("div.ui-datatable").each((_, el) => {
     const th = $(el).find("th span").first().text().trim()
     if (th === headerText) results.push($(el))
@@ -145,11 +145,11 @@ function findTablesByHeader($: cheerio.CheerioAPI, headerText: string): cheerio.
   return results
 }
 
-function extractTableId(table: cheerio.Cheerio<cheerio.Element>): string {
+function extractTableId(table: cheerio.Cheerio<any>): string {
   return (table.attr("id") || "").replace("idFormVisualizarGrupoPesquisa:", "")
 }
 
-function parseMemberTable(table: cheerio.Cheerio<cheerio.Element>, $: cheerio.CheerioAPI): ParsedMember[] {
+function parseMemberTable(table: cheerio.Cheerio<any>, $: cheerio.CheerioAPI): ParsedMember[] {
   const members: ParsedMember[] = []
   table.find("tbody tr").each((_, el) => {
     const cells = $(el).find('td[role="gridcell"]')
@@ -163,7 +163,7 @@ function parseMemberTable(table: cheerio.Cheerio<cheerio.Element>, $: cheerio.Ch
   return members
 }
 
-function parseEgressosFromTable(table: cheerio.Cheerio<cheerio.Element>, $: cheerio.CheerioAPI): ParsedEgresso[] {
+function parseEgressosFromTable(table: cheerio.Cheerio<any>, $: cheerio.CheerioAPI): ParsedEgresso[] {
   const egressos: ParsedEgresso[] = []
   table.find("tbody tr").each((_, el) => {
     const cells = $(el).find('td[role="gridcell"]')
