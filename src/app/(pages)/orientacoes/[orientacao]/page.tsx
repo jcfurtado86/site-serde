@@ -118,7 +118,7 @@ function OrientacaoDetails({ tcc }: { tcc: any }) {
                     className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800"
                   >
                     <ExternalLink size={24} className="text-teal-500" />
-                    {doc.name} ({getDocType(doc.type)})
+                    {doc.name}
                   </Link>
                 ))}
               </div>

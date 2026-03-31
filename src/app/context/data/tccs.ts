@@ -241,7 +241,7 @@ export const tccs: TCCProps[] = [
     keywords: "Jogos Digitais, Programação Básica - Ensino, Ferramentas de Ensino",
     degree: "Graduação",
     documentation: [
-      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br:80/jspui/handle/123456789/1741" },
+      { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/1741" },
     ],
   },
   {
@@ -424,7 +424,7 @@ export const tccs: TCCProps[] = [
     keywords: "Software - Reuso, Software - Mapeamento estrutural, Desenvolvimento de software - Reutilização, Engenharia de software",
     degree: "Graduação",
     documentation: [
-      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br:80/jspui/handle/123456789/735" },
+      { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/735" },
     ],
   },
   {
@@ -451,7 +451,7 @@ export const tccs: TCCProps[] = [
     keywords: "Engenharia de software, Engenheiro de software - Formação profissional, Soft Skills, Engenharia de software - Competências profissionais",
     degree: "Graduação",
     documentation: [
-      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br:80/jspui/handle/123456789/737" },
+      { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/737" },
     ],
   },
   {
@@ -466,20 +466,23 @@ export const tccs: TCCProps[] = [
     keywords: "Sistema de software - Desenvolvimento, Sistema de controle de versão, Controle de versão - Flexibilidade, Engenharia de software - Desenvolvimento",
     degree: "Graduação",
     documentation: [
-      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br:80/jspui/handle/123456789/734" },
+      { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/734" },
     ],
   },
   {
     title:
       "Proj-o-poly: Um Jogo para o Ensino de Gerenciamento de Projetos em Disciplinas de Engenharia de Software",
-    description: "",
+    description: "O Gerenciamento de Projetos se propõe a aplicar conhecimentos e técnicas no andamento do projeto, a fim de cumprir seus requisitos. Sabendo-se da relevância do Gerenciamento de Projetos na engenharia de software, e consequentemente no desenvolvimento de software, é de suma importância que o ensino de tal área no meio acadêmico seja eficiente. Em geral, essas áreas são ensinadas na academia de forma tradicional, teórica e centradas no professor. Dessa forma, causando nos acadêmicos a sensação de que tais áreas são chatas e monótonas; e acarretando assim na pouca assimilação desses conteúdos. Já a indústria de desenvolvimento de software, aponta que a maioria dos projetos de software não são entregues no prazo ou dentro do orçamento. No contexto do ensino do Gerenciamento dos Projetos em sala de aula, os jogos podem ser uma importante ferramenta para a complementação do aprendizado dos alunos. Jogos possuem a característica lúdica, o que faz com que os alunos se divirtam enquanto aprendem. Partindo dessas premissas, o presente trabalho tem como objetivo a criação de um jogo de tabuleiro que sirva como material de apoio a disciplina de Gerenciamento de Projetos, apoiando-se nas recomendações do Guia PMBOK (Project Management Body of Knowledge). O jogo será aplicado a alunos que estejam cursando a disciplina de Engenharia de Software e será avaliado através de questionários.",
     link: "proj-o-poly-um-jogo-para-o-ensino-de-gerenciamento-de-projet",
     status: "Finalizado",
     students: ["Carlos Eduardo Brito da Silva dos Santos"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2020",
-    keywords: "",
+    keywords: "Engenharia de software, Gerenciamento de projetos - Software, Jogos - Aprendizado, Jogos de tabuleiro",
     degree: "Graduação",
+    documentation: [
+      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br/handle/123456789/731" },
+    ],
   },
   {
     title:
@@ -493,7 +496,7 @@ export const tccs: TCCProps[] = [
     keywords: "Engenharia de software - Mercado de trabalho, Engenharia de software - Oferta de emprego, Engenharia de software - Empregabilidade",
     degree: "Graduação",
     documentation: [
-      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br:80/jspui/handle/123456789/733" },
+      { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/733" },
     ],
   },
   {
@@ -508,7 +511,7 @@ export const tccs: TCCProps[] = [
     keywords: "Engenharia de software, Engenharia - Estudo e ensino, Engenharia didática, Aprendizagem - Métodos alternativos ensino de - Engenharia",
     degree: "Graduação",
     documentation: [
-      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br:80/jspui/handle/123456789/1330" },
+      { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/1330" },
     ],
   },
   {

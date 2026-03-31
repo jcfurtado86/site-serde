@@ -23,7 +23,9 @@ interface DSpaceItem {
 }
 
 async function searchRepository(title: string): Promise<DSpaceItem | null> {
-  const query = encodeURIComponent(title)
+  // Remove special chars that break DSpace search (hyphens, colons, etc.)
+  const cleanTitle = title.replace(/[:\-–—]/g, " ").replace(/\s+/g, " ").trim()
+  const query = encodeURIComponent(cleanTitle)
   const url = `${API_BASE}/discover/search/objects?query=${query}&dsoType=ITEM&scope=${COMMUNITY_SCOPE}&size=5`
 
   try {
@@ -104,10 +106,12 @@ async function main() {
         allTccs[idx].keywords = subjects.join(", ")
       }
       if (uri) {
+        // Normalize URI: remove /jspui and port from old DSpace URLs
+        const normalizedUri = uri.replace(/:80/, "").replace("/jspui/handle/", "/handle/")
         const docs = allTccs[idx].documentation || []
         const alreadyHasRepo = docs.some((d) => d.link.includes("repositorio.unifap.br"))
         if (!alreadyHasRepo) {
-          docs.push({ name: "Repositório UNIFAP", type: "article", link: uri })
+          docs.push({ name: "Repositório UNIFAP", type: "article", link: normalizedUri })
           allTccs[idx].documentation = docs
         }
       }
