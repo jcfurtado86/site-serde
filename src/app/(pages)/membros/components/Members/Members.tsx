@@ -61,7 +61,7 @@ export function Members({ members, title, className = "bg-gradient-to-b from-gra
                     </span>
                   </div>
                 )}
-                {title === t("members.students") && (
+                {title.startsWith(t("members.students")) && (
                   <div className="absolute bottom-3 z-10 flex w-full">
                     <span
                       className={`mx-auto w-fit ${member.degree === "Master"
