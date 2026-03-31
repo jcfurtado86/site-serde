@@ -40,6 +40,7 @@ export function ResearchLineList({ className }: { className?: string }) {
     t("research_lines.software_engineering"),
     t("research_lines.hci"),
     t("research_lines.methods_processes"),
+    t("research_lines.interactive_tech"),
   ]
 
   return <ResearchLine title={t("research_lines.title")} items={items} className={className} />
