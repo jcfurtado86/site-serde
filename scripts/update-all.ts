@@ -13,6 +13,7 @@ function run(label: string, command: string) {
 
 run("Atualizando membros (CNPq DGP)", "npx tsx scripts/update-members.ts")
 run("Atualizando publicações e orientações (Lattes)", "npx tsx scripts/update-lattes.ts")
+run("Enriquecendo orientações (Repositório UNIFAP)", "npx tsx scripts/update-repository.ts")
 
 console.log(`\n${"=".repeat(50)}`)
 console.log("  Tudo atualizado!")

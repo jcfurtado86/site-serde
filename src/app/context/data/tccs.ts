@@ -232,14 +232,17 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Uma Análise da Aplicação de Jogos para Ensino de Programação Básica a Partir de um Mapeamento Sistemático da Literatura",
-    description: "",
+    description: "Este artigo realiza um mapeamento sistemático sobre o uso de jogos digitais no ensino de programação, analisando publicações de 2013 a 2024. O estudo busca identificar quais jogos são utilizados para ensinar conceitos de programação e em quais áreas esses jogos têm impacto educacional. Utilizando critérios rigorosos de inclusão e exclusão, a pesquisa selecionou artigos em bases como ACM Digital Library e IEEE Xplore. O mapeamento identificou 49 jogos voltados para o ensino de programação, com predominância de gêneros como indie, educativos e de simulação, disponíveis em plataformas como Windows, MacOS, Linux e web. As áreas de conhecimento cobertas pelos jogos incluem lógica de programação, manipulação de dados, sintaxe, funções, e debugging, promovendo o desenvolvimento dessas habilidades em um ambiente motivador. Os resultados sugerem que os jogos digitais são ferramentas eficazes para engajar estudantes e facilitar o aprendizado de conceitos abstratos em programação. Oferecendo prática interativa e feedback imediato, esses jogos complementam métodos de ensino tradicionais, tornando o aprendizado mais acessível e dinâmico. A pesquisa conclui que a integração de jogos no ensino de programação pode aumentar o interesse dos alunos e apoiar a assimilação de conteúdos complexos. Além disso, recomenda-se a continuidade de estudos sobre o impacto de jogos em habilidades de longo prazo, visando adaptar essas ferramentas a diferentes níveis educacionais e contextos de ensino.",
     link: "uma-analise-da-aplicacao-de-jogos-para-ensino-de-programacao",
     status: "Finalizado",
     students: ["Alexsandro Nascimento Callins", "Davi Alberto Correa do Carmo"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
-    keywords: "",
+    keywords: "Jogos Digitais, Programação Básica - Ensino, Ferramentas de Ensino",
     degree: "Graduação",
+    documentation: [
+      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br:80/jspui/handle/123456789/1741" },
+    ],
   },
   {
     title:
@@ -412,14 +415,17 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Uma Proposta de Identificação de Componentes Reutilizáveis Baseada em Interações de Classes",
-    description: "",
+    description: "A engenharia de software baseado em componentes reutilizáveis tem por objetivo \nprincipal o reuso de software, para isso ela aplica o processo reutilização utilizando partes \nde softwares. Essa prática possibilita a economia de recursos, simplifica modificações e \nimplantações. Visando nos benefícios deste processo, este trabalho apresenta uma \nproposta de metodologia para seleção de classe com potencial de reutilização. A \nmetodologia tem como recursos para identificação a engenharia reserva, que gera \ndiagramas de classe possibilitando o mapeamento estrutural do software, a contabilização \nde interações entre as classes e a aplicação do conceito de estatístico do desvio padrão, \npara identificar as classes singulares dentro do conjunto. Esta pesquisa tem como objetivo \nabordar detalhadamente sua elaboração, contribuir para a evolução do processo de reuso \nno desenvolvimento de softwares e destacar a importância deste ramo da engenharia de \nsoftware.",
     link: "uma-proposta-de-identificacao-de-componentes-reutilizaveis-b",
     status: "Finalizado",
     students: ["Gabriel Melo da Silveira"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2021",
-    keywords: "",
+    keywords: "Software - Reuso, Software - Mapeamento estrutural, Desenvolvimento de software - Reutilização, Engenharia de software",
     degree: "Graduação",
+    documentation: [
+      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br:80/jspui/handle/123456789/735" },
+    ],
   },
   {
     title:
@@ -436,26 +442,32 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Uma Análise Sobre Hard e Soft Skills na Engenharia de Software",
-    description: "",
+    description: "Este trabalho de conclusão visa realizar uma análise sobre Hard e Soft Skills na Engenharia de Software através de dados coletados via questionário próprio. Sua motivação parte do mapeamento do mercado de trabalho atual, levantamento de dificuldades encontradas por profissionais qualificados, Cursos superiores com grades curriculares atrasadas e graduados despreparados para a demanda recebida. Para tanto, segue a metodologia de coleta de informações via questionário próprio referenciado por trabalhos na mesma linha de pesquisa, em uma faixa de tempo de 20 anos e posterior análise de resultados coletados.",
     link: "uma-analise-sobre-hard-e-soft-skills-na-engenharia-de-softwa",
     status: "Finalizado",
     students: ["Juliana Leal Alves"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2021",
-    keywords: "",
+    keywords: "Engenharia de software, Engenheiro de software - Formação profissional, Soft Skills, Engenharia de software - Competências profissionais",
     degree: "Graduação",
+    documentation: [
+      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br:80/jspui/handle/123456789/737" },
+    ],
   },
   {
     title:
       "Uma Abordagem para Ajustar o Controle de Versão À Natureza das Aplicações WEB",
-    description: "",
+    description: "Este trabalho sugere uma abordagem para adequar o controle de versão à natureza das aplicações Web. Essas aplicações possuem uma natureza única e dinâmica, que envolve uma ampla diversidade de itens de configuração (p. ex. código fonte e outros documentos) e conteúdo (p. ex. texto, gráficos, imagens, áudio e vídeo). Por sua vez, o controle de versão é \numa atividade imprescindível para o desenvolvimento de sistemas de software, pois estabelece o gerenciamento de múltiplas versões de código fonte e documentos. No entanto, as estratégias \ngerais do controle de versão precisam ser adaptadas para estar em conformidade com a natureza das aplicações Web. Para atingir esse objetivo, estratégias são estabelecidas a partir do modelo \nMPS.BR e de características das aplicações Web. Em termos de metodologia, a pesquisa é feita por meio de uma análise qualitativa. Nesse cenário, a pesquisa mostra que, além do uso de estratégias para a seleção e identificação de itens de configuração, o uso de sistemas de controle de versão e o uso complementar do sistema de gerenciamento de conteúdo consiste em uma \nbase estratégica viável para adequar o controle de versão à natureza das aplicações Web.",
     link: "uma-abordagem-para-ajustar-o-controle-de-versao-a-natureza-d",
     status: "Finalizado",
     students: ["Erick da Cunha Sampaio"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2021",
-    keywords: "",
+    keywords: "Sistema de software - Desenvolvimento, Sistema de controle de versão, Controle de versão - Flexibilidade, Engenharia de software - Desenvolvimento",
     degree: "Graduação",
+    documentation: [
+      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br:80/jspui/handle/123456789/734" },
+    ],
   },
   {
     title:
@@ -472,26 +484,32 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Um Estudo Sobre as Principais Dificuldades na Empregabilidade de um Engenheiros de Software",
-    description: "",
+    description: "A Empregabilidade pode ser definida como a possibilidade de uma pessoa dominar aptidões e conhecimentos requisitados em consoante oscilação das imposições do mercado de trabalho. Dados sobre empregabilidade são importantes para obtenção de métricas que direcionam a decisão de institutos de ensino na criação de cursos, visto que estes envolvem necessidades de mercado e gastos para sua criação e manutenção. Neste contexto, o objetivo desse trabalho é aplicar um questionário que será submetido aos profissionais graduados da área de engenharia de software atuantes no Brasil. De modo a analisar aspectos que influenciam na empregabilidade do profissional, buscando sinalizar lacunas de conhecimento entre o meio acadêmico e o mercado de trabalho com o objetivo de guiar possíveis trabalhos didáticos que amenizem as carências da formação acadêmica.",
     link: "um-estudo-sobre-as-principais-dificuldades-na-empregabilidad",
     status: "Finalizado",
     students: ["Edson Monteiro Neto"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2020",
-    keywords: "",
+    keywords: "Engenharia de software - Mercado de trabalho, Engenharia de software - Oferta de emprego, Engenharia de software - Empregabilidade",
     degree: "Graduação",
+    documentation: [
+      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br:80/jspui/handle/123456789/733" },
+    ],
   },
   {
     title:
       "Uma Abordagem para o Ensino de Engenharia de Requisitos Focada no Aluno",
-    description: "",
+    description: "A Engenharia de Requisitos é uma área dentro da Engenharia de Software que se preocupa principalmente em garantir que os objetivos para o qual um software é desenvolvido sejam atendidos de maneira satisfatória ao fim da criação do produto. É necessário que o profissional que atue na Engenharia de Requisitos possua capacidades para levantar, alterar e validar requisitos para garantir que no fim do ciclo de desenvolvimento o software atenda às necessidades solicitadas. A indústria de desenvolvimento indica que os profissionais recém ingressados na área não possuem o conhecimento prático que é esperado para poder atuar como um engenheiro de requisitos, um fator que influencia nessa afirmação é o modo como a Engenharia de Requisitos é lecionada em graduações na área de computação, muita das vezes ensinada através de uma abordagem tradicional de ensino. Nesse contexto, este trabalho tem como intuito contribuir com o ensino de Engenharia de Requisitos com uma proposta de abordagem de ensino que faz uso de estratégias focadas no aluno para o desenvolvimento de competências esperadas pela indústria. Para criar a abordagem, foi feita a identificação das competências através do CMMI-DEV. Os resultados obtidos são analisados de maneira que seja possível identificar o que pode ser melhorado na abordagem.",
     link: "uma-abordagem-para-o-ensino-de-engenharia-de-requisitos-foca",
     status: "Finalizado",
     students: ["Anderson dos Santos Guerra"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2019",
-    keywords: "",
+    keywords: "Engenharia de software, Engenharia - Estudo e ensino, Engenharia didática, Aprendizagem - Métodos alternativos ensino de - Engenharia",
     degree: "Graduação",
+    documentation: [
+      { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br:80/jspui/handle/123456789/1330" },
+    ],
   },
   {
     title:
