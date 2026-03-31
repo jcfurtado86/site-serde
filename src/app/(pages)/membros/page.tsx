@@ -12,7 +12,7 @@ export default function ProjetosPesquisa() {
   return (
     <main className="pt-20 bg-gray-50">
       <Breadcrumb items={[{ label: t("breadcrumb.members"), href: "/membros" }]} />
-      <Members members={teachers} title={`${t("members.researchers")} (${teachers.length})`} />
+      <Members members={teachers} title={t("members.researchers")} />
       <Members members={activeStudents} title={`${t("members.students")} (${activeStudents.length})`} className="bg-white" />
       <Members
         members={alumni}
