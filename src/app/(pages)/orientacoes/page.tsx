@@ -3,7 +3,9 @@
 import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
 import { useProjects } from "@/app/context/ProjectsContext"
 import Link from "next/link"
+import Image from "next/image"
 import { useLanguage } from "@/app/i18n/context"
+import type { StudentProps } from "@/app/context/types"
 
 const degreeColors: Record<string, string> = {
   Graduação: "text-orange-600 bg-orange-100 group-hover:bg-orange-200",
@@ -90,9 +92,31 @@ export default function Orientacoes() {
                 <h3 className="text-lg sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-4 group-hover:text-gray-900 group-hover:brightness-125 transition-all duration-300">
                   {locale === "en" && tcc.title_en ? tcc.title_en : tcc.title}
                 </h3>
-                <p className="text-gray-500 text-sm sm:text-base mt-auto">
-                  {tcc.students.map((s) => fuzzyResolveName(s, students)).join(", ")}
-                </p>
+                <div className="flex items-center gap-2 mt-auto">
+                  <div className="flex -space-x-2">
+                    {tcc.students.map((s, i) => {
+                      const member = students.find((m) => m.name.toLowerCase() === fuzzyResolveName(s, students).toLowerCase())
+                      return member?.imageUrl ? (
+                        <Image
+                          key={i}
+                          src={member.imageUrl}
+                          alt={member.name}
+                          width={28}
+                          height={28}
+                          className="rounded-full object-cover w-7 h-7 border-2 border-white"
+                          unoptimized
+                        />
+                      ) : (
+                        <div key={i} className="w-7 h-7 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center">
+                          <span className="text-gray-400 text-xs">{s[0]}</span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                  <span className="text-gray-500 text-sm sm:text-base">
+                    {tcc.students.map((s) => fuzzyResolveName(s, students)).join(", ")}
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
