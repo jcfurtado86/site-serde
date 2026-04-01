@@ -20,18 +20,28 @@ function fuzzyMatchMember<T extends { name: string }>(name: string, members: T[]
   // Exact match first
   const exact = members.find((m) => m.name.toLowerCase() === lower)
   if (exact) return exact
-  // Fuzzy: first + last name match, at least one shared middle part
+
   const parts = lower.split(" ")
   if (parts.length < 2) return undefined
   const first = parts[0]
   const last = parts[parts.length - 1]
-  const middleParts = new Set(parts.slice(1, -1))
+  const allParts = new Set(parts)
+
   return members.find((m) => {
     const mParts = m.name.toLowerCase().split(" ")
     if (mParts.length < 2) return false
-    if (mParts[0] !== first || mParts[mParts.length - 1] !== last) return false
-    if (middleParts.size === 0 || mParts.length <= 2) return true
-    return mParts.slice(1, -1).some((p) => middleParts.has(p))
+    // First name must match
+    if (mParts[0] !== first) return false
+    // Option 1: last name matches + shared middle part
+    if (mParts[mParts.length - 1] === last) {
+      if (allParts.size <= 2 || mParts.length <= 2) return true
+      return mParts.slice(1, -1).some((p) => allParts.has(p))
+    }
+    // Option 2: truncated name — all TCC name parts appear in member name (in order)
+    if (mParts.length > parts.length) {
+      return parts.every((p) => mParts.includes(p))
+    }
+    return false
   })
 }
 
@@ -102,27 +112,27 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
             </p>
           )}
           <div>
-            <strong className="text-gray-700 text-base">{t("guidance_detail.students")}</strong>
+            <strong className="text-gray-700">{t("guidance_detail.students")}</strong>
             <div className="flex flex-wrap gap-3 mt-2">
               {tcc.students?.map((name: string, i: number) => {
                 const member = fuzzyMatchMember(name, allStudents)
                 return (
-                  <div key={i} className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-full">
+                  <div key={i} className="flex items-center gap-3">
                     {member?.imageUrl ? (
                       <Image
                         src={member.imageUrl}
                         alt={name}
-                        width={32}
-                        height={32}
-                        className="rounded-full object-cover w-8 h-8"
+                        width={40}
+                        height={40}
+                        className="rounded-full object-cover w-10 h-10"
                         unoptimized
                       />
                     ) : (
-                      <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
                         <User size={16} className="text-gray-400" />
                       </div>
                     )}
-                    <span className="text-gray-700 text-sm">{name}</span>
+                    <span className="text-gray-700">{name}</span>
                   </div>
                 )
               })}
@@ -154,13 +164,13 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
                     alt={tcc.advisor}
                     width={32}
                     height={32}
-                    className="rounded-full object-cover w-8 h-8"
+                    className="rounded-full object-cover w-10 h-10"
                     unoptimized
                   />
                 ) : (
                   <User size={24} className="text-teal-500" />
                 )}
-                <span className="text-lg">{tcc.advisor}</span>
+                <span className="text-gray-700">{tcc.advisor}</span>
               </div>
             )
           })()}
@@ -177,7 +187,7 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
                     target="_blank"
                     href={doc.link || "#"}
                     key={index}
-                    className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800"
+                    className="flex items-center gap-2 text-blue-600 hover:text-blue-800"
                   >
                     <ExternalLink size={24} className="text-teal-500" />
                     {doc.name}
