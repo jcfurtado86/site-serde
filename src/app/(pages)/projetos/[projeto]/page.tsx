@@ -3,8 +3,9 @@ import { use } from "react"
 import { useProjects } from "@/app/context/ProjectsContext"
 import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
 import { FileProps } from "@/app/context/ProjectsContext"
-import { Lightbulb, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon } from "lucide-react"
+import { Lightbulb, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon, Calendar, Banknote } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { useLanguage } from "@/app/i18n/context"
 
 type ProjectPageProps = {
@@ -13,7 +14,7 @@ type ProjectPageProps = {
   }>
 }
 
-function ProjectDetails({ project }: { project: any }) {
+function ProjectDetails({ project, teachers, allMembers }: { project: any; teachers: { name: string; imageUrl?: string }[]; allMembers: { name: string; imageUrl?: string }[] }) {
   const { t, locale } = useLanguage()
   const l = (pt: string, en?: string) => locale === "en" && en ? en : pt
   const statusDisplayText: Record<string, string> = {
@@ -58,35 +59,62 @@ function ProjectDetails({ project }: { project: any }) {
             {l(project.title, project.title_en)}
           </h1>
 
-          <div className="mt-4 flex flex-wrap items-center gap-4">
+          <div className="mt-4 flex flex-wrap items-center gap-3">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-              <Lightbulb />
+              <Lightbulb size={16} />
               {typeDisplayText[project.type] || project.type}
             </span>
             <span
               className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${getStatusClasses()}`}
             >
-              {project.status === "Finalizado" ? <CheckCircle /> : <LoaderIcon />}
+              {project.status === "Finalizado" ? <CheckCircle size={16} /> : <LoaderIcon size={16} />}
               {statusDisplayText[project.status] || project.status}
             </span>
+            {project.period && (
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-600">
+                <Calendar size={16} />
+                {translatePeriod(project.period)}
+              </span>
+            )}
           </div>
         </header>
 
         <hr className="my-8 border-gray-200" />
 
-        <section className="flex flex-col gap-4">
-          {project.period && (
-            <p className="text-gray-700 leading-relaxed text-base">
-              <strong>{t("project_detail.period")}</strong> {translatePeriod(project.period)}
-            </p>
-          )}
+        <section className="flex flex-col gap-6">
           <p className="text-gray-700 leading-relaxed text-base">
             <strong>{t("project_detail.summary")}</strong> {l(project.description, project.description_en)}
           </p>
           {project.team && project.team.length > 0 && (
-            <p className="text-gray-700 leading-relaxed text-base">
-              <strong>{t("project_detail.team")}</strong> {project.team.join(", ")}
-            </p>
+            <div>
+              <strong className="text-gray-700">{t("project_detail.team")}</strong>
+              <div className="flex -space-x-2 mt-2">
+                {project.team.map((name: string, i: number) => {
+                  const member = allMembers.find((m) => m.name.toLowerCase() === name.toLowerCase())
+                  return (
+                    <div key={i} className="relative group/tip">
+                      {member?.imageUrl ? (
+                        <Image
+                          src={member.imageUrl}
+                          alt={name}
+                          width={36}
+                          height={36}
+                          className="rounded-full object-cover w-9 h-9 border-2 border-white"
+                          unoptimized
+                        />
+                      ) : (
+                        <div className="w-9 h-9 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center">
+                          <span className="text-gray-400 text-xs">{name[0]}</span>
+                        </div>
+                      )}
+                      <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover/tip:opacity-100 transition-opacity pointer-events-none z-10">
+                        {name}
+                      </span>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
           )}
           {project.funding && (
             <p className="text-gray-700 leading-relaxed text-base">
@@ -97,11 +125,29 @@ function ProjectDetails({ project }: { project: any }) {
 
         <hr className="my-8 border-gray-200" />
 
-        <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">{t("project_detail.responsible_professor")}</h2>
-          <div className="flex items-center gap-3 text-gray-700">
-            <User size={24} className="text-teal-500" />
-            <span className="text-lg">{project.professor}</span>
+        <section className="flex flex-col gap-6">
+          <div>
+            <strong className="text-gray-700">{t("project_detail.responsible_professor")}</strong>
+            {(() => {
+              const teacher = teachers.find((t) => t.name.toLowerCase() === project.professor.toLowerCase())
+              return (
+                <div className="flex items-center gap-3 mt-2">
+                  {teacher?.imageUrl ? (
+                    <Image
+                      src={teacher.imageUrl}
+                      alt={project.professor}
+                      width={40}
+                      height={40}
+                      className="rounded-full object-cover w-10 h-10"
+                      unoptimized
+                    />
+                  ) : (
+                    <User size={24} className="text-teal-500" />
+                  )}
+                  <span className="text-gray-700">{project.professor}</span>
+                </div>
+              )
+            })()}
           </div>
         </section>
 
@@ -133,7 +179,8 @@ function ProjectDetails({ project }: { project: any }) {
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-  const { projects } = useProjects()
+  const { projects, teachers, students } = useProjects()
+  const allMembers = [...students, ...teachers]
   const { t, locale } = useLanguage()
 
   const resolvedParams = use(params)
@@ -151,7 +198,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           },
         ]}
       />
-      {projeto && <ProjectDetails project={projeto} />}
+      {projeto && <ProjectDetails project={projeto} teachers={teachers} allMembers={allMembers} />}
     </main>
   )
 }
