@@ -3,7 +3,7 @@ import { use } from "react"
 import { useProjects } from "@/app/context/ProjectsContext"
 import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
 import { FileProps } from "@/app/context/ProjectsContext"
-import { Lightbulb, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon } from "lucide-react"
+import { GraduationCap, BookOpen, Award, BadgeCheck, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/app/i18n/context"
@@ -37,10 +37,12 @@ function fuzzyMatchMember<T extends { name: string }>(name: string, members: T[]
       if (allParts.size <= 2 || mParts.length <= 2) return true
       return mParts.slice(1, -1).some((p) => allParts.has(p))
     }
-    // Option 2: truncated name — all TCC name parts appear in member name (in order)
+    // Option 2: truncated name — all TCC name parts appear in member name
     if (mParts.length > parts.length) {
       return parts.every((p) => mParts.includes(p))
     }
+    // Option 3: name cut mid-word — member name starts with the TCC name string
+    if (m.name.toLowerCase().startsWith(lower)) return true
     return false
   })
 }
@@ -58,6 +60,14 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
     "Doutorado": t("guidance.degree_doctorate"),
     "Especialização": t("guidance.degree_specialization"),
   }
+  const degreeConfig: Record<string, { color: string; icon: React.ReactNode }> = {
+    "Graduação": { color: "bg-orange-100 text-orange-600", icon: <GraduationCap size={16} /> },
+    "Mestrado": { color: "bg-blue-100 text-blue-600", icon: <BookOpen size={16} /> },
+    "Doutorado": { color: "bg-red-100 text-red-600", icon: <Award size={16} /> },
+    "Especialização": { color: "bg-pink-100 text-pink-600", icon: <BadgeCheck size={16} /> },
+  }
+  const degree = degreeConfig[tcc.degree || "Graduação"] || degreeConfig["Graduação"]
+
   const getStatusClasses = () => {
     switch (tcc.status.toLowerCase()) {
       case "finalizado":
@@ -90,14 +100,14 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
           </h1>
 
           <div className="mt-4 flex flex-wrap items-center gap-4">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-              <Lightbulb />
+            <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${degree.color}`}>
+              {degree.icon}
               {degreeDisplayText[tcc.degree || "Graduação"] || tcc.degree}
             </span>
             <span
               className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${getStatusClasses()}`}
             >
-              {tcc.status === "Finalizado" ? <CheckCircle /> : <LoaderIcon />}
+              {tcc.status === "Finalizado" ? <CheckCircle size={16} /> : <LoaderIcon size={16} />}
               {statusDisplayText[tcc.status] || tcc.status}
             </span>
           </div>
@@ -132,7 +142,7 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
                         <User size={16} className="text-gray-400" />
                       </div>
                     )}
-                    <span className="text-gray-700">{name}</span>
+                    <span className="text-gray-700">{member?.name || name}</span>
                   </div>
                 )
               })}

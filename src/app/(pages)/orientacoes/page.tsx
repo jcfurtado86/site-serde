@@ -12,8 +12,29 @@ const degreeColors: Record<string, string> = {
   Especialização: "text-pink-600 bg-pink-100 group-hover:bg-pink-200",
 }
 
+function fuzzyResolveName(name: string, members: { name: string }[]): string {
+  const lower = name.toLowerCase()
+  const exact = members.find((m) => m.name.toLowerCase() === lower)
+  if (exact) return exact.name
+
+  const parts = lower.split(" ")
+  if (parts.length < 2) return name
+  const first = parts[0]
+  const allParts = new Set(parts)
+
+  const match = members.find((m) => {
+    const mParts = m.name.toLowerCase().split(" ")
+    if (mParts.length < 2 || mParts[0] !== first) return false
+    if (mParts[mParts.length - 1] === parts[parts.length - 1]) return true
+    if (mParts.length > parts.length && parts.every((p) => mParts.includes(p))) return true
+    if (m.name.toLowerCase().startsWith(lower)) return true
+    return false
+  })
+  return match?.name || name
+}
+
 export default function Orientacoes() {
-  const { tccs } = useProjects()
+  const { tccs, students } = useProjects()
   const { t, locale } = useLanguage()
 
   const degreeDisplayText: Record<string, string> = {
@@ -70,7 +91,7 @@ export default function Orientacoes() {
                   {locale === "en" && tcc.title_en ? tcc.title_en : tcc.title}
                 </h3>
                 <p className="text-gray-500 text-sm sm:text-base mt-auto">
-                  {tcc.students.join(", ")}
+                  {tcc.students.map((s) => fuzzyResolveName(s, students)).join(", ")}
                 </p>
               </Link>
             ))}
