@@ -12,7 +12,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Mestrado",
-    course: "Mestrado em Mestrado Profissional em Propriedade Intelectual e Tranferência de Tecnolo",
+    course: "Mestrado Profissional em Propriedade Intelectual e Tranferência de Tecnolo",
     course_en: "Professional Master's in Intellectual Property and Technology Transfer",
     title_en: "An Intelligent Platform for Management and Monitoring of Support Houses",
   },
@@ -27,7 +27,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Mestrado",
-    course: "Mestrado em Mestrado Profissional em Educação Inclusiva em Rede Nacional",
+    course: "Mestrado Profissional em Educação Inclusiva em Rede Nacional",
     course_en: "Professional Master's in Inclusive Education National Network",
     title_en: "A Gamified Approach for Teaching Geography in Special Education",
   },
@@ -42,7 +42,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Mestrado",
-    course: "Mestrado em Mestrado Profissional em Educação Inclusiva em Rede Nacional",
+    course: "Mestrado Profissional em Educação Inclusiva em Rede Nacional",
   },
   {
     title:

@@ -770,9 +770,9 @@ export function parseOrientations($: CheerioAPI, minYear: number): TCCProps[] {
         // Extract course name from text, e.g. "(Graduação em Ciência da Computação)"
         const courseMatch = text.match(/\(([^)]+)\)/)
         let course = courseMatch ? courseMatch[1].trim() : undefined
-        // Fix Lattes redundancy: "Mestrado profissional em Mestrado Profissional em X" → "Mestrado Profissional em X"
+        // Fix Lattes redundancy: "Mestrado em Mestrado Profissional em X" → "Mestrado Profissional em X"
         if (course) {
-          course = course.replace(/^Mestrado profissional em Mestrado Profissional/i, "Mestrado Profissional")
+          course = course.replace(/^Mestrado(?:\s+profissional)?\s+em\s+Mestrado\s+Profissional/i, "Mestrado Profissional")
           course = course.replace(/^Aperfeiçoamento\/Especialização em\s*/i, "Especialização em ")
         }
 
