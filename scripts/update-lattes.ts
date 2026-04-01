@@ -314,6 +314,8 @@ function mergeTccs(imported: TCCProps[], local: TCCProps[]): TCCProps[] {
         documentation: loc.documentation,
         title_en: loc.title_en,
         description_en: loc.description_en,
+        keywords_en: loc.keywords_en,
+        course_en: loc.course_en,
         link: (loc.link && loc.link !== imp.link) ? loc.link : imp.link,
       })
     } else {

@@ -4,8 +4,10 @@ export const projectsData: Project[] = [
   {
     title:
       "Projeto SERDE - Software Engineering: Research, Development and Education",
+    title_en: "SERDE Project - Software Engineering: Research, Development and Education",
     description:
       "De acordo com a ACM / IEEE, a Engenharia de Software (ES) é uma disciplina interessada na aplicação de teoria, conhecimento e prática para o desenvolvimento eficaz e eficiente de sistemas de software que atendam aos requisitos dos usuários. Apesar da importância destes conhecimentos relativos às atividades da ES, pesquisam já verificaram que os profissionais aprendem mais sobre estas atividades durante o seu trabalho do que durante a sua formação e em geral, a indústria de software sofre com a falta de profissionais qualificados para trabalhar em atividades que envolvem o processo de desenvolvimento de software. Esta dificuldade em encontrar profissionais de Ciência da Computação com domínio dos tópicos da Engenharia de Software pode estar relacionada ao tipo de formação que estes receberam durante os anos de graduação. Assim, neste contexto, este projeto tem como objetivo desenvolver metodologias e ferramentas que auxiliem na aplicação e no ensino dos conteúdos da Engenharia de Software, seja no âmbito acadêmico ou na indústria de software",
+    description_en: "According to ACM/IEEE, Software Engineering (SE) is a discipline concerned with the application of theory, knowledge, and practice for the effective and efficient development of software systems that meet user requirements. Despite the importance of this knowledge related to SE activities, research has shown that professionals learn more about these activities during their work than during their education, and in general, the software industry suffers from a lack of qualified professionals to work in activities involving the software development process. This difficulty in finding Computer Science professionals with mastery of Software Engineering topics may be related to the type of training they received during their undergraduate years. Thus, in this context, this project aims to develop methodologies and tools that assist in the application and teaching of Software Engineering content, whether in academia or in the software industry",
     professor: "Julio Cezar Costa Furtado",
     status: "Em andamento",
     type: "Pesquisa",
@@ -82,8 +84,10 @@ export const projectsData: Project[] = [
   {
     title:
       "Laboratório de Desenvolvimento de Software Aplicado ao Judiciário",
+    title_en: "Software Development Laboratory Applied to the Judiciary",
     description:
       "O projeto propõe a criação de uma laboratório em Ciência da Computação com enfoque em aplicações judrídicas, em parceria com o Judiciário, voltada para o desenvolvimento de profissionais altamente capacitados nas áreas de desenvolvimento de software, segurança de dados, DevOps, Machine Learning e Ciência de Dados. Esta formação prática e especializada ocorrerá em um ambiente, com a orientação de professores e mentores técnicos experientes. Os objetivos do programa incluem a formação de profissionais capazes de atender às demandas tecnológicas específicas do judiciário, fortalecendo a parceria entre a universidade e o órgão público. Além disso, o projeto visa proporcionar uma experiência de aprendizado imersiva e prática, preparando os alunos para enfrentar desafios reais e contribuir para a modernização do setor de justiça estadual",
+    description_en: "The project proposes the creation of a Computer Science laboratory focused on judicial applications, in partnership with the Judiciary, aimed at developing highly qualified professionals in the areas of software development, data security, DevOps, Machine Learning, and Data Science. This practical and specialized training will take place in an environment with the guidance of experienced professors and technical mentors. The program's objectives include training professionals capable of meeting the specific technological demands of the judiciary, strengthening the partnership between the university and the public agency. Additionally, the project aims to provide an immersive and practical learning experience, preparing students to face real challenges and contribute to the modernization of the state justice sector",
     professor: "Julio Cezar Costa Furtado",
     status: "Em andamento",
     type: "Extensão",
@@ -100,8 +104,10 @@ export const projectsData: Project[] = [
   {
     title:
       "Transferência de Tecnologia e Desenvolvimento de Soluções Digitais no Tribunal Regional Eleitoral do Amapá",
+    title_en: "Technology Transfer and Digital Solutions Development at the Regional Electoral Court of Amapá",
     description:
       "Viabilizar a transferência de tecnologia e a aplicação de soluções digitais desenvolvidas no contexto acadêmico da Residência Tecnológica para o Tribunal Regional Eleitoral do Amapá (TRE-AP), por meio do desenvolvimento e implantação de sistemas de software e ferramentas computacionais voltadas à modernização de processos eleitorais, administrativos e de gestão, contribuindo para a inovação institucional, eficiência operacional e capacitação tecnológica da equipe do órgão parceiro",
+    description_en: "To enable the transfer of technology and the application of digital solutions developed in the academic context of the Technology Residency to the Regional Electoral Court of Amapá (TRE-AP), through the development and deployment of software systems and computational tools aimed at modernizing electoral, administrative, and management processes, contributing to institutional innovation, operational efficiency, and technological training of the partner agency's team",
     professor: "Julio Cezar Costa Furtado",
     status: "Em andamento",
     type: "Desenvolvimento",
@@ -114,8 +120,10 @@ export const projectsData: Project[] = [
   {
     title:
       "Transferência de Tecnologia e Desenvolvimento de Soluções Digitais no Tribunal de Justiça do Amapá",
+    title_en: "Technology Transfer and Digital Solutions Development at the Court of Justice of Amapá",
     description:
       "Viabilizar a transferência de tecnologia e a aplicação de soluções digitais desenvolvidas no contexto acadêmico da Residência Tecnológica para o Tribunal de Justiça do Amapá (TJAP), por meio do desenvolvimento e implantação de sistemas de software e ferramentas computacionais voltadas à modernização de processos eleitorais, administrativos e de gestão, contribuindo para a inovação institucional, eficiência operacional e capacitação tecnológica da equipe do órgão parceiro",
+    description_en: "To enable the transfer of technology and the application of digital solutions developed in the academic context of the Technology Residency to the Court of Justice of Amapá (TJAP), through the development and deployment of software systems and computational tools aimed at modernizing judicial, administrative, and management processes, contributing to institutional innovation, operational efficiency, and technological training of the partner agency's team",
     professor: "Julio Cezar Costa Furtado",
     status: "Em andamento",
     type: "Desenvolvimento",
@@ -132,8 +140,10 @@ export const projectsData: Project[] = [
   {
     title:
       "GroceryHub: Plataforma Tecnológica para Experiência Mobile e Checkout Inteligente em Supermercados",
+    title_en: "GroceryHub: Technology Platform for Mobile Experience and Smart Checkout in Supermarkets",
     description:
       "Projeto de desenvolvimento tecnológico selecionado no segunda edição do Programa Centelha Amapá , com apoio da FINEP e da FAPEAP, voltado à criação de uma plataforma digital inovadora para supermercados, focada na melhoria da experiência do cliente e na modernização de processos de atendimento e venda. A solução integra funcionalidades de lista de compras mobile conectada à base de produtos e preços do estabelecimento, checkout rápido sem uso de caixas tradicionais e comunicação multicanal no ambiente físico e digital. O projeto incorpora técnicas de Big Data e Machine Learning para personalização de ofertas, análise de comportamento de consumo e apoio à gestão comercial. Como resultado do processo de inovação e transferência tecnológica, foi constituído o CNPJ GroceryHub, destinado à exploração e escalabilidade da solução desenvolvida",
+    description_en: "A technological development project selected in the second edition of the Centelha Amapá Program, with support from FINEP and FAPEAP, aimed at creating an innovative digital platform for supermarkets, focused on improving customer experience and modernizing service and sales processes. The solution integrates mobile shopping list functionalities connected to the establishment's product and price database, fast checkout without traditional cash registers, and multichannel communication in both physical and digital environments. The project incorporates Big Data and Machine Learning techniques for offer personalization, consumer behavior analysis, and commercial management support. As a result of the innovation and technology transfer process, GroceryHub was established as a company for the exploitation and scalability of the developed solution",
     professor: "Julio Cezar Costa Furtado",
     status: "Finalizado",
     type: "Desenvolvimento",

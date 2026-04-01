@@ -101,7 +101,7 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
             {l(tcc.title, tcc.title_en)}
           </h1>
           {tcc.course && (
-            <p className="mt-2 text-gray-600 text-lg font-medium">{tcc.course}</p>
+            <p className="mt-2 text-gray-600 text-lg font-medium">{l(tcc.course, tcc.course_en)}</p>
           )}
 
           <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -192,7 +192,7 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
             <div>
               <strong className="text-gray-700">{t("guidance_detail.keywords")}</strong>
               <div className="flex flex-wrap gap-2 mt-2">
-                {tcc.keywords.split(",").map((kw: string, i: number) => (
+                {l(tcc.keywords, tcc.keywords_en).split(",").map((kw: string, i: number) => (
                   <span key={i} className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">
                     {kw.trim()}
                   </span>

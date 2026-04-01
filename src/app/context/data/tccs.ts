@@ -4,6 +4,7 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Uma Plataforma Inteligente para Gestão e Monitoramento de Casas de Apoio",
+    title_en: "An Intelligent Platform for Management and Monitoring of Support Houses",
     description: "",
     link: "uma-plataforma-inteligente-para-gestao-e-monitoramento-de-ca",
     status: "Em andamento",
@@ -13,10 +14,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Mestrado",
     course: "Mestrado Profissional em Propriedade Intelectual e Tranferência de Tecnolo",
+    course_en: "Professional Master's in Intellectual Property and Technology Transfer",
   },
   {
     title:
       "Uma Abordagem Gamificada para o Ensino de Geografia na Educação Especial",
+    title_en: "A Gamified Approach for Teaching Geography in Special Education",
     description: "",
     link: "uma-abordagem-gamificada-para-o-ensino-de-geografia-na-educa",
     status: "Em andamento",
@@ -26,10 +29,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Mestrado",
     course: "Mestrado Profissional em Educação Inclusiva em Rede Nacional",
+    course_en: "Professional Master's in Inclusive Education National Network",
   },
   {
     title:
       "Avaliação de Usabilidade da Página WEB do Detran-ap",
+    title_en: "Usability Evaluation of the Detran-AP Website",
     description: "",
     link: "avaliacao-de-usabilidade-da-pagina-web-do-detran-ap",
     status: "Em andamento",
@@ -39,10 +44,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Reactify: Uma Plataforma para Gestão Ágil de Requisitos de Software",
+    title_en: "Reactify: A Platform for Agile Software Requirements Management",
     description: "",
     link: "reactify-uma-plataforma-para-gestao-agil-de-requisitos-de-so",
     status: "Em andamento",
@@ -52,10 +59,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Serious Game para Treinamento de Entrevistas de Descoberta de Requisitos",
+    title_en: "Serious Game for Requirements Elicitation Interview Training",
     description: "",
     link: "serious-game-para-treinamento-de-entrevistas-de-descoberta-d",
     status: "Em andamento",
@@ -65,10 +74,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Um Estudo Sobre Competências Exigidas Pelo Mercado para Engenheiros de Software",
+    title_en: "A Study on Market-Required Competencies for Software Engineers",
     description: "",
     link: "um-estudo-sobre-competencias-exigidas-pelo-mercado-para-enge",
     status: "Em andamento",
@@ -78,10 +89,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Fatores, Desafios e Benefícios da Adoção de Software Open Source em Órgãos Públicos",
+    title_en: "Factors, Challenges and Benefits of Open Source Software Adoption in Public Agencies",
     description: "",
     link: "fatores-desafios-e-beneficios-da-adocao-de-software-open-sou",
     status: "Em andamento",
@@ -91,10 +104,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Um Jogo Sério para Ensino dos Conceitos Fundamentais de Git",
+    title_en: "A Serious Game for Teaching Fundamental Git Concepts",
     description: "",
     link: "um-jogo-serio-para-ensino-dos-conceitos-fundamentais-de-git",
     status: "Em andamento",
@@ -104,10 +119,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Uma Plataforma Digital para Apoio À Doação Consciente de Medicamentos",
+    title_en: "A Digital Platform to Support Conscious Medication Donation",
     description: "",
     link: "uma-plataforma-digital-para-apoio-a-doacao-consciente-de-med",
     status: "Em andamento",
@@ -117,10 +134,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Uma Plataforma de Match Entre Consumidores, Empresas e Ofertas",
+    title_en: "A Matching Platform Between Consumers, Companies and Deals",
     description: "",
     link: "uma-plataforma-de-match-entre-consumidores-empresas-e-oferta",
     status: "Em andamento",
@@ -130,10 +149,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Aplicativo Inteligente para Leitura e Gestão Automatizada de Receitas Médicas",
+    title_en: "Intelligent Application for Automated Reading and Management of Medical Prescriptions",
     description: "",
     link: "aplicativo-inteligente-para-leitura-e-gestao-automatizada-de",
     status: "Em andamento",
@@ -143,10 +164,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Análise da Experiência de Usuários com Deficiência Visual em Páginas WEB",
+    title_en: "Analysis of the Experience of Visually Impaired Users on Web Pages",
     description: "",
     link: "analise-da-experiencia-de-usuarios-com-deficiencia-visual-em",
     status: "Em andamento",
@@ -156,10 +179,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Controle Automatizado de Presença Escolar por Meio de Plataforma Digital",
+    title_en: "Automated School Attendance Control Through a Digital Platform",
     description: "",
     link: "controle-automatizado-de-presenca-escolar-por-meio-de-plataf",
     status: "Em andamento",
@@ -169,10 +194,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Sistema Inteligente de Apoio À Tomaa de Decisão Orçamentária em Órgão Público Estadual",
+    title_en: "Intelligent System for Budget Decision Support in a State Public Agency",
     description: "",
     link: "sistema-inteligente-de-apoio-a-tomaa-de-decisao-orcamentaria",
     status: "Em andamento",
@@ -182,10 +209,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Uma Proposta de Metodologia Ativa para o Ensino de Engenharia de Software",
+    title_en: "A Proposal for Active Methodology in Software Engineering Education",
     description: "",
     link: "uma-proposta-de-metodologia-ativa-para-o-ensino-de-engenhari",
     status: "Em andamento",
@@ -195,10 +224,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Plataforma Digital para Mediação de Atendimentos Psicológicos",
+    title_en: "Digital Platform for Mediating Psychological Care Services",
     description: "",
     link: "plataforma-digital-para-mediacao-de-atendimentos-psicologico",
     status: "Em andamento",
@@ -208,10 +239,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Diretrizes Éticas para o Uso de Inteligência Artificial em Cursos de Computação",
+    title_en: "Ethical Guidelines for the Use of Artificial Intelligence in Computer Science Courses",
     description: "",
     link: "diretrizes-eticas-para-o-uso-de-inteligencia-artificial-em-c",
     status: "Em andamento",
@@ -221,10 +254,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Relato de Experiência da Residência Tecnológica no Tribunal de Justiça do Amapá",
+    title_en: "Experience Report of the Technology Residency at the Amapá Court of Justice",
     description: "",
     link: "relato-de-experiencia-da-residencia-tecnologica-no-tribunal-",
     status: "Em andamento",
@@ -234,19 +269,24 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Trabori La Monton Granitan: Criação de um Site para Ensinar Esperanto em Modalidade Assíncrona",
+    title_en: "Trabori La Monton Granitan: Creating a Website for Teaching Esperanto in Asynchronous Mode",
     description: "O Esperanto é uma língua auxiliar criada artificialmente por Lázaro Luís Zamenhof, com o objetivo de ser uma língua neutra e de fácil aprendizado. Desde a publicação de sua obra inaugural, em 1887, a comunidade esperantista atravessou diferentes períodos históricos, alternando momentos de expansão e de perseguição institucional, mas a persistência de seus falantes permitiu que a lingvo internacia fosse transmitida entre gerações e continue a atrair novos estudantes. Embora possua alcance internacional, o número relativamente reduzido de falantes caracteriza o Esperanto também como uma língua minoritária, o que implica riscos, ainda que moderados, à sua continuidade. Nesse contexto, o ensino da língua configura-se como uma estratégia relevante para a preservação e o fortalecimento da comunidade esperantista. Com o advento da Internet, os processos de aprendizagem do Esperanto passaram a ocorrer, em grande medida, por meio de cursos on-line voltados a autodidatas, frequentemente sem o acompanhamento de tutores. Diante das limitações e queixas relatadas por estudantes nesse modelo de ensino, este trabalho tem como objetivo propor um site de conteúdo educacional para o ensino de Esperanto, concebido a partir de metodologias contemporâneas de ensino de línguas e adaptado ao meio digital. A proposta envolve a definição da estrutura do site, da organização do conteúdo didático e da concepção de suas principais telas, com foco nas necessidades da comunidade esperantista e de aprendizes iniciantes. Ressalta-se que o escopo do trabalho se limita à concepção e modelagem da proposta, não abrangendo a implementação completa nem a validação empírica do sistema.",
+    description_en: "Esperanto is an auxiliary language artificially created by Lazarus Louis Zamenhof, with the goal of being a neutral and easy-to-learn language. Since the publication of its inaugural work in 1887, the Esperanto community has traversed different historical periods, alternating between moments of expansion and institutional persecution, but the persistence of its speakers allowed the lingvo internacia to be transmitted across generations and continue attracting new students. Although it has international reach, the relatively small number of speakers also characterizes Esperanto as a minority language, which implies risks, albeit moderate, to its continuity. In this context, language teaching is configured as a relevant strategy for the preservation and strengthening of the Esperanto community. With the advent of the Internet, Esperanto learning processes have largely taken place through online courses aimed at self-learners, often without tutor guidance. Given the limitations and complaints reported by students in this teaching model, this work aims to propose an educational content website for teaching Esperanto, designed based on contemporary language teaching methodologies and adapted to the digital medium. The proposal involves defining the site structure, organizing the didactic content, and designing its main screens, focusing on the needs of the Esperanto community and beginner learners. It should be noted that the scope of the work is limited to the design and modeling of the proposal, not encompassing full implementation or empirical validation of the system.",
     link: "trabori-la-monton-granitan-criacao-de-um-site-para-ensinar-e",
     status: "Finalizado",
     students: ["Carlos Alberto Barbosa de Almeida Junior"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
     keywords: "Esperanto, Revitalização linguística, Programação para Internet, Ensino de Língua Estrangeira, Línguas minoritárias, Línguas construídas",
+    keywords_en: "Esperanto, Linguistic revitalization, Web programming, Foreign language teaching, Minority languages, Constructed languages",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/trabori-la-monton-granitan.pdf" },
     ],
@@ -254,15 +294,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Uma Análise da Aplicação de Jogos para Ensino de Programação Básica a Partir de um Mapeamento Sistemático da Literatura",
+    title_en: "An Analysis of the Application of Games for Teaching Basic Programming Through a Systematic Literature Mapping",
     description: "Este artigo realiza um mapeamento sistemático sobre o uso de jogos digitais no ensino de programação, analisando publicações de 2013 a 2024. O estudo busca identificar quais jogos são utilizados para ensinar conceitos de programação e em quais áreas esses jogos têm impacto educacional. Utilizando critérios rigorosos de inclusão e exclusão, a pesquisa selecionou artigos em bases como ACM Digital Library e IEEE Xplore. O mapeamento identificou 49 jogos voltados para o ensino de programação, com predominância de gêneros como indie, educativos e de simulação, disponíveis em plataformas como Windows, MacOS, Linux e web. As áreas de conhecimento cobertas pelos jogos incluem lógica de programação, manipulação de dados, sintaxe, funções, e debugging, promovendo o desenvolvimento dessas habilidades em um ambiente motivador. Os resultados sugerem que os jogos digitais são ferramentas eficazes para engajar estudantes e facilitar o aprendizado de conceitos abstratos em programação. Oferecendo prática interativa e feedback imediato, esses jogos complementam métodos de ensino tradicionais, tornando o aprendizado mais acessível e dinâmico. A pesquisa conclui que a integração de jogos no ensino de programação pode aumentar o interesse dos alunos e apoiar a assimilação de conteúdos complexos. Além disso, recomenda-se a continuidade de estudos sobre o impacto de jogos em habilidades de longo prazo, visando adaptar essas ferramentas a diferentes níveis educacionais e contextos de ensino.",
+    description_en: "This article presents a systematic mapping on the use of digital games in programming education, analyzing publications from 2013 to 2024. The study seeks to identify which games are used to teach programming concepts and in which areas these games have educational impact. Using rigorous inclusion and exclusion criteria, the research selected articles from databases such as ACM Digital Library and IEEE Xplore. The mapping identified 49 games aimed at teaching programming, with a predominance of indie, educational, and simulation genres, available on platforms such as Windows, MacOS, Linux, and web. The knowledge areas covered by the games include programming logic, data manipulation, syntax, functions, and debugging, promoting the development of these skills in a motivating environment. The results suggest that digital games are effective tools for engaging students and facilitating the learning of abstract programming concepts. By offering interactive practice and immediate feedback, these games complement traditional teaching methods, making learning more accessible and dynamic. The research concludes that integrating games into programming education can increase student interest and support the assimilation of complex content. Furthermore, continued studies on the impact of games on long-term skills are recommended, aiming to adapt these tools to different educational levels and teaching contexts.",
     link: "uma-analise-da-aplicacao-de-jogos-para-ensino-de-programacao",
     status: "Finalizado",
     students: ["Alexsandro Nascimento Callins", "Davi Alberto Correa do Carmo"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
     keywords: "Jogos Digitais, Programação Básica - Ensino, Ferramentas de Ensino",
+    keywords_en: "Digital Games, Basic Programming - Teaching, Teaching Tools",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/1741" },
     ],
@@ -270,15 +314,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Wisdowkeeper: Uma Ferramenta WEB Fullstack de Gestão de Conhecimento para Auxiliar Estagiários a Solucionar Problemas Recorrentes Envolvendo Sistemas ERP",
+    title_en: "Wisdowkeeper: A Fullstack Web Knowledge Management Tool to Help Interns Solve Recurring Problems Involving ERP Systems",
     description: "Este trabalho tem como objetivo auxiliar estagiários e profissionais de Tecnologia da Informação na resolução de problemas recorrentes em sistemas Enterprise Resource Planning (ERP), por meio do desenvolvimento de uma ferramenta de gestão do conhecimento. A pesquisa parte da constatação de que a ausência de registros estruturados de soluções dificulta o aprendizado dos estagiários, compromete a produtividade organizacional e aumenta o retrabalho. A proposta busca centralizar e organizar o conhecimento tácito e explícito adquirido em atividades práticas, permitindo consultas rápidas e reutilização de soluções previamente documentadas. Para isso, foram aplicados conceitos e modelos consagrados de gestão do conhecimento, como o modelo SECI, o ciclo de vida do conhecimento de Wiig e o conceito de Ba. A metodologia adotada foi a pesquisa-ação, dividida em etapas que incluem levantamento bibliográfico, identificação dos principais problemas enfrentados por estagiários em ambientes de ERP, desenvolvimento da ferramenta e avaliação por meio de testes práticos. Espera-se que a solução proposta contribua para a melhoria da curva de aprendizado dos estagiários, aumente a eficiência operacional das organizações e ofereça um modelo replicável de gestão do conhecimento aplicável a diferentes contextos tecnológicos.",
+    description_en: "This work aims to assist interns and Information Technology professionals in solving recurring problems in Enterprise Resource Planning (ERP) systems through the development of a knowledge management tool. The research stems from the observation that the absence of structured solution records hinders intern learning, compromises organizational productivity, and increases rework. The proposal seeks to centralize and organize tacit and explicit knowledge acquired in practical activities, enabling quick queries and reuse of previously documented solutions. To this end, established knowledge management concepts and models were applied, such as the SECI model, Wiig's knowledge lifecycle, and the concept of Ba. The methodology adopted was action research, divided into stages including literature review, identification of the main problems faced by interns in ERP environments, tool development, and evaluation through practical tests. The proposed solution is expected to contribute to improving the learning curve of interns, increasing organizational operational efficiency, and offering a replicable knowledge management model applicable to different technological contexts.",
     link: "wisdowkeeper-uma-ferramenta-web-fullstack-de-gestao-de-conhe",
     status: "Finalizado",
     students: ["Eduardo Teixeira Flexa", "Patrick Miranda dos Santos"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
     keywords: "Gestão do conhecimento, ERP, Estagiários de TI, Ferramenta de software",
+    keywords_en: "Knowledge management, ERP, IT interns, Software tool",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/wisdowkeeper.pdf" },
     ],
@@ -286,15 +334,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Edugames: Um Catálogo Online de Jogos Digitais Educativos para o Ensino de Computação",
+    title_en: "Edugames: An Online Catalog of Educational Digital Games for Computer Science Education",
     description: "Por muito tempo a educação seguiu um modelo antigo e passou por poucas adaptações ao longo das décadas. Por outro lado, a tecnologia se manteve em constante evolução, trazendo novas ferramentas e consequente novas formas de ensinar. Uma dessas novas formas foram os jogos digitais, que promovem um aprendizado ativo e gamificado, engajando mais os estudantes na aquisição de conhecimentos. Ao analisar as alternativas de jogos digitais disponíveis, percebe-se que apesar de haver bons títulos voltados para o ensino áreas da computação, há ainda a falta de um meio que centralize e promova a descoberta desses jogos que poderiam auxiliar o estudante no aprendizado, restando a ele fazer buscas e testes por conta própria. Buscando facilitar a busca e descoberta de jogos digitais que auxiliem no ensino e aprendizado de áreas da computação, foi desenvolvida uma plataforma web sob o framework Express js, tecnologias Javascript e banco de dados PostgreSQL, que reúne e organiza os jogos dessa área, oferecendo filtros e ferramenta de busca.",
+    description_en: "For a long time, education followed an old model and underwent few adaptations over the decades. On the other hand, technology has been in constant evolution, bringing new tools and consequently new ways of teaching. One of these new approaches was digital games, which promote active and gamified learning, further engaging students in knowledge acquisition. When analyzing the available digital game alternatives, it becomes apparent that although there are good titles aimed at teaching computer science areas, there is still a lack of a means to centralize and promote the discovery of these games that could assist students in learning, leaving them to search and test on their own. Seeking to facilitate the search and discovery of digital games that aid in teaching and learning computer science areas, a web platform was developed using the Express.js framework, JavaScript technologies, and PostgreSQL database, which gathers and organizes games in this area, offering filters and a search tool.",
     link: "edugames-um-catalogo-online-de-jogos-digitais-educativos-par",
     status: "Finalizado",
     students: ["Eduardo Rodrigues Nogueira"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
     keywords: "Jogo Digital, Educação, Plataforma Web, Site, Computação",
+    keywords_en: "Digital Game, Education, Web Platform, Website, Computing",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/edugames.pdf" },
     ],
@@ -302,15 +354,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Mapeamento Sistemático de Técnicas Emergentes de Pré- Processamento para Mitigação de Viés em Dados de Treinamento",
+    title_en: "Systematic Mapping of Emerging Pre-Processing Techniques for Bias Mitigation in Training Data",
     description: "O presente trabalho apresenta um mapeamento sistemático da literatura que identifica técnicas emergentes de mitigação de viés em dados de treinamento para aprendizado de máquina, aplicadas durante o pré-processamento, entre o período de 2020 e 2024. Dada a crescente popularidade do campo de estudo de inteligência artificial e de diferentes áreas dependerem cada vez mais desses modelos, é fundamental o controle e monitoramento dos vieses presentes em meio a estes. A pesquisa teve como base metodológica os critérios estabelecidos por Kitchenham e Charters (2007), com string de busca refinada e definição de critérios de inclusão/exclusão aplicados sobre as bases IEEE Xplore e ACM Digital Library. 85 estudos primários foram analisados, resultando em 244 técnicas identificadas, classificadas em sete categorias principais, sendo estas: balanceamento de dados, transformação de labels, modificação de atributos sensíveis, reponderação, geradores de dados justos, censura de score/feature e normalização e transformações de feature. Os resultados apontam para uma crescente adoção de abordagens híbridas e relevantes ao contexto, além da utilização de múltiplas métricas para a avaliação do desempenho e equidade. O estudo conclui que o pré-processamento permanecerá como uma etapa crítica para a construção de sistemas mais justos, e que a vigilância contínua das técnicas emergentes é essencial para o avanço ético e técnico da área.",
+    description_en: "This work presents a systematic literature mapping that identifies emerging bias mitigation techniques in training data for machine learning, applied during pre-processing, between 2020 and 2024. Given the growing popularity of the artificial intelligence field and the increasing dependence of different areas on these models, controlling and monitoring biases present within them is fundamental. The research was methodologically based on the criteria established by Kitchenham and Charters (2007), with a refined search string and definition of inclusion/exclusion criteria applied to the IEEE Xplore and ACM Digital Library databases. 85 primary studies were analyzed, resulting in 244 identified techniques classified into seven main categories: data balancing, label transformation, sensitive attribute modification, reweighting, fair data generators, score/feature censoring, and feature normalization and transformations. The results point to a growing adoption of hybrid and context-relevant approaches, as well as the use of multiple metrics for evaluating performance and fairness. The study concludes that pre-processing will remain a critical step for building fairer systems, and that continuous monitoring of emerging techniques is essential for the ethical and technical advancement of the field.",
     link: "mapeamento-sistematico-de-tecnicas-emergentes-de-pre-process",
     status: "Finalizado",
     students: ["Marco Antonio da Silva Neves Filho"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
     keywords: "Mitigação de Viés, Viés em Aprendizado de Máquina, Aprendizado de Máquina Justo, Pré-processamento de Dados, Equidade Algorítmica, Técnicas Emergentes, Mapeamento Sistemático",
+    keywords_en: "Bias Mitigation, Bias in Machine Learning, Fair Machine Learning, Data Pre-processing, Algorithmic Fairness, Emerging Techniques, Systematic Mapping",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/mapeamento-vies.pdf" },
     ],
@@ -318,15 +374,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Estudo Experimental Sobre o Uso de Chatbots na Recuperação de Informações por Profissionais Juniores no Processo de Desenvolvimento de Software",
+    title_en: "Experimental Study on the Use of Chatbots for Information Retrieval by Junior Professionals in the Software Development Process",
     description: "A complexidade dos processos de software apresenta desafios para profissionais juniores, que frequentemente encontram dificuldades na recuperação de informações e assimilação de fluxos de trabalho. Métodos tradicionais, como documentações extensas e suporte de profissionais experientes, podem ser ineficientes, resultando em aumento do tempo de execução de tarefas e inconsistências nas entregas. Neste contexto, assistentes virtuais baseados em inteligência artificial, como ChatBots, surgem como alternativa para otimizar a recuperação de informações e melhorar a produtividade desses profissionais. Este trabalho investiga a eficácia do uso de ChatBots na recuperação de informações em comparação com métodos tradicionais. Foi realizado um experimento controlado dividido em um Grupo Experimental, que utilizou um ChatBot, e um Grupo Controle, que utilizou uma wiki institucional e o suporte de um profissional experiente. Os participantes realizaram três tarefas de diferentes níveis de dificuldade e responderam a um questionário de feedback. Os dados coletados foram analisados estatisticamente e qualitativamente, por meio de análise de sentimentos das respostas abertas. Os resultados indicaram que o Grupo Experimental obteve um desempenho superior ao Grupo Controle, com diferença estatisticamente significativa. A análise das percepções revelou que a abordagem baseada em ChatBot foi considerada mais ágil e acessível, embora os participantes tenham apontado a necessidade de respostas mais diretas e contextualizadas. Os achados sugerem que ChatBots podem ser uma solução eficaz para suporte a profissionais juniores, reduzindo a curva de aprendizado e aumentando a autonomia. Contudo, melhorias na geração de respostas são recomendadas para garantir maior precisão e clareza.",
+    description_en: "The complexity of software processes presents challenges for junior professionals, who frequently encounter difficulties in information retrieval and workflow assimilation. Traditional methods, such as extensive documentation and support from experienced professionals, can be inefficient, resulting in increased task execution time and delivery inconsistencies. In this context, artificial intelligence-based virtual assistants, such as ChatBots, emerge as an alternative to optimize information retrieval and improve the productivity of these professionals. This work investigates the effectiveness of using ChatBots for information retrieval compared to traditional methods. A controlled experiment was conducted divided into an Experimental Group, which used a ChatBot, and a Control Group, which used an institutional wiki and support from an experienced professional. Participants performed three tasks of different difficulty levels and answered a feedback questionnaire. The collected data were analyzed statistically and qualitatively through sentiment analysis of open-ended responses. The results indicated that the Experimental Group achieved superior performance compared to the Control Group, with a statistically significant difference. The perception analysis revealed that the ChatBot-based approach was considered more agile and accessible, although participants noted the need for more direct and contextualized responses. The findings suggest that ChatBots can be an effective solution for supporting junior professionals, reducing the learning curve and increasing autonomy. However, improvements in response generation are recommended to ensure greater precision and clarity.",
     link: "estudo-experimental-sobre-o-uso-de-chatbots-na-recuperacao-d",
     status: "Finalizado",
     students: ["Fernando Rafael Serra Neves", "João Victor Machado de Andrade"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
     keywords: "ChatBot, Recuperação de informações, Aprendizado organizacional, Engenharia de Software, Inteligência Artificial",
+    keywords_en: "ChatBot, Information retrieval, Organizational learning, Software Engineering, Artificial Intelligence",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/chatbots-recuperacao.pdf" },
     ],
@@ -334,6 +394,7 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Um Jogo de Plataforma para o Ensino de Algoritmo",
+    title_en: "A Platform Game for Teaching Algorithms",
     description: "",
     link: "um-jogo-de-plataforma-para-o-ensino-de-algoritmo",
     status: "Em andamento",
@@ -343,10 +404,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Regexmon: Um Jogo de Apoio ao Ensino de Expressões Regulares",
+    title_en: "Regexmon: A Game to Support Teaching Regular Expressions",
     description: "",
     link: "regexmon-um-jogo-de-apoio-ao-ensino-de-expressoes-regulares",
     status: "Em andamento",
@@ -356,10 +419,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Um Jogo Sério para Identificação de Bad Smells",
+    title_en: "A Serious Game for Identifying Bad Smells",
     description: "",
     link: "um-jogo-serio-para-identificacao-de-bad-smells",
     status: "Em andamento",
@@ -369,10 +434,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Um Relato de Caso Sobre as Vunerabilidades do Site de Processos Seletivos de uma Universidade Federal",
+    title_en: "A Case Report on the Vulnerabilities of a Federal University's Admission Process Website",
     description: "",
     link: "um-relato-de-caso-sobre-as-vunerabilidades-do-site-de-proces",
     status: "Em andamento",
@@ -382,10 +449,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Um Mapeamento Sistemático para Identificar Indicadores de Má Qualidade na Especificação de Requisitos",
+    title_en: "A Systematic Mapping to Identify Poor Quality Indicators in Requirements Specification",
     description: "",
     link: "um-mapeamento-sistematico-para-identificar-indicadores-de-ma",
     status: "Em andamento",
@@ -395,19 +464,24 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
   },
   {
     title:
       "Classup: Uma Plataforma Gamificada para Auxílio do Aprendizado Utilizando Quizzes",
+    title_en: "Classup: A Gamified Platform for Learning Support Using Quizzes",
     description: "O processo de aprendizado diversificou-se com a exploração de novas tecnologias desenvolvidas com o objetivo de serem utilizadas para fornecer novas maneiras de se chegar ao ensino, complementar o aprendizado e conduzir experiências satisfatórias e produtivas direcionadas ao ambiente educacional. No intuito de auxiliar o ensino a distância, tem-se recorrido a aplicação da gamificação no contexto educacional como um recurso inserido tanto nas aulas presenciais quanto em aulas online, para atribuir um toque lúdico proporcionado pelos elementos de jogos e possibilitando um ambiente de aprendizagem diferente e cativante. Tendo em vista essa alternativa, este trabalho apresenta o desenvolvimento de uma plataforma online gamificada onde o discente tem acesso a um ambiente online que se apropria dos elementos de jogos para fornecer uma proposta de aprendizado e interação diversificada.",
+    description_en: "The learning process has diversified with the exploration of new technologies developed to provide new ways of reaching education, complement learning, and conduct satisfactory and productive experiences directed at the educational environment. In order to assist distance education, gamification has been applied in the educational context as a resource inserted in both in-person and online classes, to add a playful touch provided by game elements and enabling a different and captivating learning environment. With this alternative in mind, this work presents the development of a gamified online platform where students have access to an online environment that appropriates game elements to provide a diversified learning and interaction proposal.",
     link: "classup-uma-plataforma-gamificada-para-auxilio-do-aprendizad",
     status: "Finalizado",
     students: ["Luís César Martins Amaral"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
     keywords: "Gamificação, Aprendizagem, Ensino, Elementos de jogos",
+    keywords_en: "Gamification, Learning, Teaching, Game elements",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/classup.pdf" },
     ],
@@ -415,15 +489,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Desafios Enfrentados por Profissionais e Empresas da Área de T.i. Durante a Pandemia de Covid-19 no Brasil",
+    title_en: "Challenges Faced by IT Professionals and Companies During the COVID-19 Pandemic in Brazil",
     description: "O surgimento da pandemia de COVID-19 afetou grandemente a população mundial e os setores comerciais, inclusive o setor de desenvolvimento de software. Consequentemente, foram adotadas medidas de contenção que forçaram muitas empresas e funcionários a migrarem repentinamente para um ambiente remoto de trabalho. Nesse sentido, este trabalho tem como objetivo analisar as perspectivas dos profissionais da área de T.I., no Brasil, a respeito dos desafios e mudanças enfrentados durante a pandemia de COVID-19; os reflexos que a mesma causou no cotidiano dos desenvolvedores e como esses afetaram sua produtividade e bem-estar. Como forma de atingir esse objetivo, uma pesquisa de opinião online foi definida e aplicada em profissionais da área de T.I. com questões pertinentes ao tema.",
+    description_en: "The emergence of the COVID-19 pandemic greatly affected the world population and commercial sectors, including the software development sector. Consequently, containment measures were adopted that forced many companies and employees to suddenly migrate to a remote work environment. In this sense, this work aims to analyze the perspectives of IT professionals in Brazil regarding the challenges and changes faced during the COVID-19 pandemic; the effects it caused on developers' daily lives and how these affected their productivity and well-being. To achieve this objective, an online opinion survey was defined and applied to IT professionals with questions pertinent to the topic.",
     link: "desafios-enfrentados-por-profissionais-e-empresas-da-area-de",
     status: "Finalizado",
     students: ["Eduardo Luigi Tavares da Silva Ciuffi"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2023",
     keywords: "Pandemia de COVID-19, Profissionais da área de T.I., Produtividade e bem-estar",
+    keywords_en: "COVID-19 Pandemic, IT Professionals, Productivity and well-being",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/desafios-covid.pdf" },
     ],
@@ -431,15 +509,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Papel Ou Ide: Uma Análise Sobre as Formas de Avaliação em Turmas Iniciantes de Programação",
+    title_en: "Paper or IDE: An Analysis of Assessment Methods in Beginner Programming Classes",
     description: "Este trabalho apresenta os resultados de uma revisão sistemática da literatura que contou com a análise dos artigos sobre o processo de ensino-aprendizagem de programação para iniciantes em cursos voltados para computação. Os resultados obtidos mostraram que há ainda muito para se evoluir no cenário de ensino-aprendizagem de programação na comunidade brasileira na área, que a maioria das pesquisas neste trabalho apresentadas se encontram principalmente na educação superior e que grande parte delas apresenta novas ferramentas de software que buscam tornar mais práticos os métodos de ensino das linguagens de programação. Este trabalho busca evidências empíricas dos artefatos que influenciam as taxas de sucesso/reprovação nos cursos voltados para computação, e neste trabalho além das pesquisas neste documento apresentadas, também será apresentado um experimento feito em sala de aula utilizando dois métodos de ensino e avaliação em programação efetuado em uma turma iniciante do curso de Ciência da Computação da Universidade Federal do Amapá UNIFAP.",
+    description_en: "This work presents the results of a systematic literature review that analyzed articles on the teaching-learning process of programming for beginners in computer science courses. The results showed that there is still much room for improvement in the programming teaching-learning scenario in the Brazilian community, that most research presented in this work is found mainly in higher education, and that a large portion presents new software tools that seek to make programming language teaching methods more practical. This work seeks empirical evidence of the artifacts that influence success/failure rates in computer science courses, and in addition to the research presented in this document, a classroom experiment using two teaching and assessment methods in programming conducted in a beginner class of the Computer Science program at the Federal University of Amapá (UNIFAP) will also be presented.",
     link: "papel-ou-ide-uma-analise-sobre-as-formas-de-avaliacao-em-tur",
     status: "Finalizado",
     students: ["Felipe Monteiro Farias"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2023",
     keywords: "Educação, Programação para iniciantes, Papel e caneta, Computador/IDE, Ensino, Avaliação",
+    keywords_en: "Education, Programming for beginners, Paper and pencil, Computer/IDE, Teaching, Assessment",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/papel-ou-ide.pdf" },
     ],
@@ -447,15 +529,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "A Evasão em Cursos de Computação: Um Estudo de Caso na Universidade Federal do Amapá",
+    title_en: "Dropout in Computer Science Programs: A Case Study at the Federal University of Amapá",
     description: "A indústria da tecnologia da informação vem se destacando desde o final da década de 2000, o surgimento de grandes empresas no setor e o avanço de tecnologias abriu diversas oportunidades na área, resultando em uma alta demanda de mão de obra qualificada, em contraposição os índices de evasão em cursos de computação permanecem em alto nível. Este estudo tem como objetivo colher dados, analisar e mensurar o panorama da evasão no curso de Ciência da Computação da Universidade Federal do Amapá. Como forma de atingir este objetivo, foram colhidos dados sobre o curso, através Sistema Integrado de Gestão de Atividades Acadêmicas (SIGAA) e um survey foi definido e aplicado a alunos evadidos entre o período de 2014 a 2020. A pesquisa teve como resultado a identificação do perfil do discente evadido, seus principais motivos para o abandono do curso e os componentes curriculares com maiores índices de insucesso, além de fornecer o índice de evasão por turma durante o período analisado. Foi possível verificar um elevado índice de evasão, bem como um alto número de insucessos nos dados analisados. Portanto, conclui-se que novas estratégias educacionais e políticas públicas internas da universidade ou da coordenação do curso podem ser realizadas para conter estes índices.",
+    description_en: "The information technology industry has been standing out since the late 2000s; the emergence of large companies in the sector and the advancement of technologies opened various opportunities in the area, resulting in a high demand for qualified labor, while dropout rates in computer science programs remain at high levels. This study aims to collect data, analyze, and measure the dropout panorama in the Computer Science program at the Federal University of Amapá. To achieve this objective, data about the program were collected through the Integrated Academic Activity Management System (SIGAA) and a survey was defined and applied to students who dropped out between 2014 and 2020. The research resulted in the identification of the dropout student profile, their main reasons for abandoning the program, and the curricular components with the highest failure rates, in addition to providing the dropout rate per class during the analyzed period. It was possible to verify a high dropout rate, as well as a high number of failures in the analyzed data. Therefore, it is concluded that new educational strategies and internal public policies of the university or program coordination can be implemented to contain these rates.",
     link: "a-evasao-em-cursos-de-computacao-um-estudo-de-caso-na-univer",
     status: "Finalizado",
     students: ["Mateus Bezerra da Silva"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2023",
     keywords: "Evasão em cursos de computação, Evasão no ensino superior, Survey, Ciência da computação",
+    keywords_en: "Dropout in computer science programs, Higher education dropout, Survey, Computer science",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/evasao-computacao.pdf" },
     ],
@@ -463,15 +549,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Um Catálogo de Práticas de IHC para Aplicativos Móveis",
+    title_en: "A Catalog of HCI Practices for Mobile Applications",
     description: "A popularidade dos smartphones e sua crescente facilidade de acesso estão fazendo com que os aplicativos móveis tenham um padrão de usabilidade cada vez maior, exigindo dos profissionais da indústria uma maior cautela com a interação humano-computador do produto final. Este trabalho apresenta um Mapeamento Sistemático da Literatura, que tem como objetivo identificar e analisar abordagens de IHC para aplicativos móveis, assim como sua listagem, o qual poderá servir como um guia para a indústria do software. A string retornou 2100 trabalhos, dos quais 72 foram selecionados de acordo com os critérios definidos no protocolo do Mapeamento Sistemático da Literatura.",
+    description_en: "The popularity of smartphones and their increasing accessibility are causing mobile applications to have an ever-higher usability standard, requiring industry professionals to be more careful with the human-computer interaction of the final product. This work presents a Systematic Literature Mapping, which aims to identify and analyze HCI approaches for mobile applications, as well as their listing, which may serve as a guide for the software industry. The search string returned 2,100 works, of which 72 were selected according to the criteria defined in the Systematic Literature Mapping protocol.",
     link: "um-catalogo-de-praticas-de-ihc-para-aplicativos-moveis",
     status: "Finalizado",
     students: ["Aíla Taynara Santos Moreira Maciel"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2022",
     keywords: "Aplicativos, IHC, Interação humano-computador, Móvel, Mapeamento sistemático",
+    keywords_en: "Applications, HCI, Human-computer interaction, Mobile, Systematic mapping",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/catalogo-ihc.pdf" },
     ],
@@ -479,15 +569,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Uma Proposta de Identificação de Componentes Reutilizáveis Baseada em Interações de Classes",
+    title_en: "A Proposal for Identifying Reusable Components Based on Class Interactions",
     description: "A engenharia de software baseado em componentes reutilizáveis tem por objetivo \nprincipal o reuso de software, para isso ela aplica o processo reutilização utilizando partes \nde softwares. Essa prática possibilita a economia de recursos, simplifica modificações e \nimplantações. Visando nos benefícios deste processo, este trabalho apresenta uma \nproposta de metodologia para seleção de classe com potencial de reutilização. A \nmetodologia tem como recursos para identificação a engenharia reserva, que gera \ndiagramas de classe possibilitando o mapeamento estrutural do software, a contabilização \nde interações entre as classes e a aplicação do conceito de estatístico do desvio padrão, \npara identificar as classes singulares dentro do conjunto. Esta pesquisa tem como objetivo \nabordar detalhadamente sua elaboração, contribuir para a evolução do processo de reuso \nno desenvolvimento de softwares e destacar a importância deste ramo da engenharia de \nsoftware.",
+    description_en: "Component-based software engineering has as its main objective software reuse, applying the reuse process using parts of software. This practice enables resource savings, simplifies modifications and deployments. Aiming at the benefits of this process, this work presents a proposed methodology for selecting classes with reuse potential. The methodology uses reverse engineering as a resource for identification, which generates class diagrams enabling structural mapping of the software, the counting of interactions between classes, and the application of the statistical concept of standard deviation to identify singular classes within the set. This research aims to address its development in detail, contribute to the evolution of the reuse process in software development, and highlight the importance of this branch of software engineering.",
     link: "uma-proposta-de-identificacao-de-componentes-reutilizaveis-b",
     status: "Finalizado",
     students: ["Gabriel Melo da Silveira"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2021",
     keywords: "Software - Reuso, Software - Mapeamento estrutural, Desenvolvimento de software - Reutilização, Engenharia de software",
+    keywords_en: "Software - Reuse, Software - Structural mapping, Software development - Reuse, Software engineering",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/735" },
     ],
@@ -495,15 +589,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Uma Ferramenta para Identificação Automática de Bad Smells",
+    title_en: "A Tool for Automatic Identification of Bad Smells",
     description: "O processo de desenvolvimento de software é uma etapa na Engenharia de Software que demanda planejamento e organização da equipe de desenvolvimento para produzir código fonte de qualidade. Esses, e demais atributos, são necessários para evitar possíveis problemas estruturais no código, conhecidos na literatura como Bad Smells, e/ou melhorar a legibilidade das linhas de código; além de que, sem elas, o processo de refatoração do código se torna mais dispendioso. Tendo em mente essa problemática, este trabalho apresenta um instrumento automatizado para identificação e verificação de Bad Smells em código-fonte, e mostra os impactos dos mesmos no desenvolvimento de software. A ferramenta apresentada tem objetivo de detectar esses Bad Smells no código fonte e disponibilizar, em forma de gráfico para o usuário, a localização e a categoria em que se enquadram. Este trabalho possui o intuito de detalhar seu funcionamento e contextualizar sua importância dentro da Engenharia de Software.",
+    description_en: "The software development process is a stage in Software Engineering that demands planning and organization from the development team to produce quality source code. These and other attributes are necessary to avoid possible structural problems in the code, known in the literature as Bad Smells, and/or to improve code readability; moreover, without them, the code refactoring process becomes more costly. With this problem in mind, this work presents an automated instrument for identifying and verifying Bad Smells in source code, and shows their impacts on software development. The presented tool aims to detect these Bad Smells in source code and provide the user with a graphical display of their location and category. This work aims to detail its operation and contextualize its importance within Software Engineering.",
     link: "uma-ferramenta-para-identificacao-automatica-de-bad-smells",
     status: "Finalizado",
     students: ["Matheus Costa Silva"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2021",
     keywords: "Bad Smell, Qualidade de Código, Design e Arquitetura de Software, Ferramentas de Software Livre",
+    keywords_en: "Bad Smell, Code Quality, Software Design and Architecture, Open Source Software Tools",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/bad-smells.pdf" },
     ],
@@ -511,15 +609,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Uma Análise Sobre Hard e Soft Skills na Engenharia de Software",
+    title_en: "An Analysis of Hard and Soft Skills in Software Engineering",
     description: "Este trabalho de conclusão visa realizar uma análise sobre Hard e Soft Skills na Engenharia de Software através de dados coletados via questionário próprio. Sua motivação parte do mapeamento do mercado de trabalho atual, levantamento de dificuldades encontradas por profissionais qualificados, Cursos superiores com grades curriculares atrasadas e graduados despreparados para a demanda recebida. Para tanto, segue a metodologia de coleta de informações via questionário próprio referenciado por trabalhos na mesma linha de pesquisa, em uma faixa de tempo de 20 anos e posterior análise de resultados coletados.",
+    description_en: "This undergraduate thesis aims to perform an analysis of Hard and Soft Skills in Software Engineering through data collected via a custom questionnaire. Its motivation stems from mapping the current job market, surveying difficulties encountered by qualified professionals, higher education programs with outdated curricula, and graduates unprepared for the demand they face. To this end, it follows a methodology of collecting information through a custom questionnaire referenced by works in the same research line, over a 20-year time span, and subsequent analysis of collected results.",
     link: "uma-analise-sobre-hard-e-soft-skills-na-engenharia-de-softwa",
     status: "Finalizado",
     students: ["Juliana Leal Alves"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2021",
     keywords: "Engenharia de software, Engenheiro de software - Formação profissional, Soft Skills, Engenharia de software - Competências profissionais",
+    keywords_en: "Software engineering, Software engineer - Professional training, Soft Skills, Software engineering - Professional competencies",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/737" },
     ],
@@ -527,15 +629,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Uma Abordagem para Ajustar o Controle de Versão À Natureza das Aplicações WEB",
+    title_en: "An Approach to Adapt Version Control to the Nature of Web Applications",
     description: "Este trabalho sugere uma abordagem para adequar o controle de versão à natureza das aplicações Web. Essas aplicações possuem uma natureza única e dinâmica, que envolve uma ampla diversidade de itens de configuração (p. ex. código fonte e outros documentos) e conteúdo (p. ex. texto, gráficos, imagens, áudio e vídeo). Por sua vez, o controle de versão é \numa atividade imprescindível para o desenvolvimento de sistemas de software, pois estabelece o gerenciamento de múltiplas versões de código fonte e documentos. No entanto, as estratégias \ngerais do controle de versão precisam ser adaptadas para estar em conformidade com a natureza das aplicações Web. Para atingir esse objetivo, estratégias são estabelecidas a partir do modelo \nMPS.BR e de características das aplicações Web. Em termos de metodologia, a pesquisa é feita por meio de uma análise qualitativa. Nesse cenário, a pesquisa mostra que, além do uso de estratégias para a seleção e identificação de itens de configuração, o uso de sistemas de controle de versão e o uso complementar do sistema de gerenciamento de conteúdo consiste em uma \nbase estratégica viável para adequar o controle de versão à natureza das aplicações Web.",
+    description_en: "This work suggests an approach to adapt version control to the nature of Web applications. These applications have a unique and dynamic nature, involving a wide diversity of configuration items (e.g., source code and other documents) and content (e.g., text, graphics, images, audio, and video). In turn, version control is an essential activity for software system development, as it establishes the management of multiple versions of source code and documents. However, general version control strategies need to be adapted to conform to the nature of Web applications. To achieve this objective, strategies are established based on the MPS.BR model and Web application characteristics. In terms of methodology, the research is conducted through qualitative analysis. In this scenario, the research shows that, in addition to using strategies for the selection and identification of configuration items, the use of version control systems and the complementary use of content management systems constitute a viable strategic foundation for adapting version control to the nature of Web applications.",
     link: "uma-abordagem-para-ajustar-o-controle-de-versao-a-natureza-d",
     status: "Finalizado",
     students: ["Erick da Cunha Sampaio"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2021",
     keywords: "Sistema de software - Desenvolvimento, Sistema de controle de versão, Controle de versão - Flexibilidade, Engenharia de software - Desenvolvimento",
+    keywords_en: "Software system - Development, Version control system, Version control - Flexibility, Software engineering - Development",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/734" },
     ],
@@ -543,15 +649,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Proj-o-poly: Um Jogo para o Ensino de Gerenciamento de Projetos em Disciplinas de Engenharia de Software",
+    title_en: "Proj-o-poly: A Game for Teaching Project Management in Software Engineering Courses",
     description: "O Gerenciamento de Projetos se propõe a aplicar conhecimentos e técnicas no andamento do projeto, a fim de cumprir seus requisitos. Sabendo-se da relevância do Gerenciamento de Projetos na engenharia de software, e consequentemente no desenvolvimento de software, é de suma importância que o ensino de tal área no meio acadêmico seja eficiente. Em geral, essas áreas são ensinadas na academia de forma tradicional, teórica e centradas no professor. Dessa forma, causando nos acadêmicos a sensação de que tais áreas são chatas e monótonas; e acarretando assim na pouca assimilação desses conteúdos. Já a indústria de desenvolvimento de software, aponta que a maioria dos projetos de software não são entregues no prazo ou dentro do orçamento. No contexto do ensino do Gerenciamento dos Projetos em sala de aula, os jogos podem ser uma importante ferramenta para a complementação do aprendizado dos alunos. Jogos possuem a característica lúdica, o que faz com que os alunos se divirtam enquanto aprendem. Partindo dessas premissas, o presente trabalho tem como objetivo a criação de um jogo de tabuleiro que sirva como material de apoio a disciplina de Gerenciamento de Projetos, apoiando-se nas recomendações do Guia PMBOK (Project Management Body of Knowledge). O jogo será aplicado a alunos que estejam cursando a disciplina de Engenharia de Software e será avaliado através de questionários.",
+    description_en: "Project Management proposes to apply knowledge and techniques throughout the project in order to meet its requirements. Knowing the relevance of Project Management in software engineering, and consequently in software development, it is of utmost importance that the teaching of this area in academia is efficient. In general, these areas are taught in academia in a traditional, theoretical, and teacher-centered manner, causing students to feel that such areas are boring and monotonous, and thus resulting in poor assimilation of these contents. The software development industry, on the other hand, points out that most software projects are not delivered on time or within budget. In the context of teaching Project Management in the classroom, games can be an important tool for complementing student learning. Games have a playful characteristic, which makes students have fun while learning. Based on these premises, the present work aims to create a board game that serves as supporting material for the Project Management course, based on the recommendations of the PMBOK Guide (Project Management Body of Knowledge). The game will be applied to students enrolled in the Software Engineering course and will be evaluated through questionnaires.",
     link: "proj-o-poly-um-jogo-para-o-ensino-de-gerenciamento-de-projet",
     status: "Finalizado",
     students: ["Carlos Eduardo Brito da Silva dos Santos"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2020",
     keywords: "Engenharia de software, Gerenciamento de projetos - Software, Jogos - Aprendizado, Jogos de tabuleiro",
+    keywords_en: "Software engineering, Project management - Software, Games - Learning, Board games",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br/handle/123456789/731" },
     ],
@@ -559,15 +669,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Um Estudo Sobre as Principais Dificuldades na Empregabilidade de um Engenheiros de Software",
+    title_en: "A Study on the Main Difficulties in Software Engineer Employability",
     description: "A Empregabilidade pode ser definida como a possibilidade de uma pessoa dominar aptidões e conhecimentos requisitados em consoante oscilação das imposições do mercado de trabalho. Dados sobre empregabilidade são importantes para obtenção de métricas que direcionam a decisão de institutos de ensino na criação de cursos, visto que estes envolvem necessidades de mercado e gastos para sua criação e manutenção. Neste contexto, o objetivo desse trabalho é aplicar um questionário que será submetido aos profissionais graduados da área de engenharia de software atuantes no Brasil. De modo a analisar aspectos que influenciam na empregabilidade do profissional, buscando sinalizar lacunas de conhecimento entre o meio acadêmico e o mercado de trabalho com o objetivo de guiar possíveis trabalhos didáticos que amenizem as carências da formação acadêmica.",
+    description_en: "Employability can be defined as a person's ability to master the skills and knowledge required in accordance with the fluctuating demands of the job market. Employability data is important for obtaining metrics that guide the decisions of educational institutions in creating programs, since these involve market needs and costs for their creation and maintenance. In this context, the objective of this work is to apply a questionnaire that will be submitted to graduated professionals in the software engineering field working in Brazil, in order to analyze aspects that influence professional employability, seeking to identify knowledge gaps between academia and the job market with the goal of guiding possible educational works that mitigate the deficiencies in academic training.",
     link: "um-estudo-sobre-as-principais-dificuldades-na-empregabilidad",
     status: "Finalizado",
     students: ["Edson Monteiro Neto"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2020",
     keywords: "Engenharia de software - Mercado de trabalho, Engenharia de software - Oferta de emprego, Engenharia de software - Empregabilidade",
+    keywords_en: "Software engineering - Job market, Software engineering - Job opportunities, Software engineering - Employability",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/733" },
     ],
@@ -575,15 +689,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Uma Abordagem para o Ensino de Engenharia de Requisitos Focada no Aluno",
+    title_en: "A Student-Centered Approach for Teaching Requirements Engineering",
     description: "A Engenharia de Requisitos é uma área dentro da Engenharia de Software que se preocupa principalmente em garantir que os objetivos para o qual um software é desenvolvido sejam atendidos de maneira satisfatória ao fim da criação do produto. É necessário que o profissional que atue na Engenharia de Requisitos possua capacidades para levantar, alterar e validar requisitos para garantir que no fim do ciclo de desenvolvimento o software atenda às necessidades solicitadas. A indústria de desenvolvimento indica que os profissionais recém ingressados na área não possuem o conhecimento prático que é esperado para poder atuar como um engenheiro de requisitos, um fator que influencia nessa afirmação é o modo como a Engenharia de Requisitos é lecionada em graduações na área de computação, muita das vezes ensinada através de uma abordagem tradicional de ensino. Nesse contexto, este trabalho tem como intuito contribuir com o ensino de Engenharia de Requisitos com uma proposta de abordagem de ensino que faz uso de estratégias focadas no aluno para o desenvolvimento de competências esperadas pela indústria. Para criar a abordagem, foi feita a identificação das competências através do CMMI-DEV. Os resultados obtidos são analisados de maneira que seja possível identificar o que pode ser melhorado na abordagem.",
+    description_en: "Requirements Engineering is an area within Software Engineering that is primarily concerned with ensuring that the objectives for which software is developed are satisfactorily met at the end of product creation. It is necessary that professionals working in Requirements Engineering possess the capabilities to elicit, modify, and validate requirements to ensure that at the end of the development cycle the software meets the requested needs. The development industry indicates that newly hired professionals do not possess the practical knowledge expected to work as requirements engineers, a factor that influences this assertion is the way Requirements Engineering is taught in computing undergraduate programs, often through a traditional teaching approach. In this context, this work aims to contribute to Requirements Engineering education with a proposed teaching approach that uses student-centered strategies for developing competencies expected by the industry. To create the approach, competencies were identified through CMMI-DEV. The obtained results are analyzed in a way that makes it possible to identify what can be improved in the approach.",
     link: "uma-abordagem-para-o-ensino-de-engenharia-de-requisitos-foca",
     status: "Finalizado",
     students: ["Anderson dos Santos Guerra"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2019",
     keywords: "Engenharia de software, Engenharia - Estudo e ensino, Engenharia didática, Aprendizagem - Métodos alternativos ensino de - Engenharia",
+    keywords_en: "Software engineering, Engineering - Study and teaching, Didactic engineering, Learning - Alternative methods for engineering education",
     degree: "Graduação",
     course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/1330" },
     ],
@@ -591,15 +709,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "O Data Show Como Ferramenta Pedagógica de Apoio no Processo Ensino e Aprendizagem",
+    title_en: "The Projector as a Pedagogical Support Tool in the Teaching and Learning Process",
     description: "A presente monografia traz algumas reflexões sobre a relação entre o uso do Data show, o ensino e a aprendizagem, tendo como objetivo analisar sua utilização sob diferentes abordagens no uso em sala de aula. Nessa perspectiva, buscou-se entender como se dá a utilização do Data show por professores da escola campo, a unidade educacional Profª Maria Cavalcante, bem como a percepção destes em relação ao uso desse recurso. Outras questões também nortearam alguns questionamentos, como: Há quanto tempo e com que frequência esses professores utilizam o data show, e também alguns dos erros mais recorrentes no uso desse recurso. Para alcançar os objetivos propostos, fez-se um breve histórico da importância que é a utilização dos recursos tecnológicos no meio educacional. Em seguida, fez-se uma explanação sobre as principais funcionalidades do Data show e, por fim, a apresentação da análise dos dados levantados em questionários pelos professores. Os resultados da pesquisa mostram que o Data show pode tornar as aulas mais dinâmicas e criativas, mas que é preciso investir em capacitação e aquisição de equipamentos tecnológicos para suprir a demanda reivindicada por professores.",
+    description_en: "This monograph presents some reflections on the relationship between the use of the projector, teaching, and learning, aiming to analyze its use under different approaches in the classroom. From this perspective, we sought to understand how teachers at the field school, the Profª Maria Cavalcante educational unit, use the projector, as well as their perception regarding the use of this resource. Other questions also guided some inquiries, such as: How long and how frequently these teachers use the projector, and also some of the most recurring errors in the use of this resource. To achieve the proposed objectives, a brief history of the importance of using technological resources in the educational environment was presented. Then, an explanation of the main functionalities of the projector was provided, and finally, the presentation of the analysis of data collected through questionnaires from teachers. The research results show that the projector can make classes more dynamic and creative, but that it is necessary to invest in training and acquisition of technological equipment to meet the demand claimed by teachers.",
     link: "o-data-show-como-ferramenta-pedagogica-de-apoio-no-processo-",
     status: "Finalizado",
     students: ["Josimar da Silva Santos"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2018",
     keywords: "Data show, Slides, Recursos, Ensino e aprendizagem",
+    keywords_en: "Projector, Slides, Resources, Teaching and learning",
     degree: "Especialização",
     course: "Especialização em Mídias na Educação",
+    course_en: "Specialization in Media in Education",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/data-show-pedagogico.pdf" },
     ],
@@ -607,15 +729,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "O Sistema de Avaliação do Pacto Nacional Pela Alfabetização na Idade Certa: Análise das Práticas Pedagógicas e de Gestão Escolar",
+    title_en: "The National Pact for Literacy at the Right Age Assessment System: Analysis of Pedagogical and School Management Practices",
     description: "Discussões sobre as tecnologias da informação e da comunicação em detrimento do desenvolvimento da educação estão cada vez mais crescentes devido serem ferramentas de auxílio à sistematização e estruturação do currículo e do fazer pedagógico. No contexto de uso das TIC nos processos educacionais, o presente trabalho aborda o tema acerca do Sistema Integrado de Monitoramento, Execução e Controle do Ministério da Educação (SIMEC) como sistema de avaliação de propostas pedagógicas e de gestão escolar no Pacto pela Alfabetização na Idade Certa. Objetiva-se diagnosticar de que forma SIMEC contribui para a avaliação das práticas pedagógicas e de gestão escolar por professores do PNAIC. Os resultados demonstram que as tarefas de avaliação valorizam a perspectiva investigativa e reflexiva quanto a sua prática didático-pedagógica, mais ainda estão distantes das práticas do programa e da realidade escolar. Contudo, o SIMEC se mostra uma ferramenta de auxílio a gestão e monitoramento do programa e um espaço propício para formação.",
+    description_en: "Discussions about information and communication technologies in relation to education development are increasingly growing as they are tools that aid in the systematization and structuring of the curriculum and pedagogical practice. In the context of ICT use in educational processes, the present work addresses the theme of the Integrated Monitoring, Execution and Control System of the Ministry of Education (SIMEC) as an evaluation system for pedagogical proposals and school management in the National Pact for Literacy at the Right Age. The objective is to diagnose how SIMEC contributes to the evaluation of pedagogical and school management practices by PNAIC teachers. The results demonstrate that evaluation tasks value the investigative and reflective perspective regarding their didactic-pedagogical practice, but are still distant from the program's practices and school reality. However, SIMEC proves to be a tool for assisting program management and monitoring and a propitious space for professional development.",
     link: "o-sistema-de-avaliacao-do-pacto-nacional-pela-alfabetizacao-",
     status: "Finalizado",
     students: ["Letícia Picanço Carneiro"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2018",
     keywords: "Avaliação formativa, SIMEC, Pacto pela alfabetização na idade certa",
+    keywords_en: "Formative assessment, SIMEC, National pact for literacy at the right age",
     degree: "Especialização",
     course: "Especialização em Mídias na Educação",
+    course_en: "Specialization in Media in Education",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/avaliacao-pnaic.pdf" },
     ],
@@ -623,15 +749,19 @@ export const tccs: TCCProps[] = [
   {
     title:
       "A Importância do Uso das Mídias para o Desenvolvimento Cognitivo dos Alunos da Escola Novo Horizonte ? Santana ? Amapá",
+    title_en: "The Importance of Media Use for the Cognitive Development of Students at Escola Novo Horizonte - Santana - Amapá",
     description: "As tecnologias vêm tomando maior espaço na vida das pessoas a cada dia, seja em seus trabalhos, lazeres ou estudos. São recursos que auxiliam na informação, na produção de conhecimento e na comunicação, integrando diversos cantos do mundo. Assim buscou-se conhecer a importância do uso das mídias para o desenvolvimento cognitivo dos alunos da Escola Estadual Novo Horizonte – Santana – Amapá, observando as perspectivas administrativas, docentes e discentes, de uma comunidade periférica e com problemas socioeconômicos visíveis. Para a coleta de informações foi realizada uma pesquisa Participante a qual utiliza como técnica a aplicação de questionários. Sua natureza é empírica a pesquisa de campo de abordagem qualitativa descritiva. Com base na referida pesquisa constatou-se a relevância do uso das mídias e do Laboratório de Informática para auxiliar o trabalho docente e para a melhoria da aprendizagem dos alunos. Todos os envolvidos compactuaram do resultado que afirma que o trabalho com recursos tecnológicos propicia consideravelmente o desenvolvimento cognitivo, associando ensino, dinamismo, descontração e inclusão digital. Por conseguinte, concluiu-se que a escola necessita revitalizar o espaço do laboratório de informática, adquirir novos recursos e capacitar melhor os professores para que as mídias façam parte ativamente do ensino.",
+    description_en: "Technologies are taking up more space in people's lives every day, whether in their work, leisure, or studies. They are resources that assist in information, knowledge production, and communication, integrating diverse corners of the world. Thus, we sought to understand the importance of media use for the cognitive development of students at the Escola Estadual Novo Horizonte - Santana - Amapá, observing the administrative, teaching, and student perspectives of a peripheral community with visible socioeconomic problems. For data collection, a Participant research was conducted using questionnaire application as a technique. Its nature is empirical field research with a descriptive qualitative approach. Based on this research, the relevance of using media and the Computer Lab to assist teaching work and improve student learning was confirmed. All involved agreed with the result that affirms that working with technological resources considerably promotes cognitive development, associating teaching, dynamism, relaxation, and digital inclusion. Consequently, it was concluded that the school needs to revitalize the computer lab space, acquire new resources, and better train teachers so that media actively become part of teaching.",
     link: "a-importancia-do-uso-das-midias-para-o-desenvolvimento-cogni",
     status: "Finalizado",
     students: ["Rosiane do Socorro Costa Oliveira"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2018",
     keywords: "Aprendizagem, Educação, Inclusão digital, Mídias",
+    keywords_en: "Learning, Education, Digital inclusion, Media",
     degree: "Especialização",
     course: "Especialização em Mídias na Educação",
+    course_en: "Specialization in Media in Education",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/midias-desenvolvimento-cognitivo.pdf" },
     ],
@@ -639,6 +769,7 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Tecnologia, Educação e Cidadania",
+    title_en: "Technology, Education and Citizenship",
     description: "",
     link: "tecnologia-educacao-e-cidadania",
     status: "Finalizado",
@@ -648,10 +779,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Especialização",
     course: "Especialização em Mídias na Educação",
+    course_en: "Specialization in Media in Education",
   },
   {
     title:
       "As Novas Tecnologias de Comunicação e Informação no Ambiente Escolar",
+    title_en: "New Information and Communication Technologies in the School Environment",
     description: "",
     link: "as-novas-tecnologias-de-comunicacao-e-informacao-no-ambiente",
     status: "Finalizado",
@@ -661,10 +794,12 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Especialização",
     course: "Especialização em Mídias na Educação",
+    course_en: "Specialization in Media in Education",
   },
   {
     title:
       "Inclusão Digital Intinerante na Zona Rural: Um Estude de Caso na Escola Municipal Foz do Vila Nova",
+    title_en: "Itinerant Digital Inclusion in Rural Areas: A Case Study at Escola Municipal Foz do Vila Nova",
     description: "",
     link: "inclusao-digital-intinerante-na-zona-rural-um-estude-de-caso",
     status: "Finalizado",
@@ -674,5 +809,6 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Especialização",
     course: "Especialização em Mídias na Educação",
+    course_en: "Specialization in Media in Education",
   },
 ]

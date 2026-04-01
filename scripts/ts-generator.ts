@@ -168,6 +168,7 @@ function formatTCC(t: TCCProps): string {
   lines.push(`    keywords: "${escapeString(t.keywords || "")}",`)
   if (t.degree) lines.push(`    degree: "${escapeString(t.degree)}",`)
   if (t.course) lines.push(`    course: "${escapeString(t.course)}",`)
+  if (t.course_en) lines.push(`    course_en: "${escapeString(t.course_en)}",`)
   if (t.documentation && t.documentation.length > 0) {
     lines.push("    documentation: [")
     for (const doc of t.documentation) {
@@ -177,6 +178,7 @@ function formatTCC(t: TCCProps): string {
   }
   if (t.title_en) lines.push(`    title_en: "${escapeString(t.title_en)}",`)
   if (t.description_en) lines.push(`    description_en: "${escapeString(t.description_en)}",`)
+  if (t.keywords_en) lines.push(`    keywords_en: "${escapeString(t.keywords_en)}",`)
   lines.push("  },")
   return lines.join("\n")
 }

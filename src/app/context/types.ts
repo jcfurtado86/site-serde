@@ -72,10 +72,12 @@ export interface TCCProps {
   advisor: string
   year: string
   keywords: string
+  keywords_en?: string
   description?: string
   description_en?: string
   degree?: string
   course?: string
+  course_en?: string
 }
 
 export interface Project {
