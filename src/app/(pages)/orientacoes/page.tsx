@@ -103,7 +103,7 @@ export default function Orientacoes() {
                           alt={member.name}
                           width={28}
                           height={28}
-                          className="rounded-full object-cover w-7 h-7 border-2 border-white"
+                          className="rounded-full object-cover w-7 h-7 border-2 border-white bg-white"
                           unoptimized
                         />
                       ) : (

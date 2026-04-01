@@ -109,7 +109,7 @@ function ProjectDetails({ project, teachers, allMembers }: { project: any; teach
                           alt={name}
                           width={36}
                           height={36}
-                          className="rounded-full object-cover w-9 h-9 border-2 border-white"
+                          className="rounded-full object-cover w-9 h-9 border-2 border-white bg-white"
                           unoptimized
                         />
                       ) : (
@@ -148,7 +148,7 @@ function ProjectDetails({ project, teachers, allMembers }: { project: any; teach
                       alt={project.professor}
                       width={40}
                       height={40}
-                      className="rounded-full object-cover w-10 h-10"
+                      className="rounded-full object-cover w-10 h-10 bg-white"
                       unoptimized
                     />
                   ) : (

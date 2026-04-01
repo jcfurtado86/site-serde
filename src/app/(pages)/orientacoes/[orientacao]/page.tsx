@@ -138,7 +138,7 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
                         alt={name}
                         width={40}
                         height={40}
-                        className="rounded-full object-cover w-10 h-10"
+                        className="rounded-full object-cover w-10 h-10 bg-white"
                         unoptimized
                       />
                     ) : (
@@ -165,7 +165,7 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
                       alt={tcc.advisor}
                       width={40}
                       height={40}
-                      className="rounded-full object-cover w-10 h-10"
+                      className="rounded-full object-cover w-10 h-10 bg-white"
                       unoptimized
                     />
                   ) : (
