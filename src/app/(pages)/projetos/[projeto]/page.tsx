@@ -7,6 +7,7 @@ import { Search, Handshake, Code, CheckCircle, SquareUser as User, ExternalLink,
 import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/app/i18n/context"
+import { fuzzyMatchMember } from "@/app/utils/resolveAuthorName"
 
 type ProjectPageProps = {
   params: Promise<{
@@ -100,7 +101,7 @@ function ProjectDetails({ project, teachers, allMembers }: { project: any; teach
               <strong className="text-gray-700">{t("project_detail.team")}</strong>
               <div className="flex flex-wrap gap-y-1 mt-2 pl-2">
                 {project.team.map((name: string, i: number) => {
-                  const member = allMembers.find((m) => m.name.toLowerCase() === name.toLowerCase())
+                  const member = fuzzyMatchMember(name, allMembers)
                   return (
                     <div key={i} className="relative group/tip -ml-2">
                       {member?.imageUrl ? (
@@ -139,7 +140,7 @@ function ProjectDetails({ project, teachers, allMembers }: { project: any; teach
           <div>
             <strong className="text-gray-700">{t("project_detail.responsible_professor")}</strong>
             {(() => {
-              const teacher = teachers.find((t) => t.name.toLowerCase() === project.professor.toLowerCase())
+              const teacher = fuzzyMatchMember(project.professor, teachers)
               return (
                 <div className="flex items-center gap-3 mt-2">
                   {teacher?.imageUrl ? (

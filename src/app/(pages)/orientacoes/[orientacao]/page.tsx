@@ -8,7 +8,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/app/i18n/context"
 import type { StudentProps } from "@/app/context/types"
-import { norm } from "@/app/utils/resolveAuthorName"
+import { fuzzyMatchMember } from "@/app/utils/resolveAuthorName"
 
 type OrientacaoPageProps = {
   params: Promise<{
@@ -16,37 +16,6 @@ type OrientacaoPageProps = {
   }>
 }
 
-function fuzzyMatchMember<T extends { name: string }>(name: string, members: T[]): T | undefined {
-  const lower = norm(name)
-  // Exact match first
-  const exact = members.find((m) => norm(m.name) === lower)
-  if (exact) return exact
-
-  const parts = lower.split(" ")
-  if (parts.length < 2) return undefined
-  const first = parts[0]
-  const last = parts[parts.length - 1]
-  const allParts = new Set(parts)
-
-  return members.find((m) => {
-    const mParts = norm(m.name).split(" ")
-    if (mParts.length < 2) return false
-    // First name must match
-    if (mParts[0] !== first) return false
-    // Option 1: last name matches + shared middle part
-    if (mParts[mParts.length - 1] === last) {
-      if (allParts.size <= 2 || mParts.length <= 2) return true
-      return mParts.slice(1, -1).some((p) => allParts.has(p))
-    }
-    // Option 2: truncated name — all TCC name parts appear in member name
-    if (mParts.length > parts.length) {
-      return parts.every((p) => mParts.includes(p))
-    }
-    // Option 3: name cut mid-word — member name starts with the TCC name string
-    if (norm(m.name).startsWith(lower)) return true
-    return false
-  })
-}
 
 function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStudents: StudentProps[]; allTeachers: { name: string; imageUrl?: string }[] }) {
   const { t, locale } = useLanguage()

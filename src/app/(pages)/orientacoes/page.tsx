@@ -6,7 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/app/i18n/context"
 import type { StudentProps } from "@/app/context/types"
-import { norm } from "@/app/utils/resolveAuthorName"
+import { fuzzyMatchMember } from "@/app/utils/resolveAuthorName"
 
 const degreeColors: Record<string, string> = {
   Graduação: "text-orange-600 bg-orange-100 group-hover:bg-orange-200",
@@ -16,23 +16,7 @@ const degreeColors: Record<string, string> = {
 }
 
 function fuzzyResolveName(name: string, members: { name: string }[]): string {
-  const lower = norm(name)
-  const exact = members.find((m) => norm(m.name) === lower)
-  if (exact) return exact.name
-
-  const parts = lower.split(" ")
-  if (parts.length < 2) return name
-  const first = parts[0]
-
-  const match = members.find((m) => {
-    const mParts = norm(m.name).split(" ")
-    if (mParts.length < 2 || mParts[0] !== first) return false
-    if (mParts[mParts.length - 1] === parts[parts.length - 1]) return true
-    if (mParts.length > parts.length && parts.every((p) => mParts.includes(p))) return true
-    if (norm(m.name).startsWith(lower)) return true
-    return false
-  })
-  return match?.name || name
+  return fuzzyMatchMember(name, members)?.name || name
 }
 
 export default function Orientacoes() {
