@@ -19,8 +19,11 @@ export default function About() {
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6 md:mb-4">
             {t("about.title")}
           </h1>
-          <p className="pt-5 text-gray-600 text-left text-sm sm:text-base lg:text-lg max-w-7xl mx-auto leading-relaxed pb-10">
+          <p className="pt-5 text-gray-600 text-left text-sm sm:text-base lg:text-lg max-w-7xl mx-auto leading-relaxed">
             {t("about.description")}
+          </p>
+          <p className="pt-4 text-gray-600 text-left text-sm sm:text-base lg:text-lg max-w-7xl mx-auto leading-relaxed pb-10">
+            {t("about.description2")}
           </p>
         </div>
         {/*resultados de pesquisa*/}
@@ -129,11 +132,11 @@ export default function About() {
           </Link>
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12 mb-4 text-center">
           <Link
             href="http://dgp.cnpq.br/dgp/espelhogrupo/1940170946115840"
             target="_blank"
-            className="text-[#1565C0] hover:text-white inline-flex items-center gap-2 transition-all duration-300 border-2 border-[#1565C0] hover:bg-[#1565C0] rounded-lg px-6 py-3 mt-6 font-medium"
+            className="text-[#1565C0] hover:text-white inline-flex items-center gap-2 transition-all duration-300 border-2 border-[#1565C0] hover:bg-[#1565C0] rounded-lg px-6 py-3 font-medium"
           >
             {t("about.cnpq_directory")}
             <svg
