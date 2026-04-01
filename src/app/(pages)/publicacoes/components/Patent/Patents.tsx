@@ -6,15 +6,16 @@ import { useLanguage } from "@/app/i18n/context"
 import { resolveAuthorName } from "@/app/utils/resolveAuthorName"
 import { AuthorAvatars } from "@/app/(pages)/publicacoes/components/AuthorAvatars/AuthorAvatars"
 
-interface PatentProps {
+interface PatentDisplayProps {
   number?: number
   title: string
   authors: string[]
-  year: number | string
   link?: string
   patentNumber?: string
   registrationDate?: string
+  grantDate?: string
   registrationInstitution?: string
+  fundingInstitution?: string
   patentType?: string
   originalAuthors?: string[]
   members?: { name: string; imageUrl?: string }[]
@@ -23,14 +24,15 @@ interface PatentProps {
 function PatentComponent({
   title,
   authors,
-  year,
   patentNumber,
   registrationDate,
+  grantDate,
   registrationInstitution,
+  fundingInstitution,
   number,
   originalAuthors = [],
   members = [],
-}: PatentProps) {
+}: PatentDisplayProps) {
   const { t } = useLanguage()
   return (
     <div className="border-b border-gray-200 py-6 bg-white hover:bg-gray-50/80 transition-all duration-200 px-6 relative group">
@@ -49,26 +51,31 @@ function PatentComponent({
         </div>
 
         <div className="text-base text-gray-600 pl-[calc(24px+0.75rem)] flex flex-col gap-1 pt-2">
-          <p>
-            <strong>{t("patents.filing_year")}</strong> {year}
-          </p>
-          <p>
-            {registrationInstitution && (
-              <>
-                <strong>{t("patents.institution")}</strong> {registrationInstitution}
-              </>
-            )}
-          </p>
-          <p>
-            {patentNumber && (
-              <>
-                <strong>{t("patents.number")}</strong> {patentNumber}
-              </>
-            )}
-            {registrationDate && (
-              <span className="ml-2 text-gray-500">({t("patents.date")} {registrationDate})</span>
-            )}
-          </p>
+          {patentNumber && (
+            <p>
+              <strong>{t("patents.number")}</strong> {patentNumber}
+            </p>
+          )}
+          {registrationDate && (
+            <p>
+              <strong>{t("patents.registration_date")}</strong> {registrationDate}
+            </p>
+          )}
+          {grantDate && (
+            <p>
+              <strong>{t("patents.grant_date")}</strong> {grantDate}
+            </p>
+          )}
+          {registrationInstitution && (
+            <p>
+              <strong>{t("patents.institution")}</strong> {registrationInstitution}
+            </p>
+          )}
+          {fundingInstitution && (
+            <p>
+              <strong>{t("patents.funding_institution")}</strong> {fundingInstitution}
+            </p>
+          )}
         </div>
       </div>
     </div>
@@ -76,7 +83,7 @@ function PatentComponent({
 }
 
 export function Patents() {
-  const [sortBy, setSortBy] = useState("year")
+  const [sortBy, setSortBy] = useState("date")
   const [searchTerm, setSearchTerm] = useState("")
   const { patents, students, teachers } = useProjects()
   const { t } = useLanguage()
@@ -89,8 +96,14 @@ export function Patents() {
         patent.authors.some((author) => author.toLowerCase().includes(searchTerm.toLowerCase()))
     )
 
-    if (sortBy === "year") {
-      return [...filtered].sort((a, b) => Number(b.year) - Number(a.year))
+    const parseDate = (d?: string) => {
+      if (!d) return 0
+      const [day, month, year] = d.split("/").map(Number)
+      return year * 10000 + month * 100 + day
+    }
+
+    if (sortBy === "date") {
+      return [...filtered].sort((a, b) => parseDate(b.registrationDate) - parseDate(a.registrationDate))
     }
 
     return filtered
@@ -114,7 +127,7 @@ export function Patents() {
               onChange={(e) => setSortBy(e.target.value)}
               className="block w-full sm:w-auto px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 font-medium hover:border-gray-400 transition-colors duration-200"
             >
-              <option value="year">{t("patents.sort_year")}</option>
+              <option value="date">{t("patents.sort_date")}</option>
             </select>
           </div>
 

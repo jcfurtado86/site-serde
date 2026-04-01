@@ -463,7 +463,6 @@ export function parsePatents($: CheerioAPI): PatentProps[] {
     if (!titleMatch) return
 
     const title = titleMatch[1].trim()
-    const year = parseInt(titleMatch[2], 10)
 
     // Extract registration number
     const regMatch = fullText.match(/mero do registro:\s*(\S+),/)
@@ -473,17 +472,26 @@ export function parsePatents($: CheerioAPI): PatentProps[] {
     const dateMatch = fullText.match(/data de registro:\s*(\d{2}\/\d{2}\/\d{4})/)
     const registrationDate = dateMatch ? dateMatch[1] : undefined
 
-    // Extract registration institution
-    const instMatch = fullText.match(/(?:Institui..o|Instituição) de registro:\s*(.+?)\.?\s*$/)
-    const registrationInstitution = instMatch ? instMatch[1].trim().replace(/\.\s*$/, "") : undefined
+    // Extract grant date
+    const grantMatch = fullText.match(/[Dd]ata de concess[ãa]o:\s*(\d{2}\/\d{2}\/\d{4})/)
+    const grantDate = grantMatch ? grantMatch[1] : undefined
+
+    // Extract registration institution (just the name, before metadata)
+    const instMatch = fullText.match(/(?:Institui..o|Instituição) de registro:\s*([^.;]+)/)
+    const registrationInstitution = instMatch ? instMatch[1].trim() : undefined
+
+    // Extract funding institution
+    const fundingMatch = fullText.match(/Inst\.\s*promotora\/financiadora:\s*([^.;]+)/)
+    const fundingInstitution = fundingMatch ? fixCasing(fundingMatch[1].trim()) : undefined
 
     patents.push({
       title: fixCasing(title),
       authors,
-      year,
       ...(patentNumber && { patentNumber }),
       ...(registrationDate && { registrationDate }),
+      ...(grantDate && { grantDate }),
       ...(registrationInstitution && { registrationInstitution }),
+      ...(fundingInstitution && { fundingInstitution }),
       patentType: "Programa de Computador",
     })
   })

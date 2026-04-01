@@ -100,12 +100,13 @@
   },
   "patents": {
     "title": "Patents & Registrations",
-    "filing_year": "Filing Year:",
-    "institution": "Registration Institution:",
     "number": "Registration Number:",
-    "date": "Registration Date:",
+    "registration_date": "Registration Date:",
+    "grant_date": "Grant Date:",
+    "institution": "Registration Institution:",
+    "funding_institution": "Funding Institution:",
     "sort_label": "Sort by:",
-    "sort_year": "Year",
+    "sort_date": "Registration Date",
     "search_placeholder": "Search patents...",
     "no_results": "No patents found"
   },

@@ -100,12 +100,13 @@
   },
   "patents": {
     "title": "Patentes e Registros",
-    "filing_year": "Ano do Depósito:",
-    "institution": "Instituição de Registro:",
     "number": "Número do Registro:",
-    "date": "Data do Registro:",
+    "registration_date": "Data de Registro:",
+    "grant_date": "Data de Concessão:",
+    "institution": "Instituição de Registro:",
+    "funding_institution": "Instituição Promotora/Financiadora:",
     "sort_label": "Ordenar por:",
-    "sort_year": "Ano",
+    "sort_date": "Data de Registro",
     "search_placeholder": "Buscar patentes...",
     "no_results": "Nenhuma patente encontrada"
   },

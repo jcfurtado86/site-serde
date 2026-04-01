@@ -20,10 +20,14 @@ function normalizeForComparison(s: string): string {
 
 // --- Merge utilities ---
 
-function pubKey(p: PublicationProps | PatentProps): string {
+function pubKey(p: PublicationProps): string {
   const year = typeof p.year === "number" ? p.year : parseInt(String(p.year), 10)
-  const type = "type" in p ? (p as PublicationProps).type : "patent"
-  return normalizeForComparison(p.title) + "|" + year + "|" + type
+  return normalizeForComparison(p.title) + "|" + year + "|" + p.type
+}
+
+function patentKey(p: PatentProps): string {
+  if (p.patentNumber) return p.patentNumber
+  return normalizeForComparison(p.title)
 }
 
 function projectKey(p: Project): string {
@@ -92,13 +96,13 @@ function mergePublications(imported: PublicationProps[], local: PublicationProps
 
 function mergePatents(imported: PatentProps[], local: PatentProps[]): PatentProps[] {
   const localMap = new Map<string, PatentProps>()
-  for (const p of local) localMap.set(pubKey(p), p)
+  for (const p of local) localMap.set(patentKey(p), p)
 
   const matched = new Set<string>()
   const merged: PatentProps[] = []
 
   for (const imp of imported) {
-    const key = pubKey(imp)
+    const key = patentKey(imp)
     const loc = localMap.get(key)
     if (loc) {
       matched.add(key)

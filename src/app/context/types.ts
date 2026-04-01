@@ -26,11 +26,12 @@ export interface PatentProps {
   number?: number
   title: string
   authors: string[]
-  year: number | string
   link?: string
   patentNumber?: string
   registrationDate?: string
+  grantDate?: string
   registrationInstitution?: string
+  fundingInstitution?: string
   patentType?: string
 }
 
