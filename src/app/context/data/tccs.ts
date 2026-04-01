@@ -220,14 +220,17 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Trabori La Monton Granitan: Criação de um Site para Ensinar Esperanto em Modalidade Assíncrona",
-    description: "",
+    description: "O Esperanto é uma língua auxiliar criada artificialmente por Lázaro Luís Zamenhof, com o objetivo de ser uma língua neutra e de fácil aprendizado. Desde a publicação de sua obra inaugural, em 1887, a comunidade esperantista atravessou diferentes períodos históricos, alternando momentos de expansão e de perseguição institucional, mas a persistência de seus falantes permitiu que a lingvo internacia fosse transmitida entre gerações e continue a atrair novos estudantes. Embora possua alcance internacional, o número relativamente reduzido de falantes caracteriza o Esperanto também como uma língua minoritária, o que implica riscos, ainda que moderados, à sua continuidade. Nesse contexto, o ensino da língua configura-se como uma estratégia relevante para a preservação e o fortalecimento da comunidade esperantista. Com o advento da Internet, os processos de aprendizagem do Esperanto passaram a ocorrer, em grande medida, por meio de cursos on-line voltados a autodidatas, frequentemente sem o acompanhamento de tutores. Diante das limitações e queixas relatadas por estudantes nesse modelo de ensino, este trabalho tem como objetivo propor um site de conteúdo educacional para o ensino de Esperanto, concebido a partir de metodologias contemporâneas de ensino de línguas e adaptado ao meio digital. A proposta envolve a definição da estrutura do site, da organização do conteúdo didático e da concepção de suas principais telas, com foco nas necessidades da comunidade esperantista e de aprendizes iniciantes. Ressalta-se que o escopo do trabalho se limita à concepção e modelagem da proposta, não abrangendo a implementação completa nem a validação empírica do sistema.",
     link: "trabori-la-monton-granitan-criacao-de-um-site-para-ensinar-e",
     status: "Finalizado",
     students: ["Carlos Alberto Barbosa de Almeida Junior"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2026",
-    keywords: "",
+    keywords: "Esperanto, Revitalização linguística, Programação para Internet, Ensino de Língua Estrangeira, Línguas minoritárias, Línguas construídas",
     degree: "Graduação",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/trabori-la-monton-granitan.pdf" },
+    ],
   },
   {
     title:
@@ -247,50 +250,62 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Wisdowkeeper: Uma Ferramenta WEB Fullstack de Gestão de Conhecimento para Auxiliar Estagiários a Solucionar Problemas Recorrentes Envolvendo Sistemas ERP",
-    description: "",
+    description: "Este trabalho tem como objetivo auxiliar estagiários e profissionais de Tecnologia da Informação na resolução de problemas recorrentes em sistemas Enterprise Resource Planning (ERP), por meio do desenvolvimento de uma ferramenta de gestão do conhecimento. A pesquisa parte da constatação de que a ausência de registros estruturados de soluções dificulta o aprendizado dos estagiários, compromete a produtividade organizacional e aumenta o retrabalho. A proposta busca centralizar e organizar o conhecimento tácito e explícito adquirido em atividades práticas, permitindo consultas rápidas e reutilização de soluções previamente documentadas. Para isso, foram aplicados conceitos e modelos consagrados de gestão do conhecimento, como o modelo SECI, o ciclo de vida do conhecimento de Wiig e o conceito de Ba. A metodologia adotada foi a pesquisa-ação, dividida em etapas que incluem levantamento bibliográfico, identificação dos principais problemas enfrentados por estagiários em ambientes de ERP, desenvolvimento da ferramenta e avaliação por meio de testes práticos. Espera-se que a solução proposta contribua para a melhoria da curva de aprendizado dos estagiários, aumente a eficiência operacional das organizações e ofereça um modelo replicável de gestão do conhecimento aplicável a diferentes contextos tecnológicos.",
     link: "wisdowkeeper-uma-ferramenta-web-fullstack-de-gestao-de-conhe",
     status: "Finalizado",
     students: ["Eduardo Teixeira Flexa", "Patrick Miranda dos Santos"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
-    keywords: "",
+    keywords: "Gestão do conhecimento, ERP, Estagiários de TI, Ferramenta de software",
     degree: "Graduação",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/wisdowkeeper.pdf" },
+    ],
   },
   {
     title:
       "Edugames: Um Catálogo Online de Jogos Digitais Educativos para o Ensino de Computação",
-    description: "",
+    description: "Por muito tempo a educação seguiu um modelo antigo e passou por poucas adaptações ao longo das décadas. Por outro lado, a tecnologia se manteve em constante evolução, trazendo novas ferramentas e consequente novas formas de ensinar. Uma dessas novas formas foram os jogos digitais, que promovem um aprendizado ativo e gamificado, engajando mais os estudantes na aquisição de conhecimentos. Ao analisar as alternativas de jogos digitais disponíveis, percebe-se que apesar de haver bons títulos voltados para o ensino áreas da computação, há ainda a falta de um meio que centralize e promova a descoberta desses jogos que poderiam auxiliar o estudante no aprendizado, restando a ele fazer buscas e testes por conta própria. Buscando facilitar a busca e descoberta de jogos digitais que auxiliem no ensino e aprendizado de áreas da computação, foi desenvolvida uma plataforma web sob o framework Express js, tecnologias Javascript e banco de dados PostgreSQL, que reúne e organiza os jogos dessa área, oferecendo filtros e ferramenta de busca.",
     link: "edugames-um-catalogo-online-de-jogos-digitais-educativos-par",
     status: "Finalizado",
     students: ["Eduardo Rodrigues Nogueira"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
-    keywords: "",
+    keywords: "Jogo Digital, Educação, Plataforma Web, Site, Computação",
     degree: "Graduação",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/edugames.pdf" },
+    ],
   },
   {
     title:
       "Mapeamento Sistemático de Técnicas Emergentes de Pré- Processamento para Mitigação de Viés em Dados de Treinamento",
-    description: "",
+    description: "O presente trabalho apresenta um mapeamento sistemático da literatura que identifica técnicas emergentes de mitigação de viés em dados de treinamento para aprendizado de máquina, aplicadas durante o pré-processamento, entre o período de 2020 e 2024. Dada a crescente popularidade do campo de estudo de inteligência artificial e de diferentes áreas dependerem cada vez mais desses modelos, é fundamental o controle e monitoramento dos vieses presentes em meio a estes. A pesquisa teve como base metodológica os critérios estabelecidos por Kitchenham e Charters (2007), com string de busca refinada e definição de critérios de inclusão/exclusão aplicados sobre as bases IEEE Xplore e ACM Digital Library. 85 estudos primários foram analisados, resultando em 244 técnicas identificadas, classificadas em sete categorias principais, sendo estas: balanceamento de dados, transformação de labels, modificação de atributos sensíveis, reponderação, geradores de dados justos, censura de score/feature e normalização e transformações de feature. Os resultados apontam para uma crescente adoção de abordagens híbridas e relevantes ao contexto, além da utilização de múltiplas métricas para a avaliação do desempenho e equidade. O estudo conclui que o pré-processamento permanecerá como uma etapa crítica para a construção de sistemas mais justos, e que a vigilância contínua das técnicas emergentes é essencial para o avanço ético e técnico da área.",
     link: "mapeamento-sistematico-de-tecnicas-emergentes-de-pre-process",
     status: "Finalizado",
     students: ["Marco Antonio da Silva Neves Filho"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
-    keywords: "",
+    keywords: "Mitigação de Viés, Viés em Aprendizado de Máquina, Aprendizado de Máquina Justo, Pré-processamento de Dados, Equidade Algorítmica, Técnicas Emergentes, Mapeamento Sistemático",
     degree: "Graduação",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/mapeamento-vies.pdf" },
+    ],
   },
   {
     title:
       "Estudo Experimental Sobre o Uso de Chatbots na Recuperação de Informações por Profissionais Juniores no Processo de Desenvolvimento de Software",
-    description: "",
+    description: "A complexidade dos processos de software apresenta desafios para profissionais juniores, que frequentemente encontram dificuldades na recuperação de informações e assimilação de fluxos de trabalho. Métodos tradicionais, como documentações extensas e suporte de profissionais experientes, podem ser ineficientes, resultando em aumento do tempo de execução de tarefas e inconsistências nas entregas. Neste contexto, assistentes virtuais baseados em inteligência artificial, como ChatBots, surgem como alternativa para otimizar a recuperação de informações e melhorar a produtividade desses profissionais. Este trabalho investiga a eficácia do uso de ChatBots na recuperação de informações em comparação com métodos tradicionais. Foi realizado um experimento controlado dividido em um Grupo Experimental, que utilizou um ChatBot, e um Grupo Controle, que utilizou uma wiki institucional e o suporte de um profissional experiente. Os participantes realizaram três tarefas de diferentes níveis de dificuldade e responderam a um questionário de feedback. Os dados coletados foram analisados estatisticamente e qualitativamente, por meio de análise de sentimentos das respostas abertas. Os resultados indicaram que o Grupo Experimental obteve um desempenho superior ao Grupo Controle, com diferença estatisticamente significativa. A análise das percepções revelou que a abordagem baseada em ChatBot foi considerada mais ágil e acessível, embora os participantes tenham apontado a necessidade de respostas mais diretas e contextualizadas. Os achados sugerem que ChatBots podem ser uma solução eficaz para suporte a profissionais juniores, reduzindo a curva de aprendizado e aumentando a autonomia. Contudo, melhorias na geração de respostas são recomendadas para garantir maior precisão e clareza.",
     link: "estudo-experimental-sobre-o-uso-de-chatbots-na-recuperacao-d",
     status: "Finalizado",
     students: ["Fernando Rafael Serra Neves", "João Victor Machado de Andrade"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2025",
-    keywords: "",
+    keywords: "ChatBot, Recuperação de informações, Aprendizado organizacional, Engenharia de Software, Inteligência Artificial",
     degree: "Graduação",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/chatbots-recuperacao.pdf" },
+    ],
   },
   {
     title:
@@ -355,62 +370,77 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Classup: Uma Plataforma Gamificada para Auxílio do Aprendizado Utilizando Quizzes",
-    description: "",
+    description: "O processo de aprendizado diversificou-se com a exploração de novas tecnologias desenvolvidas com o objetivo de serem utilizadas para fornecer novas maneiras de se chegar ao ensino, complementar o aprendizado e conduzir experiências satisfatórias e produtivas direcionadas ao ambiente educacional. No intuito de auxiliar o ensino a distância, tem-se recorrido a aplicação da gamificação no contexto educacional como um recurso inserido tanto nas aulas presenciais quanto em aulas online, para atribuir um toque lúdico proporcionado pelos elementos de jogos e possibilitando um ambiente de aprendizagem diferente e cativante. Tendo em vista essa alternativa, este trabalho apresenta o desenvolvimento de uma plataforma online gamificada onde o discente tem acesso a um ambiente online que se apropria dos elementos de jogos para fornecer uma proposta de aprendizado e interação diversificada.",
     link: "classup-uma-plataforma-gamificada-para-auxilio-do-aprendizad",
     status: "Finalizado",
     students: ["Luís César Martins Amaral"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2024",
-    keywords: "",
+    keywords: "Gamificação, Aprendizagem, Ensino, Elementos de jogos",
     degree: "Graduação",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/classup.pdf" },
+    ],
   },
   {
     title:
       "Desafios Enfrentados por Profissionais e Empresas da Área de T.i. Durante a Pandemia de Covid-19 no Brasil",
-    description: "",
+    description: "O surgimento da pandemia de COVID-19 afetou grandemente a população mundial e os setores comerciais, inclusive o setor de desenvolvimento de software. Consequentemente, foram adotadas medidas de contenção que forçaram muitas empresas e funcionários a migrarem repentinamente para um ambiente remoto de trabalho. Nesse sentido, este trabalho tem como objetivo analisar as perspectivas dos profissionais da área de T.I., no Brasil, a respeito dos desafios e mudanças enfrentados durante a pandemia de COVID-19; os reflexos que a mesma causou no cotidiano dos desenvolvedores e como esses afetaram sua produtividade e bem-estar. Como forma de atingir esse objetivo, uma pesquisa de opinião online foi definida e aplicada em profissionais da área de T.I. com questões pertinentes ao tema.",
     link: "desafios-enfrentados-por-profissionais-e-empresas-da-area-de",
     status: "Finalizado",
     students: ["Eduardo Luigi Tavares da Silva Ciuffi"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2023",
-    keywords: "",
+    keywords: "Pandemia de COVID-19, Profissionais da área de T.I., Produtividade e bem-estar",
     degree: "Graduação",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/desafios-covid.pdf" },
+    ],
   },
   {
     title:
       "Papel Ou Ide: Uma Análise Sobre as Formas de Avaliação em Turmas Iniciantes de Programação",
-    description: "",
+    description: "Este trabalho apresenta os resultados de uma revisão sistemática da literatura que contou com a análise dos artigos sobre o processo de ensino-aprendizagem de programação para iniciantes em cursos voltados para computação. Os resultados obtidos mostraram que há ainda muito para se evoluir no cenário de ensino-aprendizagem de programação na comunidade brasileira na área, que a maioria das pesquisas neste trabalho apresentadas se encontram principalmente na educação superior e que grande parte delas apresenta novas ferramentas de software que buscam tornar mais práticos os métodos de ensino das linguagens de programação. Este trabalho busca evidências empíricas dos artefatos que influenciam as taxas de sucesso/reprovação nos cursos voltados para computação, e neste trabalho além das pesquisas neste documento apresentadas, também será apresentado um experimento feito em sala de aula utilizando dois métodos de ensino e avaliação em programação efetuado em uma turma iniciante do curso de Ciência da Computação da Universidade Federal do Amapá UNIFAP.",
     link: "papel-ou-ide-uma-analise-sobre-as-formas-de-avaliacao-em-tur",
     status: "Finalizado",
     students: ["Felipe Monteiro Farias"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2023",
-    keywords: "",
+    keywords: "Educação, Programação para iniciantes, Papel e caneta, Computador/IDE, Ensino, Avaliação",
     degree: "Graduação",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/papel-ou-ide.pdf" },
+    ],
   },
   {
     title:
       "A Evasão em Cursos de Computação: Um Estudo de Caso na Universidade Federal do Amapá",
-    description: "",
+    description: "A indústria da tecnologia da informação vem se destacando desde o final da década de 2000, o surgimento de grandes empresas no setor e o avanço de tecnologias abriu diversas oportunidades na área, resultando em uma alta demanda de mão de obra qualificada, em contraposição os índices de evasão em cursos de computação permanecem em alto nível. Este estudo tem como objetivo colher dados, analisar e mensurar o panorama da evasão no curso de Ciência da Computação da Universidade Federal do Amapá. Como forma de atingir este objetivo, foram colhidos dados sobre o curso, através Sistema Integrado de Gestão de Atividades Acadêmicas (SIGAA) e um survey foi definido e aplicado a alunos evadidos entre o período de 2014 a 2020. A pesquisa teve como resultado a identificação do perfil do discente evadido, seus principais motivos para o abandono do curso e os componentes curriculares com maiores índices de insucesso, além de fornecer o índice de evasão por turma durante o período analisado. Foi possível verificar um elevado índice de evasão, bem como um alto número de insucessos nos dados analisados. Portanto, conclui-se que novas estratégias educacionais e políticas públicas internas da universidade ou da coordenação do curso podem ser realizadas para conter estes índices.",
     link: "a-evasao-em-cursos-de-computacao-um-estudo-de-caso-na-univer",
     status: "Finalizado",
     students: ["Mateus Bezerra da Silva"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2023",
-    keywords: "",
+    keywords: "Evasão em cursos de computação, Evasão no ensino superior, Survey, Ciência da computação",
     degree: "Graduação",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/evasao-computacao.pdf" },
+    ],
   },
   {
     title:
       "Um Catálogo de Práticas de IHC para Aplicativos Móveis",
-    description: "",
+    description: "A popularidade dos smartphones e sua crescente facilidade de acesso estão fazendo com que os aplicativos móveis tenham um padrão de usabilidade cada vez maior, exigindo dos profissionais da indústria uma maior cautela com a interação humano-computador do produto final. Este trabalho apresenta um Mapeamento Sistemático da Literatura, que tem como objetivo identificar e analisar abordagens de IHC para aplicativos móveis, assim como sua listagem, o qual poderá servir como um guia para a indústria do software. A string retornou 2100 trabalhos, dos quais 72 foram selecionados de acordo com os critérios definidos no protocolo do Mapeamento Sistemático da Literatura.",
     link: "um-catalogo-de-praticas-de-ihc-para-aplicativos-moveis",
     status: "Finalizado",
     students: ["Aíla Taynara Santos Moreira Maciel"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2022",
-    keywords: "",
+    keywords: "Aplicativos, IHC, Interação humano-computador, Móvel, Mapeamento sistemático",
     degree: "Graduação",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/catalogo-ihc.pdf" },
+    ],
   },
   {
     title:
@@ -430,14 +460,17 @@ export const tccs: TCCProps[] = [
   {
     title:
       "Uma Ferramenta para Identificação Automática de Bad Smells",
-    description: "",
+    description: "O processo de desenvolvimento de software é uma etapa na Engenharia de Software que demanda planejamento e organização da equipe de desenvolvimento para produzir código fonte de qualidade. Esses, e demais atributos, são necessários para evitar possíveis problemas estruturais no código, conhecidos na literatura como Bad Smells, e/ou melhorar a legibilidade das linhas de código; além de que, sem elas, o processo de refatoração do código se torna mais dispendioso. Tendo em mente essa problemática, este trabalho apresenta um instrumento automatizado para identificação e verificação de Bad Smells em código-fonte, e mostra os impactos dos mesmos no desenvolvimento de software. A ferramenta apresentada tem objetivo de detectar esses Bad Smells no código fonte e disponibilizar, em forma de gráfico para o usuário, a localização e a categoria em que se enquadram. Este trabalho possui o intuito de detalhar seu funcionamento e contextualizar sua importância dentro da Engenharia de Software.",
     link: "uma-ferramenta-para-identificacao-automatica-de-bad-smells",
     status: "Finalizado",
     students: ["Matheus Costa Silva"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2021",
-    keywords: "",
+    keywords: "Bad Smell, Qualidade de Código, Design e Arquitetura de Software, Ferramentas de Software Livre",
     degree: "Graduação",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/bad-smells.pdf" },
+    ],
   },
   {
     title:
@@ -517,38 +550,47 @@ export const tccs: TCCProps[] = [
   {
     title:
       "O Data Show Como Ferramenta Pedagógica de Apoio no Processo Ensino e Aprendizagem",
-    description: "",
+    description: "A presente monografia traz algumas reflexões sobre a relação entre o uso do Data show, o ensino e a aprendizagem, tendo como objetivo analisar sua utilização sob diferentes abordagens no uso em sala de aula. Nessa perspectiva, buscou-se entender como se dá a utilização do Data show por professores da escola campo, a unidade educacional Profª Maria Cavalcante, bem como a percepção destes em relação ao uso desse recurso. Outras questões também nortearam alguns questionamentos, como: Há quanto tempo e com que frequência esses professores utilizam o data show, e também alguns dos erros mais recorrentes no uso desse recurso. Para alcançar os objetivos propostos, fez-se um breve histórico da importância que é a utilização dos recursos tecnológicos no meio educacional. Em seguida, fez-se uma explanação sobre as principais funcionalidades do Data show e, por fim, a apresentação da análise dos dados levantados em questionários pelos professores. Os resultados da pesquisa mostram que o Data show pode tornar as aulas mais dinâmicas e criativas, mas que é preciso investir em capacitação e aquisição de equipamentos tecnológicos para suprir a demanda reivindicada por professores.",
     link: "o-data-show-como-ferramenta-pedagogica-de-apoio-no-processo-",
     status: "Finalizado",
     students: ["Josimar da Silva Santos"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2018",
-    keywords: "",
+    keywords: "Data show, Slides, Recursos, Ensino e aprendizagem",
     degree: "Especialização",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/data-show-pedagogico.pdf" },
+    ],
   },
   {
     title:
       "O Sistema de Avaliação do Pacto Nacional Pela Alfabetização na Idade Certa: Análise das Práticas Pedagógicas e de Gestão Escolar",
-    description: "",
+    description: "Discussões sobre as tecnologias da informação e da comunicação em detrimento do desenvolvimento da educação estão cada vez mais crescentes devido serem ferramentas de auxílio à sistematização e estruturação do currículo e do fazer pedagógico. No contexto de uso das TIC nos processos educacionais, o presente trabalho aborda o tema acerca do Sistema Integrado de Monitoramento, Execução e Controle do Ministério da Educação (SIMEC) como sistema de avaliação de propostas pedagógicas e de gestão escolar no Pacto pela Alfabetização na Idade Certa. Objetiva-se diagnosticar de que forma SIMEC contribui para a avaliação das práticas pedagógicas e de gestão escolar por professores do PNAIC. Os resultados demonstram que as tarefas de avaliação valorizam a perspectiva investigativa e reflexiva quanto a sua prática didático-pedagógica, mais ainda estão distantes das práticas do programa e da realidade escolar. Contudo, o SIMEC se mostra uma ferramenta de auxílio a gestão e monitoramento do programa e um espaço propício para formação.",
     link: "o-sistema-de-avaliacao-do-pacto-nacional-pela-alfabetizacao-",
     status: "Finalizado",
     students: ["Letícia Picanço Carneiro"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2018",
-    keywords: "",
+    keywords: "Avaliação formativa, SIMEC, Pacto pela alfabetização na idade certa",
     degree: "Especialização",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/avaliacao-pnaic.pdf" },
+    ],
   },
   {
     title:
       "A Importância do Uso das Mídias para o Desenvolvimento Cognitivo dos Alunos da Escola Novo Horizonte ? Santana ? Amapá",
-    description: "",
+    description: "As tecnologias vêm tomando maior espaço na vida das pessoas a cada dia, seja em seus trabalhos, lazeres ou estudos. São recursos que auxiliam na informação, na produção de conhecimento e na comunicação, integrando diversos cantos do mundo. Assim buscou-se conhecer a importância do uso das mídias para o desenvolvimento cognitivo dos alunos da Escola Estadual Novo Horizonte – Santana – Amapá, observando as perspectivas administrativas, docentes e discentes, de uma comunidade periférica e com problemas socioeconômicos visíveis. Para a coleta de informações foi realizada uma pesquisa Participante a qual utiliza como técnica a aplicação de questionários. Sua natureza é empírica a pesquisa de campo de abordagem qualitativa descritiva. Com base na referida pesquisa constatou-se a relevância do uso das mídias e do Laboratório de Informática para auxiliar o trabalho docente e para a melhoria da aprendizagem dos alunos. Todos os envolvidos compactuaram do resultado que afirma que o trabalho com recursos tecnológicos propicia consideravelmente o desenvolvimento cognitivo, associando ensino, dinamismo, descontração e inclusão digital. Por conseguinte, concluiu-se que a escola necessita revitalizar o espaço do laboratório de informática, adquirir novos recursos e capacitar melhor os professores para que as mídias façam parte ativamente do ensino.",
     link: "a-importancia-do-uso-das-midias-para-o-desenvolvimento-cogni",
     status: "Finalizado",
     students: ["Rosiane do Socorro Costa Oliveira"],
     advisor: "Julio Cezar Costa Furtado",
     year: "2018",
-    keywords: "",
+    keywords: "Aprendizagem, Educação, Inclusão digital, Mídias",
     degree: "Especialização",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/midias-desenvolvimento-cognitivo.pdf" },
+    ],
   },
   {
     title:

@@ -78,10 +78,10 @@ async function main() {
   const { tccs } = await import("../src/app/context/data/tccs")
   const allTccs = [...tccs] as TCCProps[]
 
-  // Only process finalized TCCs with empty description
-  const toProcess = allTccs.filter((t) => t.status === "Finalizado" && (!t.description || t.description.trim() === ""))
+  // Process all finalized TCCs — update repository link + fill empty description/keywords
+  const toProcess = allTccs.filter((t) => t.status === "Finalizado")
 
-  console.log(`📚 Repositório UNIFAP — buscando dados para ${toProcess.length} orientações concluídas sem descrição...`)
+  console.log(`📚 Repositório UNIFAP — buscando dados para ${toProcess.length} orientações concluídas...`)
 
   let found = 0
   let notFound = 0
@@ -98,8 +98,8 @@ async function main() {
       const idx = allTccs.findIndex((t) => t.title === tcc.title && t.status === tcc.status)
       if (idx === -1) continue
 
-      if (resumo) {
-        // Remove line breaks and normalize whitespace
+      if (resumo && (!allTccs[idx].description || allTccs[idx].description.trim() === "")) {
+        // Remove line breaks and normalize whitespace (only fill if empty — local is fallback)
         allTccs[idx].description = resumo.replace(/[\r\n]+/g, " ").replace(/\s+/g, " ").trim()
       }
       if (subjects.length > 0 && (!allTccs[idx].keywords || allTccs[idx].keywords.trim() === "")) {
@@ -109,11 +109,17 @@ async function main() {
         // Normalize URI: remove /jspui and port from old DSpace URLs
         const normalizedUri = uri.replace(/:80/, "").replace("/jspui/handle/", "/handle/")
         const docs = allTccs[idx].documentation || []
-        const alreadyHasRepo = docs.some((d) => d.link.includes("repositorio.unifap.br"))
-        if (!alreadyHasRepo) {
-          docs.push({ name: "Repositório UNIFAP", type: "article", link: normalizedUri })
-          allTccs[idx].documentation = docs
+        // Replace local PDF link with repository link, or add if none exists
+        const localPdfIdx = docs.findIndex((d) => d.link.startsWith("/tccs/"))
+        if (localPdfIdx !== -1) {
+          docs[localPdfIdx] = { name: "Repositório UNIFAP", type: "article", link: normalizedUri }
+        } else {
+          const alreadyHasRepo = docs.some((d) => d.link.includes("repositorio.unifap.br"))
+          if (!alreadyHasRepo) {
+            docs.push({ name: "Repositório UNIFAP", type: "article", link: normalizedUri })
+          }
         }
+        allTccs[idx].documentation = docs
       }
 
       found++
