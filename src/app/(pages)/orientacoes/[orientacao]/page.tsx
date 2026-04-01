@@ -3,7 +3,7 @@ import { use } from "react"
 import { useProjects } from "@/app/context/ProjectsContext"
 import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
 import { FileProps } from "@/app/context/ProjectsContext"
-import { GraduationCap, BookOpen, Award, BadgeCheck, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon } from "lucide-react"
+import { GraduationCap, BookOpen, Award, BadgeCheck, CheckCircle, SquareUser as User, ExternalLink, Download, LoaderIcon, Calendar } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/app/i18n/context"
@@ -98,8 +98,11 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
           <h1 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
             {l(tcc.title, tcc.title_en)}
           </h1>
+          {tcc.course && (
+            <p className="mt-2 text-gray-600 text-lg font-medium">{tcc.course}</p>
+          )}
 
-          <div className="mt-4 flex flex-wrap items-center gap-4">
+          <div className="mt-4 flex flex-wrap items-center gap-3">
             <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${degree.color}`}>
               {degree.icon}
               {degreeDisplayText[tcc.degree || "Graduação"] || tcc.degree}
@@ -110,12 +113,18 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
               {tcc.status === "Finalizado" ? <CheckCircle size={16} /> : <LoaderIcon size={16} />}
               {statusDisplayText[tcc.status] || tcc.status}
             </span>
+            {tcc.year && tcc.status === "Finalizado" && (
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-600">
+                <Calendar size={16} />
+                {tcc.year}
+              </span>
+            )}
           </div>
         </header>
 
         <hr className="my-8 border-gray-200" />
 
-        <section className="flex flex-col gap-4">
+        <section className="flex flex-col gap-6">
           <div>
             <strong className="text-gray-700">{t("guidance_detail.students")}</strong>
             <div className="flex flex-wrap gap-3 mt-2">
@@ -143,52 +152,52 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
               })}
             </div>
           </div>
-          {tcc.course && (
-            <p className="text-gray-700 leading-relaxed text-base">
-              <strong>Curso:</strong> {tcc.course}
-            </p>
-          )}
-          {tcc.year && tcc.status === "Finalizado" && (
-            <p className="text-gray-700 leading-relaxed text-base">
-              <strong>{t("guidance_detail.completion_year")}</strong> {tcc.year}
-            </p>
-          )}
+
+          <div>
+            <strong className="text-gray-700">{t("guidance_detail.advisor")}</strong>
+            {(() => {
+              const advisor = fuzzyMatchMember(tcc.advisor, allTeachers)
+              return (
+                <div className="flex items-center gap-3 mt-2">
+                  {advisor?.imageUrl ? (
+                    <Image
+                      src={advisor.imageUrl}
+                      alt={tcc.advisor}
+                      width={40}
+                      height={40}
+                      className="rounded-full object-cover w-10 h-10"
+                      unoptimized
+                    />
+                  ) : (
+                    <User size={24} className="text-teal-500" />
+                  )}
+                  <span className="text-gray-700">{tcc.advisor}</span>
+                </div>
+              )
+            })()}
+          </div>
+
           {tcc.description && (
-            <p className="text-gray-700 leading-relaxed text-base">
-              <strong>{t("guidance_detail.summary")}</strong> {l(tcc.description, tcc.description_en)}
-            </p>
+            <div>
+              <strong className="text-gray-700">{t("guidance_detail.summary")}</strong>
+              <p className="mt-2 text-gray-700 leading-relaxed text-base">
+                {l(tcc.description, tcc.description_en)}
+              </p>
+            </div>
           )}
+
           {tcc.keywords && (
-            <p className="text-gray-700 leading-relaxed text-base">
-              <strong>{t("guidance_detail.keywords")}</strong> {tcc.keywords}
-            </p>
-          )}
-        </section>
-
-        <hr className="my-8 border-gray-200" />
-
-        <section>
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">{t("guidance_detail.advisor")}</h2>
-          {(() => {
-            const advisor = fuzzyMatchMember(tcc.advisor, allTeachers)
-            return (
-              <div className="flex items-center gap-3 text-gray-700">
-                {advisor?.imageUrl ? (
-                  <Image
-                    src={advisor.imageUrl}
-                    alt={tcc.advisor}
-                    width={32}
-                    height={32}
-                    className="rounded-full object-cover w-10 h-10"
-                    unoptimized
-                  />
-                ) : (
-                  <User size={24} className="text-teal-500" />
-                )}
-                <span className="text-gray-700">{tcc.advisor}</span>
+            <div>
+              <strong className="text-gray-700">{t("guidance_detail.keywords")}</strong>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {tcc.keywords.split(",").map((kw: string, i: number) => (
+                  <span key={i} className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">
+                    {kw.trim()}
+                  </span>
+                ))}
               </div>
-            )
-          })()}
+            </div>
+          )}
         </section>
 
         {tcc.documentation && tcc.documentation.length > 0 && (
@@ -196,15 +205,15 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
             <hr className="my-8 border-gray-200" />
             <section>
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">{t("guidance_detail.materials")}</h2>
-              <div className="flex items-center gap-3 text-gray-700">
+              <div className="flex flex-wrap gap-3">
                 {tcc.documentation.map((doc: FileProps, index: number) => (
                   <Link
                     target="_blank"
                     href={doc.link || "#"}
                     key={index}
-                    className="flex items-center gap-2 text-blue-600 hover:text-blue-800"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 hover:bg-blue-100 rounded-lg transition-colors"
                   >
-                    <ExternalLink size={24} className="text-teal-500" />
+                    {doc.link.startsWith("/tccs/") ? <Download size={18} /> : <ExternalLink size={18} />}
                     {doc.name}
                   </Link>
                 ))}
