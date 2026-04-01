@@ -1,10 +1,16 @@
 "use client"
 import { useState, useMemo } from "react"
 import { Search } from "@/app/components/SearcBar/Search" // Assumindo que o SearchBar é um componente genérico
-import { useProjects } from "@/app/context/ProjectsContext" // Assumindo que o contexto agora também provê 'patents'
+import { useProjects } from "@/app/context/ProjectsContext"
 import { useLanguage } from "@/app/i18n/context"
+import { resolveAuthorName, findMember } from "@/app/utils/resolveAuthorName"
+import Image from "next/image"
 
-// 1. Interface específica para Patentes
+interface MemberInfo {
+  name: string
+  imageUrl?: string
+}
+
 interface PatentProps {
   number?: number
   title: string
@@ -15,9 +21,10 @@ interface PatentProps {
   registrationDate?: string
   registrationInstitution?: string
   patentType?: string
+  originalAuthors?: string[]
+  members?: MemberInfo[]
 }
 
-// 2. Componente de item individual, agora focado em Patente
 function PatentComponent({
   title,
   authors,
@@ -26,6 +33,8 @@ function PatentComponent({
   registrationDate,
   registrationInstitution,
   number,
+  originalAuthors = [],
+  members = [],
 }: PatentProps) {
   const { t } = useLanguage()
   return (
@@ -39,7 +48,25 @@ function PatentComponent({
           </h2>
         </div>
 
-        <p className="text-base text-gray-600 pl-[calc(24px+0.75rem)]">{authors.join("; ")}</p>
+        <div className="flex items-center gap-2 pl-[calc(24px+0.75rem)]">
+          <div className="flex -space-x-2">
+            {originalAuthors.map((a, i) => {
+              const member = findMember(a, members)
+              return member?.imageUrl ? (
+                <Image
+                  key={i}
+                  src={member.imageUrl}
+                  alt={member.name}
+                  width={28}
+                  height={28}
+                  className="rounded-full object-cover w-7 h-7 border-2 border-white bg-white"
+                  unoptimized
+                />
+              ) : null
+            })}
+          </div>
+          <p className="text-base text-gray-600">{authors.join("; ")}</p>
+        </div>
 
         {/* Seção de detalhes da patente, agora exibida diretamente */}
         <div className="text-base text-gray-600 pl-[calc(24px+0.75rem)] flex flex-col gap-1 pt-2">
@@ -73,9 +100,9 @@ function PatentComponent({
 export function Patents() {
   const [sortBy, setSortBy] = useState("year")
   const [searchTerm, setSearchTerm] = useState("")
-  // O contexto agora deve fornecer um array de 'patents'
-  const { patents } = useProjects()
+  const { patents, students, teachers } = useProjects()
   const { t } = useLanguage()
+  const allMembers = useMemo(() => [...students, ...teachers], [students, teachers])
 
   const sortedPatents = useMemo(() => {
     // A lógica de filtro por tipo foi removida
@@ -127,8 +154,14 @@ export function Patents() {
 
         <div className="bg-white rounded-xl shadow-sm overflow-hidden">
           {sortedPatents.map((patent, index) => (
-            // Passa os dados para o componente de item de patente
-            <PatentComponent key={index} {...patent} number={index + 1} />
+            <PatentComponent
+              key={index}
+              {...patent}
+              authors={patent.authors.map((a) => resolveAuthorName(a, allMembers))}
+              originalAuthors={patent.authors}
+              members={allMembers}
+              number={index + 1}
+            />
           ))}
 
           {sortedPatents.length === 0 && (

@@ -4,6 +4,14 @@ import { Search } from "@/app/components/SearcBar/Search"
 import { Tooltip } from "@/app/(pages)/publicacoes/components/Tooltip/Tooltip"
 import { useProjects } from "@/app/context/ProjectsContext"
 import { useLanguage } from "@/app/i18n/context"
+import { resolveAuthorName, findMember } from "@/app/utils/resolveAuthorName"
+import Image from "next/image"
+
+interface MemberInfo {
+  name: string
+  imageUrl?: string
+}
+
 interface PublicationProps {
   type: "article" | "book" | "chapter" | "congress" | "conferenceAbstract" | "patent"
   number?: number
@@ -23,10 +31,12 @@ interface PublicationProps {
   jcrImpact?: number
   importance?: number
   // --- Campos Opcionais para Patentes ---
-  patentNumber?: string // Ex: "BR512021001576-2"
-  registrationDate?: string // Ex: "30/10/2020"
-  registrationInstitution?: string // Ex: "INPI - Instituto Nacional da Propriedade Industrial"
+  patentNumber?: string
+  registrationDate?: string
+  registrationInstitution?: string
   patentType?: string
+  originalAuthors?: string[]
+  members?: MemberInfo[]
 }
 
 function Publication({
@@ -46,6 +56,8 @@ function Publication({
   registrationDate,
   registrationInstitution,
   patentType,
+  originalAuthors = [],
+  members = [],
 }: PublicationProps) {
   const { t } = useLanguage()
   const getTypeLabel = () => {
@@ -100,7 +112,25 @@ function Publication({
             {title}
           </h2>
         </div>
-        <p className="text-sm sm:text-base text-gray-600 pl-0 sm:pl-[calc(24px+0.75rem)]">{authors.join("; ")}</p>
+        <div className="flex items-center gap-2 pl-0 sm:pl-[calc(24px+0.75rem)]">
+          <div className="flex -space-x-2">
+            {originalAuthors.map((a, i) => {
+              const member = findMember(a, members)
+              return member?.imageUrl ? (
+                <Image
+                  key={i}
+                  src={member.imageUrl}
+                  alt={member.name}
+                  width={28}
+                  height={28}
+                  className="rounded-full object-cover w-7 h-7 border-2 border-white bg-white"
+                  unoptimized
+                />
+              ) : null
+            })}
+          </div>
+          <p className="text-sm sm:text-base text-gray-600">{authors.join("; ")}</p>
+        </div>
         {(publisher || event) && (
           <p className="text-sm sm:text-base text-gray-600 pl-0 sm:pl-[calc(24px+0.75rem)]">
             {publisher && `${publisher}${edition ? `, ${edition}` : ""}`}
@@ -147,8 +177,9 @@ export function Publications() {
   const [sortBy, setSortBy] = useState("year")
   const [searchTerm, setSearchTerm] = useState("")
   const [filterType, setFilterType] = useState("all")
-  const { publications } = useProjects()
+  const { publications, students, teachers } = useProjects()
   const { t } = useLanguage()
+  const allMembers = useMemo(() => [...students, ...teachers], [students, teachers])
 
   const sortedPublications = useMemo(() => {
     let filtered = publications
@@ -227,7 +258,14 @@ export function Publications() {
 
         <div className="bg-white rounded-xl shadow-sm overflow-hidden">
           {sortedPublications.map((publication, index) => (
-            <Publication key={index} {...publication} number={index + 1} />
+            <Publication
+              key={index}
+              {...publication}
+              authors={publication.authors.map((a) => resolveAuthorName(a, allMembers))}
+              originalAuthors={publication.authors}
+              members={allMembers}
+              number={index + 1}
+            />
           ))}
 
           {sortedPublications.length === 0 && (
