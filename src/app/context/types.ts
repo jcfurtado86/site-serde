@@ -75,6 +75,7 @@ export interface TCCProps {
   description?: string
   description_en?: string
   degree?: string
+  course?: string
 }
 
 export interface Project {

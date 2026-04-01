@@ -116,11 +116,6 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
         <hr className="my-8 border-gray-200" />
 
         <section className="flex flex-col gap-4">
-          {tcc.year && (
-            <p className="text-gray-700 leading-relaxed text-base">
-              <strong>{t("guidance_detail.completion_year")}</strong> {tcc.year}
-            </p>
-          )}
           <div>
             <strong className="text-gray-700">{t("guidance_detail.students")}</strong>
             <div className="flex flex-wrap gap-3 mt-2">
@@ -148,6 +143,16 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
               })}
             </div>
           </div>
+          {tcc.course && (
+            <p className="text-gray-700 leading-relaxed text-base">
+              <strong>Curso:</strong> {tcc.course}
+            </p>
+          )}
+          {tcc.year && tcc.status === "Finalizado" && (
+            <p className="text-gray-700 leading-relaxed text-base">
+              <strong>{t("guidance_detail.completion_year")}</strong> {tcc.year}
+            </p>
+          )}
           {tcc.description && (
             <p className="text-gray-700 leading-relaxed text-base">
               <strong>{t("guidance_detail.summary")}</strong> {l(tcc.description, tcc.description_en)}

@@ -167,6 +167,7 @@ function formatTCC(t: TCCProps): string {
   lines.push(`    year: "${escapeString(t.year)}",`)
   lines.push(`    keywords: "${escapeString(t.keywords || "")}",`)
   if (t.degree) lines.push(`    degree: "${escapeString(t.degree)}",`)
+  if (t.course) lines.push(`    course: "${escapeString(t.course)}",`)
   if (t.documentation && t.documentation.length > 0) {
     lines.push("    documentation: [")
     for (const doc of t.documentation) {

@@ -12,6 +12,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Mestrado",
+    course: "Mestrado Profissional em Propriedade Intelectual e Tranferência de Tecnolo",
   },
   {
     title:
@@ -24,6 +25,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Mestrado",
+    course: "Mestrado Profissional em Educação Inclusiva em Rede Nacional",
   },
   {
     title:
@@ -36,6 +38,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -48,6 +51,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -60,6 +64,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -72,6 +77,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -84,6 +90,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -96,6 +103,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -108,6 +116,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -120,6 +129,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -132,6 +142,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -144,6 +155,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -156,6 +168,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -168,6 +181,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -180,6 +194,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -192,6 +207,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -204,6 +220,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -216,6 +233,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -228,6 +246,7 @@ export const tccs: TCCProps[] = [
     year: "2026",
     keywords: "Esperanto, Revitalização linguística, Programação para Internet, Ensino de Língua Estrangeira, Línguas minoritárias, Línguas construídas",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/trabori-la-monton-granitan.pdf" },
     ],
@@ -243,6 +262,7 @@ export const tccs: TCCProps[] = [
     year: "2025",
     keywords: "Jogos Digitais, Programação Básica - Ensino, Ferramentas de Ensino",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/1741" },
     ],
@@ -258,6 +278,7 @@ export const tccs: TCCProps[] = [
     year: "2025",
     keywords: "Gestão do conhecimento, ERP, Estagiários de TI, Ferramenta de software",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/wisdowkeeper.pdf" },
     ],
@@ -273,6 +294,7 @@ export const tccs: TCCProps[] = [
     year: "2025",
     keywords: "Jogo Digital, Educação, Plataforma Web, Site, Computação",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/edugames.pdf" },
     ],
@@ -288,6 +310,7 @@ export const tccs: TCCProps[] = [
     year: "2025",
     keywords: "Mitigação de Viés, Viés em Aprendizado de Máquina, Aprendizado de Máquina Justo, Pré-processamento de Dados, Equidade Algorítmica, Técnicas Emergentes, Mapeamento Sistemático",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/mapeamento-vies.pdf" },
     ],
@@ -303,6 +326,7 @@ export const tccs: TCCProps[] = [
     year: "2025",
     keywords: "ChatBot, Recuperação de informações, Aprendizado organizacional, Engenharia de Software, Inteligência Artificial",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/chatbots-recuperacao.pdf" },
     ],
@@ -318,6 +342,7 @@ export const tccs: TCCProps[] = [
     year: "2024",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -330,6 +355,7 @@ export const tccs: TCCProps[] = [
     year: "2024",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -342,6 +368,7 @@ export const tccs: TCCProps[] = [
     year: "2024",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -354,6 +381,7 @@ export const tccs: TCCProps[] = [
     year: "2024",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -366,6 +394,7 @@ export const tccs: TCCProps[] = [
     year: "2024",
     keywords: "",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
   },
   {
     title:
@@ -378,6 +407,7 @@ export const tccs: TCCProps[] = [
     year: "2024",
     keywords: "Gamificação, Aprendizagem, Ensino, Elementos de jogos",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/classup.pdf" },
     ],
@@ -393,6 +423,7 @@ export const tccs: TCCProps[] = [
     year: "2023",
     keywords: "Pandemia de COVID-19, Profissionais da área de T.I., Produtividade e bem-estar",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/desafios-covid.pdf" },
     ],
@@ -408,6 +439,7 @@ export const tccs: TCCProps[] = [
     year: "2023",
     keywords: "Educação, Programação para iniciantes, Papel e caneta, Computador/IDE, Ensino, Avaliação",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/papel-ou-ide.pdf" },
     ],
@@ -423,6 +455,7 @@ export const tccs: TCCProps[] = [
     year: "2023",
     keywords: "Evasão em cursos de computação, Evasão no ensino superior, Survey, Ciência da computação",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/evasao-computacao.pdf" },
     ],
@@ -438,6 +471,7 @@ export const tccs: TCCProps[] = [
     year: "2022",
     keywords: "Aplicativos, IHC, Interação humano-computador, Móvel, Mapeamento sistemático",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/catalogo-ihc.pdf" },
     ],
@@ -453,6 +487,7 @@ export const tccs: TCCProps[] = [
     year: "2021",
     keywords: "Software - Reuso, Software - Mapeamento estrutural, Desenvolvimento de software - Reutilização, Engenharia de software",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/735" },
     ],
@@ -468,6 +503,7 @@ export const tccs: TCCProps[] = [
     year: "2021",
     keywords: "Bad Smell, Qualidade de Código, Design e Arquitetura de Software, Ferramentas de Software Livre",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/bad-smells.pdf" },
     ],
@@ -483,6 +519,7 @@ export const tccs: TCCProps[] = [
     year: "2021",
     keywords: "Engenharia de software, Engenheiro de software - Formação profissional, Soft Skills, Engenharia de software - Competências profissionais",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/737" },
     ],
@@ -498,6 +535,7 @@ export const tccs: TCCProps[] = [
     year: "2021",
     keywords: "Sistema de software - Desenvolvimento, Sistema de controle de versão, Controle de versão - Flexibilidade, Engenharia de software - Desenvolvimento",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/734" },
     ],
@@ -513,6 +551,7 @@ export const tccs: TCCProps[] = [
     year: "2020",
     keywords: "Engenharia de software, Gerenciamento de projetos - Software, Jogos - Aprendizado, Jogos de tabuleiro",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "http://repositorio.unifap.br/handle/123456789/731" },
     ],
@@ -528,6 +567,7 @@ export const tccs: TCCProps[] = [
     year: "2020",
     keywords: "Engenharia de software - Mercado de trabalho, Engenharia de software - Oferta de emprego, Engenharia de software - Empregabilidade",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/733" },
     ],
@@ -543,6 +583,7 @@ export const tccs: TCCProps[] = [
     year: "2019",
     keywords: "Engenharia de software, Engenharia - Estudo e ensino, Engenharia didática, Aprendizagem - Métodos alternativos ensino de - Engenharia",
     degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
     documentation: [
       { name: "Repositório UNIFAP", type: "article", link: "https://repositorio.unifap.br/handle/123456789/1330" },
     ],
@@ -558,6 +599,7 @@ export const tccs: TCCProps[] = [
     year: "2018",
     keywords: "Data show, Slides, Recursos, Ensino e aprendizagem",
     degree: "Especialização",
+    course: "Especialização em Mídias na Educação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/data-show-pedagogico.pdf" },
     ],
@@ -573,6 +615,7 @@ export const tccs: TCCProps[] = [
     year: "2018",
     keywords: "Avaliação formativa, SIMEC, Pacto pela alfabetização na idade certa",
     degree: "Especialização",
+    course: "Especialização em Mídias na Educação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/avaliacao-pnaic.pdf" },
     ],
@@ -588,6 +631,7 @@ export const tccs: TCCProps[] = [
     year: "2018",
     keywords: "Aprendizagem, Educação, Inclusão digital, Mídias",
     degree: "Especialização",
+    course: "Especialização em Mídias na Educação",
     documentation: [
       { name: "Texto Completo", type: "article", link: "/tccs/midias-desenvolvimento-cognitivo.pdf" },
     ],
@@ -603,6 +647,7 @@ export const tccs: TCCProps[] = [
     year: "2018",
     keywords: "",
     degree: "Especialização",
+    course: "Especialização em Mídias na Educação",
   },
   {
     title:
@@ -615,6 +660,7 @@ export const tccs: TCCProps[] = [
     year: "2018",
     keywords: "",
     degree: "Especialização",
+    course: "Especialização em Mídias na Educação",
   },
   {
     title:
@@ -627,5 +673,6 @@ export const tccs: TCCProps[] = [
     year: "2018",
     keywords: "",
     degree: "Especialização",
+    course: "Especialização em Mídias na Educação",
   },
 ]

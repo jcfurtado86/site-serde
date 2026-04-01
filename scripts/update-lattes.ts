@@ -306,6 +306,9 @@ function mergeTccs(imported: TCCProps[], local: TCCProps[]): TCCProps[] {
       matched.add(key)
       merged.push({
         ...imp,
+        // Preserve local data that may have been manually enriched or filled from PDFs/repository
+        description: (loc.description && loc.description.trim() !== "") ? loc.description : imp.description,
+        keywords: (loc.keywords && loc.keywords.trim() !== "") ? loc.keywords : imp.keywords,
         documentation: loc.documentation,
         title_en: loc.title_en,
         description_en: loc.description_en,
