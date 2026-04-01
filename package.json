@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "update-lattes": "npx tsx scripts/update-lattes.ts",
+    "search-links": "npx tsx scripts/search-links.ts",
     "update-members": "npx tsx scripts/update-members.ts",
     "update": "npx tsx scripts/update-all.ts"
   },

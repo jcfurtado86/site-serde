@@ -1,6 +1,5 @@
 import { readFileSync, writeFileSync, existsSync } from "fs"
 import { resolve } from "path"
-import * as cheerio from "cheerio"
 import { parseLattes } from "./lattes-html-parser"
 import { generatePublicationsFile, generateProjectsFile, generateTccsFile } from "./ts-generator"
 import type { PublicationProps, PatentProps, Project, TCCProps } from "../src/app/context/types"
@@ -11,150 +10,12 @@ const PUBLICATIONS_PATH = resolve(DATA_DIR, "publications.ts")
 const PROJECTS_PATH = resolve(DATA_DIR, "projects.ts")
 const TCCS_PATH = resolve(DATA_DIR, "tccs.ts")
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
-
 function normalizeForComparison(s: string): string {
   return s.toLowerCase()
     .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9\s]/g, " ")
     .replace(/\s+/g, " ")
     .trim()
-}
-
-function validateResult(pageHtml: string, pub: PublicationProps): boolean {
-  const normalized = normalizeForComparison(pageHtml)
-  const titleWords = normalizeForComparison(pub.title).split(" ").filter((w) => w.length > 3)
-
-  // Check title: at least 60% of significant words must appear
-  const titleMatches = titleWords.filter((w) => normalized.includes(w)).length
-  if (titleMatches / titleWords.length < 0.6) return false
-
-  // Check authors: at least one author's last name must appear
-  const authorLastNames = pub.authors.map((a) => {
-    const parts = a.replace(/,.*/, "").trim().split(" ")
-    return normalizeForComparison(parts[parts.length - 1] || parts[0])
-  }).filter((n) => n.length > 2)
-  const hasAuthor = authorLastNames.some((name) => normalized.includes(name))
-  if (!hasAuthor) return false
-
-  // Check event/journal: at least 40% of significant words (including year/edition)
-  const venue = pub.event || pub.publisher || pub.proceedings || ""
-  if (venue) {
-    const venueWords = normalizeForComparison(venue).split(" ").filter((w) => w.length > 2)
-    if (venueWords.length > 0) {
-      const venueMatches = venueWords.filter((w) => normalized.includes(w)).length
-      if (venueMatches / venueWords.length < 0.4) return false
-    }
-  }
-
-  return true
-}
-
-async function searchScholar(pub: PublicationProps): Promise<string[]> {
-  // Full title + venue + first author last name
-  const venue = pub.event || pub.publisher || pub.proceedings || ""
-  const firstAuthorLastName = pub.authors[0]?.replace(/,.*/, "").trim() || ""
-  const query = encodeURIComponent(`"${pub.title}" ${venue} ${firstAuthorLastName}`)
-  const url = `https://scholar.google.com/scholar?q=${query}`
-
-  const res = await fetch(url, {
-    headers: {
-      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-      "Accept-Language": "pt-BR,pt;q=0.9,en;q=0.8",
-    },
-  })
-
-  if (!res.ok) return []
-
-  const html = await res.text()
-  const $ = cheerio.load(html)
-
-  const links: string[] = []
-  $("h3.gs_rt a[href]").each((_, el) => {
-    const href = $(el).attr("href")
-    if (href && href.startsWith("http")) {
-      links.push(href)
-    }
-  })
-  return links
-}
-
-function extractSOLLinks(html: string): string[] {
-  const links: string[] = []
-  const regex = /href="(https:\/\/sol\.sbc\.org\.br\/index\.php\/[a-z_]+\/article\/view\/\d+)"/g
-  let match
-  while ((match = regex.exec(html)) !== null) {
-    if (!links.includes(match[1])) links.push(match[1])
-  }
-  return links
-}
-
-async function searchSOL(pub: PublicationProps): Promise<string[]> {
-  const venue = pub.event || pub.publisher || pub.proceedings || ""
-  const firstAuthorLastName = pub.authors[0]?.replace(/,.*/, "").trim() || ""
-
-  try {
-    // Try 1: full title + venue + author
-    const fullQuery = encodeURIComponent(`${pub.title} ${venue} ${firstAuthorLastName}`)
-    const res1 = await fetch(
-      `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${fullQuery}`,
-      { headers: { "User-Agent": "Mozilla/5.0" } },
-    )
-    if (res1.ok) {
-      const links = extractSOLLinks(await res1.text())
-      if (links.length > 0) return links
-    }
-
-    // Try 2: full title only (venue may not be indexed)
-    await sleep(1000)
-    const titleQuery = encodeURIComponent(pub.title)
-    const res2 = await fetch(
-      `https://sol.sbc.org.br/busca/index.php/integrada/results?query=${titleQuery}`,
-      { headers: { "User-Agent": "Mozilla/5.0" } },
-    )
-    if (res2.ok) {
-      const links = extractSOLLinks(await res2.text())
-      if (links.length > 0) return links
-    }
-  } catch { /* network error, skip */ }
-  return []
-}
-
-async function searchPublicationLink(pub: PublicationProps): Promise<string | undefined> {
-  // Try Google Scholar first
-  const scholarLinks = await searchScholar(pub)
-  for (const link of scholarLinks) {
-    try {
-      const res = await fetch(link, {
-        headers: { "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36" },
-        redirect: "follow",
-      })
-      if (res.ok) {
-        const html = await res.text()
-        if (validateResult(html, pub)) return link
-      }
-    } catch { /* skip unreachable */ }
-    await sleep(500)
-  }
-
-  // Fallback: SOL (SBC)
-  await sleep(1000)
-  const solLinks = await searchSOL(pub)
-  for (const link of solLinks) {
-    try {
-      const res = await fetch(link, {
-        headers: { "User-Agent": "Mozilla/5.0" },
-        redirect: "follow",
-      })
-      if (res.ok) {
-        const html = await res.text()
-        if (validateResult(html, pub)) return link
-      }
-    } catch { /* skip unreachable */ }
-    await sleep(500)
-  }
-
-  return undefined
 }
 
 // --- Merge utilities ---
@@ -338,7 +199,6 @@ function mergeTccs(imported: TCCProps[], local: TCCProps[]): TCCProps[] {
 
 // --- Main ---
 
-const REFRESH_LINKS = process.argv.includes("--refresh-links")
 
 async function main() {
   // Look for lattes.html in project root or scripts/data/
@@ -412,57 +272,23 @@ async function main() {
     console.log(`   ${degree}: ${count}`)
   }
 
-  // Transfer local links to imported publications before searching
+  // Transfer local links to imported publications
   const localPubMap = new Map<string, PublicationProps>()
   for (const p of localData.publications) localPubMap.set(pubKey(p), p)
 
-  if (REFRESH_LINKS) {
-    console.log("\n🔗 --refresh-links: re-buscando links (apenas publicações sem link do Lattes)...")
-    // Don't transfer local links — let them be re-searched
-    // But keep links that came from the Lattes parse itself (e.g. DOI)
-  } else {
-    let linksFromLocal = 0
-    for (const pub of publications) {
-      if (!pub.link || pub.link === "#") {
-        const local = localPubMap.get(pubKey(pub))
-        if (local?.link && local.link !== "#") {
-          pub.link = local.link
-          linksFromLocal++
-        }
+  let linksFromLocal = 0
+  for (const pub of publications) {
+    if (!pub.link || pub.link === "#") {
+      const local = localPubMap.get(pubKey(pub))
+      if (local?.link && local.link !== "#") {
+        pub.link = local.link
+        linksFromLocal++
       }
     }
-    if (linksFromLocal > 0) {
-      console.log(`\n🔗 ${linksFromLocal} links preservados do local`)
-    }
   }
-
-  // Search Google for publications without links (local or imported)
-  const withoutLink = publications.filter((p) => !p.link || p.link === "#" || !p.link)
-  console.log(`\n🔗 Buscando links para ${withoutLink.length} publicações...`)
-
-  let found = 0
-  const usedLinks = new Set<string>()
-  // Collect links already assigned (from import or local)
-  for (const p of publications) {
-    if (p.link && p.link !== "#") usedLinks.add(p.link)
+  if (linksFromLocal > 0) {
+    console.log(`\n🔗 ${linksFromLocal} links preservados do local`)
   }
-
-  for (const pub of withoutLink) {
-    const link = await searchPublicationLink(pub)
-    if (link && !usedLinks.has(link)) {
-      pub.link = link
-      usedLinks.add(link)
-      found++
-      console.log(`  ✓ ${pub.title.slice(0, 60)}...`)
-      console.log(`    → ${link}`)
-    } else if (link && usedLinks.has(link)) {
-      console.log(`  ✗ ${pub.title.slice(0, 60)}... (link duplicado, ignorado)`)
-    } else {
-      console.log(`  ✗ ${pub.title.slice(0, 60)}...`)
-    }
-    await sleep(3000)
-  }
-  console.log(`\n   Links encontrados: ${found}/${withoutLink.length}`)
 
   // Safety check: don't overwrite with empty data if parsing returned nothing
   if (publications.length === 0 && localData.publications.length > 0) {
