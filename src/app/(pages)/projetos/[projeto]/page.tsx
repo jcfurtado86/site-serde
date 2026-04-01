@@ -3,7 +3,7 @@ import { use } from "react"
 import { useProjects } from "@/app/context/ProjectsContext"
 import { Breadcrumb } from "@/app/components/BreadCrumb/BreadCrumb"
 import { FileProps } from "@/app/context/ProjectsContext"
-import { Lightbulb, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon, Calendar, Banknote } from "lucide-react"
+import { Search, Handshake, Code, CheckCircle, SquareUser as User, ExternalLink, LoaderIcon, Calendar } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/app/i18n/context"
@@ -60,10 +60,20 @@ function ProjectDetails({ project, teachers, allMembers }: { project: any; teach
           </h1>
 
           <div className="mt-4 flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-              <Lightbulb size={16} />
-              {typeDisplayText[project.type] || project.type}
-            </span>
+            {(() => {
+              const typeConfig: Record<string, { color: string; icon: React.ReactNode }> = {
+                "Pesquisa": { color: "bg-purple-100 text-purple-700", icon: <Search size={16} /> },
+                "Extensão": { color: "bg-teal-100 text-teal-700", icon: <Handshake size={16} /> },
+                "Desenvolvimento": { color: "bg-indigo-100 text-indigo-700", icon: <Code size={16} /> },
+              }
+              const tc = typeConfig[project.type] || { color: "bg-blue-100 text-blue-800", icon: <Code size={16} /> }
+              return (
+                <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${tc.color}`}>
+                  {tc.icon}
+                  {typeDisplayText[project.type] || project.type}
+                </span>
+              )
+            })()}
             <span
               className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium ${getStatusClasses()}`}
             >
@@ -88,11 +98,11 @@ function ProjectDetails({ project, teachers, allMembers }: { project: any; teach
           {project.team && project.team.length > 0 && (
             <div>
               <strong className="text-gray-700">{t("project_detail.team")}</strong>
-              <div className="flex -space-x-2 mt-2">
+              <div className="flex flex-wrap gap-y-1 mt-2">
                 {project.team.map((name: string, i: number) => {
                   const member = allMembers.find((m) => m.name.toLowerCase() === name.toLowerCase())
                   return (
-                    <div key={i} className="relative group/tip">
+                    <div key={i} className="relative group/tip -ml-2 first:ml-0">
                       {member?.imageUrl ? (
                         <Image
                           src={member.imageUrl}

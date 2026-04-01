@@ -273,6 +273,8 @@ function mergeProjects(imported: Project[], local: Project[]): Project[] {
         link: loc.link || imp.link,
         title_en: loc.title_en,
         description_en: loc.description_en,
+        // Preserve local team for SERDE project (manually managed with all members)
+        ...(loc.title.includes("SERDE") && loc.team && loc.team.length > 0 ? { team: loc.team } : {}),
       })
     } else {
       merged.push(imp)
