@@ -31,7 +31,7 @@ export default function InnovationDetailPage({ params }: PageProps) {
       />
       {project && (
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-          <div className="p-4 sm:p-8 md:p-12">
+          <div className="py-6 sm:py-10">
             <header>
               <p className="text-teal-600 font-semibold tracking-wide uppercase">
                 {t("innovation.detail_title")}

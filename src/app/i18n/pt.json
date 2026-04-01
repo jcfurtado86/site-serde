@@ -132,7 +132,8 @@
   "guidance_detail": {
     "title": "Detalhes da Orientação",
     "completion_year": "Ano de conclusão:",
-    "students": "Alunos:",
+    "students": "Discente(s):",
+    "course": "Curso:",
     "summary": "Resumo:",
     "keywords": "Palavras-chave:",
     "advisor": "Orientador",
@@ -140,7 +141,9 @@
     "not_found": "Orientação não encontrada",
     "doc_article": "Artigo",
     "doc_video": "Vídeo",
-    "doc_document": "Documento"
+    "doc_document": "Documento",
+    "doc_full_text": "Texto Completo",
+    "doc_repository": "Repositório UNIFAP"
   },
   "innovation": {
     "title": "Inovação e Empreendedorismo",

@@ -132,7 +132,8 @@
   "guidance_detail": {
     "title": "Guidance Details",
     "completion_year": "Completion year:",
-    "students": "Students:",
+    "students": "Student(s):",
+    "course": "Program:",
     "summary": "Summary:",
     "keywords": "Keywords:",
     "advisor": "Advisor",
@@ -140,7 +141,9 @@
     "not_found": "Guidance not found",
     "doc_article": "Article",
     "doc_video": "Video",
-    "doc_document": "Document"
+    "doc_document": "Document",
+    "doc_full_text": "Full Text",
+    "doc_repository": "UNIFAP Repository"
   },
   "innovation": {
     "title": "Innovation & Entrepreneurship",

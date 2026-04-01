@@ -51,8 +51,8 @@ function ProjectDetails({ project, teachers, allMembers }: { project: any; teach
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <div className="p-4 sm:p-8 md:p-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-6 sm:py-10">
         <header>
           <p className="text-teal-600 font-semibold tracking-wide uppercase">{t("project_detail.title")}</p>
           <h1 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
@@ -98,11 +98,11 @@ function ProjectDetails({ project, teachers, allMembers }: { project: any; teach
           {project.team && project.team.length > 0 && (
             <div>
               <strong className="text-gray-700">{t("project_detail.team")}</strong>
-              <div className="flex flex-wrap gap-y-1 mt-2">
+              <div className="flex flex-wrap gap-y-1 mt-2 pl-2">
                 {project.team.map((name: string, i: number) => {
                   const member = allMembers.find((m) => m.name.toLowerCase() === name.toLowerCase())
                   return (
-                    <div key={i} className="relative group/tip -ml-2 first:ml-0">
+                    <div key={i} className="relative group/tip -ml-2">
                       {member?.imageUrl ? (
                         <Image
                           src={member.imageUrl}

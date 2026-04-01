@@ -14,22 +14,23 @@ const degreeColors: Record<string, string> = {
   Especialização: "text-pink-600 bg-pink-100 group-hover:bg-pink-200",
 }
 
+const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+
 function fuzzyResolveName(name: string, members: { name: string }[]): string {
-  const lower = name.toLowerCase()
-  const exact = members.find((m) => m.name.toLowerCase() === lower)
+  const lower = norm(name)
+  const exact = members.find((m) => norm(m.name) === lower)
   if (exact) return exact.name
 
   const parts = lower.split(" ")
   if (parts.length < 2) return name
   const first = parts[0]
-  const allParts = new Set(parts)
 
   const match = members.find((m) => {
-    const mParts = m.name.toLowerCase().split(" ")
+    const mParts = norm(m.name).split(" ")
     if (mParts.length < 2 || mParts[0] !== first) return false
     if (mParts[mParts.length - 1] === parts[parts.length - 1]) return true
     if (mParts.length > parts.length && parts.every((p) => mParts.includes(p))) return true
-    if (m.name.toLowerCase().startsWith(lower)) return true
+    if (norm(m.name).startsWith(lower)) return true
     return false
   })
   return match?.name || name

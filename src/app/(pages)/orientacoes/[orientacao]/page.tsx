@@ -15,10 +15,12 @@ type OrientacaoPageProps = {
   }>
 }
 
+const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+
 function fuzzyMatchMember<T extends { name: string }>(name: string, members: T[]): T | undefined {
-  const lower = name.toLowerCase()
+  const lower = norm(name)
   // Exact match first
-  const exact = members.find((m) => m.name.toLowerCase() === lower)
+  const exact = members.find((m) => norm(m.name) === lower)
   if (exact) return exact
 
   const parts = lower.split(" ")
@@ -28,7 +30,7 @@ function fuzzyMatchMember<T extends { name: string }>(name: string, members: T[]
   const allParts = new Set(parts)
 
   return members.find((m) => {
-    const mParts = m.name.toLowerCase().split(" ")
+    const mParts = norm(m.name).split(" ")
     if (mParts.length < 2) return false
     // First name must match
     if (mParts[0] !== first) return false
@@ -42,7 +44,7 @@ function fuzzyMatchMember<T extends { name: string }>(name: string, members: T[]
       return parts.every((p) => mParts.includes(p))
     }
     // Option 3: name cut mid-word — member name starts with the TCC name string
-    if (m.name.toLowerCase().startsWith(lower)) return true
+    if (norm(m.name).startsWith(lower)) return true
     return false
   })
 }
@@ -91,8 +93,8 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-      <div className="p-4 sm:p-8 md:p-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-6 sm:py-10">
         <header>
           <p className="text-teal-600 font-semibold tracking-wide uppercase">{t("guidance_detail.title")}</p>
           <h1 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
@@ -214,7 +216,7 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
                     className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 hover:bg-blue-100 rounded-lg transition-colors"
                   >
                     {doc.link.startsWith("/tccs/") ? <Download size={18} /> : <ExternalLink size={18} />}
-                    {doc.name}
+                    {doc.link.startsWith("/tccs/") ? t("guidance_detail.doc_full_text") : doc.link.includes("repositorio.unifap") ? t("guidance_detail.doc_repository") : doc.name}
                   </Link>
                 ))}
               </div>
