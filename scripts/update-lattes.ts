@@ -131,7 +131,7 @@ function mergeProjects(imported: Project[], local: Project[]): Project[] {
       merged.push({
         ...imp,
         documentation: loc.documentation || [],
-        link: loc.link || imp.link,
+        link: imp.link,
         title_en: loc.title_en,
         description_en: loc.description_en,
         // Preserve local team for SERDE project (manually managed with all members)

@@ -25,6 +25,37 @@ export function resolveAuthorName(
   return match?.name || author
 }
 
+/**
+ * Fuzzy match a name (possibly truncated or without accents) against a list of members.
+ * Handles Lattes-style names (uppercase, no accents, sometimes truncated).
+ */
+export function fuzzyMatchMember<T extends { name: string }>(name: string, members: T[]): T | undefined {
+  const lower = norm(name)
+  const exact = members.find((m) => norm(m.name) === lower)
+  if (exact) return exact
+
+  const parts = lower.split(" ")
+  if (parts.length < 2) return undefined
+  const first = parts[0]
+  const last = parts[parts.length - 1]
+  const allParts = new Set(parts)
+
+  return members.find((m) => {
+    const mParts = norm(m.name).split(" ")
+    if (mParts.length < 2) return false
+    if (mParts[0] !== first) return false
+    if (mParts[mParts.length - 1] === last) {
+      if (allParts.size <= 2 || mParts.length <= 2) return true
+      return mParts.slice(1, -1).some((p) => allParts.has(p))
+    }
+    if (mParts.length > parts.length) {
+      return parts.every((p) => mParts.includes(p))
+    }
+    if (norm(m.name).startsWith(lower)) return true
+    return false
+  })
+}
+
 export function findMember<T extends { name: string }>(
   author: string,
   members: T[]

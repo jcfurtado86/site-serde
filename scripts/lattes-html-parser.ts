@@ -98,7 +98,15 @@ export function parseArticles($: CheerioAPI, minYear: number): PublicationProps[
     // After authors: " . TITLE. PUBLISHER, v. EDITION, p. PAGES, YEAR."
     const dotSep = text.indexOf(" . ")
     if (dotSep === -1) return
-    const afterAuthors = text.substring(dotSep + 3)
+    let afterAuthors = text.substring(dotSep + 3)
+    // Clean Lattes metadata suffixes (e.g. "; Meio de divulgação: Digital. Homepage: ...; Série: ...; ISSN/ISBN: ...")
+    // These appear after the year in the new Lattes format
+    afterAuthors = afterAuthors
+      .replace(/,\s*(\d{4})\s*;.*$/g, ", $1.")
+      .replace(/,\s*(\d{4})\.\s*Homepage:.*$/g, ", $1.")
+      .replace(/,\s*(\d{4})\.\s*Refer[êe]ncias.*$/g, ", $1.")
+      .replace(/\s+/g, " ")
+      .trim()
 
     // Strategy: match the ending pattern ", v. EDITION, p. PAGES, YEAR." or ", p. PAGES, YEAR."
     // Then find the publisher by looking backwards from that match to the last ". " boundary
@@ -492,7 +500,7 @@ function slugify(text: string): string {
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "")
-    .substring(0, 60)
+    .substring(0, 100)
 }
 
 export function parseProjects($: CheerioAPI, minYear: number): Project[] {
