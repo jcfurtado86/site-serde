@@ -8,14 +8,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/app/i18n/context"
 import type { StudentProps } from "@/app/context/types"
+import { norm } from "@/app/utils/resolveAuthorName"
 
 type OrientacaoPageProps = {
   params: Promise<{
     orientacao: string
   }>
 }
-
-const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
 
 function fuzzyMatchMember<T extends { name: string }>(name: string, members: T[]): T | undefined {
   const lower = norm(name)
@@ -78,17 +77,6 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
         return "bg-yellow-100 text-yellow-600"
       default:
         return "bg-gray-100 text-gray-600"
-    }
-  }
-
-  const getDocType = (type: string) => {
-    switch (type) {
-      case "article":
-        return t("guidance_detail.doc_article")
-      case "video":
-        return t("guidance_detail.doc_video")
-      default:
-        return t("guidance_detail.doc_document")
     }
   }
 

@@ -6,6 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/app/i18n/context"
 import type { StudentProps } from "@/app/context/types"
+import { norm } from "@/app/utils/resolveAuthorName"
 
 const degreeColors: Record<string, string> = {
   Graduação: "text-orange-600 bg-orange-100 group-hover:bg-orange-200",
@@ -13,8 +14,6 @@ const degreeColors: Record<string, string> = {
   Doutorado: "text-red-600 bg-red-100 group-hover:bg-red-200",
   Especialização: "text-pink-600 bg-pink-100 group-hover:bg-pink-200",
 }
-
-const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
 
 function fuzzyResolveName(name: string, members: { name: string }[]): string {
   const lower = norm(name)
@@ -96,7 +95,8 @@ export default function Orientacoes() {
                 <div className="flex items-center gap-2 mt-auto">
                   <div className="flex -space-x-2">
                     {tcc.students.map((s, i) => {
-                      const member = students.find((m) => m.name.toLowerCase() === fuzzyResolveName(s, students).toLowerCase())
+                      const resolved = fuzzyResolveName(s, students)
+                      const member = students.find((m) => m.name === resolved)
                       return member?.imageUrl ? (
                         <Image
                           key={i}

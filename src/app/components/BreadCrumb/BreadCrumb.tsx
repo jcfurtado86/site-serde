@@ -14,8 +14,8 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
   const { t } = useLanguage()
   return (
     <nav className="w-full">
-      <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <ol className="flex items-center flex-wrap space-x-2 text-sm md:text-base px-3 sm:px-4 py-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+        <ol className="flex items-center flex-wrap space-x-2 text-sm md:text-base py-2">
           <li>
             <Link href="/" className="text-blue-600 hover:text-blue-800 flex items-center">
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">

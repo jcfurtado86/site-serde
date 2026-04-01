@@ -4,13 +4,8 @@ import { Search } from "@/app/components/SearcBar/Search"
 import { Tooltip } from "@/app/(pages)/publicacoes/components/Tooltip/Tooltip"
 import { useProjects } from "@/app/context/ProjectsContext"
 import { useLanguage } from "@/app/i18n/context"
-import { resolveAuthorName, findMember } from "@/app/utils/resolveAuthorName"
-import Image from "next/image"
-
-interface MemberInfo {
-  name: string
-  imageUrl?: string
-}
+import { resolveAuthorName } from "@/app/utils/resolveAuthorName"
+import { AuthorAvatars } from "@/app/(pages)/publicacoes/components/AuthorAvatars/AuthorAvatars"
 
 interface PublicationProps {
   type: "article" | "book" | "chapter" | "congress" | "conferenceAbstract" | "patent"
@@ -36,7 +31,7 @@ interface PublicationProps {
   registrationInstitution?: string
   patentType?: string
   originalAuthors?: string[]
-  members?: MemberInfo[]
+  members?: { name: string; imageUrl?: string }[]
 }
 
 function Publication({
@@ -113,22 +108,7 @@ function Publication({
           </h2>
         </div>
         <div className="flex items-center gap-2 pl-0 sm:pl-[calc(24px+0.75rem)]">
-          <div className="flex -space-x-2">
-            {originalAuthors.map((a, i) => {
-              const member = findMember(a, members)
-              return member?.imageUrl ? (
-                <Image
-                  key={i}
-                  src={member.imageUrl}
-                  alt={member.name}
-                  width={28}
-                  height={28}
-                  className="rounded-full object-cover w-7 h-7 border-2 border-white bg-white"
-                  unoptimized
-                />
-              ) : null
-            })}
-          </div>
+          <AuthorAvatars authors={originalAuthors} members={members} />
           <p className="text-sm sm:text-base text-gray-600">{authors.join("; ")}</p>
         </div>
         {(publisher || event) && (

@@ -1,15 +1,10 @@
 "use client"
 import { useState, useMemo } from "react"
-import { Search } from "@/app/components/SearcBar/Search" // Assumindo que o SearchBar é um componente genérico
+import { Search } from "@/app/components/SearcBar/Search"
 import { useProjects } from "@/app/context/ProjectsContext"
 import { useLanguage } from "@/app/i18n/context"
-import { resolveAuthorName, findMember } from "@/app/utils/resolveAuthorName"
-import Image from "next/image"
-
-interface MemberInfo {
-  name: string
-  imageUrl?: string
-}
+import { resolveAuthorName } from "@/app/utils/resolveAuthorName"
+import { AuthorAvatars } from "@/app/(pages)/publicacoes/components/AuthorAvatars/AuthorAvatars"
 
 interface PatentProps {
   number?: number
@@ -22,7 +17,7 @@ interface PatentProps {
   registrationInstitution?: string
   patentType?: string
   originalAuthors?: string[]
-  members?: MemberInfo[]
+  members?: { name: string; imageUrl?: string }[]
 }
 
 function PatentComponent({
@@ -49,26 +44,10 @@ function PatentComponent({
         </div>
 
         <div className="flex items-center gap-2 pl-[calc(24px+0.75rem)]">
-          <div className="flex -space-x-2">
-            {originalAuthors.map((a, i) => {
-              const member = findMember(a, members)
-              return member?.imageUrl ? (
-                <Image
-                  key={i}
-                  src={member.imageUrl}
-                  alt={member.name}
-                  width={28}
-                  height={28}
-                  className="rounded-full object-cover w-7 h-7 border-2 border-white bg-white"
-                  unoptimized
-                />
-              ) : null
-            })}
-          </div>
+          <AuthorAvatars authors={originalAuthors} members={members} />
           <p className="text-base text-gray-600">{authors.join("; ")}</p>
         </div>
 
-        {/* Seção de detalhes da patente, agora exibida diretamente */}
         <div className="text-base text-gray-600 pl-[calc(24px+0.75rem)] flex flex-col gap-1 pt-2">
           <p>
             <strong>{t("patents.filing_year")}</strong> {year}
@@ -96,7 +75,6 @@ function PatentComponent({
   )
 }
 
-// 3. Componente principal da página, agora chamado 'Patents'
 export function Patents() {
   const [sortBy, setSortBy] = useState("year")
   const [searchTerm, setSearchTerm] = useState("")
@@ -105,14 +83,12 @@ export function Patents() {
   const allMembers = useMemo(() => [...students, ...teachers], [students, teachers])
 
   const sortedPatents = useMemo(() => {
-    // A lógica de filtro por tipo foi removida
     let filtered = patents.filter(
       (patent) =>
         patent.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         patent.authors.some((author) => author.toLowerCase().includes(searchTerm.toLowerCase()))
     )
 
-    // A ordenação por ano é mantida
     if (sortBy === "year") {
       return [...filtered].sort((a, b) => Number(b.year) - Number(a.year))
     }
@@ -128,7 +104,6 @@ export function Patents() {
         </h2>
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-          {/* O filtro por tipo foi removido */}
           <div>
             <label htmlFor="sort" className="block text-sm font-medium text-gray-700 mb-2">
               {t("patents.sort_label")}
@@ -140,7 +115,6 @@ export function Patents() {
               className="block w-full sm:w-auto px-4 py-3 text-gray-700 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 font-medium hover:border-gray-400 transition-colors duration-200"
             >
               <option value="year">{t("patents.sort_year")}</option>
-              {/* Outras opções de ordenação podem ser adicionadas aqui se necessário */}
             </select>
           </div>
 
