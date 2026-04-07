@@ -33,6 +33,19 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
+      "Formação em Serviço e Educação Inclusiva: Estratégias Colaborativas e Prevenção do Adoecimento Docente no Pará",
+    description: "",
+    link: "formacao-em-servico-e-educacao-inclusiva-estrategias-colaborativas-e-prevencao-do-adoecimento-docent",
+    status: "Em andamento",
+    students: ["Kelly Glauce da Silva Rosário"],
+    advisor: "Julio Cezar Costa Furtado",
+    year: "2026",
+    keywords: "",
+    degree: "Mestrado",
+    course: "Mestrado Profissional em Educação Inclusiva em Rede Nacional",
+  },
+  {
+    title:
       "O Processo de Ensino e Aprendizagem da Língua Portuguesa: Um Estudo no Centro de Atendimento ao Surdo no Amapá",
     description: "",
     link: "o-processo-de-ensino-e-aprendizagem-da-lingua-portuguesa-um-",

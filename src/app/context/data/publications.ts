@@ -10,9 +10,7 @@ export const patents: PatentProps[] = [
     title: "Plataforma do Quintal",
     patentNumber: "BR512021001576-2",
     registrationDate: "30/10/2020",
-    grantDate: "20/07/2021",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
-    fundingInstitution: "Fundação Euclides da Cunha",
     patentType: "Programa de Computador",
   },
   {
@@ -26,9 +24,7 @@ export const patents: PatentProps[] = [
     title: "Plataforma WEB Agrowik",
     patentNumber: "BR512021001558-4",
     registrationDate: "05/06/2021",
-    grantDate: "13/07/2021",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
-    fundingInstitution: "Fundação Euclides da Cunha",
     patentType: "Programa de Computador",
   },
   {
@@ -40,9 +36,7 @@ export const patents: PatentProps[] = [
     title: "Classup: Uma Plataforma Gamificada para Auxílio do Aprendizado Utilizando Quizzes",
     patentNumber: "BR512025001279-9",
     registrationDate: "08/04/2025",
-    grantDate: "08/04/2025",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
-    fundingInstitution: "Fundação Universidade Federal do Amapá",
     patentType: "Programa de Computador",
   },
   {
@@ -50,9 +44,7 @@ export const patents: PatentProps[] = [
     title: "Jsniffer - uma Ferramenta para Identificação Automática de Bad Smells",
     patentNumber: "BR512025001280-2",
     registrationDate: "08/04/2025",
-    grantDate: "08/04/2025",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
-    fundingInstitution: "Fundação Universidade Federal do Amapá",
     patentType: "Programa de Computador",
   },
   {
@@ -60,9 +52,7 @@ export const patents: PatentProps[] = [
     title: "Plataforma de Gestão de Concursos e Processos Seletivos do Depsec/unifap",
     patentNumber: "BR512025001281-0",
     registrationDate: "08/04/2025",
-    grantDate: "08/04/2025",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
-    fundingInstitution: "Fundação Universidade Federal do Amapá",
     patentType: "Programa de Computador",
   },
   {
@@ -70,9 +60,7 @@ export const patents: PatentProps[] = [
     title: "Edugames",
     patentNumber: "BR512025003392-3",
     registrationDate: "22/04/2025",
-    grantDate: "29/07/2025",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
-    fundingInstitution: "Fundação Universidade Federal do Amapá",
     patentType: "Programa de Computador",
   },
 ]
@@ -302,6 +290,21 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
+      "Residência Tecnológica e Transformação Digital no Poder Judiciário: Experiência do Tribunal de Justiça do Estado do Amapá",
+    authors: [
+      "Anjos, L. F. M.",
+      "Furtado, Julio C.",
+      "Silva, N. G.",
+      "Lima, R. P.",
+    ],
+    year: "2026",
+    event: "Xvi Prospect&i e X Congresso Internacional Profnit",
+    location: "Maceio - Al",
+    proceedings: "Anais do Xvi Prospect&i e X Congresso Internacional Profnit",
+  },
+  {
+    type: "congress",
+    title:
       "A Qualitative Evaluation of an Experiment on the Application of Active Methodologies in Teaching Software Process Improvement",
     authors: [
       "Colares, A.",
@@ -401,7 +404,7 @@ export const publications: PublicationProps[] = [
       "Oliveira, Sandro Ronaldo Bezerra",
     ],
     year: "2023",
-    pages: "1. Referências adicionais: Classificação do evento: Internacional; Brasil/ Português; Homepage: https://2023.fie-conference.org/; ISSN/ISBN: 9798350336429",
+    pages: "1",
     event: "2023 Ieee Frontiers in Education Conference (FIE)",
     location: "College Station",
     proceedings: "2023 Ieee Frontiers in Education Conference (FIE)",
@@ -565,7 +568,7 @@ export const publications: PublicationProps[] = [
       "An Experimental Evaluation of a Teaching Approach for Statistical Process Control for Software Engineers: An Experimental Study",
     authors: ["Furtado, Julio", "Oliveira, Sandro"],
     year: "2019",
-    pages: "153. Referências adicionais: Classificação do evento: Brasil/ Português; Meio de divulgação: Vários; ISSN/ISBN: 9789897583797",
+    pages: "153",
     event: "14th International Conference on Software Technologies",
     location: "Prague",
     proceedings: "Proceedings of the 14th International Conference on Software Technologies",
@@ -609,7 +612,7 @@ export const publications: PublicationProps[] = [
       "A Methodology to Teaching Statistical Process Control in Computer Courses",
     authors: ["Furtado, Julio Cezar Costa", "Oliveira, Sandro Ronaldo Bezerra"],
     year: "2018",
-    pages: "424. Referências adicionais: Classificação do evento: Internacional; Portugal/ Inglês; ISSN/ISBN: 9789897583001",
+    pages: "424",
     event: "13th International Conference on Evaluation of Novel Approaches to Software Engineering",
     location: "Funchal",
     proceedings: "Proceedings of the 13th International Conference on Evaluation of Novel Approaches to Software Engineering",
@@ -665,7 +668,7 @@ export const publications: PublicationProps[] = [
       "A Strategy for Statistical Process Control Education in Computer Science",
     authors: ["Furtado, Julio C.", "Oliveira, S. R. B."],
     year: "2016",
-    pages: "166-171. Referências adicionais: Classificação do evento: Internacional; Itália/ Inglês; Meio de divulgação: Vários; Homepage: http://www.iaria.org/conferences2016/CfPICSEA16.html; ISSN/ISBN: 2308-4235",
+    pages: "166-171",
     event: "11th International Conference on Software Engineering Advances",
     location: "Roma - Itália",
     proceedings: "The Eleventh International Conference on Software Engineering Advances",
