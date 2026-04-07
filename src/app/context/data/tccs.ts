@@ -43,6 +43,8 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Mestrado",
     course: "Mestrado Profissional em Educação Inclusiva em Rede Nacional",
+    title_en: "In-Service Training and Inclusive Education: Collaborative Strategies and Prevention of Teacher Illness in Pará",
+    course_en: "Professional Master's in Inclusive Education National Network",
   },
   {
     title:
@@ -56,6 +58,8 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Mestrado",
     course: "Mestrado Profissional em Educação Inclusiva em Rede Nacional",
+    title_en: "The Teaching and Learning Process of Portuguese Language: A Study at the Deaf Support Center in Amapá",
+    course_en: "Professional Master's in Inclusive Education National Network",
   },
   {
     title:
