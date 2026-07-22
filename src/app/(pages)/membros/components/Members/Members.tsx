@@ -135,6 +135,7 @@ export function Members({ members, title, className = "bg-gradient-to-b from-gra
                     href={member.curriculumLink}
                     className="flex-1 text-blue-600 hover:text-blue-800 font-medium flex items-center justify-center gap-1 sm:gap-2 py-1 sm:py-2 px-1.5 sm:px-3 rounded-lg hover:bg-blue-50 transition-all duration-300 text-sm sm:text-base"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <svg
                       className="size-4 sm:size-6 flex-shrink-0 mb-1"

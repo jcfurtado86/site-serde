@@ -171,6 +171,7 @@ function ProjectDetails({ project, teachers, allMembers }: { project: any; teach
                 {project.documentation.map((doc: FileProps, index: number) => (
                   <Link
                     target="_blank"
+                    rel="noopener noreferrer"
                     href={doc.link || "#"}
                     key={index}
                     className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800"

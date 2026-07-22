@@ -168,6 +168,7 @@ function OrientacaoDetails({ tcc, allStudents, allTeachers }: { tcc: any; allStu
                 {tcc.documentation.map((doc: FileProps, index: number) => (
                   <Link
                     target="_blank"
+                    rel="noopener noreferrer"
                     href={doc.link || "#"}
                     key={index}
                     className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 hover:bg-blue-100 rounded-lg transition-colors"
