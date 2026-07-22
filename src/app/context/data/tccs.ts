@@ -43,8 +43,8 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Mestrado",
     course: "Mestrado Profissional em Educação Inclusiva em Rede Nacional",
-    title_en: "In-Service Training and Inclusive Education: Collaborative Strategies and Prevention of Teacher Illness in Pará",
     course_en: "Professional Master's in Inclusive Education National Network",
+    title_en: "In-Service Training and Inclusive Education: Collaborative Strategies and Prevention of Teacher Illness in Pará",
   },
   {
     title:
@@ -58,8 +58,8 @@ export const tccs: TCCProps[] = [
     keywords: "",
     degree: "Mestrado",
     course: "Mestrado Profissional em Educação Inclusiva em Rede Nacional",
-    title_en: "The Teaching and Learning Process of Portuguese Language: A Study at the Deaf Support Center in Amapá",
     course_en: "Professional Master's in Inclusive Education National Network",
+    title_en: "The Teaching and Learning Process of Portuguese Language: A Study at the Deaf Support Center in Amapá",
   },
   {
     title:
@@ -303,6 +303,28 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
+      "Regexmon: Um Jogo de Apoio ao Ensino de Expressões Regulares",
+    description:
+      "As expressões regulares são um conteúdo transversal nos cursos de Ciência da Computação, presente em disciplinas de Linguagens Formais, Engenharia de Software, compiladores e processamento de texto. Apesar de sua relevância prática, são consistentemente identificadas como um dos tópicos mais difíceis de ensinar, devido à notação compacta e sensível ao contexto, à ausência de mensagens de erro informativas na maioria dos interpretadores e à escassez de recursos educacionais dedicados. Este trabalho apresenta o RegexMon, um jogo RPG de mundo aberto desenvolvido na engine Godot 4, ambientado no campus universitário da UNIFAP, com o objetivo de apoiar o ensino de expressões regulares em cursos de graduação em Computação. O jogo apresenta uma narrativa original em que a jogadora, Mini me, assume o legado de seus avós, mestres de regex, para proteger o campus de criaturas chamadas Regexmons que fazem uso indevido dos padrões. O mecanismo central é um sistema de batalha em dois turnos: no turno de ataque, a jogadora deve construir uma string que corresponda ao padrão exibido pelo inimigo; no turno de defesa, deve sintetizar uma expressão regular que aceite um conjunto de strings válidas e rejeite outro. Essa dualidade operacionaliza as duas competências fundamentais do ensino de expressões regulares, reconhecimento e síntese de padrões, em uma única mecânica de jogo. A progressão pedagógica é estruturada em três ginásios correspondentes aos grupos de metacaracteres, representantes, quantificadores e âncoras, além de encontros aleatórios na grama e uma batalha final integradora. O jogo foi desenvolvido em um processo de pesquisa baseada em design por alunos de graduação sob supervisão docente, e encontra-se funcional com o mundo aberto completo, o sistema de batalha implementado e todos os desafios dos ginásios definidos. A avaliação empírica com estudantes está planejada como trabalho futuro.",
+    link: "regexmon-um-jogo-de-apoio-ao-ensino-de-expressoes-regulares",
+    status: "Finalizado",
+    students: ["Lorena Roberta Nunes Guimarães"],
+    advisor: "Julio Cezar Costa Furtado",
+    year: "2026",
+    keywords: "Jogos Educacionais, Expressões Regulares, Linguagens Formais, RPG, Aprendizagem Baseada em Jogos, Ensino de Computação",
+    keywords_en: "Educational Games, Regular Expressions, Formal Languages, RPG, Game-Based Learning, Computing Education",
+    degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
+    documentation: [
+      { name: "Texto Completo", type: "article", link: "/tccs/regexmon.pdf" },
+    ],
+    title_en: "Regexmon: A Game to Support Teaching Regular Expressions",
+    description_en:
+      "Regular expressions are a cross-cutting topic in Computing curricula, present in formal languages, software engineering, compilers, and text processing courses. Despite their practical relevance, they are consistently identified as one of the most difficult topics to teach, due to compact and context-sensitive notation, the absence of informative error messages in most interpreters, and a scarcity of dedicated educational resources. This work presents RegexMon, an open-world RPG developed in the Godot 4 engine, set on the UNIFAP university campus, designed to support the teaching of regular expressions in undergraduate Computing courses. The game features an original narrative in which the player, Mini me, takes on the legacy of her grandparents, regex masters, to protect the campus from creatures called Regexmons that misuse patterns. The central mechanic is a two-turn battle system: in the attack turn, the player must construct a string that matches the pattern displayed by the opponent; in the defense turn, the player must synthesize a regular expression that accepts a set of valid strings and rejects another. This duality operationalizes the two fundamental competencies of regular expression instruction, pattern recognition and pattern synthesis, within a single game mechanic. Pedagogical progression is structured around three gymnasiums corresponding to metacharacter groups, representatives, quantifiers, and anchors, along with random grass encounters and a final integrative battle. The game was developed through a design-based research process by undergraduate students under faculty supervision, and is functional with a complete open world, an implemented battle system, and all gymnasium challenges defined. Empirical evaluation with students is planned as future work.",
+  },
+  {
+    title:
       "Trabori La Monton Granitan: Criação de um Site para Ensinar Esperanto em Modalidade Assíncrona",
     description: "O Esperanto é uma língua auxiliar criada artificialmente por Lázaro Luís Zamenhof, com o objetivo de ser uma língua neutra e de fácil aprendizado. Desde a publicação de sua obra inaugural, em 1887, a comunidade esperantista atravessou diferentes períodos históricos, alternando momentos de expansão e de perseguição institucional, mas a persistência de seus falantes permitiu que a lingvo internacia fosse transmitida entre gerações e continue a atrair novos estudantes. Embora possua alcance internacional, o número relativamente reduzido de falantes caracteriza o Esperanto também como uma língua minoritária, o que implica riscos, ainda que moderados, à sua continuidade. Nesse contexto, o ensino da língua configura-se como uma estratégia relevante para a preservação e o fortalecimento da comunidade esperantista. Com o advento da Internet, os processos de aprendizagem do Esperanto passaram a ocorrer, em grande medida, por meio de cursos on-line voltados a autodidatas, frequentemente sem o acompanhamento de tutores. Diante das limitações e queixas relatadas por estudantes nesse modelo de ensino, este trabalho tem como objetivo propor um site de conteúdo educacional para o ensino de Esperanto, concebido a partir de metodologias contemporâneas de ensino de línguas e adaptado ao meio digital. A proposta envolve a definição da estrutura do site, da organização do conteúdo didático e da concepção de suas principais telas, com foco nas necessidades da comunidade esperantista e de aprendizes iniciantes. Ressalta-se que o escopo do trabalho se limita à concepção e modelagem da proposta, não abrangendo a implementação completa nem a validação empírica do sistema.",
     link: "trabori-la-monton-granitan-criacao-de-um-site-para-ensinar-e",
@@ -435,21 +457,6 @@ export const tccs: TCCProps[] = [
     course: "Graduação em Ciência da Computação",
     course_en: "Bachelor's in Computer Science",
     title_en: "A Platform Game for Teaching Algorithms",
-  },
-  {
-    title:
-      "Regexmon: Um Jogo de Apoio ao Ensino de Expressões Regulares",
-    description: "",
-    link: "regexmon-um-jogo-de-apoio-ao-ensino-de-expressoes-regulares",
-    status: "Em andamento",
-    students: ["Lorena Roberta Nunes Guimarães"],
-    advisor: "Julio Cezar Costa Furtado",
-    year: "2024",
-    keywords: "",
-    degree: "Graduação",
-    course: "Graduação em Ciência da Computação",
-    course_en: "Bachelor's in Computer Science",
-    title_en: "Regexmon: A Game to Support Teaching Regular Expressions",
   },
   {
     title:

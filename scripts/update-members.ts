@@ -10,6 +10,27 @@ const CNPq_URL = "http://dgp.cnpq.br/dgp/espelhogrupo/225177"
 const MAX_RETRIES = 3
 const RETRY_DELAY_MS = 2000
 
+// Professores que devem SEMPRE ser retirados do site, mesmo que apareçam
+// como pesquisadores ativos no grupo do CNPq DGP (decisão manual do grupo).
+const EXCLUDED_TEACHERS = [
+  "Carlos dos Santos Portela",
+  "Daniel Santiago Chaves Ribeiro",
+  "Diana Regina dos Santos Alves de Oliveira",
+  "Rafael Oliveira Chaves",
+  "Sandro Ronaldo Bezerra Oliveira",
+]
+
+function normalizeName(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
+const EXCLUDED_TEACHER_NAMES = new Set(EXCLUDED_TEACHERS.map(normalizeName))
+
 async function fetchWithRetry(url: string, options?: RequestInit): Promise<Response> {
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
@@ -217,7 +238,13 @@ async function main() {
   const studTableId = studTable ? extractTableId(studTable) : ""
   const egressosTableId = egressosStudTable ? extractTableId(egressosStudTable) : ""
 
-  const pesquisadores = pesqTable ? parseMemberTable(pesqTable, $) : []
+  const pesquisadores = (pesqTable ? parseMemberTable(pesqTable, $) : []).filter((p) => {
+    if (EXCLUDED_TEACHER_NAMES.has(normalizeName(p.name))) {
+      console.log(`  [P] ${p.name} → retirado (lista fixa de exclusão)`)
+      return false
+    }
+    return true
+  })
   const estudantes = studTable ? parseMemberTable(studTable, $) : []
   const egressosEstudantes = egressosStudTable ? parseEgressosFromTable(egressosStudTable, $) : []
 

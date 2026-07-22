@@ -63,6 +63,18 @@ export const patents: PatentProps[] = [
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
     patentType: "Programa de Computador",
   },
+  {
+    authors: [
+      "Furtado, Julio C.",
+      "Santos, P. M.",
+      "Flexa, E. T.",
+    ],
+    title: "Wisdowkeeper: Uma Ferramenta WEB Fullstack de Gestão de Conhecimento para Auxiliar Estagiários a Solucionar Problemas Recorrentes Envolvendo Sistemas ERP",
+    patentNumber: "BR512026003670-4",
+    registrationDate: "07/08/2025",
+    registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    patentType: "Programa de Computador",
+  },
 ]
 
 export const publications: PublicationProps[] = [
@@ -305,6 +317,34 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
+      "Reactify: An Intelligent Platform for Agile Requirements Engineering Based on React and React-m",
+    authors: [
+      "Silva, K. V. S.",
+      "Silva, L. G. A.",
+      "Furtado, Julio C.",
+    ],
+    year: "2026",
+    event: "Trilha de Ferramentas do Xl Simpósio Brasileiro de Engenharia de Software - Sbes 2026",
+    location: "São Paulo, Sp",
+    proceedings: "Anais do Xl Simpósio Brasileiro de Engenharia de Software - Sbes 2026",
+  },
+  {
+    type: "congress",
+    title:
+      "Student Perception of Active Learning Methods in Software Engineering Education: An Experience Report with Client?developer Role Inversion",
+    authors: [
+      "Ferreira, A. C.",
+      "Costa, P. M. L. O.",
+      "Furtado, Julio C.",
+    ],
+    year: "2026",
+    event: "Trilha de Educação do Xl Simpósio Brasileiro de Engenharia de Software - Sbes 2026",
+    location: "São Paulo, Sp",
+    proceedings: "Anais do Xl Simpósio Brasileiro de Engenharia de Software - Sbes 2026",
+  },
+  {
+    type: "congress",
+    title:
       "A Qualitative Evaluation of an Experiment on the Application of Active Methodologies in Teaching Software Process Improvement",
     authors: [
       "Colares, A.",
@@ -366,21 +406,6 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "Papel Ou Ide: Uma Análise Sobre as Formas de Avaliação em Turmas Iniciantes de Programação",
-    authors: [
-      "Farias, F. M.",
-      "Furtado, S. D. F.",
-      "Furtado, Julio C. C.",
-    ],
-    year: "2024",
-    event: "International Conference on Information Systems and Technology Management - Contecsi",
-    location: "São Paulo - Sp",
-    proceedings: "Archive Contecsi",
-    link: "https://dx.doi.org/10.5748/20CONTECSI/PSE/%20EDU%20/7171%20e207171",
-  },
-  {
-    type: "congress",
-    title:
       "Projopoly: Um Jogo de Banco Imobiliário de Apoio ao Ensino da Gerência de Projetos",
     authors: [
       "Brito, C. E.",
@@ -393,6 +418,21 @@ export const publications: PublicationProps[] = [
     location: "São Paulo - Sp",
     proceedings: "Archive Contecsi",
     link: "https://dx.doi.org/10.5748/20CONTECSI/PSE/%20EDU%20/7176%20e207176",
+  },
+  {
+    type: "congress",
+    title:
+      "Papel Ou Ide: Uma Análise Sobre as Formas de Avaliação em Turmas Iniciantes de Programação",
+    authors: [
+      "Farias, F. M.",
+      "Furtado, S. D. F.",
+      "Furtado, Julio C. C.",
+    ],
+    year: "2024",
+    event: "International Conference on Information Systems and Technology Management - Contecsi",
+    location: "São Paulo - Sp",
+    proceedings: "Archive Contecsi",
+    link: "https://dx.doi.org/10.5748/20CONTECSI/PSE/%20EDU%20/7171%20e207171",
   },
   {
     type: "congress",
@@ -693,6 +733,30 @@ export const publications: PublicationProps[] = [
     event: "Ix Simpósio de Educação Inclusiva e Adaptações (seia), Vii Simpósio Internacional de Educação a Distância (siead), Iii Seminário Internacional do Profei(siprofei) e I Encontro de Egressos do Profei",
     location: "Álvares Machado - Sp",
     proceedings: "Anais Cpides",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Code Trials: An Approach to Teaching Programming Logic Through Platform Game Mechanics",
+    authors: [
+      "Dias Junior, J. O. F.",
+      "Bitencourt, J. K. P. S.",
+      "Furtado, Julio C.",
+    ],
+    year: "2026",
+    event: "Xxv Simpósio Brasileiro de Jogos e Entretenimento Digital - Sbgames 26",
+    location: "Goiânia - Go",
+    proceedings: "Anais Estendidos do Xxv Simpósio Brasileiro de Jogos e Entretenimento Digital",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Regexmon: An Rpg for Teaching Regular Expressions in Computing Education",
+    authors: ["Guimaraes, L. R. N.", "Furtado, Julio C."],
+    year: "2026",
+    event: "Xxv Simpósio Brasileiro de Jogos e Entretenimento Digital - Sbgames 26",
+    location: "Goiânia - Go",
+    proceedings: "Anais Estendidos do Xxv Simpósio Brasileiro de Jogos e Entretenimento Digital",
   },
   {
     type: "conferenceAbstract",

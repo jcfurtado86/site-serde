@@ -284,15 +284,6 @@ export const students: StudentProps[] = [
     type: "Student",
   },
   {
-    name: "Lorena Roberta Nunes Guimarães",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    curriculumLink: "http://lattes.cnpq.br/8067840813058871",
-    imageUrl:
-      "/members/K2406465Y1.jpg",
-    type: "Student",
-  },
-  {
     name: "Lucas Fauro de Araújo",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -430,6 +421,15 @@ export const students: StudentProps[] = [
     type: "Student",
   },
   // Ex-alunos
+  {
+    name: "Lorena Roberta Nunes Guimarães",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/8067840813058871",
+    imageUrl:
+      "/members/K2406465Y1.jpg",
+    type: "ExStudent",
+  },
   {
     name: "Aíla Taynara Santos Moreira Maciel",
     institution: "Unifap",

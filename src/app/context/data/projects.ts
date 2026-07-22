@@ -3,6 +3,25 @@ import type { Project } from "../types"
 export const projectsData: Project[] = [
   {
     title:
+      "Um Ambiente Imersivo Baseado em Inteligência Artificial para Treinamento de Entrevistas de Elicitação de Requisitos em Engenharia de Software",
+    description:
+      "Este projeto propõe o desenvolvimento de um ambiente de simulação imersivo, baseado em inteligência artificial, interação por voz e avatar tridimensional, com o objetivo de apoiar o treinamento da condução de entrevistas de elicitação de requisitos de software, considerando a dificuldade recorrente na formação prática de estudantes e profissionais para lidar com situações reais de levantamento de requisitos. A proposta justifica-se pela necessidade de aproximar o ensino de Engenharia de Software de contextos profissionais mais realistas, por meio do uso de tecnologias emergentes capazes de simular o comportamento de um cliente durante uma entrevista.O projeto visa projetar e implementar uma plataforma que integre reconhecimento e síntese de voz, modelos de linguagem e visualização tridimensional, permitindo a criação de cenários controlados e configuráveis de entrevistas, com registro automático das interações e validação técnica da solução por meio de testes funcionais e de desempenho, sem a participação de usuários humanos. Espera-se, assim, estabelecer uma base tecnológica para futuras iniciativas de formação e pesquisa em Engenharia de Requisitos na Universidade Federal do Amapá",
+    professor: "Julio Cezar Costa Furtado",
+    status: "Em andamento",
+    type: "Pesquisa",
+    link: "um-ambiente-imersivo-baseado-em-inteligencia-artificial-para-treinamento-de-entrevistas-de-elicitaca",
+    documentation: [],
+    period: "2026 - Atual",
+    team: [
+      "Julio Cezar Costa Furtado",
+      "Adolfo Colares",
+      "Stephany Dantas de Freitas Furtado",
+      "DARIO RODRIGUES DO CARMO",
+      "Gabriel Felipe Assunção de Souza",
+    ],
+  },
+  {
+    title:
       "Projeto SERDE - Software Engineering: Research, Development and Education",
     description:
       "De acordo com a ACM / IEEE, a Engenharia de Software (ES) é uma disciplina interessada na aplicação de teoria, conhecimento e prática para o desenvolvimento eficaz e eficiente de sistemas de software que atendam aos requisitos dos usuários. Apesar da importância destes conhecimentos relativos às atividades da ES, pesquisam já verificaram que os profissionais aprendem mais sobre estas atividades durante o seu trabalho do que durante a sua formação e em geral, a indústria de software sofre com a falta de profissionais qualificados para trabalhar em atividades que envolvem o processo de desenvolvimento de software. Esta dificuldade em encontrar profissionais de Ciência da Computação com domínio dos tópicos da Engenharia de Software pode estar relacionada ao tipo de formação que estes receberam durante os anos de graduação. Assim, neste contexto, este projeto tem como objetivo desenvolver metodologias e ferramentas que auxiliem na aplicação e no ensino dos conteúdos da Engenharia de Software, seja no âmbito acadêmico ou na indústria de software",
@@ -193,7 +212,7 @@ export const projectsData: Project[] = [
       "MATEUS CORREA D ALMEIDA",
       "Vitor Hugo Amanajas Rocha",
     ],
-    funding: "CONSELHO NACIONAL DE DESENVOLVIMENTO CIENTIFICO E TECNOLOGICO-CNPQ - Bolsa / FINANCIADORA DE ESTUDOS E PROJETOS - FINEP - Outra",
+    funding: "FINANCIADORA DE ESTUDOS E PROJETOS - FINEP - Outra / CONSELHO NACIONAL DE DESENVOLVIMENTO CIENTIFICO E TECNOLOGICO-CNPQ - Bolsa",
     title_en: "GroceryHub: Technology Platform for Mobile Experience and Smart Checkout in Supermarkets",
     description_en: "A technological development project selected in the second edition of the Centelha Amapá Program, with support from FINEP and FAPEAP, aimed at creating an innovative digital platform for supermarkets, focused on improving customer experience and modernizing service and sales processes. The solution integrates mobile shopping list functionalities connected to the establishment's product and price database, fast checkout without traditional cash registers, and multichannel communication in both physical and digital environments. The project incorporates Big Data and Machine Learning techniques for offer personalization, consumer behavior analysis, and commercial management support. As a result of the innovation and technology transfer process, GroceryHub was established as a company for the exploitation and scalability of the developed solution",
   },
