@@ -190,7 +190,7 @@ export default function HeroSection() {
                 />
               </div>
               <div className="relative ml-6">
-                <span className={`font-normal font-[Questrial] `}>
+                <span className={`font-normal font-questrial `}>
                   <span className="">
                     <span style={{ color: "black" }}> s</span>
                     <span style={{ color: "black" }}>e</span>

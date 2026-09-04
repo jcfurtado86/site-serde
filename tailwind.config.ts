@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        questrial: ["var(--font-questrial)", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
       animation: {
         'fade-in': 'fadeIn 0.3s ease-in-out forwards',
         drawLine: 'drawLine 3s ease forwards',

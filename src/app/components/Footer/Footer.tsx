@@ -17,7 +17,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-white border-t border-gray-200">
-      <div className="container mx-auto px-4 py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Desktop: row com logos à esquerda, links e contato à direita */}
         {/* Mobile: logos centralizados em cima, links e contato lado a lado embaixo */}
         <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 mb-8">

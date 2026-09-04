@@ -11,10 +11,10 @@ export default function About() {
 
   return (
     <div
-      className="w-full bg-gradient-to-b from-gray-50 to-white flex flex-col items-center p-4 pb-2 pt-2 sm:p-6 sm:pb-4 sm:pt-4 lg:p-8 lg:pb-6 lg:pt-6"
+      className="w-full bg-gradient-to-b from-gray-50 to-white flex flex-col items-center py-2 sm:py-4 lg:py-6"
       id="sobre"
     >
-      <div className="max-w-[1240px] mx-auto pt-8 md:pt-6 pb-4 md:pb-2">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-6 pb-4 md:pb-2">
         <div className="text-center mb-8 md:mb-6">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6 md:mb-4">
             {t("about.title")}
