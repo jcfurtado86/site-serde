@@ -130,6 +130,16 @@ export const publications: PublicationProps[] = [
   {
     type: "article",
     title:
+      "Prospecção Tecnológica no Setor de Acolhimento: Análise da Viabilidade de um Sistema Integrado para Gestão Administrativa e Monitorização de Cuidados",
+    authors: ["Araujo, L. F.", "Furtado, Julio C."],
+    year: "2025",
+    publisher: "Revista Inovação na Amazônia (RIAmz)",
+    edition: "2",
+    pages: "108-120",
+  },
+  {
+    type: "article",
+    title:
       "Uma Abordagem Focada no Aluno para o Ensino de Engenharia de Requisitos",
     authors: ["Guerra, Anderson dos Santos", "Furtado, Julio Cezar Costa"],
     year: "2024",
@@ -327,6 +337,34 @@ export const publications: PublicationProps[] = [
     event: "Trilha de Ferramentas do Xl Simpósio Brasileiro de Engenharia de Software - Sbes 2026",
     location: "São Paulo, Sp",
     proceedings: "Anais do Xl Simpósio Brasileiro de Engenharia de Software - Sbes 2026",
+  },
+  {
+    type: "congress",
+    title:
+      "Formação em Serviço para a Educação Inclusiva na Amazônia: Práticas Colaborativas e Fortalecimento Docente no Contexto Escolar Paraense",
+    authors: [
+      "Rosario, K. G. S.",
+      "Santos, S. L.",
+      "Furtado, Julio C.",
+    ],
+    year: "2026",
+    event: "Congresso Internacional de Diálogos Interculturais na Fronteira Amazônica - Cidifa",
+    location: "Oiapoque - AP",
+    proceedings: "Anais do Evento da Cidifa",
+  },
+  {
+    type: "congress",
+    title:
+      "Educação Inclusiva na Amazônia: Formação Docente Intercultural e Desafios À Efetivação do Direito À Aprendizagem",
+    authors: [
+      "Rosario, K. G. S.",
+      "Silva, R. P. L.",
+      "Furtado, Julio C.",
+    ],
+    year: "2026",
+    event: "Congresso Internacional de Diálogos Interculturais na Fronteira Amazônica - Cidifa",
+    location: "Oiapoque - AP",
+    proceedings: "Anais do Evento da Cidifa",
   },
   {
     type: "congress",
@@ -757,6 +795,16 @@ export const publications: PublicationProps[] = [
     event: "Xxv Simpósio Brasileiro de Jogos e Entretenimento Digital - Sbgames 26",
     location: "Goiânia - Go",
     proceedings: "Anais Estendidos do Xxv Simpósio Brasileiro de Jogos e Entretenimento Digital",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Cartografias da Inclusão: Especificidades Socioterritoriais e a Reorganização do Trabalho do Saee na Região Metropolitana de Belém",
+    authors: ["Rosario, K. G. S.", "Furtado, Julio C."],
+    year: "2026",
+    event: "Congresso Internacional de Diálogos Interculturais na Fronteira Amazônica - Cidifa",
+    location: "Oiapoque - AP",
+    proceedings: "Anais de Pôster Científico da Cidifa",
   },
   {
     type: "conferenceAbstract",

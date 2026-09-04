@@ -10,6 +10,7 @@ export default function Footer() {
     { label: t("nav.projects"), href: "/projetos" },
     { label: t("nav.guidance"), href: "/orientacoes" },
     { label: t("nav.publications_patents"), href: "/publicacoes" },
+    { label: t("nav.innovation"), href: "/inovacao" },
     { label: t("nav.members"), href: "/membros" },
     { label: t("nav.partnerships"), href: "/parcerias" },
   ]

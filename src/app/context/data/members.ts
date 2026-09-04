@@ -119,15 +119,6 @@ export const students: StudentProps[] = [
     type: "Student",
   },
   {
-    name: "Gabriela Felipa da Silva Souza",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    curriculumLink: "http://lattes.cnpq.br/6676365359182975",
-    imageUrl:
-      "/members/K2406638Y4.jpg",
-    type: "Student",
-  },
-  {
     name: "Guilherme Cosmo Lins de Souza",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -312,15 +303,6 @@ export const students: StudentProps[] = [
     type: "Student",
   },
   {
-    name: "Luiz Felipe Moreira dos Anjos",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    curriculumLink: "http://lattes.cnpq.br/6967787408321484",
-    imageUrl:
-      "/members/K1561560P9.jpg",
-    type: "Student",
-  },
-  {
     name: "Luma Gabriela Andrade da Silva",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -421,15 +403,6 @@ export const students: StudentProps[] = [
     type: "Student",
   },
   // Ex-alunos
-  {
-    name: "Lorena Roberta Nunes Guimarães",
-    institution: "Unifap",
-    campus: "Campus Unifap",
-    curriculumLink: "http://lattes.cnpq.br/8067840813058871",
-    imageUrl:
-      "/members/K2406465Y1.jpg",
-    type: "ExStudent",
-  },
   {
     name: "Aíla Taynara Santos Moreira Maciel",
     institution: "Unifap",
@@ -567,12 +540,30 @@ export const students: StudentProps[] = [
     type: "ExStudent",
   },
   {
+    name: "Lorena Roberta Nunes Guimarães",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/8067840813058871",
+    imageUrl:
+      "/members/K2406465Y1.jpg",
+    type: "ExStudent",
+  },
+  {
     name: "Luís César Martins Amaral",
     institution: "Unifap",
     campus: "Campus Unifap",
     curriculumLink: "http://lattes.cnpq.br/8829459581349801",
     imageUrl:
       "/members/K2109801U5.jpg",
+    type: "ExStudent",
+  },
+  {
+    name: "Luiz Felipe Moreira dos Anjos",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/6967787408321484",
+    imageUrl:
+      "/members/K1561560P9.jpg",
     type: "ExStudent",
   },
   {
@@ -609,6 +600,15 @@ export const students: StudentProps[] = [
     curriculumLink: "http://lattes.cnpq.br/0003988321971896",
     imageUrl:
       "/members/K1530663D5.jpg",
+    type: "ExStudent",
+  },
+  {
+    name: "Vitor Hugo Amanajas Rocha",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/5349072319561504",
+    imageUrl:
+      "/members/K2703499Z6.jpg",
     type: "ExStudent",
   },
 ]

@@ -455,6 +455,20 @@ async function main() {
     }
   }
 
+  // A lista de egressos é append-only: uma vez egresso, sempre egresso.
+  // O DGP pode deixar de listar alguém, ou o nome pode deixar de casar com a
+  // orientação no Lattes — nenhum dos dois é motivo para apagar do site.
+  const dgpEgressoNames = new Set(exStudents.map((s) => s.name.toLowerCase()))
+  const preservedEgressos = localData.students.filter(
+    (s) => s.type === "ExStudent" && !dgpEgressoNames.has(s.name.toLowerCase()),
+  )
+  if (preservedEgressos.length > 0) {
+    console.log(`\n  ${preservedEgressos.length} egresso(s) preservado(s) de execuções anteriores:`)
+    for (const s of preservedEgressos) console.log(`    [E] ${s.name} → mantido`)
+    exStudents.push(...preservedEgressos)
+  }
+  exStudents.sort((a, b) => a.name.localeCompare(b.name, "pt-BR"))
+
   // Remove students who are now egressos with completed orientation
   const egressoNames = new Set(exStudents.map((s) => s.name.toLowerCase()))
   const activeStudents = students.filter((s) => !egressoNames.has(s.name.toLowerCase()))

@@ -19,6 +19,10 @@ export const projectsData: Project[] = [
       "DARIO RODRIGUES DO CARMO",
       "Gabriel Felipe Assunção de Souza",
     ],
+    title_en:
+      "An Artificial Intelligence-Based Immersive Environment for Training Requirements Elicitation Interviews in Software Engineering",
+    description_en:
+      "This project proposes the development of an immersive simulation environment, based on artificial intelligence, voice interaction, and a three-dimensional avatar, with the goal of supporting training in conducting software requirements elicitation interviews, considering the recurring difficulty in the practical training of students and professionals to deal with real requirements-gathering situations. The proposal is justified by the need to bring Software Engineering education closer to more realistic professional contexts, through the use of emerging technologies capable of simulating a client's behavior during an interview. The project aims to design and implement a platform that integrates speech recognition and synthesis, language models, and three-dimensional visualization, allowing the creation of controlled and configurable interview scenarios, with automatic recording of interactions and technical validation of the solution through functional and performance testing, without the participation of human users. It is thus expected to establish a technological foundation for future training and research initiatives in Requirements Engineering at the Federal University of Amapá",
   },
   {
     title:
