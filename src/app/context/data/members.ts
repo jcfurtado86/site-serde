@@ -20,6 +20,15 @@ export const students: StudentProps[] = [
     type: "Student",
   },
   {
+    name: "Ana Beatriz Frazão da Silva",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/1539978276137987",
+    imageUrl:
+      "/members/K1202163Z3.jpg",
+    type: "Student",
+  },
+  {
     name: "Augusto Fadanelli de Sousa",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -54,6 +63,16 @@ export const students: StudentProps[] = [
     imageUrl:
       "/members/K1176961E2.jpg",
     type: "Student",
+  },
+  {
+    name: "Cíntia Freitas Martins",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/0063178428853696",
+    imageUrl:
+      "/members/K4477539Z7.jpg",
+    type: "Student",
+    degree: "Master",
   },
   {
     name: "Danilo dos Santos Ferreira",
@@ -134,6 +153,15 @@ export const students: StudentProps[] = [
     curriculumLink: "http://lattes.cnpq.br/0368761867719344",
     imageUrl:
       "/members/K1567493H0.jpg",
+    type: "Student",
+  },
+  {
+    name: "Henry Kanemoto Fukuoka",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/4548962652019713",
+    imageUrl:
+      "/members/K1507541U2.jpg",
     type: "Student",
   },
   {

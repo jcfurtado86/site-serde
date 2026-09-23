@@ -767,8 +767,12 @@ export function parseOrientations($: CheerioAPI, minYear: number): TCCProps[] {
         const advisorMatch = text.match(/Orientador:\s*(.+?)\./)
         if (advisorMatch) advisor = advisorMatch[1].trim()
 
-        // Extract course name from text, e.g. "(Graduação em Ciência da Computação)"
-        const courseMatch = text.match(/\(([^)]+)\)/)
+        // Extract course name from text, e.g. "(Graduação em Ciência da Computação)".
+        // Ancorado no tipo do trabalho: pegar só o primeiro parêntese do texto quebra
+        // quando o próprio título tem um, como "... Espectro Autista (TEA) nas Séries Iniciais".
+        const courseAfterType =
+          /(?:Disserta[çc][ãa]o|Tese|Monografia|Trabalho de conclus[ãa]o de curso(?:\s+de\s+gradua[çc][ãa]o)?)\s*\(([^)]+)\)/i
+        const courseMatch = text.match(courseAfterType) || text.match(/\(([^)]+)\)/)
         let course = courseMatch ? courseMatch[1].trim() : undefined
         // Fix Lattes redundancy: "Mestrado em Mestrado Profissional em X" → "Mestrado Profissional em X"
         if (course) {

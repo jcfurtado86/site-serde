@@ -699,7 +699,7 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "An¿lise da Ader¿ncia da Ferramenta de Software Spc Explorer para Apoiar o Controle Estat¿stico de Processos de Software",
+      "An\"lise da Ader\"ncia da Ferramenta de Software Spc Explorer para Apoiar o Controle Estat\"stico de Processos de Software",
     authors: ["Oliveira Abreu, Diego", "Cezar Costa Furtado, Julio"],
     year: "2018",
     event: "15th Contecsi International Conference on Information Systems and Technology Management",
@@ -795,6 +795,73 @@ export const publications: PublicationProps[] = [
     event: "Xxv Simpósio Brasileiro de Jogos e Entretenimento Digital - Sbgames 26",
     location: "Goiânia - Go",
     proceedings: "Anais Estendidos do Xxv Simpósio Brasileiro de Jogos e Entretenimento Digital",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Notarius: Transcrição Automatizada de Audiências e Geração de Minutas de Ata no Tribunal de Justiça do Amapá",
+    authors: [
+      "Silva, H. S.",
+      "Silva, K. V. S.",
+      "Goncalves, G. E. A.",
+      "Viana, I. M.",
+      "Lima, R. P.",
+      "Furtado, Julio C.",
+    ],
+    year: "2026",
+    event: "Xix Escola Regional de Informática Norte 2 (erin 2026)",
+    location: "Belém - Pa",
+    proceedings: "Anais do Xix Escola Regional de Informática Norte 2 (erin 2026)",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Oraculum: Análise de Dados Financeiros com Consulta em Linguagem Natural no Tribunal de Justiça do Amapá",
+    authors: [
+      "Silva, H. S.",
+      "Silva, K. V. S.",
+      "Goncalves, G. E. A.",
+      "Viana, I. M.",
+      "Lima, R. P.",
+      "Furtado, Julio C.",
+    ],
+    year: "2026",
+    event: "Xix Escola Regional de Informática Norte 2 (erin 2026)",
+    location: "Belém - Pa",
+    proceedings: "Anais do Xix Escola Regional de Informática Norte 2 (erin 2026)",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Um Ecossistema de Dados para Transparência em Contratações Públicas no Tribunal de Justiça do Amapá",
+    authors: [
+      "Carmo, D. R.",
+      "Goncalves, G. E. A.",
+      "Viana, I. M.",
+      "Lima, R. P.",
+      "Furtado, Julio C.",
+    ],
+    year: "2026",
+    event: "Xix Escola Regional de Informática Norte 2 (erin 2026)",
+    location: "Belém - Pa",
+    proceedings: "Anais do Xix Escola Regional de Informática Norte 2 (erin 2026)",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Chatbot Juci: Assistente Conversacional com Recuperação em Múltiplas Bases no Tribunal de Justiça do Amapá",
+    authors: [
+      "Silva, H. S.",
+      "Silva, K. V. S.",
+      "Goncalves, G. E. A.",
+      "Viana, I. M.",
+      "Lima, R. P.",
+      "Furtado, Julio C.",
+    ],
+    year: "2026",
+    event: "Xix Escola Regional de Informática Norte 2 (erin 2026)",
+    location: "Belém - Pa",
+    proceedings: "Anais do Xix Escola Regional de Informática Norte 2 (erin 2026)",
   },
   {
     type: "conferenceAbstract",

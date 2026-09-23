@@ -107,27 +107,42 @@ async function initSession(): Promise<JsfSession> {
 async function fetchLattesId(session: JsfSession, tableId: string, index: number): Promise<string | null> {
   const buttonId = `idFormVisualizarGrupoPesquisa:${tableId}:${index}:btnAcessoLattes2`
 
-  const body = new URLSearchParams({
-    "idFormVisualizarGrupoPesquisa": "idFormVisualizarGrupoPesquisa",
-    [buttonId]: buttonId,
-    "javax.faces.ViewState": session.viewState,
-  })
+  // O DGP responde ao primeiro POST de uma sessão com um redirect para
+  // login.jsf?logout=true — por isso o primeiro membro não-cacheado de cada
+  // execução ficava sem Lattes nem foto (os seguintes passavam, já reusando a
+  // sessão ativada por ele). Repetir o POST resolve.
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    const body = new URLSearchParams({
+      "idFormVisualizarGrupoPesquisa": "idFormVisualizarGrupoPesquisa",
+      [buttonId]: buttonId,
+      "javax.faces.ViewState": session.viewState,
+    })
 
-  const res = await fetchWithRetry(CNPq_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      "Cookie": session.cookies,
-    },
-    body: body.toString(),
-    redirect: "manual",
-  })
+    const res = await fetchWithRetry(CNPq_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": session.cookies,
+      },
+      body: body.toString(),
+      redirect: "manual",
+    })
 
-  const location = res.headers.get("location")
-  if (!location || !location.includes("lattes.cnpq.br/")) return null
+    const location = res.headers.get("location")
+    if (location && location.includes("lattes.cnpq.br/")) {
+      return location.split("/").pop() || null
+    }
 
-  const numericId = location.split("/").pop() || null
-  return numericId
+    // Importante: repetir com a MESMA sessão. O DGP responde ao primeiro POST de
+    // uma sessão com um redirect para login.jsf?logout=true, mas esse POST a ativa
+    // — a tentativa seguinte, no mesmo cookie/ViewState, passa. Renovar a sessão
+    // aqui faria toda tentativa ser "a primeira", e nenhuma resolveria.
+    if (attempt < MAX_RETRIES) {
+      console.log(`    ⚠ DGP recusou o 1º POST da sessão, repetindo (${attempt}/${MAX_RETRIES - 1})...`)
+    }
+  }
+
+  return null
 }
 
 async function fetchLattesShortId(numericId: string): Promise<string | null> {
