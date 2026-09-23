@@ -192,6 +192,15 @@ export const students: StudentProps[] = [
     type: "Student",
   },
   {
+    name: "João Victor Ferreira de Aragão",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/8813425981396249",
+    imageUrl:
+      "/members/K1563424H6.jpg",
+    type: "Student",
+  },
+  {
     name: "Johnathan de Lima Rocha",
     institution: "Unifap",
     campus: "Campus Unifap",
@@ -328,6 +337,15 @@ export const students: StudentProps[] = [
     curriculumLink: "http://lattes.cnpq.br/4400152259018443",
     imageUrl:
       "/members/K2896840T9.jpg",
+    type: "Student",
+  },
+  {
+    name: "Luis Gustavo Barbosa da Rocha",
+    institution: "Unifap",
+    campus: "Campus Unifap",
+    curriculumLink: "http://lattes.cnpq.br/7204917904633353",
+    imageUrl:
+      "/members/K1285411H0.jpg",
     type: "Student",
   },
   {
