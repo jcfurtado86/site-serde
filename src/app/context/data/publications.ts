@@ -115,6 +115,21 @@ export const publications: PublicationProps[] = [
   {
     type: "article",
     title:
+      "A Case Study on the Application of a Role Playing Game to Support the Teaching of Software Product Construction",
+    authors: [
+      "Guerra, A.",
+      "Furtado, Julio C.",
+      "Oliveira, Sandro Ronaldo Bezerra",
+    ],
+    year: "2026",
+    publisher: "Discover Education",
+    edition: "5",
+    pages: "1220",
+    link: "http://dx.doi.org/10.1007/s44217-026-02258-3",
+  },
+  {
+    type: "article",
+    title:
       "Uma Análise da Aplicação de Jogos para Ensino de Programação Básica a Partir de um Mapeamento Sistemático da Literatura",
     authors: [
       "Callins, A. M. N.",
