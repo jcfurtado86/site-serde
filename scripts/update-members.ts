@@ -47,12 +47,28 @@ const OUTPUT_PATH = path.join(__dirname, "..", "src", "app", "context", "data", 
 const CACHE_PATH = path.join(__dirname, "..", "src", "app", "context", "data", "members copy.ts")
 const PHOTOS_DIR = path.join(__dirname, "..", "public", "members")
 
-function buildLocalImagePath(shortId: string): string {
-  return `/members/${shortId}.jpg`
+// Fotos: o ID curto (K1234567A8) ainda funciona no servicosweb e dá a foto em JPEG grande.
+// Desde nov/2026 não há mais como descobrir o ID curto (lattes.cnpq.br/<id> dá 404 e a busca
+// textual antiga pede captcha), então membros novos usam a foto da nova plataforma, pelo
+// número do Lattes (16 dígitos), que vem em PNG menor.
+const NEW_PHOTO_URL = "https://busca-cv-lattes-api.cnpq.br/busca-textual-api/v1/foto-perfil"
+
+function isShortId(id: string): boolean {
+  return /^K[0-9A-Z]+$/i.test(id)
 }
 
-async function downloadPhoto(shortId: string): Promise<boolean> {
-  const url = `https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=${shortId}`
+function photoExtension(id: string): string {
+  return isShortId(id) ? "jpg" : "png"
+}
+
+function buildLocalImagePath(photoId: string): string {
+  return `/members/${photoId}.${photoExtension(photoId)}`
+}
+
+async function downloadPhoto(photoId: string): Promise<boolean> {
+  const url = isShortId(photoId)
+    ? `https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=${photoId}`
+    : `${NEW_PHOTO_URL}/${photoId}`
   try {
     const res = await fetchWithRetry(url)
     if (!res.ok) return false
@@ -60,11 +76,21 @@ async function downloadPhoto(shortId: string): Promise<boolean> {
     // Skip if empty/tiny response (no photo available)
     if (buffer.length < 1000) return false
     if (!fs.existsSync(PHOTOS_DIR)) fs.mkdirSync(PHOTOS_DIR, { recursive: true })
-    fs.writeFileSync(path.join(PHOTOS_DIR, `${shortId}.jpg`), buffer)
+    fs.writeFileSync(path.join(PHOTOS_DIR, `${photoId}.${photoExtension(photoId)}`), buffer)
     return true
   } catch {
     return false
   }
+}
+
+/** Extrai o ID da foto de qualquer formato de imageUrl já usado em members.ts. */
+function photoIdFromImageUrl(imageUrl?: string): string | undefined {
+  if (!imageUrl) return undefined
+  return (
+    imageUrl.match(/servletrecuperafoto.*[?&]id=([A-Z0-9]+)/i)?.[1] ||
+    imageUrl.match(/foto-perfil\/(\d{16})/)?.[1] ||
+    imageUrl.match(/\/members\/([A-Z0-9]+)\.(?:jpg|png)$/i)?.[1]
+  )
 }
 
 function mapDegree(titulacao: string): string | undefined {
@@ -75,11 +101,17 @@ function mapDegree(titulacao: string): string | undefined {
 }
 
 function buildCurriculumLink(lattesNumericId: string): string {
-  return `http://lattes.cnpq.br/${lattesNumericId}`
+  return `https://busca-cv-lattes.cnpq.br/curriculo/${lattesNumericId}`
 }
 
-function buildImageUrl(lattesShortId: string): string {
-  return `https://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=${lattesShortId}`
+/** Converte links do endereço antigo (lattes.cnpq.br/<id>, agora 404) para a nova plataforma. */
+function normalizeCurriculumLink(link?: string): string | undefined {
+  const id = link?.match(/^https?:\/\/lattes\.cnpq\.br\/(\d{16})\/?$/)?.[1]
+  return id ? buildCurriculumLink(id) : link
+}
+
+function buildImageUrl(lattesNumericId: string): string {
+  return `${NEW_PHOTO_URL}/${lattesNumericId}`
 }
 
 // --- JSF session management ---
@@ -143,20 +175,6 @@ async function fetchLattesId(session: JsfSession, tableId: string, index: number
   }
 
   return null
-}
-
-async function fetchLattesShortId(numericId: string): Promise<string | null> {
-  let res: Response
-  try {
-    res = await fetchWithRetry(`http://lattes.cnpq.br/${numericId}`)
-  } catch {
-    console.log(`    ⚠ failed to fetch Lattes short ID for ${numericId} after ${MAX_RETRIES} attempts`)
-    return null
-  }
-  if (!res.ok) return null
-  const html = await res.text()
-  const match = html.match(/<input[^>]*name="id"[^>]*value="([^"]*)"/)
-  return match ? match[1] : null
 }
 
 // --- Parsing ---
@@ -290,11 +308,7 @@ async function main() {
     }
 
     const numericId = await fetchLattesId(postSession, pesqTableId, i)
-    let shortId: string | null = null
-    if (numericId) {
-      shortId = await fetchLattesShortId(numericId)
-    }
-    console.log(`  [P] ${p.name} → ${numericId || "?"} / ${shortId || "?"}`)
+    console.log(`  [P] ${p.name} → ${numericId || "?"}`)
     teachers.push({
       name,
       institution: "Unifap",
@@ -303,7 +317,8 @@ async function main() {
       ...(localTeacher?.email ? { email: localTeacher.email } : {}),
       ...(localTeacher?.imagePosition ? { imagePosition: localTeacher.imagePosition } : {}),
       ...(numericId ? { curriculumLink: buildCurriculumLink(numericId) } : localTeacher?.curriculumLink ? { curriculumLink: localTeacher.curriculumLink } : {}),
-      ...(shortId ? { imageUrl: buildImageUrl(shortId) } : localTeacher?.imageUrl ? { imageUrl: localTeacher.imageUrl } : {}),
+      // Foto já baixada (ID curto, melhor qualidade) tem prioridade sobre a da nova plataforma
+      ...(localTeacher?.imageUrl ? { imageUrl: localTeacher.imageUrl } : numericId ? { imageUrl: buildImageUrl(numericId) } : {}),
     })
   }
 
@@ -341,12 +356,8 @@ async function main() {
     }
 
     const numericId = await fetchLattesId(postSession, studTableId, i)
-    let shortId: string | null = null
-    if (numericId) {
-      shortId = await fetchLattesShortId(numericId)
-    }
     const degree = orientationDegree.get(name.toLowerCase()) ?? mapDegree(s.titulacao) ?? localStudent?.degree
-    console.log(`  [S] ${s.name} → ${numericId || "?"} / ${shortId || "?"} (${degree || "Graduação"})`)
+    console.log(`  [S] ${s.name} → ${numericId || "?"} (${degree || "Graduação"})`)
     students.push({
       name,
       institution: "Unifap",
@@ -357,7 +368,8 @@ async function main() {
       ...(localStudent?.email ? { email: localStudent.email } : {}),
       ...(localStudent?.imagePosition ? { imagePosition: localStudent.imagePosition } : {}),
       ...(numericId ? { curriculumLink: buildCurriculumLink(numericId) } : localStudent?.curriculumLink ? { curriculumLink: localStudent.curriculumLink } : {}),
-      ...(shortId ? { imageUrl: buildImageUrl(shortId) } : localStudent?.imageUrl ? { imageUrl: localStudent.imageUrl } : {}),
+      // Foto já baixada (ID curto, melhor qualidade) tem prioridade sobre a da nova plataforma
+      ...(localStudent?.imageUrl ? { imageUrl: localStudent.imageUrl } : numericId ? { imageUrl: buildImageUrl(numericId) } : {}),
     })
   }
 
@@ -505,19 +517,19 @@ async function main() {
   let photosFailed = 0
 
   for (const member of allMembers) {
-    // Extract shortId from remote URL or local path
-    const remoteUrlMatch = member.imageUrl?.match(/[?&]id=([A-Z0-9]+)/i)
-    const localPathMatch = member.imageUrl?.match(/\/members\/([A-Z0-9]+)\.jpg/i)
-    const shortId = remoteUrlMatch?.[1] || localPathMatch?.[1]
+    // Links salvos no formato antigo (lattes.cnpq.br/<id>) agora dão 404
+    member.curriculumLink = normalizeCurriculumLink(member.curriculumLink)
+    if (!member.curriculumLink) delete member.curriculumLink
 
-    if (!shortId) {
+    const photoId = photoIdFromImageUrl(member.imageUrl)
+    if (!photoId) {
       photosSkipped++
       continue
     }
 
-    const ok = await downloadPhoto(shortId)
+    const ok = await downloadPhoto(photoId)
     if (ok) {
-      member.imageUrl = buildLocalImagePath(shortId)
+      member.imageUrl = buildLocalImagePath(photoId)
       photosDownloaded++
     } else {
       // Keep whatever URL was there (remote or local)

@@ -11,6 +11,7 @@ export const patents: PatentProps[] = [
     patentNumber: "BR512021001576-2",
     registrationDate: "30/10/2020",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    fundingInstitution: "Fundação Euclides da Cunha",
     patentType: "Programa de Computador",
   },
   {
@@ -25,6 +26,7 @@ export const patents: PatentProps[] = [
     patentNumber: "BR512021001558-4",
     registrationDate: "05/06/2021",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    fundingInstitution: "Fundação Euclides da Cunha",
     patentType: "Programa de Computador",
   },
   {
@@ -37,14 +39,16 @@ export const patents: PatentProps[] = [
     patentNumber: "BR512025001279-9",
     registrationDate: "08/04/2025",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    fundingInstitution: "Fundação Universidade Federal do Amapá",
     patentType: "Programa de Computador",
   },
   {
-    authors: ["Furtado, Julio C.", "Silva, M. C."],
+    authors: ["Silva, M. C.", "Furtado, Julio C."],
     title: "Jsniffer - uma Ferramenta para Identificação Automática de Bad Smells",
     patentNumber: "BR512025001280-2",
     registrationDate: "08/04/2025",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    fundingInstitution: "Fundação Universidade Federal do Amapá",
     patentType: "Programa de Computador",
   },
   {
@@ -53,6 +57,7 @@ export const patents: PatentProps[] = [
     patentNumber: "BR512025001281-0",
     registrationDate: "08/04/2025",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    fundingInstitution: "Fundação Universidade Federal do Amapá",
     patentType: "Programa de Computador",
   },
   {
@@ -61,6 +66,7 @@ export const patents: PatentProps[] = [
     patentNumber: "BR512025003392-3",
     registrationDate: "22/04/2025",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    fundingInstitution: "Fundação Universidade Federal do Amapá",
     patentType: "Programa de Computador",
   },
   {
@@ -73,6 +79,7 @@ export const patents: PatentProps[] = [
     patentNumber: "BR512026003670-4",
     registrationDate: "07/08/2025",
     registrationInstitution: "INPI - Instituto Nacional da Propriedade Industrial",
+    fundingInstitution: "Fundação Universidade Federal do Amapá",
     patentType: "Programa de Computador",
   },
 ]
@@ -288,6 +295,8 @@ export const publications: PublicationProps[] = [
     edition: "17",
     pages: "154-171",
     link: "https://dx.doi.org/10.4018/ijicte.2021010110",
+    webCitations: 2,
+    scopusCitations: 4,
   },
   {
     type: "article",
@@ -308,6 +317,8 @@ export const publications: PublicationProps[] = [
     edition: "25",
     pages: "379-383",
     link: "https://dx.doi.org/10.1590/1517-869220192505217459",
+    webCitations: 4,
+    scopusCitations: 4,
   },
   // Completos em evento
   {
@@ -384,7 +395,7 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "Student Perception of Active Learning Methods in Software Engineering Education: An Experience Report with Client?developer Role Inversion",
+      "Student Perception of Active Learning Methods in Software Engineering Education: An Experience Report with Client–developer Role Inversion",
     authors: [
       "Ferreira, A. C.",
       "Costa, P. M. L. O.",
@@ -553,6 +564,7 @@ export const publications: PublicationProps[] = [
     authors: ["Luigi Tavares da Silva Ciuffi, Eduardo", "Cezar Costa Furtado, Julio"],
     year: "2022",
     event: "19th Contecsi International Conference on Information Systems and Technology Management",
+    proceedings: "19th Contecsi International Conference on Information Systems and Technology Management",
     link: "https://dx.doi.org/10.5748/19CONTECSI/PSE/SOC/6970",
   },
   {
@@ -562,6 +574,7 @@ export const publications: PublicationProps[] = [
     authors: ["Taynara Santos Moreira Maciel, Aila", "Cezar Costa Furtado, Julio"],
     year: "2022",
     event: "19th Contecsi International Conference on Information Systems and Technology Management",
+    proceedings: "19th Contecsi International Conference on Information Systems and Technology Management",
     link: "https://dx.doi.org/10.5748/19CONTECSI/PSE/ESD/6971",
   },
   {
@@ -571,6 +584,7 @@ export const publications: PublicationProps[] = [
     authors: ["Bezerra da Silva, Mateus", "Cezar Costa Furtado, Julio"],
     year: "2022",
     event: "19th Contecsi International Conference on Information Systems and Technology Management",
+    proceedings: "19th Contecsi International Conference on Information Systems and Technology Management",
     link: "https://dx.doi.org/10.5748/19CONTECSI/PSE/EDU/6972",
   },
   {
@@ -599,6 +613,7 @@ export const publications: PublicationProps[] = [
     ],
     year: "2022",
     event: "19th Contecsi International Conference on Information Systems and Technology Management",
+    proceedings: "19th Contecsi International Conference on Information Systems and Technology Management",
     link: "https://dx.doi.org/10.5748/19CONTECSI/PSE/EDU/6995",
   },
   {
@@ -608,7 +623,7 @@ export const publications: PublicationProps[] = [
     authors: ["Taynara Santos Moreira Maciel, Aíla", "Furtado, Julio"],
     year: "2021",
     event: "Contecsi International Conference on Information Systems and Technology Management",
-    location: "São Paulo - Sp, 2021",
+    location: "São Paulo - Sp",
     link: "https://dx.doi.org/10.5748/18CONTECSI/PSE/ESD/6840",
   },
   {
@@ -623,7 +638,7 @@ export const publications: PublicationProps[] = [
     ],
     year: "2021",
     event: "Contecsi International Conference on Information Systems and Technology Management",
-    location: "São Paulo - Sp, 2021",
+    location: "São Paulo - Sp",
     link: "https://dx.doi.org/10.5748/18contecsi/pse/esd/6734",
   },
   {
@@ -714,7 +729,7 @@ export const publications: PublicationProps[] = [
   {
     type: "congress",
     title:
-      "An\"lise da Ader\"ncia da Ferramenta de Software Spc Explorer para Apoiar o Controle Estat\"stico de Processos de Software",
+      "An¿lise da Ader¿ncia da Ferramenta de Software Spc Explorer para Apoiar o Controle Estat¿stico de Processos de Software",
     authors: ["Oliveira Abreu, Diego", "Cezar Costa Furtado, Julio"],
     year: "2018",
     event: "15th Contecsi International Conference on Information Systems and Technology Management",
@@ -743,7 +758,9 @@ export const publications: PublicationProps[] = [
       "Oliveira, Sandro R. B.",
     ],
     year: "2017",
+    pages: "3283",
     event: "14th Contecsi International Conference on Information Systems and Technology Management",
+    proceedings: "Org.crossref.xschema._1.title@4ad175c5",
     link: "https://dx.doi.org/10.5748/9788599693131-14contecsi/ps-4766",
   },
   {
@@ -752,6 +769,7 @@ export const publications: PublicationProps[] = [
       "A Study on Perception of the Usefulness of Statistical Process Control in Software Development Organizations: An Application of Survey",
     authors: ["Furtado, Júlio", "Oliveira, Sandro R. B."],
     year: "2017",
+    pages: "3311",
     event: "14th Contecsi International Conference on Information Systems and Technology Management",
     link: "https://dx.doi.org/10.5748/9788599693131-14CONTECSI/PS-4767",
   },
@@ -777,6 +795,116 @@ export const publications: PublicationProps[] = [
     proceedings: "Anais do Sbes 2016",
   },
   // Resumos em evento
+  {
+    type: "conferenceAbstract",
+    title:
+      "Assistentes de Normas do Tre-ap: Raspagem, Normas Revogadas e Recuperação Híbrida em Camadas",
+    authors: [
+      "Goncalves, G. E. A.",
+      "Araujo, L. L. O.",
+      "Brito, P. L. G.",
+      "Sousa, D. S.",
+      "Diniz, R. C.",
+      "Lima, R. P.",
+      "Flexa, E. S.",
+      "Furtado, Julio C.",
+    ],
+    year: "2026",
+    event: "Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+    location: "Macapá / AP",
+    proceedings: "Anais do Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Avaliação da Tradução de Perguntas em Português para SQL Sobre Dados Orçamentários do Tjap: Efeito da Descrição do Esquema e da Autocorreção",
+    authors: [
+      "Silva, H. S.",
+      "Lima, R. P.",
+      "Furtado, Julio C.",
+    ],
+    year: "2026",
+    event: "Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+    location: "Macapá / AP",
+    proceedings: "Anais do Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Busca em Linguagem Natural nas Portarias da UNIFAP com Geração Aumentada por Recuperação e Consultas ao Catálogo de Metadados",
+    authors: ["Silva, S. P. B.", "Furtado, Julio C."],
+    year: "2026",
+    event: "Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+    location: "Macapá / AP",
+    proceedings: "Anais do Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Correção Assistida por Rubrica com Modelos de Linguagem: Execuções Repetidas e Abstenção em Critérios Divergentes",
+    authors: ["Sousa, G. S.", "Furtado, Julio C."],
+    year: "2026",
+    event: "Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+    location: "Macapá / AP",
+    proceedings: "Anais do Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Cérebro de Chamados: Recuperação Híbrida e Geração de Resoluções a Partir do Histórico de Suporte do Tre-ap",
+    authors: [
+      "Santana, J.",
+      "Goncalves, G. E. A.",
+      "Araujo, L. L. O.",
+      "Brito, P. L. G.",
+      "Diniz, R. C.",
+      "Lima, R. P.",
+      "Flexa, E. S.",
+      "Furtado, Julio Cezar Costa",
+    ],
+    year: "2026",
+    event: "Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+    location: "Macapá / AP",
+    proceedings: "Anais do Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Plataforma de Monitoramento Eleitoral: Coleta e Checagem em Cascata de Notícias com Modelos de Linguagem",
+    authors: [
+      "Goncalves, G. E. A.",
+      "Araujo, L. L. O.",
+      "Brito, P. L. G.",
+      "Diniz, R. C.",
+      "Lima, R. P.",
+      "Flexa, E. S.",
+      "Furtado, Julio C.",
+    ],
+    year: "2026",
+    event: "Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+    location: "Macapá / AP",
+    proceedings: "Anais do Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Sistema Inteligente de Denúncias Anônimas (sida): Atendimento Conversacional com Modelos de Linguagem na Polícia Militar do Amapá",
+    authors: ["Santos, J. M. O.", "Furtado, Julio C."],
+    year: "2026",
+    event: "Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+    location: "Macapá / AP",
+    proceedings: "Anais do Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+  },
+  {
+    type: "conferenceAbstract",
+    title:
+      "Plenaria: Resumos em Linguagem Cidadã de Sessões Plenárias do Tre-ap com Reconhecimento de Fala e Llm",
+    authors: ["Gama, J. F.", "Furtado, Julio Cezar Costa"],
+    year: "2026",
+    event: "Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+    location: "Macapá / AP",
+    proceedings: "Anais do Erad e Eramia-no2 2026 - Vi Escola Regional de Alto Desempenho Norte 2 Vi Escola Regional de Aprendizado de Máquina e Inteligência Artificial Norte 2",
+  },
   {
     type: "conferenceAbstract",
     title:

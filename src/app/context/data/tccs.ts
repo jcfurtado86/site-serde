@@ -3,6 +3,34 @@ import type { TCCProps } from "../types"
 export const tccs: TCCProps[] = [
   {
     title:
+      "O Uso de Softwares Livres Como Solução Econômica e Estratégica na Administração Pública",
+    description: "",
+    link: "o-uso-de-softwares-livres-como-solucao-economica-e-estrategica-na-administracao-publica",
+    status: "Finalizado",
+    students: ["Augusto Fadanelli de Sousa", "Danilo dos Santos Ferreira"],
+    advisor: "Julio Cezar Costa Furtado",
+    year: "2026",
+    keywords: "",
+    degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
+  },
+  {
+    title:
+      "Uma Abordagem Baseada em Processamento de Linguagem Natural para Análise de Dados Financeiros e Orçamentários Aplicada ao Tribunal de Justiça do Amapá",
+    description: "",
+    link: "uma-abordagem-baseada-em-processamento-de-linguagem-natural-para-analise-de-dados-financeiros-e-orca",
+    status: "Finalizado",
+    students: ["Higor Souza da Silva"],
+    advisor: "Julio Cezar Costa Furtado",
+    year: "2026",
+    keywords: "",
+    degree: "Graduação",
+    course: "Graduação em Ciência da Computação",
+    course_en: "Bachelor's in Computer Science",
+  },
+  {
+    title:
       "Uma Plataforma Inteligente para Gestão e Monitoramento de Casas de Apoio",
     description: "",
     link: "uma-plataforma-inteligente-para-gestao-e-monitoramento-de-ca",
@@ -74,8 +102,7 @@ export const tccs: TCCProps[] = [
     degree: "Mestrado",
     course: "Mestrado Profissional em Educação Inclusiva em Rede Nacional",
     course_en: "Professional Master's in Inclusive Education National Network",
-    title_en:
-      "The Importance of Teacher Training for Inclusive Practices Aimed at Students with Autism Spectrum Disorder (ASD) in the Early Grades of the Federal District Department of Education",
+    title_en: "The Importance of Teacher Training for Inclusive Practices Aimed at Students with Autism Spectrum Disorder (ASD) in the Early Grades of the Federal District Department of Education",
   },
   {
     title:
@@ -136,21 +163,6 @@ export const tccs: TCCProps[] = [
     course: "Graduação em Ciência da Computação",
     course_en: "Bachelor's in Computer Science",
     title_en: "A Study on Market-Required Competencies for Software Engineers",
-  },
-  {
-    title:
-      "Fatores, Desafios e Benefícios da Adoção de Software Open Source em Órgãos Públicos",
-    description: "",
-    link: "fatores-desafios-e-beneficios-da-adocao-de-software-open-sou",
-    status: "Em andamento",
-    students: ["Augusto Fadanelli de Sousa", "Danilo dos Santos Ferreira"],
-    advisor: "Julio Cezar Costa Furtado",
-    year: "2026",
-    keywords: "",
-    degree: "Graduação",
-    course: "Graduação em Ciência da Computação",
-    course_en: "Bachelor's in Computer Science",
-    title_en: "Factors, Challenges and Benefits of Open Source Software Adoption in Public Agencies",
   },
   {
     title:
@@ -241,21 +253,6 @@ export const tccs: TCCProps[] = [
     course: "Graduação em Ciência da Computação",
     course_en: "Bachelor's in Computer Science",
     title_en: "Automated School Attendance Control Through a Digital Platform",
-  },
-  {
-    title:
-      "Sistema Inteligente de Apoio À Tomaa de Decisão Orçamentária em Órgão Público Estadual",
-    description: "",
-    link: "sistema-inteligente-de-apoio-a-tomaa-de-decisao-orcamentaria",
-    status: "Em andamento",
-    students: ["Higor Souza da Silva"],
-    advisor: "Julio Cezar Costa Furtado",
-    year: "2026",
-    keywords: "",
-    degree: "Graduação",
-    course: "Graduação em Ciência da Computação",
-    course_en: "Bachelor's in Computer Science",
-    title_en: "Intelligent System for Budget Decision Support in a State Public Agency",
   },
   {
     title:
@@ -824,7 +821,7 @@ export const tccs: TCCProps[] = [
   },
   {
     title:
-      "A Importância do Uso das Mídias para o Desenvolvimento Cognitivo dos Alunos da Escola Novo Horizonte ? Santana ? Amapá",
+      "A Importância do Uso das Mídias para o Desenvolvimento Cognitivo dos Alunos da Escola Novo Horizonte – Santana – Amapá",
     description: "As tecnologias vêm tomando maior espaço na vida das pessoas a cada dia, seja em seus trabalhos, lazeres ou estudos. São recursos que auxiliam na informação, na produção de conhecimento e na comunicação, integrando diversos cantos do mundo. Assim buscou-se conhecer a importância do uso das mídias para o desenvolvimento cognitivo dos alunos da Escola Estadual Novo Horizonte – Santana – Amapá, observando as perspectivas administrativas, docentes e discentes, de uma comunidade periférica e com problemas socioeconômicos visíveis. Para a coleta de informações foi realizada uma pesquisa Participante a qual utiliza como técnica a aplicação de questionários. Sua natureza é empírica a pesquisa de campo de abordagem qualitativa descritiva. Com base na referida pesquisa constatou-se a relevância do uso das mídias e do Laboratório de Informática para auxiliar o trabalho docente e para a melhoria da aprendizagem dos alunos. Todos os envolvidos compactuaram do resultado que afirma que o trabalho com recursos tecnológicos propicia consideravelmente o desenvolvimento cognitivo, associando ensino, dinamismo, descontração e inclusão digital. Por conseguinte, concluiu-se que a escola necessita revitalizar o espaço do laboratório de informática, adquirir novos recursos e capacitar melhor os professores para que as mídias façam parte ativamente do ensino.",
     link: "a-importancia-do-uso-das-midias-para-o-desenvolvimento-cogni",
     status: "Finalizado",

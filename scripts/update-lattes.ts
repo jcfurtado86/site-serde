@@ -1,6 +1,6 @@
-import { readFileSync, writeFileSync, existsSync } from "fs"
+import { writeFileSync } from "fs"
 import { resolve } from "path"
-import { parseLattes } from "./lattes-html-parser"
+import { fetchLattesApi, parseLattesApi, LATTES_ID } from "./lattes-api"
 import { generatePublicationsFile, generateProjectsFile, generateTccsFile } from "./ts-generator"
 import type { PublicationProps, PatentProps, Project, TCCProps } from "../src/app/context/types"
 
@@ -38,6 +38,18 @@ function tccKey(t: TCCProps): string {
   return normalizeForComparison(t.title)
 }
 
+/**
+ * Mantém a ordem atual dos arquivos de dados (a API do Lattes lista em outra ordem,
+ * e algumas páginas exibem na ordem do arquivo). Itens novos vão para o topo.
+ */
+function keepLocalOrder<T>(merged: T[], local: T[], key: (x: T) => string): T[] {
+  const localIndex = new Map(local.map((x, i) => [key(x), i]))
+  return merged
+    .map((item, i) => ({ item, i, l: localIndex.get(key(item)) ?? -1 }))
+    .sort((a, b) => a.l - b.l || a.i - b.i)
+    .map((o) => o.item)
+}
+
 async function loadLocalData() {
   try {
     const pubs = await import("../src/app/context/data/publications")
@@ -68,7 +80,11 @@ function mergePublications(imported: PublicationProps[], local: PublicationProps
     if (loc) {
       matched.add(key)
       merged.push({
+        // Campos que a API não traz (ex.: título do livro de um capítulo) ficam como estão no local
+        ...loc,
         ...imp,
+        // Se a diferença for só de maiúsculas/minúsculas, mantém a grafia do site
+        title: loc.title.toLowerCase() === imp.title.toLowerCase() ? loc.title : imp.title,
         // Preservar do local se existir
         link: (loc.link && loc.link !== "#") ? loc.link : imp.link,
         importance: loc.importance ?? imp.importance,
@@ -138,6 +154,8 @@ function mergeProjects(imported: Project[], local: Project[]): Project[] {
         link: imp.link,
         title_en: loc.title_en,
         description_en: loc.description_en,
+        // O Lattes não garante a ordem dos financiadores; só troca se o conjunto mudou
+        ...(sameParts(loc.funding, imp.funding) ? { funding: loc.funding } : {}),
         // Preserve local team for SERDE project (manually managed with all members)
         ...(loc.title.includes("SERDE") && loc.team && loc.team.length > 0 ? { team: loc.team } : {}),
       })
@@ -159,6 +177,15 @@ function mergeProjects(imported: Project[], local: Project[]): Project[] {
   return merged
 }
 
+function sameParts(a?: string, b?: string): boolean {
+  const parts = (s?: string) => (s ?? "").split(" / ").map(normalizeForComparison).filter(Boolean).sort().join("|")
+  return parts(a) === parts(b)
+}
+
+function studentsKey(t: TCCProps): string {
+  return t.students.map(normalizeForComparison).sort().join("|") + "#" + (t.degree || "Graduação")
+}
+
 function mergeTccs(imported: TCCProps[], local: TCCProps[]): TCCProps[] {
   const localMap = new Map<string, TCCProps>()
   for (const t of local) localMap.set(tccKey(t), t)
@@ -166,11 +193,42 @@ function mergeTccs(imported: TCCProps[], local: TCCProps[]): TCCProps[] {
   const matched = new Set<string>()
   const merged: TCCProps[] = []
 
+  // Quando o aluno defende, o título no Lattes costuma mudar para o título final.
+  // Sem isso o trabalho apareceria duas vezes (o antigo "em andamento" e o novo).
+  const importedKeys = new Set(imported.map(tccKey))
+  const renamedCandidates = new Map<string, TCCProps[]>()
+  for (const [key, loc] of localMap) {
+    if (importedKeys.has(key) || loc.students.length === 0) continue
+    const sk = studentsKey(loc)
+    renamedCandidates.set(sk, [...(renamedCandidates.get(sk) ?? []), loc])
+  }
+
   for (const imp of imported) {
-    const key = tccKey(imp)
-    const loc = localMap.get(key)
+    let key = tccKey(imp)
+    let loc = localMap.get(key)
+    let renamed = false
+    if (!loc && imp.students.length > 0) {
+      const candidates = renamedCandidates.get(studentsKey(imp)) ?? []
+      if (candidates.length === 1 && !matched.has(tccKey(candidates[0]))) {
+        loc = candidates[0]
+        key = tccKey(loc)
+        renamed = true
+        console.log(`  ↻ Título mudou: "${loc.title.slice(0, 50)}" → "${imp.title.slice(0, 50)}"`)
+      }
+    }
     if (loc) {
       matched.add(key)
+      if (renamed) {
+        // Título novo: as traduções e o link do título antigo não valem mais
+        merged.push({
+          ...imp,
+          description: (loc.description && loc.description.trim() !== "") ? loc.description : imp.description,
+          keywords: (loc.keywords && loc.keywords.trim() !== "") ? loc.keywords : imp.keywords,
+          documentation: loc.documentation,
+          course_en: loc.course_en,
+        })
+        continue
+      }
       merged.push({
         ...imp,
         // Preserve local data that may have been manually enriched or filled from PDFs/repository
@@ -205,33 +263,16 @@ function mergeTccs(imported: TCCProps[], local: TCCProps[]): TCCProps[] {
 
 
 async function main() {
-  // Look for lattes.html in project root or scripts/data/
-  const candidates = [
-    resolve(__dirname, "../lattes.html"),
-    resolve(__dirname, "data/lattes.html"),
-  ]
+  console.log(`🌐 Buscando currículo ${LATTES_ID} na API do Lattes...`)
+  const data = await fetchLattesApi()
 
-  const htmlPath = candidates.find((p) => existsSync(p))
+  console.log("🔍 Convertendo dados do Lattes...")
+  const { publications, patents, projects, orientations } = parseLattesApi(data, MIN_YEAR)
 
-  if (!htmlPath) {
-    console.error("❌ lattes.html não encontrado!")
-    console.error("   Salve o HTML do Lattes em uma das seguintes localizações:")
-    candidates.forEach((p) => console.error(`   - ${p}`))
-    process.exit(1)
-  }
-
-  console.log(`📄 Lendo ${htmlPath}...`)
-
-  // Read as latin1 (handles windows-1252 encoding)
-  const html = readFileSync(htmlPath, "latin1")
-
-  console.log("🔍 Parseando dados do Lattes...")
-  const { publications, patents, projects, orientations } = parseLattes(html, MIN_YEAR)
-
-  // Fix known Lattes HTML parsing artifacts
+  // Erro de digitação que está no próprio Lattes ("eminário" em vez de "Seminário")
   for (const pub of publications) {
     for (const field of ["title", "event", "proceedings", "publisher"] as const) {
-      if (pub[field]) pub[field] = (pub[field] as string).replace(/\beminário\b/gi, "Seminário")
+      if (pub[field]) pub[field] = (pub[field] as string).replace(/(^|[^\p{L}])eminário/giu, "$1Seminário")
     }
   }
 
@@ -297,16 +338,16 @@ async function main() {
   // Safety check: don't overwrite with empty data if parsing returned nothing
   if (publications.length === 0 && localData.publications.length > 0) {
     console.error("\n❌ Parse retornou 0 publicações! Abortando para não apagar a base local.")
-    console.error("   O HTML do Lattes pode estar corrompido ou em formato diferente.")
+    console.error("   A API do Lattes pode ter mudado de formato.")
     process.exit(1)
   }
 
   // Merge with local data and write
   console.log("\n🔀 Merging com dados locais...")
-  const mergedPubs = mergePublications(publications, localData.publications)
-  const mergedPatents = mergePatents(patents, localData.patents)
-  const mergedProjects = mergeProjects(projects, localData.projects)
-  const mergedTccs = mergeTccs(orientations, localData.tccs)
+  const mergedPubs = keepLocalOrder(mergePublications(publications, localData.publications), localData.publications, pubKey)
+  const mergedPatents = keepLocalOrder(mergePatents(patents, localData.patents), localData.patents, patentKey)
+  const mergedProjects = keepLocalOrder(mergeProjects(projects, localData.projects), localData.projects, projectKey)
+  const mergedTccs = keepLocalOrder(mergeTccs(orientations, localData.tccs), localData.tccs, tccKey)
 
   writeFileSync(PUBLICATIONS_PATH, generatePublicationsFile(mergedPubs, mergedPatents), "utf-8")
   console.log(`\n✅ ${PUBLICATIONS_PATH}`)
