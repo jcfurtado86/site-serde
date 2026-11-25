@@ -27,10 +27,11 @@ src/app/
 │   ├── pt.json           # Dicionário português
 │   └── en.json           # Dicionário inglês
 scripts/                  # Scripts de atualização de dados
-├── update-all.ts         # Script unificado (roda membros + lattes)
+├── update-all.ts         # Script unificado (lattes + repositório + membros)
 ├── update-members.ts     # Importa membros do CNPq DGP
-├── update-lattes.ts      # Importa publicações/orientações do Lattes
-├── lattes-html-parser.ts # Parser do HTML do Lattes
+├── update-lattes.ts      # Importa publicações/projetos/orientações do Lattes
+├── update-repository.ts  # Enriquece orientações com o Repositório UNIFAP
+├── lattes-api.ts         # Busca e converte os dados da API do Lattes
 └── ts-generator.ts       # Gera arquivos TypeScript de dados
 ```
 
@@ -57,15 +58,20 @@ npm run update
 
 ```bash
 npm run update-members   # Importa membros do CNPq DGP
-npm run update-lattes    # Importa publicações/orientações do Lattes (requer lattes.html)
+npm run update-lattes    # Importa publicações/projetos/orientações do Lattes
 ```
 
 ### Fluxo completo
 
-1. Baixe o currículo Lattes como HTML e salve como `lattes.html` na raiz do projeto
-2. Rode `npm run update`
-3. Revise as mudanças em `src/app/context/data/`
-4. Commit e push — o deploy é automático via GitHub Actions
+1. Rode `npm run update` (não é preciso baixar nada: o currículo vem direto da API do Lattes)
+2. Revise as mudanças em `src/app/context/data/` e `public/members/`
+3. Commit e push — o deploy é automático via GitHub Actions
+
+### De onde vêm os dados
+
+- **Lattes:** desde nov/2026 o currículo fica em `https://busca-cv-lattes.cnpq.br/curriculo/<id>`, uma aplicação que monta a página no navegador (salvar o HTML não traz os dados). O `lattes-api.ts` lê a API pública por trás dela (`busca-cv-lattes-api.cnpq.br`), que segue o esquema do XML do Lattes e não exige captcha nas rotas do currículo.
+- **Membros:** tabelas do grupo no DGP. Um aluno vira egresso quando está na tabela de egressos do DGP **e** tem orientação concluída no Lattes; uma vez egresso, não volta a ser aluno.
+- **Fotos:** quem já tem foto pelo ID curto (`K…`) continua no `servicosweb.cnpq.br`, que dá a imagem maior. Membros novos usam a foto da nova plataforma pelo número do Lattes (PNG menor), porque o ID curto não pode mais ser descoberto.
 
 ## Internacionalização
 
